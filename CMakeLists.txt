@@ -3,6 +3,7 @@ set(CMAKE_CXX_STANDARD 17)
 project(Bachelor-thesis)
 
 # set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
+set(CMAKE_PREFIX_PATH "C:/installdir/cmake")
 
 find_package(ROOT 6.16 CONFIG REQUIRED)
 
