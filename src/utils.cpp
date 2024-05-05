@@ -1,12 +1,20 @@
-#include <iostream> 
+#include <TFile.h>
+#include <iostream>
+#include <utils.h>
 #include <iomanip>
 #include <fstream>
 #include <string>
 #include <filesystem>
-#include "display.h"
 
 const std::filesystem::path welcomeFilePath{ "../../../welcome.txt" };
 
+void isTFileOpen(TFile* inFile) {
+	if (!inFile || inFile->IsZombie())
+	{
+		std::cerr << "Failed to open file: " << inFile->GetName() << std::endl;
+		exit(1);
+	}
+}
 
 void display(std::string filename) {
     std::string displaystr;
@@ -19,7 +27,7 @@ void display(std::string filename) {
         exit(1);
     }
 
-    while (getline(inFile,displaystr)) {
+    while (getline(inFile, displaystr)) {
         std::cout << displaystr << std::endl;
     }
 

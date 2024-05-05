@@ -1,5 +1,5 @@
 #include <iostream>
-#include <display.h>
+#include <utils.h>
 #include <string>
 #include <TF1.h>
 #include <TH1F.h>
@@ -13,7 +13,7 @@ int main (int argc, char* argv[]) {
 
     display("welcome");
 
-    void run1776();
+    run1776();
 
     app.Run();
     return 0;

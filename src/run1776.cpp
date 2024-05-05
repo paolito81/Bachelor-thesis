@@ -17,10 +17,20 @@ void run1776 ()
 		exit(1);
 	}
 
-	inFile->Map("forComp");
+	// Show Map
+	// inFile->Map();
 
-	//TTree* tree = (TTree*)inFile->Get();
+	// Retrieve the histogram from the file
+	TH1F* histogram = dynamic_cast<TH1F*>(inFile->Get("EnergyADC/h_EBGO_ADC_2"));
 
-	inFile->Close();
+	// Check if the histogram is retrieved successfully
+	if (!histogram) {
+		std::cerr << "Failed to retrieve histogram: " << "ADC2" << std::endl;
+		inFile->Close();
+		return;
+	}
+
+	histogram->Draw();
+	c1->Update();
 
 }
