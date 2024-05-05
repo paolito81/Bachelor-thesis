@@ -3,8 +3,9 @@
 #include <fstream>
 #include <string>
 #include <filesystem>
+#include "display.h"
 
-const std::filesystem::path welcomeFilePath{ "../welcome.txt" };
+const std::filesystem::path welcomeFilePath{ "../../../welcome.txt" };
 
 
 void display(std::string filename) {

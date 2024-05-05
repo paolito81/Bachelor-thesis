@@ -14,6 +14,14 @@ include_directories(${PROJECT_SOURCE_DIR}/include)
 file(GLOB sources ${PROJECT_SOURCE_DIR}/src/*.cpp)
 file(GLOB headers ${PROJECT_SOURCE_DIR}/include/*.hh)
 
-# Create the main program using the library.
+# create the main program using the library.
 add_executable(Bachelor-thesis main.cpp ${sources} ${headers})
+
+# set C++ standard to C++17
+target_compile_features(Bachelor-thesis PUBLIC cxx_std_17)
+
+# add the -Zc:__cplusplus flag
+target_compile_options(Bachelor-thesis PRIVATE /Zc:__cplusplus)
+
+# link ROOT libraries to executable
 target_link_libraries(Bachelor-thesis PUBLIC ROOT::Core ROOT::Graf ROOT::Hist ROOT::Tree ROOT::Gpad ROOT::RIO)
