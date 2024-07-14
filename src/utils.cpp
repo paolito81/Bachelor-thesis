@@ -1,4 +1,5 @@
 #include <TFile.h>
+#include <TH1F.h>
 #include <iostream>
 #include <utils.h>
 #include <iomanip>
@@ -32,4 +33,18 @@ void display(std::string filename) {
     }
 
     inFile.close();
+}
+
+// used to calculate background area under energy peak
+
+static double trap_area(TH1F* histogram, int chn_1, int chn_2) {
+    double area = (histogram->GetBinContent(histogram->FindBin(chn_1) - 1) + histogram->GetBinContent(histogram->FindBin(chn_2) + 1)) * (chn_2 - chn_1) / 2;
+    return area;
+}
+
+// used to calculate the uncertainty of the calculated peak area
+
+static double var_peak(TH1F* histogram, int chn_1, int chn_2) {
+    int variance;
+    return variance;
 }

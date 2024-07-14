@@ -5,6 +5,7 @@
 #include <TTree.h>
 #include <iostream>
 #include "run1776.h"
+#include "utils.h"
 
 void run1776 ()
 {
@@ -44,10 +45,17 @@ void run1776 ()
 	func2->SetParameter(1, 559);
 	func2->SetParameter(2, 50);
 
-	histogram->Fit("f1", "", "", 300, 650);
-	//histogram->Fit("f2", "", "", 480, 700);
+	double chn_1 = 450;
+	double chn_2 = 650;
 
-	std::cout << func2->GetProb() << std::endl;
+    histogram->Fit("f1", "", "", chn_1, chn_2);
+	//histogram->Fit("f2", "", "", 450, 650);
+	double integral = histogram->Integral(histogram->FindBin(chn_1), histogram->FindBin(chn_2));
+	double area = trap_area(histogram, chn_1, chn_2);
+	double eff = (integral - area)/(histogram->GetEntries());
+
+	std::cout << "p-value:                        " << func2->GetProb() << std::endl;
+	std::cout << "Efficiency:                        " << eff << std::endl;
 
 	func2->Draw();
 	histogram->Draw();
