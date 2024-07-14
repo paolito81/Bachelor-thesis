@@ -6,6 +6,7 @@
 #include <fstream>
 #include <string>
 #include <filesystem>
+#include <cmath>
 
 const std::filesystem::path welcomeFilePath{ "../../../welcome.txt" };
 
@@ -44,7 +45,7 @@ static double trap_area(TH1F* histogram, int chn_1, int chn_2) {
 
 // used to calculate the uncertainty of the calculated peak area
 
-static double var_peak(TH1F* histogram, int chn_1, int chn_2) {
-    int variance;
+static double var_peak(double area, double trap, int n, int m) {
+    double variance = std::sqrt(area + trap*(1 + n/(2*m)));
     return variance;
 }
