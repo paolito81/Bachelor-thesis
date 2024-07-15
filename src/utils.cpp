@@ -38,14 +38,14 @@ void display(std::string filename) {
 
 // used to calculate background area under energy peak
 
-static double trap_area(TH1F* histogram, int chn_1, int chn_2) {
-    double area = (histogram->GetBinContent(histogram->FindBin(chn_1) - 1) + histogram->GetBinContent(histogram->FindBin(chn_2) + 1)) * (chn_2 - chn_1) / 2;
+double trap_area(TH1F* histogram, int chn_1, int chn_2, int m) {
+    double area = (histogram->GetBinContent(histogram->FindBin(chn_1) - 1 - m) + histogram->GetBinContent(histogram->FindBin(chn_2) + 1 + m)) * (chn_2 - chn_1) / 2;
     return area;
 }
 
 // used to calculate the uncertainty of the calculated peak area
 
-static double var_peak(double area, double trap, int n, int m) {
+double var_peak(double area, double trap, int n, int m) {
     double variance = std::sqrt(area + trap*(1 + n/(2*m)));
     return variance;
 }

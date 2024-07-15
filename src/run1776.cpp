@@ -37,7 +37,7 @@ void run1776 ()
 	func->SetParameter(1, 400);
 	func->SetParameter(2, 1);
 	func->SetParameter(3, 550);
-	func->SetParameter(4, 50);
+	func->SetParameter(4, 44);
 
 	TF1* func2 = new TF1("f2", "[0]*exp(-0.5*((x-[1])/[2])^2)");
 
@@ -47,15 +47,18 @@ void run1776 ()
 
 	double chn_1 = 450;
 	double chn_2 = 650;
+	int m = 15;
 
     histogram->Fit("f1", "", "", chn_1, chn_2);
 	//histogram->Fit("f2", "", "", 450, 650);
 	double integral = histogram->Integral(histogram->FindBin(chn_1), histogram->FindBin(chn_2));
-	double area = trap_area(histogram, chn_1, chn_2);
+	double area = trap_area(histogram, chn_1, chn_2, m);
 	double eff = (integral - area)/(histogram->GetEntries());
 
-	std::cout << "p-value:                        " << func2->GetProb() << std::endl;
-	std::cout << "Efficiency:                        " << eff << std::endl;
+	double std_dev = var_peak(area, integral, (chn_2 - chn_1), m) / histogram->GetEntries();
+
+	std::cout << "p-value:                        " << func->GetProb() << std::endl;
+	std::cout << "Efficiency:                        " << eff << "   +/-   " << std_dev << std::endl;
 
 	func2->Draw();
 	histogram->Draw();
