@@ -49,3 +49,17 @@ double var_peak(double area, double trap, int n, int m) {
     double variance = std::sqrt(area + trap*(1 + n/(2*m)));
     return variance;
 }
+
+
+// used to create configuration vector
+
+void runAnalysis(const std::vector<Config>& configs) {
+    for (const auto& config : configs) {
+        Analyzer analyzer(config.filename, config.histname);
+        analyzer.setUpperLowerBound(config.chn_lower_bound, config.chn_upper_bound);
+        analyzer.setFitParameters(config.p0, config.p1, config.p2, config.p3, config.p4);
+        analyzer.efficiency(config.m);
+        analyzer.plot();
+    }
+
+}

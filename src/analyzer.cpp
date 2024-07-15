@@ -15,7 +15,7 @@ Analyzer::Analyzer(const std::string& filename, const std::string& histname) :
 
 	if (!inFile || inFile->IsZombie())
 	{
-		std::cerr << "Failed to open file: " << "run1776_coinc.root" << std::endl;
+		std::cerr << "Failed to open file: " << filename.c_str() << std::endl;
 		exit(1);
 	}
 
@@ -43,7 +43,11 @@ Analyzer::~Analyzer() {
 /** 
 * Sets fit parameters for gaussian + linear function
 * 
-* @param p0 parameter 0
+* @param p0 Angular coefficient
+* @param p1 Y-intercept
+* @param p2 Normalization constant
+* @param p3 Gaussian mean value
+* @param p4 Gaussian standard deviation
 */
 
 void Analyzer::setFitParameters(double p0, double p1, double p2, double p3, double p4) {
@@ -57,7 +61,7 @@ void Analyzer::setFitParameters(double p0, double p1, double p2, double p3, doub
 /**
 * Calculates efficiency with the peak area method
 * 
-* @param m how many more bins to consider when computing the efficiency (less uncertain)
+* @param m How many more bins to consider when computing the efficiency (lowers uncertainty)
 * 
 */
 
@@ -83,7 +87,7 @@ void Analyzer::plot() {
 	std::cout << "p-value:                        " << func->GetProb() << std::endl;
 }
 
-void Analyzer::setUpperLowerBound(int chn_low, int chn_up)) {
+void Analyzer::setUpperLowerBound(int chn_low, int chn_up) {
 	chn_lower_bound = chn_low;
 	chn_upper_bound = chn_up;
 }
