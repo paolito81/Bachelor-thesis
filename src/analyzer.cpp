@@ -8,8 +8,8 @@
 #include "run1776.h"
 #include "utils.h"
 
-Analyzer::Analyzer(const std::string& filename, const std::string& histname) :
-	filename(filename), histname(histname), inFile(nullptr), histogram(nullptr), func(nullptr), canvas(nullptr) {
+Analyzer::Analyzer(const std::string& filename, const std::string& histname, FuncType ftype) :
+	filename(filename), histname(histname), inFile(nullptr), histogram(nullptr), func(nullptr), canvas(nullptr), ftype(ftype) {
 
 	inFile = new TFile(filename.c_str(), "read");
 
@@ -30,7 +30,17 @@ Analyzer::Analyzer(const std::string& filename, const std::string& histname) :
 	}
 
 	canvas = new TCanvas();
-	func = new TF1("f1", "[0]*x + [1] + [2]*exp(-0.5*((x-[3])/[4])^2)/([3]*sqrt(2*pi))", chn_lower_bound, chn_upper_bound);
+	
+	if (ftype == F1)
+	{
+		func = new TF1("f1", "[0]*x + [1] + [2]*exp(-0.5*((x-[3])/[4])^2)", chn_lower_bound, chn_upper_bound);
+	}
+	else if (ftype == F2)
+	{
+		func = new TF1("f1", "[0]*x + [1] + [2]*exp(-0.5*((x-[3])/[4])^2) + [5]*exp(-0.5*((x-[6])/[7])^2)", chn_lower_bound, chn_upper_bound);
+	}
+	
+	
 
 }
 
@@ -50,12 +60,25 @@ Analyzer::~Analyzer() {
 * @param p4 Gaussian standard deviation
 */
 
-void Analyzer::setFitParameters(double p0, double p1, double p2, double p3, double p4) {
-	func->SetParameter(0, p0);
-	func->SetParameter(1, p1);
-	func->SetParameter(2, p2);
-	func->SetParameter(3, p3);
-	func->SetParameter(4, p4);
+void Analyzer::setFitParameters(double p0, double p1, double p2, double p3, double p4, double p5, double p6, double p7) {
+	if (ftype == F1) {
+		func->SetParameter(0, p0);
+		func->SetParameter(1, p1);
+		func->SetParameter(2, p2);
+		func->SetParameter(3, p3);
+		func->SetParameter(4, p4);
+	}
+	else if (ftype == F2) {
+		func->SetParameter(0, p0);
+		func->SetParameter(1, p1);
+		func->SetParameter(2, p2);
+		func->SetParameter(3, p3);
+		func->SetParameter(4, p4);
+		func->SetParameter(5, p5);
+		func->SetParameter(6, p6);
+		func->SetParameter(7, p7);
+	}
+	
 }
 
 /**

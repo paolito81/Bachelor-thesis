@@ -55,9 +55,9 @@ double var_peak(double area, double trap, int n, int m) {
 
 void runAnalysis(const std::vector<Config>& configs) {
     for (const auto& config : configs) {
-        Analyzer analyzer(config.filename, config.histname);
+        Analyzer analyzer(config.filename, config.histname, config.ftype);
         analyzer.setUpperLowerBound(config.chn_lower_bound, config.chn_upper_bound);
-        analyzer.setFitParameters(config.p0, config.p1, config.p2, config.p3, config.p4);
+        analyzer.setFitParameters(config.p0, config.p1, config.p2, config.p3, config.p4, config.p5, config.p6, config.p7);
         analyzer.efficiency(config.m);
         analyzer.plot();
     }
