@@ -8,6 +8,11 @@
 #include "run1776.h"
 #include "utils.h"
 
+/**
+* @brief The constructor for the Analyzer object
+* 
+*/
+
 Analyzer::Analyzer(const std::string& filename, const std::string& histname, FuncType ftype) :
 	filename(filename), histname(histname), inFile(nullptr), histogram(nullptr), func(nullptr), canvas(nullptr), ftype(ftype) {
 
@@ -31,6 +36,7 @@ Analyzer::Analyzer(const std::string& filename, const std::string& histname, Fun
 
 	canvas = new TCanvas();
 	
+	// Function type selector
 	if (ftype == F1)
 	{
 		func = new TF1("f1", "[0]*x + [1] + [2]*exp(-0.5*((x-[3])/[4])^2)", chn_lower_bound, chn_upper_bound);
@@ -39,13 +45,10 @@ Analyzer::Analyzer(const std::string& filename, const std::string& histname, Fun
 	{
 		func = new TF1("f1", "[0]*x + [1] + [4]*exp(-0.5*((x-[2])/[3])^2) + [7]*exp(-0.5*((x-[5])/[6])^2)", chn_lower_bound, chn_upper_bound);
 	}
-	
-	
-
 }
 
 /*
-* The destructor
+* @brief The destructor
 * Doesn't close file otherwise the canvas gets wiped
 */
 
@@ -56,7 +59,7 @@ Analyzer::~Analyzer() {
 }
 
 /** 
-* Sets fit parameters for gaussian + linear function
+* @brief Sets fit parameters for gaussian + linear function
 * 
 * @param p0 Angular coefficient
 * @param p1 Y-intercept
@@ -87,7 +90,7 @@ void Analyzer::setFitParameters(double p0, double p1, double p2, double p3, doub
 }
 
 /**
-* Calculates efficiency with the peak area method
+* @brief Calculates efficiency with the peak area method
 * 
 * @param m How many more bins to consider when computing the efficiency (lowers uncertainty)
 * 
@@ -108,6 +111,9 @@ void Analyzer::efficiency(int m) {
 	std::cout << "Efficiency:                     " << eff << "   +/-   " << std_dev << std::endl;
 }
 
+/**
+* @brief Plot function for fitting the function, drawing onto the canvas both the histogram and the function fitted
+*/
 void Analyzer::plot() {
 	histogram->Fit("f1", "", "", chn_lower_bound, chn_upper_bound);
 	
@@ -118,11 +124,18 @@ void Analyzer::plot() {
 	std::cout << "p-value:                        " << func->GetProb() << std::endl;
 }
 
+/**
+* @brief Function used to set upper and lower bound for fitting the function and calculating peak area
+*/
 void Analyzer::setUpperLowerBound(int chn_low, int chn_up) {
 	chn_lower_bound = chn_low;
 	chn_upper_bound = chn_up;
 }
 
+
+/**
+* @brief Function used to get canvas
+*/
 TCanvas* Analyzer::getCanvas() const {
 	return canvas;
 }

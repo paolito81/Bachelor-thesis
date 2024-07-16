@@ -27,15 +27,15 @@ public:
     TCanvas* Analyzer::getCanvas() const;
 
 private:
-    std::string filename;
-    std::string histname;
-    TFile* inFile;
-    TH1F* histogram;
-    TF1* func;
-    TCanvas* canvas;
-    FuncType ftype;
-    double p0, p1, p2, p3, p4, p5, p6, p7;
-    int chn_lower_bound, chn_upper_bound;
+    std::string filename; /**< String containing the directory to the .root file */
+    std::string histname; /**< String containing the directory to the histogram file */
+    TFile* inFile; /**< Pointer to the ROOT file */
+    TH1F* histogram; /**< Pointer to the histogram */
+    TF1* func; /**< Pointer to the function to be fitted */
+    TCanvas* canvas; /**< Pointer to the canvas */
+    FuncType ftype; /**< Function type for fitting (gaussian or double gaussian) */
+    double p0, p1, p2, p3, p4, p5, p6, p7; /**< Fit parameters */
+    int chn_lower_bound, chn_upper_bound; /**< Upper and lower bound for fitting and peak area */
 
 };
 
