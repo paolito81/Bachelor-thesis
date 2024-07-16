@@ -19,6 +19,7 @@ public:
     void setUpperLowerBound(int chn_low, int chn_up);
     void efficiency(int m);
     void plot();
+    TCanvas* Analyzer::getCanvas() const;
 
 private:
     std::string filename;

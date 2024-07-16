@@ -37,7 +37,7 @@ Analyzer::Analyzer(const std::string& filename, const std::string& histname, Fun
 	}
 	else if (ftype == F2)
 	{
-		func = new TF1("f1", "[0]*x + [1] + [2]*exp(-0.5*((x-[3])/[4])^2) + [5]*exp(-0.5*((x-[6])/[7])^2)", chn_lower_bound, chn_upper_bound);
+		func = new TF1("f1", "[0]*x + [1] + [4]*exp(-0.5*((x-[2])/[3])^2) + [7]*exp(-0.5*((x-[5])/[6])^2)", chn_lower_bound, chn_upper_bound);
 	}
 	
 	
@@ -47,7 +47,6 @@ Analyzer::Analyzer(const std::string& filename, const std::string& histname, Fun
 Analyzer::~Analyzer() {
 	//if (inFile) inFile->Close();
 	delete func;
-	delete canvas;
 }
 
 /** 
@@ -113,4 +112,8 @@ void Analyzer::plot() {
 void Analyzer::setUpperLowerBound(int chn_low, int chn_up) {
 	chn_lower_bound = chn_low;
 	chn_upper_bound = chn_up;
+}
+
+TCanvas* Analyzer::getCanvas() const {
+	return canvas;
 }

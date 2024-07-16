@@ -51,15 +51,18 @@ double var_peak(double area, double trap, int n, int m) {
 }
 
 
-// used to create configuration vector
+// used to run analysis through configuration vector
+// config vector should be in the order in which class variables are declared
 
 void runAnalysis(const std::vector<Config>& configs) {
+    std::vector<TCanvas*> canvases;
     for (const auto& config : configs) {
         Analyzer analyzer(config.filename, config.histname, config.ftype);
         analyzer.setUpperLowerBound(config.chn_lower_bound, config.chn_upper_bound);
         analyzer.setFitParameters(config.p0, config.p1, config.p2, config.p3, config.p4, config.p5, config.p6, config.p7);
         analyzer.efficiency(config.m);
         analyzer.plot();
+        canvases.push_back(analyzer.getCanvas());
     }
 
 }
