@@ -8,6 +8,11 @@
 #include <TF1.h>
 #include <TCanvas.h>
 
+/*
+* @class Analyzer
+*/
+
+
 class Analyzer {
 public:
 

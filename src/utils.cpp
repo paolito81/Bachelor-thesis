@@ -51,8 +51,12 @@ double var_peak(double area, double trap, int n, int m) {
 }
 
 
-// used to run analysis through configuration vector
-// config vector should be in the order in which class variables are declared
+/**
+ * @brief  used to run analysis through configuration vector
+ * config vector should be in the order in which class variables are declared
+ * 
+ * @param configs A vector of Config objects
+ */ 
 
 void runAnalysis(const std::vector<Config>& configs) {
     std::vector<TCanvas*> canvases;

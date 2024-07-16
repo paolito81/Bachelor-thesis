@@ -15,21 +15,14 @@ int main (int argc, char* argv[]) {
 
     display("welcome");
 
-    //run1776();
-    /*
-    Analyzer analyzer("../../../root files/run1776_coinc.root", "EnergyADC/h_EBGO_ADC_2");
-    analyzer.setUpperLowerBound(450, 650);
-    analyzer.setFitParameters(1 / 2, 400, 1, 550, 44);
-    analyzer.efficiency(13);
-    analyzer.plot();
-    */
-
     std::vector<Config> configs = {
         {"../../../root files/run1776_coinc.root", "EnergyADC/h_EBGO_ADC_2", Analyzer::F1, 450, 650, 10, -0.5, 400, 0.009, 560, 40},
         {"../../../root files/run1776_coinc.root", "EnergyADC/h_EBGO_ADC_3", Analyzer::F1, 400, 565, 10, -0.5, 400, 0.01,  500, 50},
-        {"../../../root files/run1776_coinc.root", "EnergyADC/h_EBGO_ADC_4", Analyzer::F1, 400, 520, 10, -0.5, 400, 0.01,  600, 44},
-        {"../../../root files/run1776_coinc.root", "EnergyADC/h_EBGO_ADC_5", Analyzer::F1, 400, 525, 10, -0.5, 400, 0.01,  625, 60},
-        {"../../../root files/run1776_coinc.root", "EnergyADC/h_EBGO_ADC_6", Analyzer::F1, 400, 590, 10, -0.5, 400, 0.01,  680, 75}
+        {"../../../root files/run1776_coinc.root", "EnergyADC/h_EBGO_ADC_4", Analyzer::F1, 420, 600, 10, -0.5, 400, 0.01,  520, 50},
+        {"../../../root files/run1776_coinc.root", "EnergyADC/h_EBGO_ADC_5", Analyzer::F1, 400, 620, 10, -0.5, 400, 0.01,  520, 60},
+        {"../../../root files/run1776_coinc.root", "EnergyADC/h_EBGO_ADC_6", Analyzer::F1, 480, 680, 10, -0.5, 400, 0.01,  590, 50},
+        
+        {"../../../root files/run1777_coinc.root", "EnergyADC/h_EBGO_ADC_1", Analyzer::F2, 800, 1350, 10, -0.06, 130, 1000, 50, 0.01, 1175, 50, 0.01}
     };
 
     runAnalysis(configs);

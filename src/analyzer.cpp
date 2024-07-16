@@ -44,9 +44,15 @@ Analyzer::Analyzer(const std::string& filename, const std::string& histname, Fun
 
 }
 
+/*
+* The destructor
+* Doesn't close file otherwise the canvas gets wiped
+*/
+
 Analyzer::~Analyzer() {
 	//if (inFile) inFile->Close();
 	delete func;
+	//delete canvas;
 }
 
 /** 
@@ -96,6 +102,9 @@ void Analyzer::efficiency(int m) {
 
 	double std_dev = (std::sqrt(integral + area * (1 + (chn_upper_bound - chn_lower_bound) / (2 * m))))/ (histogram->GetEntries());
 
+	std::cout << "                                                                     " << std::endl;
+	std::cout << "                                                                     " << std::endl;
+	std::cout << "=====================================================================" << std::endl;
 	std::cout << "Efficiency:                     " << eff << "   +/-   " << std_dev << std::endl;
 }
 
