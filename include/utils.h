@@ -4,7 +4,9 @@
 #include <vector>
 #include <analyzer.h>
 #include <config.h>
+#include <string>
 
+void display(std::string filename);
 void display(std::string filename);
 void isTFileOpen(TFile* inFile);
 double trap_area(TH1F* histogram, int chn_1, int chn_2, int m);

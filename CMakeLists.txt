@@ -21,7 +21,12 @@ add_executable(Bachelor-thesis main.cpp ${sources} ${headers})
 target_compile_features(Bachelor-thesis PUBLIC cxx_std_17)
 
 # add the -Zc:__cplusplus flag
-target_compile_options(Bachelor-thesis PRIVATE /Zc:__cplusplus)
+#target_compile_options(Bachelor-thesis PRIVATE /Zc:__cplusplus)
+if(MSVC)
+    target_compile_options(Bachelor-thesis PRIVATE /Zc:__cplusplus)
+else(CMAKE_CXX_COMPILER_ID STREQUAL "GNU" OR CMAKE_CXX_COMPILER_ID STREQUAL "Clang")
+    target_compile_options(Bachelor-thesis PRIVATE -Wall -Wextra -pedantic)
+endif()
 
 # link ROOT libraries to executable
 target_link_libraries(Bachelor-thesis PUBLIC ROOT::Core ROOT::Graf ROOT::Hist ROOT::Tree ROOT::Gpad ROOT::RIO)

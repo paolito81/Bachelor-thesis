@@ -8,7 +8,7 @@
 #include <filesystem>
 #include <cmath>
 
-const std::filesystem::path welcomeFilePath{ "../../../welcome.txt" };
+const std::filesystem::path welcomeFilePath{ "../welcome.txt" };
 
 void isTFileOpen(TFile* inFile) {
 	if (!inFile || inFile->IsZombie())
