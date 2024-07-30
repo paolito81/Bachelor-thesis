@@ -50,7 +50,6 @@ double var_peak(double area, double trap, int n, int m) {
     return variance;
 }
 
-
 /**
  * @brief  used to run analysis through configuration vector
  * config vector should be in the order in which class variables are declared

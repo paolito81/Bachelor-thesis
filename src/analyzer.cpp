@@ -195,7 +195,3 @@ void Analyzer::saveResults() {
 
 	std::cout << "Results save to " << outputFilePath << std::endl;
 }
-
-void Analyzer::saveEnergies() {
-	//that is a lot more complicated than it looks
-}

@@ -25,7 +25,6 @@ public:
     void efficiency(int m);
     void plot();
     void saveResults();
-    void saveEnergies();
     TCanvas* Analyzer::getCanvas() const;
 
 private:
