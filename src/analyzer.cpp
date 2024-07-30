@@ -157,12 +157,24 @@ TCanvas* Analyzer::getCanvas() const {
 	return canvas;
 }
 
+
+/**
+*@brief Function used to save results to a .txt file in the /out folder
+*/
 void Analyzer::saveResults() {
-	std::string outputFileName = "../../../out/" + filename + ".txt";
+
+	size_t lastSlashPos_f = filename.find_last_of("/");
+	size_t lastDotPos_f = filename.find_last_of(".");
+	std::string outputFileName_f = filename.substr(lastSlashPos_f + 1, lastDotPos_f - lastSlashPos_f - 1);
+
+	size_t lastSlashPos_h = histname.find_last_of("/");
+	std::string outputFileName_h = histname.substr(lastSlashPos_h + 1, -1);
+
+	std::string outputFilePath = "../../../out/" + outputFileName_f + "_" + outputFileName_h + ".txt";
 	
-	std::ofstream outFile(outputFileName);
+	std::ofstream outFile(outputFilePath);
 	if (!outFile.is_open()) {
-		std::cerr << "Unable to open output file: " << outputFileName << std::endl;
+		std::cerr << "Unable to open output file: " << outputFilePath << std::endl;
 		return;
 	}
 
@@ -179,5 +191,5 @@ void Analyzer::saveResults() {
 
 	outFile.close();
 
-	std::cout << "Results save to " << outputFileName << std::endl;
+	std::cout << "Results save to " << outputFilePath << std::endl;
 }
