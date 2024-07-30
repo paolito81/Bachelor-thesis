@@ -179,7 +179,8 @@ void Analyzer::saveResults() {
 	}
 
 	if (func) {
-		outFile << "Fit Results:\n";
+		outFile << "******************************************\n";
+		outFile << "Fit Results:\n\n";
 		for (int i = 0; i < func->GetNpar(); ++i) {
 			outFile << func->GetParName(i) << " : " << func->GetParameter(i) << " +/- " << func->GetParError(i) << "\n";
 		}
@@ -189,6 +190,7 @@ void Analyzer::saveResults() {
 
 	outFile << "Efficiency value: " << effic << " +- " << err_effic << "\n";
 
+	outFile << "******************************************\n";
 	outFile.close();
 
 	std::cout << "Results save to " << outputFilePath << std::endl;
