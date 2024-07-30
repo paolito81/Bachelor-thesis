@@ -67,6 +67,7 @@ void runAnalysis(const std::vector<Config>& configs) {
         analyzer.efficiency(config.m);
         analyzer.plot();
         canvases.push_back(analyzer.getCanvas());
+        analyzer.saveResults();
     }
 
 }

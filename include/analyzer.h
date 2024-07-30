@@ -24,6 +24,7 @@ public:
     void setUpperLowerBound(int chn_low, int chn_up);
     void efficiency(int m);
     void plot();
+    void saveResults();
     TCanvas* Analyzer::getCanvas() const;
 
 private:
@@ -36,6 +37,7 @@ private:
     FuncType ftype; /**< Function type for fitting (gaussian or double gaussian) */
     double p0, p1, p2, p3, p4, p5, p6, p7; /**< Fit parameters */
     int chn_lower_bound, chn_upper_bound; /**< Upper and lower bound for fitting and peak area */
+    double effic, err_effic;
 
 };
 

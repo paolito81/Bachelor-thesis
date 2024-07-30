@@ -7,6 +7,7 @@
 #include <iostream>
 #include "run1776.h"
 #include "utils.h"
+#include <fstream>
 
 /**
 * @brief The constructor for the Analyzer object
@@ -39,7 +40,7 @@ Analyzer::Analyzer(const std::string& filename, const std::string& histname, Fun
 	// Function type selector
 	if (ftype == F1)
 	{
-		func = new TF1("f1", "[0]*x + [1] + [2]*exp(-0.5*((x-[3])/[4])^2)", chn_lower_bound, chn_upper_bound);
+		func = new TF1("f1", "[0]*x + [1] + [2]*exp(-0.5*((x-[3])/[4])^2)", chn_lower_bound, chn_upper_bound); // gaus is the same exact function
 	}
 	else if (ftype == F2)
 	{
@@ -70,6 +71,11 @@ Analyzer::~Analyzer() {
 
 void Analyzer::setFitParameters(double p0, double p1, double p2, double p3, double p4, double p5, double p6, double p7) {
 	if (ftype == F1) {
+		func->SetParName(0, "Slope");
+		func->SetParName(1, "Y-intercept");
+		func->SetParName(2, "Normalization");
+		func->SetParName(3, "Mean value");
+		func->SetParName(4, "Standard Deviation");
 		func->SetParameter(0, p0);
 		func->SetParameter(1, p1);
 		func->SetParameter(2, p2);
@@ -77,6 +83,14 @@ void Analyzer::setFitParameters(double p0, double p1, double p2, double p3, doub
 		func->SetParameter(4, p4);
 	}
 	else if (ftype == F2) {
+		func->SetParName(0, "Slope");
+		func->SetParName(1, "Y-intercept");
+		func->SetParName(2, "Normalization 1");
+		func->SetParName(3, "Mean value 1");
+		func->SetParName(4, "Standard Deviation 1");
+		func->SetParName(5, "Normalization 2");
+		func->SetParName(6, "Mean value 2");
+		func->SetParName(7, "Standard Deviation 2");
 		func->SetParameter(0, p0);
 		func->SetParameter(1, p1);
 		func->SetParameter(2, p2);
@@ -104,6 +118,9 @@ void Analyzer::efficiency(int m) {
 	double eff = (integral - area) / (histogram->GetEntries());
 
 	double std_dev = (std::sqrt(integral + area * (1 + (chn_upper_bound - chn_lower_bound) / (2 * m))))/ (histogram->GetEntries());
+
+	effic = eff;
+	err_effic = std_dev;
 
 	std::cout << "                                                                     " << std::endl;
 	std::cout << "                                                                     " << std::endl;
@@ -138,4 +155,29 @@ void Analyzer::setUpperLowerBound(int chn_low, int chn_up) {
 */
 TCanvas* Analyzer::getCanvas() const {
 	return canvas;
+}
+
+void Analyzer::saveResults() {
+	std::string outputFileName = "../../../out/" + filename + ".txt";
+	
+	std::ofstream outFile(outputFileName);
+	if (!outFile.is_open()) {
+		std::cerr << "Unable to open output file: " << outputFileName << std::endl;
+		return;
+	}
+
+	if (func) {
+		outFile << "Fit Results:\n";
+		for (int i = 0; i < func->GetNpar(); ++i) {
+			outFile << func->GetParName(i) << " : " << func->GetParameter(i) << " +/- " << func->GetParError(i) << "\n";
+		}
+	}
+
+	outFile << "Fit p-value: " << func->GetProb() << "\n";
+
+	outFile << "Efficiency value: " << effic << " +- " << err_effic << "\n";
+
+	outFile.close();
+
+	std::cout << "Results save to " << outputFileName << std::endl;
 }
