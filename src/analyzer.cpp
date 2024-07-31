@@ -195,3 +195,8 @@ void Analyzer::saveResults() {
 
 	std::cout << "Results save to " << outputFilePath << std::endl;
 }
+
+
+double Analyzer::getFitParameter(int index) {
+	return func->GetParameter(index);
+}

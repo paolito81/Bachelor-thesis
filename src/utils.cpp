@@ -58,7 +58,16 @@ double var_peak(double area, double trap, int n, int m) {
  */ 
 
 void runAnalysis(const std::vector<Config>& configs) {
+    
     std::vector<TCanvas*> canvases;
+    std::ofstream outfile("../../../out/peak_energies.txt");
+    if (!outfile.is_open()) {
+        std::cerr << "Failed to open file: peak_energies.txt" << std::endl;
+        return;
+    }
+    outfile << "Filename	                            Histogram	            p3      p6\n";
+
+
     for (const auto& config : configs) {
         Analyzer analyzer(config.filename, config.histname, config.ftype);
         analyzer.setUpperLowerBound(config.chn_lower_bound, config.chn_upper_bound);
@@ -67,6 +76,18 @@ void runAnalysis(const std::vector<Config>& configs) {
         analyzer.plot();
         canvases.push_back(analyzer.getCanvas());
         analyzer.saveResults();
+
+        if (config.ftype == Analyzer::F1) {
+            double p3 = analyzer.getFitParameter(3);
+            outfile << config.filename << "\t" << config.histname << "\t" << p3 << "\t" << "-" << "\n";
+        }
+        else if (config.ftype == Analyzer::F2) {
+            double p3 = analyzer.getFitParameter(3);
+            double p6 = analyzer.getFitParameter(6);
+            outfile << config.filename << "\t" << config.histname << "\t" << p3 << "\t" << p6 << "\n"; //leave it like this for now, will check formatting later
+        }
     }
+
+    outfile.close();
 
 }

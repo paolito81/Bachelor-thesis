@@ -9,10 +9,3 @@
 #include "run1776.h"
 #include "utils.h"
 #include <fstream>
-
-void Config::getEnergies() {
-	if (ftype == Analyzer::F1) {
-		return p3;
-	}
-	else { return p3, p6; }
-}

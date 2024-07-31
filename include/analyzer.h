@@ -25,7 +25,10 @@ public:
     void efficiency(int m);
     void plot();
     void saveResults();
+    double getFitParameter(int index);
     TCanvas* Analyzer::getCanvas() const;
+
+    //friend class Config;
 
 private:
     std::string filename; /**< String containing the directory to the .root file */
