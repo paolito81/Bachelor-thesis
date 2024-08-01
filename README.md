@@ -13,3 +13,20 @@ implementation in Geant4 simulations is crucial for the success of the experimen
 efficiency measurement is performed using radioactive sources and a resonance at 278 keV of the
 14 N(p,γ) 15 O reaction. The data related to the detection efficiency is used to verify
 the accuracy with which these are reproduced by Geant4 simulations.
+
+
+## Info on ROOT files
+ROOT files have not yet been added to the repository for size and possibly legal reasons. 
+Files contain data as follows:
+
+- 1770: raw data
+- 1771: raw data
+- 1772: raw data
+- 1773: raw data
+- 1774: raw data
+- 1775: refined data, 60-Co and 137-Cs
+- 1776: 137-Cs
+- 1777: 60-Co
+- 1778: 60-Co
+- 1779: 60-Co
+- 1780: 137-Cs
