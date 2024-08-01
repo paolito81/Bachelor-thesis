@@ -16,11 +16,11 @@
 class Analyzer {
 public:
 
-    enum FuncType {F1, F2};
+    enum FuncType {F1, F2, F3};
 
     Analyzer(const std::string& filename, const std::string& histname, FuncType ftype);
     ~Analyzer();
-    void setFitParameters(double p0, double p1, double p2, double p3, double p4, double p5, double p6, double p7);
+    void setFitParameters(double p0, double p1, double p2, double p3, double p4, double p5, double p6, double p7, double p8, double p9, double p10);
     void setUpperLowerBound(int chn_low, int chn_up);
     void efficiency(int m);
     void plot();
@@ -38,7 +38,7 @@ private:
     TF1* func; /**< Pointer to the function to be fitted */
     TCanvas* canvas; /**< Pointer to the canvas */
     FuncType ftype; /**< Function type for fitting (gaussian or double gaussian) */
-    double p0, p1, p2, p3, p4, p5, p6, p7; /**< Fit parameters */
+    double p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10; /**< Fit parameters */
     int chn_lower_bound, chn_upper_bound; /**< Upper and lower bound for fitting and peak area */
     double effic, err_effic;
 

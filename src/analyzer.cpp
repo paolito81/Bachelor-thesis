@@ -44,7 +44,11 @@ Analyzer::Analyzer(const std::string& filename, const std::string& histname, Fun
 	}
 	else if (ftype == F2)
 	{
-		func = new TF1("f1", "[0]*x + [1] + [4]*exp(-0.5*((x-[2])/[3])^2) + [7]*exp(-0.5*((x-[5])/[6])^2)", chn_lower_bound, chn_upper_bound);
+		func = new TF1("f1", "[0]*x + [1] + [2]*exp(-0.5*((x-[3])/[4])^2) + [5]*exp(-0.5*((x-[6])/[7])^2)", chn_lower_bound, chn_upper_bound);
+	}
+	else if (ftype == F3)
+	{
+		func = new TF1("f1", "[0]*x + [1] + [2]*exp(-0.5*((x-[3])/[4])^2) + [5]*exp(-0.5*((x-[6])/[7])^2) + [8]*exp(-0.5*((x-[9])/[10])^2)", chn_lower_bound, chn_upper_bound);
 	}
 }
 
@@ -69,7 +73,7 @@ Analyzer::~Analyzer() {
 * @param p4 Gaussian standard deviation
 */
 
-void Analyzer::setFitParameters(double p0, double p1, double p2, double p3, double p4, double p5, double p6, double p7) {
+void Analyzer::setFitParameters(double p0, double p1, double p2, double p3, double p4, double p5, double p6, double p7, double p8, double p9, double p10) {
 	if (ftype == F1) {
 		func->SetParName(0, "Slope");
 		func->SetParName(1, "Y-intercept");
@@ -99,6 +103,30 @@ void Analyzer::setFitParameters(double p0, double p1, double p2, double p3, doub
 		func->SetParameter(5, p5);
 		func->SetParameter(6, p6);
 		func->SetParameter(7, p7);
+	}
+	else if (ftype == F3) {
+		func->SetParName(0, "Slope");
+		func->SetParName(1, "Y-intercept");
+		func->SetParName(2, "Normalization 1");
+		func->SetParName(3, "Mean value 1");
+		func->SetParName(4, "Standard Deviation 1");
+		func->SetParName(5, "Normalization 2");
+		func->SetParName(6, "Mean value 2");
+		func->SetParName(7, "Standard Deviation 2");
+		func->SetParName(8, "Normalization 3");
+		func->SetParName(9, "Mean value 3");
+		func->SetParName(10, "Standard Deviation 3");
+		func->SetParameter(0, p0);
+		func->SetParameter(1, p1);
+		func->SetParameter(2, p2);
+		func->SetParameter(3, p3);
+		func->SetParameter(4, p4);
+		func->SetParameter(5, p5);
+		func->SetParameter(6, p6);
+		func->SetParameter(7, p7);
+		func->SetParameter(8, p8);
+		func->SetParameter(9, p9);
+		func->SetParameter(10, p10);
 	}
 	
 }
