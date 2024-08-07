@@ -26,6 +26,7 @@ public:
     void plot();
     void saveResults();
     double getFitParameter(int index);
+    double getFitParameterError(int index);
     TCanvas* Analyzer::getCanvas() const;
 
     //friend class Config;

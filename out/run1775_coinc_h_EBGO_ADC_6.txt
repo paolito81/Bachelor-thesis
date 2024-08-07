@@ -1,14 +1,11 @@
 ******************************************
 Fit Results:
 
-Slope : -0.107991 +/- 0.0752616
-Y-intercept : 200.816 +/- 82.7511
-Normalization 1 : 825.152 +/- 13.1086
-Mean value 1 : 1026.51 +/- 1.02242
-Standard Deviation 1 : 53.621 +/- 1.35259
-Normalization 2 : 733.055 +/- 12.8681
-Mean value 2 : 1166.74 +/- 1.1402
-Standard Deviation 2 : 56.0591 +/- 1.66177
-Fit p-value: 0.00403078
-Efficiency value: 0.266217 +- 0.000846729
+Slope : -0.000488408 +/- 0.0123394
+Y-intercept : 9.80457 +/- 29.5946
+Normalization : 37.2961 +/- 3.25534
+Mean value : 2188.38 +/- 3.54366
+Standard Deviation : 69.1524 +/- 6.12602
+Fit p-value: 0.694218
+Efficiency value: -9.25596e+61 +- -9.25596e+61
 ******************************************

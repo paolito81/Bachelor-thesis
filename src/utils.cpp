@@ -72,19 +72,22 @@ void runAnalysis(const std::vector<Config>& configs) {
         Analyzer analyzer(config.filename, config.histname, config.ftype);
         analyzer.setUpperLowerBound(config.chn_lower_bound, config.chn_upper_bound);
         analyzer.setFitParameters(config.p0, config.p1, config.p2, config.p3, config.p4, config.p5, config.p6, config.p7, config.p8, config.p9, config.p10);
-        analyzer.efficiency(config.m);
+        //analyzer.efficiency(config.m);
         analyzer.plot();
         canvases.push_back(analyzer.getCanvas());
         analyzer.saveResults();
 
         if (config.ftype == Analyzer::F1) {
             double p3 = analyzer.getFitParameter(3);
-            outfile << config.filename << "\t" << config.histname << "\t" << p3 << "\t" << "-" << "\n";
+            double v3 = analyzer.getFitParameterError(3);
+            outfile << config.filename << "\t" << config.histname << "\t" << p3 << " +- " << v3 << "\t" << "-" << "\n";
         }
         else if (config.ftype == Analyzer::F2) {
             double p3 = analyzer.getFitParameter(3);
             double p6 = analyzer.getFitParameter(6);
-            outfile << config.filename << "\t" << config.histname << "\t" << p3 << "\t" << p6 << "\n"; //leave it like this for now, will check formatting later
+            double v3 = analyzer.getFitParameterError(3);
+            double v6 = analyzer.getFitParameterError(6);
+            outfile << config.filename << "\t" << config.histname << "\t" << p3 << " +- " << v3 << "\t" << p6 << " +- " << v6 << "\n";
         }
     }
 

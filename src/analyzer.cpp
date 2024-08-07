@@ -228,3 +228,7 @@ void Analyzer::saveResults() {
 double Analyzer::getFitParameter(int index) {
 	return func->GetParameter(index);
 }
+
+double Analyzer::getFitParameterError(int index) {
+	return func->GetParError(index);
+}
