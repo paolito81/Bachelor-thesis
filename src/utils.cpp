@@ -7,6 +7,7 @@
 #include <string>
 #include <filesystem>
 #include <cmath>
+#include <config.h>
 
 const std::filesystem::path welcomeFilePath{ "../../../welcome.txt" };
 
@@ -76,7 +77,7 @@ void runAnalysis(const std::vector<Config>& configs) {
         analyzer.plot();
         canvases.push_back(analyzer.getCanvas());
         analyzer.saveResults();
-
+        
         if (config.ftype == Analyzer::F1) {
             double p3 = analyzer.getFitParameter(3);
             double v3 = analyzer.getFitParameterError(3);
