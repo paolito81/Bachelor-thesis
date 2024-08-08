@@ -69,7 +69,8 @@ void MakeGraphErrors(int configCount, int elementsPerVector, std::vector<double>
 
     for (int i = 0; i < configCount / 3; ++i) {
         TGraphErrors* graph = new TGraphErrors(xValues.size(), xValues.data(), sep_yValues[i].data(), nullptr, sep_erryValues[i].data());
-        TCanvas* c1 = new TCanvas("c1", "meanplots", 800, 600);
+        std::string canvasName = "c" + std::to_string(i);
+        TCanvas* c1 = new TCanvas(canvasName.c_str(), "meanplots", 800, 600);
         graph->SetTitle("grapho");
         graph->SetMarkerStyle(21);
         graph->Draw("AP");
