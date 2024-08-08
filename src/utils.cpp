@@ -8,6 +8,7 @@
 #include <filesystem>
 #include <cmath>
 #include <config.h>
+#include <TGraphErrors.h>
 
 const std::filesystem::path welcomeFilePath{ "../../../welcome.txt" };
 
@@ -51,6 +52,33 @@ double var_peak(double area, double trap, int n, int m) {
     return variance;
 }
 
+void MakeGraphErrors(int configCount, int elementsPerVector, std::vector<double> yValues, std::vector<double> erryValues) {
+    std::vector<double> xValues = { 661,826.1,1332,2158.6 };
+    std::vector<std::vector<double>> sep_yValues;
+    std::vector<std::vector<double>> sep_erryValues;
+    for (int i = 0; i < configCount / 3; ++i) {
+        std::vector<double> yTemp;
+        std::vector<double> yerrTemp;
+        for (int j = 0; j < elementsPerVector; ++j) {
+            yTemp.push_back(yValues[i * elementsPerVector + j]);
+            yerrTemp.push_back(erryValues[i * elementsPerVector + j]);
+        }
+        sep_yValues.push_back(yTemp);
+        sep_erryValues.push_back(yerrTemp);
+    }
+
+    for (int i = 0; i < configCount / 3; ++i) {
+        TGraphErrors* graph = new TGraphErrors(xValues.size(), xValues.data(), sep_yValues[i].data(), nullptr, sep_erryValues[i].data());
+        TCanvas* c1 = new TCanvas("c1", "meanplots", 800, 600);
+        graph->SetTitle("grapho");
+        graph->SetMarkerStyle(21);
+        graph->Draw("AP");
+
+        c1->Update();
+        //c1->SaveAs("asoldkhj");
+    }
+}
+
 /**
  * @brief  used to run analysis through configuration vector
  * config vector should be in the order in which class variables are declared
@@ -68,6 +96,9 @@ void runAnalysis(const std::vector<Config>& configs) {
     }
     outfile << "Filename	                            Histogram	            p3      p6      p9\n";
 
+    std::vector<double> yValues, erryValues;
+    std::vector<double> xValues = { 661,826.1,1332,2158.6 }; //boh
+    int configCount = 0;
 
     for (const auto& config : configs) {
         Analyzer analyzer(config.filename, config.histname, config.ftype);
@@ -77,10 +108,13 @@ void runAnalysis(const std::vector<Config>& configs) {
         analyzer.plot();
         canvases.push_back(analyzer.getCanvas());
         analyzer.saveResults();
-        
+        configCount++;
+
         if (config.ftype == Analyzer::F1) {
             double p3 = analyzer.getFitParameter(3);
             double v3 = analyzer.getFitParameterError(3);
+            yValues.push_back(p3);
+            erryValues.push_back(v3);
             outfile << config.filename << "\t" << config.histname << "\t" << p3 << " +- " << v3 << "\t" << "-" << "\n";
         }
         else if (config.ftype == Analyzer::F2) {
@@ -88,10 +122,17 @@ void runAnalysis(const std::vector<Config>& configs) {
             double p6 = analyzer.getFitParameter(6);
             double v3 = analyzer.getFitParameterError(3);
             double v6 = analyzer.getFitParameterError(6);
+            yValues.push_back(p3);
+            yValues.push_back(p6);
+            erryValues.push_back(v3);
+            erryValues.push_back(v6);
             outfile << config.filename << "\t" << config.histname << "\t" << p3 << " +- " << v3 << "\t" << p6 << " +- " << v6 << "\n";
         }
     }
+    
+    MakeGraphErrors(configCount, 4, yValues, erryValues);
 
     outfile.close();
 
 }
+

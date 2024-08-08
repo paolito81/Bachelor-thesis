@@ -24,7 +24,7 @@ int main (int argc, char* argv[]) {
         {"../../../root files/run1775_coinc.root", "EnergyADC/h_EBGO_ADC_2", Analyzer::F2, 875, 1250, 40, -0.2, 471, 800, 1000, 40, 800, 1150, 60},
         {"../../../root files/run1775_coinc.root", "EnergyADC/h_EBGO_ADC_2", Analyzer::F1, 2000, 2300, 40, -0.01, 30, 30, 2130, 70},
 
-        {"../../../root files/run1775_coinc.root", "EnergyADC/h_EBGO_ADC_3", Analyzer::F1, 400, 575, 40, -0.45, 600, 3000, 485, 40},
+        /*{"../../../root files/run1775_coinc.root", "EnergyADC/h_EBGO_ADC_3", Analyzer::F1, 400, 575, 40, -0.45, 600, 3000, 485, 40},
         {"../../../root files/run1775_coinc.root", "EnergyADC/h_EBGO_ADC_3", Analyzer::F2, 775, 1075, 40, -0.2, 471, 1000, 875, 40, 800, 950, 60},
         {"../../../root files/run1775_coinc.root", "EnergyADC/h_EBGO_ADC_3", Analyzer::F1, 1700, 2000, 40, -0.01, 30, 50, 1840, 70},
         
@@ -38,7 +38,7 @@ int main (int argc, char* argv[]) {
         
         {"../../../root files/run1775_coinc.root", "EnergyADC/h_EBGO_ADC_6", Analyzer::F1, 490, 630, 40, -0.45, 500, 2300, 580, 40},
         {"../../../root files/run1775_coinc.root", "EnergyADC/h_EBGO_ADC_6", Analyzer::F2, 925, 1270, 40, -0.2, 471, 800, 1040, 40, 800, 1170, 60},
-        {"../../../root files/run1775_coinc.root", "EnergyADC/h_EBGO_ADC_6", Analyzer::F1, 2075, 2330, 40, -0.1, 150, 50, 2190, 70},
+        {"../../../root files/run1775_coinc.root", "EnergyADC/h_EBGO_ADC_6", Analyzer::F1, 2075, 2330, 40, -0.1, 150, 50, 2190, 70},*/
 
         
         
