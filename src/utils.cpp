@@ -53,24 +53,24 @@ double var_peak(double area, double trap, int n, int m) {
     return variance;
 }
 
-void MakeGraphErrors(int configCount, int elementsPerVector, std::vector<double> yValues, std::vector<double> erryValues) {
-    std::vector<double> xValues = { 661,1173.2,1332.5,2505.7 };
-    std::vector<std::vector<double>> sep_yValues;
-    std::vector<std::vector<double>> sep_erryValues;
+void MakeGraphErrors(int configCount, int elementsPerVector, std::vector<double> xValues, std::vector<double> errxValues) {
+    std::vector<double> yValues = { 661,1173.2,1332.5,2505.7 };
+    std::vector<std::vector<double>> sep_xValues;
+    std::vector<std::vector<double>> sep_errxValues;
     
     for (int i = 0; i < configCount / 3; ++i) {
-        std::vector<double> yTemp;
-        std::vector<double> yerrTemp;
+        std::vector<double> xTemp;
+        std::vector<double> xerrTemp;
         for (int j = 0; j < elementsPerVector; ++j) {
-            yTemp.push_back(yValues[i * elementsPerVector + j]);
-            yerrTemp.push_back(erryValues[i * elementsPerVector + j]);
+            xTemp.push_back(xValues[i * elementsPerVector + j]);
+            xerrTemp.push_back(errxValues[i * elementsPerVector + j]);
         }
-        sep_yValues.push_back(yTemp);
-        sep_erryValues.push_back(yerrTemp);
+        sep_xValues.push_back(xTemp);
+        sep_errxValues.push_back(xerrTemp);
     }
 
     for (int i = 0; i < configCount / 3; ++i) {
-        TGraphErrors* graph = new TGraphErrors(xValues.size(), sep_yValues[i].data(), xValues.data(), sep_erryValues[i].data(), nullptr);
+        TGraphErrors* graph = new TGraphErrors(xValues.size(), sep_xValues[i].data(), yValues.data(), sep_errxValues[i].data(), nullptr);
         std::string canvasName = "c" + std::to_string(i);
         TCanvas* c1 = new TCanvas(canvasName.c_str(), "meanplots", 800, 600);
         /*
@@ -88,7 +88,7 @@ void MakeGraphErrors(int configCount, int elementsPerVector, std::vector<double>
 
         graph->Fit("fourpoly", "R");
         //fourpoly->GetProb();
-        linear->GetProb();
+        std::cout << "P-value: " << linear->GetProb() << std::endl;
 
 
         c1->Update();
@@ -134,8 +134,8 @@ void runAnalysis(const std::vector<Config>& configs) {
     }
     outfile << "Filename	                            Histogram	            p3      p6      p9\n";
 
-    std::vector<double> yValues, erryValues;
-    std::vector<double> xValues = { 661,1173.2,1332.5,2158.6 }; //boh
+    std::vector<double> xValues, errxValues;
+    std::vector<double> yValues = { 661,1173.2,1332.5,2505.7 }; //sempre gli stessi, presi dal sito NNDC
     int configCount = 0;
 
     for (const auto& config : configs) {
@@ -147,18 +147,18 @@ void runAnalysis(const std::vector<Config>& configs) {
         canvases.push_back(analyzer.getCanvas());
         analyzer.saveResults();
         configCount++;
-        processFitParameters(config, analyzer, yValues, erryValues, outfile);
+        processFitParameters(config, analyzer, xValues, errxValues, outfile);
     }
     
-    MakeGraphErrors(configCount, 4, yValues, erryValues);
-
-    /*GraphPlotter plotter(xValues, 4);
-    plotter.addData(yValues, erryValues);
+    MakeGraphErrors(configCount, 4, xValues, errxValues);
+    /*
+    GraphPlotter plotter(yValues, 4);
+    plotter.addData(xValues, errxValues);
     
     for (int i = 0; i < configCount / 3; ++i) {
         plotter.plotAndFit(i);
-    }
-*/
+    }*/
+
     outfile.close();
 
 }

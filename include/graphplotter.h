@@ -9,15 +9,15 @@
 
 class GraphPlotter {
 public:
-    GraphPlotter(const std::vector<double>& xValues, int elementsPerVector);
-    void addData(const std::vector<double>& yValues, const std::vector<double>& erryValues);
+    GraphPlotter(const std::vector<double>& yValues, int elementsPerVector);
+    void addData(const std::vector<double>& xValues, const std::vector<double>& errxValues);
     void plotAndFit(int index);
 
 private:
-    std::vector<double> xValues;
+    std::vector<double> yValues;
     int elementsPerVector;
-    std::vector<std::vector<double>> sep_yValues;
-    std::vector<std::vector<double>> sep_erryValues;
+    std::vector<std::vector<double>> sep_xValues;
+    std::vector<std::vector<double>> sep_errxValues;
 };
 
 #endif // GRAPHPLOTTER_H
