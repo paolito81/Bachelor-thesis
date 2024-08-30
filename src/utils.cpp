@@ -137,6 +137,7 @@ void runAnalysis(const std::vector<Config>& configs) {
     std::vector<double> xValues, errxValues;
     std::vector<double> yValues = { 661,1173.2,1332.5,2505.7 }; //sempre gli stessi, presi dal sito NNDC
     int configCount = 0;
+    int analysisPerFile = 3;
 
     for (const auto& config : configs) {
         Analyzer analyzer(config.filename, config.histname, config.ftype);
@@ -150,14 +151,14 @@ void runAnalysis(const std::vector<Config>& configs) {
         processFitParameters(config, analyzer, xValues, errxValues, outfile);
     }
     
-    MakeGraphErrors(configCount, 4, xValues, errxValues);
-    /*
+    //MakeGraphErrors(configCount, 4, xValues, errxValues);
+    
     GraphPlotter plotter(yValues, 4);
     plotter.addData(xValues, errxValues);
     
-    for (int i = 0; i < configCount / 3; ++i) {
+    for (int i = 0; i < configCount / analysisPerFile; ++i) {
         plotter.plotAndFit(i);
-    }*/
+    }
 
     outfile.close();
 

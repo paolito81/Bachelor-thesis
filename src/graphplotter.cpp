@@ -37,7 +37,7 @@ void GraphPlotter::plotAndFit(int i) {
     TF1* fourpoly = new TF1("fourpoly", "[0] + [1]*x + [2]*x^2 + [3]*x^3 + [4]*x^4", 0, 2300);
     fourpoly->SetParameters(0, 0, 0, 0, 0);
     */
-    TF1* linear = new TF1("linear", "[0] + [1]*x", 0, 2300);
+    TF1* linear = new TF1("linear", "[0] + [1]*x", 0, 2220);
     linear->SetParameters(0, 1);
 
     graph->SetTitle("grapho");
@@ -50,7 +50,8 @@ void GraphPlotter::plotAndFit(int i) {
     //fourpoly->GetProb();
     std::cout << "P-value: " << linear->GetProb() << std::endl;
 
+    std::string pdfName = "../../../out/plot" + std::to_string(i) + ".pdf";
 
     c1->Update();
-    c1->SaveAs("../../../out/plot.pdf");
+    c1->SaveAs(pdfName.c_str());
 }
