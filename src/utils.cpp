@@ -143,7 +143,7 @@ void runAnalysis(const std::vector<Config>& configs) {
         Analyzer analyzer(config.filename, config.histname, config.ftype);
         analyzer.setUpperLowerBound(config.chn_lower_bound, config.chn_upper_bound);
         analyzer.setFitParameters(config.p0, config.p1, config.p2, config.p3, config.p4, config.p5, config.p6, config.p7, config.p8, config.p9, config.p10);
-        //analyzer.efficiency(config.m);
+        analyzer.efficiency(config.m);
         analyzer.plot();
         canvases.push_back(analyzer.getCanvas());
         analyzer.saveResults();

@@ -145,7 +145,9 @@ void Analyzer::efficiency(int m) {
 	
 	double eff = (integral - area) / (histogram->GetEntries());
 
-	double std_dev = (std::sqrt(integral + area * (1 + (chn_upper_bound - chn_lower_bound) / (2 * m))))/ (histogram->GetEntries());
+	double err_peak = (std::sqrt(integral + area * (1 + (chn_upper_bound - chn_lower_bound) / (2 * m))));
+
+	double std_dev = err_peak / (histogram->GetEntries());
 
 	effic = eff;
 	err_effic = std_dev;
@@ -153,7 +155,8 @@ void Analyzer::efficiency(int m) {
 	std::cout << "                                                                     " << std::endl;
 	std::cout << "                                                                     " << std::endl;
 	std::cout << "=====================================================================" << std::endl;
-	std::cout << "Efficiency:                     " << eff << "   +/-   " << std_dev << std::endl;
+	std::cout << "Peak area (N counts):                     " << (integral - area) << "   +/-   " << err_peak << std::endl;
+	//std::cout << "Efficiency:                     " << eff << "   +/-   " << std_dev << std::endl;
 }
 
 /**
