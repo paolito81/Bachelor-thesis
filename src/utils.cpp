@@ -9,6 +9,7 @@
 #include <cmath>
 #include <config.h>
 #include <TGraphErrors.h>
+#include <graphplotter.h>
 
 const std::filesystem::path welcomeFilePath{ "../../../welcome.txt" };
 
@@ -56,6 +57,7 @@ void MakeGraphErrors(int configCount, int elementsPerVector, std::vector<double>
     std::vector<double> xValues = { 661,1173.2,1332.5,2505.7 };
     std::vector<std::vector<double>> sep_yValues;
     std::vector<std::vector<double>> sep_erryValues;
+    
     for (int i = 0; i < configCount / 3; ++i) {
         std::vector<double> yTemp;
         std::vector<double> yerrTemp;
@@ -93,11 +95,28 @@ void MakeGraphErrors(int configCount, int elementsPerVector, std::vector<double>
         c1->SaveAs("../../../out/plot.pdf");
     }
 }
-/*
+
 void processFitParameters(const Config& config, Analyzer& analyzer, std::vector<double>& yValues, std::vector<double>& erryValues, std::ofstream& outfile) {
 
+    double p3 = analyzer.getFitParameter(3);
+    double v3 = analyzer.getFitParameterError(3);
+
+    if (config.ftype == Analyzer::F1) {
+        yValues.push_back(p3);
+        erryValues.push_back(v3);
+        outfile << config.filename << "\t" << config.histname << "\t" << p3 << " +- " << v3 << "\t" << "-" << "\n";
+    }
+    else if (config.ftype == Analyzer::F2) {
+        double p6 = analyzer.getFitParameter(6);
+        double v6 = analyzer.getFitParameterError(6);
+        yValues.push_back(p3);
+        yValues.push_back(p6);
+        erryValues.push_back(v3);
+        erryValues.push_back(v6);
+        outfile << config.filename << "\t" << config.histname << "\t" << p3 << " +- " << v3 << "\t" << p6 << " +- " << v6 << "\n";
+    }
 }
-*/
+
 /**
  * @brief  used to run analysis through configuration vector
  * config vector should be in the order in which class variables are declared
@@ -128,29 +147,18 @@ void runAnalysis(const std::vector<Config>& configs) {
         canvases.push_back(analyzer.getCanvas());
         analyzer.saveResults();
         configCount++;
-
-        if (config.ftype == Analyzer::F1) {
-            double p3 = analyzer.getFitParameter(3);
-            double v3 = analyzer.getFitParameterError(3);
-            yValues.push_back(p3);
-            erryValues.push_back(v3);
-            outfile << config.filename << "\t" << config.histname << "\t" << p3 << " +- " << v3 << "\t" << "-" << "\n";
-        }
-        else if (config.ftype == Analyzer::F2) {
-            double p3 = analyzer.getFitParameter(3);
-            double p6 = analyzer.getFitParameter(6);
-            double v3 = analyzer.getFitParameterError(3);
-            double v6 = analyzer.getFitParameterError(6);
-            yValues.push_back(p3);
-            yValues.push_back(p6);
-            erryValues.push_back(v3);
-            erryValues.push_back(v6);
-            outfile << config.filename << "\t" << config.histname << "\t" << p3 << " +- " << v3 << "\t" << p6 << " +- " << v6 << "\n";
-        }
+        processFitParameters(config, analyzer, yValues, erryValues, outfile);
     }
     
     MakeGraphErrors(configCount, 4, yValues, erryValues);
 
+    /*GraphPlotter plotter(xValues, 4);
+    plotter.addData(yValues, erryValues);
+    
+    for (int i = 0; i < configCount / 3; ++i) {
+        plotter.plotAndFit(i);
+    }
+*/
     outfile.close();
 
 }
