@@ -53,7 +53,7 @@ double var_peak(double area, double trap, int n, int m) {
 }
 
 void MakeGraphErrors(int configCount, int elementsPerVector, std::vector<double> yValues, std::vector<double> erryValues) {
-    std::vector<double> xValues = { 661,826.1,1332,2158.6 };
+    std::vector<double> xValues = { 661,1173.2,1332.5,2505.7 };
     std::vector<std::vector<double>> sep_yValues;
     std::vector<std::vector<double>> sep_erryValues;
     for (int i = 0; i < configCount / 3; ++i) {
@@ -68,18 +68,36 @@ void MakeGraphErrors(int configCount, int elementsPerVector, std::vector<double>
     }
 
     for (int i = 0; i < configCount / 3; ++i) {
-        TGraphErrors* graph = new TGraphErrors(xValues.size(), xValues.data(), sep_yValues[i].data(), nullptr, sep_erryValues[i].data());
+        TGraphErrors* graph = new TGraphErrors(xValues.size(), sep_yValues[i].data(), xValues.data(), sep_erryValues[i].data(), nullptr);
         std::string canvasName = "c" + std::to_string(i);
         TCanvas* c1 = new TCanvas(canvasName.c_str(), "meanplots", 800, 600);
+        /*
+        TF1* fourpoly = new TF1("fourpoly", "[0] + [1]*x + [2]*x^2 + [3]*x^3 + [4]*x^4", 0, 2300);
+        fourpoly->SetParameters(0, 0, 0, 0, 0);
+        */
+        TF1* linear = new TF1("fourpoly", "[0] + [1]*x", 0, 2300);
+        linear->SetParameters(0, 1);
+
         graph->SetTitle("grapho");
+        graph->GetYaxis()->SetTitle("Energy [keV]");
+        graph->GetXaxis()->SetTitle("Channels [CHN]");
         graph->SetMarkerStyle(21);
         graph->Draw("AP");
 
+        graph->Fit("fourpoly", "R");
+        //fourpoly->GetProb();
+        linear->GetProb();
+
+
         c1->Update();
-        //c1->SaveAs("asoldkhj");
+        c1->SaveAs("../../../out/plot.pdf");
     }
 }
+/*
+void processFitParameters(const Config& config, Analyzer& analyzer, std::vector<double>& yValues, std::vector<double>& erryValues, std::ofstream& outfile) {
 
+}
+*/
 /**
  * @brief  used to run analysis through configuration vector
  * config vector should be in the order in which class variables are declared
@@ -98,7 +116,7 @@ void runAnalysis(const std::vector<Config>& configs) {
     outfile << "Filename	                            Histogram	            p3      p6      p9\n";
 
     std::vector<double> yValues, erryValues;
-    std::vector<double> xValues = { 661,826.1,1332,2158.6 }; //boh
+    std::vector<double> xValues = { 661,1173.2,1332.5,2158.6 }; //boh
     int configCount = 0;
 
     for (const auto& config : configs) {
