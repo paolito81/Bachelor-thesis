@@ -5,7 +5,6 @@
 #include <TH1F.h>
 #include <TFile.h>
 #include <TCanvas.h>
-#include <run1776.h>
 #include <TApplication.h>
 #include "analyzer.h"
 #include <vector>

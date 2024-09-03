@@ -6,7 +6,6 @@
 #include <TCanvas.h>
 #include <TTree.h>
 #include <iostream>
-#include "run1776.h"
 #include "utils.h"
 #include <fstream>
 #include <filesystem>

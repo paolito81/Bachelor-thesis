@@ -13,6 +13,7 @@
 
 const std::filesystem::path welcomeFilePath{ "../../../welcome.txt" };
 
+//Used to check if TFile is open
 void isTFileOpen(TFile* inFile) {
 	if (!inFile || inFile->IsZombie())
 	{
@@ -21,6 +22,7 @@ void isTFileOpen(TFile* inFile) {
 	}
 }
 
+//Used to display .txt file on the terminal
 void display(std::string filename) {
     std::string displaystr;
     std::ifstream inFile;
@@ -40,22 +42,20 @@ void display(std::string filename) {
 }
 
 // used to calculate background area under energy peak
-
-double trap_area(TH1F* histogram, int chn_1, int chn_2, int m) {
+static double trap_area(TH1F* histogram, int chn_1, int chn_2, int m) {
     double area = (histogram->GetBinContent(histogram->FindBin(chn_1) - 1 - m) + histogram->GetBinContent(histogram->FindBin(chn_2) + 1 + m)) * (chn_2 - chn_1) / 2;
     return area;
 }
 
 // used to calculate the uncertainty of the calculated peak area
-
-double var_peak(double area, double trap, int n, int m) {
+static double var_peak(double area, double trap, int n, int m) {
     double variance = std::sqrt(area + trap*(1 + n/(2*m)));
     return variance;
 }
 
 
 //UNUSED
-void MakeGraphErrors(int configCount, int elementsPerVector, std::vector<double>& xValues, std::vector<double>& errxValues) {
+static void MakeGraphErrors(int configCount, int elementsPerVector, std::vector<double>& xValues, std::vector<double>& errxValues) {
     std::vector<double> yValues = { 661,1173.2,1332.5,2505.7 };
     std::vector<std::vector<double>> sep_xValues;
     std::vector<std::vector<double>> sep_errxValues;
@@ -98,7 +98,15 @@ void MakeGraphErrors(int configCount, int elementsPerVector, std::vector<double>
     }
 }
 
-void processFitParameters(const Config& config, Analyzer& analyzer, std::vector<double>& yValues, std::vector<double>& erryValues, std::ofstream& outfile) {
+/**
+ * @brief Used to add fit parameters to the xValues and yValues vectors, based on the peak (single or double)
+ * @param config 
+ * @param analyzer 
+ * @param yValues 
+ * @param erryValues 
+ * @param outfile 
+ */
+static void processFitParameters(const Config& config, Analyzer& analyzer, std::vector<double>& yValues, std::vector<double>& erryValues, std::ofstream& outfile) {
 
     double p3 = analyzer.getFitParameter(3);
     double v3 = analyzer.getFitParameterError(3);
@@ -120,13 +128,12 @@ void processFitParameters(const Config& config, Analyzer& analyzer, std::vector<
 }
 
 /**
- * @brief  used to run analysis through configuration vector
- * config vector should be in the order in which class variables are declared
+ *@brief  used to run analysis through configuration vector
+ *config vector should be in the order in which class variables are declared
  * 
- * @param configs A vector of Config objects
- * @param onlyOneElement A bool that says whether the analyzed file contains Caesium, Cobalt, or both
+ *@param configs A vector of Config objects
+ *@param onlyOneElement A bool that says whether the analyzed file contains Caesium, Cobalt, or both
  */ 
-
 void runAnalysis(const std::vector<Config>& configs, bool onlyOneElement) {
     
     std::vector<TCanvas*> canvases;

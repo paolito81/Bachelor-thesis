@@ -5,7 +5,6 @@
 #include <TCanvas.h>
 #include <TTree.h>
 #include <iostream>
-#include "run1776.h"
 #include "utils.h"
 #include <fstream>
 
@@ -13,7 +12,6 @@
 * @brief The constructor for the Analyzer object
 * 
 */
-
 Analyzer::Analyzer(const std::string& filename, const std::string& histname, FuncType ftype) :
 	filename(filename), histname(histname), inFile(nullptr), histogram(nullptr), func(nullptr), canvas(nullptr), ftype(ftype) {
 
@@ -56,7 +54,6 @@ Analyzer::Analyzer(const std::string& filename, const std::string& histname, Fun
 * @brief The destructor
 * Doesn't close file otherwise the canvas gets wiped
 */
-
 Analyzer::~Analyzer() {
 	//if (inFile) inFile->Close();
 	delete func;
@@ -72,7 +69,6 @@ Analyzer::~Analyzer() {
 * @param p3 Gaussian mean value
 * @param p4 Gaussian standard deviation
 */
-
 void Analyzer::setFitParameters(double p0, double p1, double p2, double p3, double p4, double p5, double p6, double p7, double p8, double p9, double p10) {
 	if (ftype == F1) {
 		func->SetParName(0, "Slope");
@@ -137,7 +133,6 @@ void Analyzer::setFitParameters(double p0, double p1, double p2, double p3, doub
 * @param m How many more bins to consider when computing the efficiency (lowers uncertainty)
 * 
 */
-
 void Analyzer::efficiency(int m) {
 	double integral = histogram->Integral(histogram->FindBin(chn_lower_bound), histogram->FindBin(chn_upper_bound));
 	

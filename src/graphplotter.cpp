@@ -10,7 +10,6 @@
 * @brief The constructor for the GraphPlotter object
 *
 */
-
 GraphPlotter::GraphPlotter(const std::vector<double>& yValues, int elementsPerVector)
     : yValues(yValues), elementsPerVector(elementsPerVector) {}
 
@@ -20,7 +19,6 @@ GraphPlotter::GraphPlotter(const std::vector<double>& yValues, int elementsPerVe
 * @param xValues the values that one wishes to add on the x axis
 * @param errxValues the errors of the xValues
 */
-
 void GraphPlotter::addData(const std::vector<double>& xValues, const std::vector<double>& errxValues) {
     /*for (int i = 0; i < configCount / 3; ++i) {
         std::vector<double> yTemp;
@@ -41,11 +39,10 @@ void GraphPlotter::addData(const std::vector<double>& xValues, const std::vector
 }
 
 /**
-* @brief A function to plot and fit a function to the xValues and yValues
+*@brief A function to plot and fit a function to the xValues and yValues
 * 
-* @param i The index of the separated values vector
+*@param i The index of the separated values vector
 */
-
 void GraphPlotter::plotAndFit(int index) {
     
     TGraphErrors* graph = new TGraphErrors(yValues.size(), sep_xValues[index].data(), yValues.data(), sep_errxValues[index].data(), nullptr);
@@ -72,14 +69,13 @@ void GraphPlotter::plotAndFit(int index) {
 }
 
 /**
-* @brief A function to set the function to be fit to the data
+*@brief A function to set the function to be fit to the data
 * 
-* @param funcName A const char* to the function name
-* @param formula A const char* to the funcion formula
-* @param xmin The minimum value of the function
-* @param xmax The maximum value of the function
+*@param funcName A const char* to the function name
+*@param formula A const char* to the funcion formula
+*@param xmin The minimum value of the function
+*@param xmax The maximum value of the function
 */
-
 void GraphPlotter::setFitFunction(const std::string& funcName, const std::string& formula, double xmin, double xmax) {
     //if (func != nullptr) {
     //    delete func; // clean up previous function if it exists
