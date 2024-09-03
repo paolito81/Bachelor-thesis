@@ -10,6 +10,8 @@
 class GraphPlotter {
 public:
     GraphPlotter(const std::vector<double>& yValues, int elementsPerVector);
+    void setFitFunction(const std::string& funcName, const std::string& formula, double xmin, double xmax);
+    void printResidues();
     void addData(const std::vector<double>& xValues, const std::vector<double>& errxValues);
     void plotAndFit(int index);
 
@@ -18,6 +20,7 @@ private:
     int elementsPerVector;
     std::vector<std::vector<double>> sep_xValues;
     std::vector<std::vector<double>> sep_errxValues;
+    TF1* func;
 };
 
 #endif // GRAPHPLOTTER_H
