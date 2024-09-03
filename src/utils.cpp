@@ -124,9 +124,10 @@ void processFitParameters(const Config& config, Analyzer& analyzer, std::vector<
  * config vector should be in the order in which class variables are declared
  * 
  * @param configs A vector of Config objects
+ * @param onlyOneElement A bool that says whether the analyzed file contains Caesium, Cobalt, or both
  */ 
 
-void runAnalysis(const std::vector<Config>& configs) {
+void runAnalysis(const std::vector<Config>& configs, bool onlyOneElement) {
     
     std::vector<TCanvas*> canvases;
     std::ofstream outfile("../../../out/peak_energies.txt");
@@ -153,13 +154,15 @@ void runAnalysis(const std::vector<Config>& configs) {
         processFitParameters(config, analyzer, xValues, errxValues, outfile);
     }
     
-    GraphPlotter plotter(yValues, 4);
-    plotter.setFitFunction("linear", "[0] + [1] * x", 0, 2300);
-    plotter.addData(xValues, errxValues);
-    
-    for (int i = 0; i < configCount / analysisPerFile; ++i) {
-        plotter.plotAndFit(i);
-        plotter.printResidues(i);
+    if (!onlyOneElement) {
+        GraphPlotter plotter(yValues, 4);
+        plotter.setFitFunction("linear", "[0] + [1] * x", 0, 2300);
+        plotter.addData(xValues, errxValues);
+
+        for (int i = 0; i < configCount / analysisPerFile; ++i) {
+            plotter.plotAndFit(i);
+            plotter.printResidues(i);
+        }
     }
 
     outfile.close();
