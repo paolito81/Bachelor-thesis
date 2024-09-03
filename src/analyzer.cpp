@@ -221,7 +221,7 @@ void Analyzer::saveResults() {
 
 	outFile << "Efficiency value: " << effic << " +- " << err_effic << "\n";
 
-	outFile << "******************************************\n";
+	outFile << "******************************************\n\n\n\n\n\n\n\n";
 	outFile.close();
 
 	std::cout << "Results save to " << outputFilePath << std::endl;

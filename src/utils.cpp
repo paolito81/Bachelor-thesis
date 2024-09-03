@@ -53,7 +53,9 @@ double var_peak(double area, double trap, int n, int m) {
     return variance;
 }
 
-void MakeGraphErrors(int configCount, int elementsPerVector, std::vector<double> xValues, std::vector<double> errxValues) {
+
+//UNUSED
+void MakeGraphErrors(int configCount, int elementsPerVector, std::vector<double>& xValues, std::vector<double>& errxValues) {
     std::vector<double> yValues = { 661,1173.2,1332.5,2505.7 };
     std::vector<std::vector<double>> sep_xValues;
     std::vector<std::vector<double>> sep_errxValues;
@@ -151,13 +153,13 @@ void runAnalysis(const std::vector<Config>& configs) {
         processFitParameters(config, analyzer, xValues, errxValues, outfile);
     }
     
-    //MakeGraphErrors(configCount, 4, xValues, errxValues);
-    
     GraphPlotter plotter(yValues, 4);
+    plotter.setFitFunction("linear", "[0] + [1] * x", 0, 2300);
     plotter.addData(xValues, errxValues);
     
     for (int i = 0; i < configCount / analysisPerFile; ++i) {
         plotter.plotAndFit(i);
+        plotter.printResidues(i);
     }
 
     outfile.close();

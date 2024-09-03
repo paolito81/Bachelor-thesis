@@ -7,5 +7,12 @@ Normalization : 24.9056 +/- 1.10755
 Mean value : 2138.83 +/- 2.71356
 Standard Deviation : 67.3054 +/- 4.25089
 Fit p-value: 0.0073415
-Efficiency value: -9.25596e+61 +- -9.25596e+61
+Efficiency value: 0.0073466 +- 0.000177022
 ******************************************
+
+
+
+
+
+
+
