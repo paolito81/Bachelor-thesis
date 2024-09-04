@@ -27,8 +27,6 @@ public:
     double getFitParameterError(int index);
     TCanvas* Analyzer::getCanvas() const;
 
-    //friend class Config;
-
 private:
     std::string filename; /**< String containing the directory to the .root file */
     std::string histname; /**< String containing the directory to the histogram file */
@@ -39,9 +37,9 @@ private:
     FuncType ftype; /**< Function type for fitting (gaussian or double gaussian) */
     double p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10; /**< Fit parameters */
     int chn_lower_bound, chn_upper_bound; /**< Upper and lower bound for fitting and peak area */
-    double livetime, err_livetime;
-    double activity, err_activity;
-    double effic, err_effic;
+    double livetime, err_livetime; /** The time that the counting experiment lasted with error*/
+    double activity, err_activity; /** The source's activity, with error */
+    double effic, err_effic; /** The detector efficiency, with error */
 
 };
 
