@@ -62,7 +62,7 @@ void GraphPlotter::plotAndFit(int index) {
     graph->Fit(func->GetName(), "R");
     std::cout << "P-value: " << func->GetProb() << std::endl;
 
-    std::string pdfName = "../../../out/plot" + std::to_string(index) + ".pdf";
+    std::string pdfName = "../out/plot" + std::to_string(index) + ".pdf";
 
     c1->Update();
     c1->SaveAs(pdfName.c_str());

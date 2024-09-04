@@ -11,7 +11,7 @@
 #include <TGraphErrors.h>
 #include <graphplotter.h>
 
-const std::filesystem::path welcomeFilePath{ "../../../welcome.txt" };
+const std::filesystem::path welcomeFilePath{ "../welcome.txt" };
 
 //Used to check if TFile is open
 void isTFileOpen(TFile* inFile) {
@@ -42,13 +42,13 @@ void display(std::string filename) {
 }
 
 // used to calculate background area under energy peak
-static double trap_area(TH1F* histogram, int chn_1, int chn_2, int m) {
+double trap_area(TH1F* histogram, int chn_1, int chn_2, int m) {
     double area = (histogram->GetBinContent(histogram->FindBin(chn_1) - 1 - m) + histogram->GetBinContent(histogram->FindBin(chn_2) + 1 + m)) * (chn_2 - chn_1) / 2;
     return area;
 }
 
 // used to calculate the uncertainty of the calculated peak area
-static double var_peak(double area, double trap, int n, int m) {
+double var_peak(double area, double trap, int n, int m) {
     double variance = std::sqrt(area + trap*(1 + n/(2*m)));
     return variance;
 }
@@ -94,7 +94,7 @@ static void MakeGraphErrors(int configCount, int elementsPerVector, std::vector<
 
 
         c1->Update();
-        c1->SaveAs("../../../out/plot.pdf");
+        c1->SaveAs("../out/plot.pdf");
     }
 }
 
@@ -137,7 +137,7 @@ static void processFitParameters(const Config& config, Analyzer& analyzer, std::
 void runAnalysis(const std::vector<Config>& configs, bool onlyOneElement) {
     
     std::vector<TCanvas*> canvases;
-    std::ofstream outfile("../../../out/peak_energies.txt");
+    std::ofstream outfile("../out/peak_energies.txt");
     if (!outfile.is_open()) {
         std::cerr << "Failed to open file: peak_energies.txt" << std::endl;
         return;

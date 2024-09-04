@@ -232,7 +232,7 @@ void Analyzer::saveResults() {
 	size_t lastSlashPos_h = histname.find_last_of("/");
 	std::string outputFileName_h = histname.substr(lastSlashPos_h + 1, -1);
 
-	std::string outputFilePath = "../../../out/" + outputFileName_f + "_" + outputFileName_h + ".txt";
+	std::string outputFilePath = "../out/" + outputFileName_f + "_" + outputFileName_h + ".txt";
 	
 	std::ofstream outFile(outputFilePath);
 	if (!outFile.is_open()) {

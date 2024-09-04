@@ -26,7 +26,7 @@ public:
     void saveResults();
     double getFitParameter(int index);
     double getFitParameterError(int index);
-    TCanvas* Analyzer::getCanvas() const;
+    TCanvas* getCanvas() const;
 
 private:
     std::string filename; /**< String containing the directory to the .root file */

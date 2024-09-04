@@ -3,7 +3,7 @@ set(CMAKE_CXX_STANDARD 17)
 project(Bachelor-thesis)
 
 # set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
-set(CMAKE_PREFIX_PATH "C:/installdir/cmake")
+set(CMAKE_PREFIX_PATH "home/root-install/cmake")
 
 find_package(ROOT 6.16 CONFIG REQUIRED)
 
@@ -21,7 +21,12 @@ add_executable(Bachelor-thesis main.cpp ${sources} ${headers})
 target_compile_features(Bachelor-thesis PUBLIC cxx_std_17)
 
 # add the -Zc:__cplusplus flag
-target_compile_options(Bachelor-thesis PRIVATE /Zc:__cplusplus)
+#target_compile_options(Bachelor-thesis PRIVATE /Zc:__cplusplus)
+if(MSVC)
+    target_compile_options(Bachelor-thesis PRIVATE /Zc:__cplusplus)
+else(CMAKE_CXX_COMPILER_ID STREQUAL "GNU" OR CMAKE_CXX_COMPILER_ID STREQUAL "Clang")
+    target_compile_options(Bachelor-thesis PRIVATE -Wall -Wextra -pedantic)
+endif()
 
 # link ROOT libraries to executable
 target_link_libraries(Bachelor-thesis PUBLIC ROOT::Core ROOT::Graf ROOT::Hist ROOT::Tree ROOT::Gpad ROOT::RIO)
