@@ -53,6 +53,11 @@ Analyzer::Analyzer(const std::string& filename, const std::string& histname, Fun
 	{
 		func = new TF1("f1", "[0]*x + [1] + gausn(2)", chn_lower_bound, chn_upper_bound);
 	}
+	else if (ftype == F5)
+	{
+		func = new TF1("f1", "[0]*x + [1] + gausn(2) + gausn(5)", chn_lower_bound, chn_upper_bound);
+	}
+
 }
 
 /*
@@ -93,12 +98,13 @@ void Analyzer::setFitParameters(double p0, double p1, double p2, double p3, doub
 		func->SetParName(4, "Standard Deviation");
 		break;
 	case F2:
+	case F5:
 		func->SetParName(0, "Slope");
 		func->SetParName(1, "Y-intercept");
-		func->SetParName(2, "Normalization 1");
+		func->SetParName(2, "Normalization 1 (peak area if F5");
 		func->SetParName(3, "Mean value 1");
 		func->SetParName(4, "Standard Deviation 1");
-		func->SetParName(5, "Normalization 2");
+		func->SetParName(5, "Normalization 2 (peak area if F5");
 		func->SetParName(6, "Mean value 2");
 		func->SetParName(7, "Standard Deviation 2");
 		func->SetParameter(5, p5);
@@ -130,31 +136,58 @@ void Analyzer::setFitParameters(double p0, double p1, double p2, double p3, doub
 }
 
 /**
-* @brief Calculates efficiency with the peak area method
+* @brief Calculates efficiency with the peak area method, only works for F1 and F4
 * 
 * @param m How many more bins to consider when computing the efficiency (lowers uncertainty)
 * 
 */
-void Analyzer::efficiency(int m) {
-	double integral = histogram->Integral(histogram->FindBin(chn_lower_bound), histogram->FindBin(chn_upper_bound));
+void Analyzer::trapefficiency(int m) {
+	if (ftype == F1 || ftype == F4) {
+		double integral = histogram->Integral(histogram->FindBin(chn_lower_bound), histogram->FindBin(chn_upper_bound));
+
+		double area = (histogram->GetBinContent(histogram->FindBin(chn_lower_bound) - 1 - m) + histogram->GetBinContent(histogram->FindBin(chn_upper_bound) + 1 + m)) * (chn_upper_bound - chn_lower_bound) / 2;
+
+		//double effic = (integral - area) / (activity*livetime);
+
+		double err_peak = (std::sqrt(integral + area * (1 + (chn_upper_bound - chn_lower_bound) / (2 * m))));
+
+		//double err_effic = std::sqrt(err_peak*err_peak + err_activity*err_activity + err_livetime*err_livetime);
+
+		//what were these for???
+		//effic = eff;
+		//err_effic = std_dev;
+
+		std::cout << "\n\n\n" << std::endl;
+		std::cout << "=====================================================================" << std::endl;
+		std::cout << "Peak area (N counts):                     " << (integral - area) << "   +/-   " << err_peak << std::endl;
+		//std::cout << "Efficiency:                     " << eff << "   +/-   " << std_dev << std::endl;
+	}
+	else {
+		std::cout << "\n\n" << std::endl;
+		std::cout << "Couldn't calculate efficiency with the peak area method, the function type is not F1 or F4." << std::endl;
+		std::cout << "\n\n\n\n" << std::endl;
+	}
+}
+
+/**
+ * @brief Calculates efficiency with the peak area method, only works for F4 and F5
+ */
+void Analyzer::normefficiency() {
 	
-	double area = (histogram->GetBinContent(histogram->FindBin(chn_lower_bound) - 1 - m) + histogram->GetBinContent(histogram->FindBin(chn_upper_bound) + 1 + m)) * (chn_upper_bound - chn_lower_bound) / 2;
-	
-	//double effic = (integral - area) / (activity*livetime);
-
-	double err_peak = (std::sqrt(integral + area * (1 + (chn_upper_bound - chn_lower_bound) / (2 * m))));
-
-	//double err_effic = std::sqrt(err_peak*err_peak + err_activity*err_activity + err_livetime*err_livetime);
-
-	//what were these for???
-	//effic = eff;
-	//err_effic = std_dev;
-
-	std::cout << "                                                                     " << std::endl;
-	std::cout << "                                                                     " << std::endl;
-	std::cout << "=====================================================================" << std::endl;
-	std::cout << "Peak area (N counts):                     " << (integral - area) << "   +/-   " << err_peak << std::endl;
-	//std::cout << "Efficiency:                     " << eff << "   +/-   " << std_dev << std::endl;
+	double eff1 = func->GetParameter(2) / (activity * livetime);
+    //EFFICIENCY ERROR
+	if (ftype == F4) {
+		std::cout << "\n\n\n" << std::endl;
+		std::cout << "=====================================================================" << std::endl;
+		std::cout << "Efficiency:                     " << eff1 << "   +/-   " << std::endl;
+	}
+	if (ftype == F5) {
+		double eff2 = func->GetParameter(5);
+		std::cout << "\n\n\n" << std::endl;
+		std::cout << "=====================================================================" << std::endl;
+		std::cout << "Efficiency 1:                     " << eff1 << "   +/-   " << std::endl;
+		std::cout << "Efficiency 2:                     " << eff2 << "   +/-   " << std::endl;
+	}
 }
 
 /**
@@ -217,7 +250,7 @@ void Analyzer::saveResults() {
 
 	outFile << "Fit p-value: " << func->GetProb() << "\n";
 
-	outFile << "Efficiency value: " << effic << " +- " << err_effic << "\n";
+	//outFile << "Efficiency value: " << effic << " +- " << err_effic << "\n";
 
 	outFile << "******************************************\n\n\n\n\n\n\n\n";
 	outFile.close();

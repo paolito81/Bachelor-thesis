@@ -13,14 +13,15 @@
 */
 class Analyzer {
 public:
-    //F1 single gaus, F2 double gaus, F3 triple gaus (unused), F4 single gausn
-    enum FuncType {F1, F2, F3, F4};
+    //F1 single gaus, F2 double gaus, F3 triple gaus (unused), F4 single gausn, F5 double gausn
+    enum FuncType {F1, F2, F3, F4, F5};
 
     Analyzer(const std::string& filename, const std::string& histname, FuncType ftype);
     ~Analyzer();
     void setFitParameters(double p0, double p1, double p2, double p3, double p4, double p5, double p6, double p7, double p8, double p9, double p10);
     void setUpperLowerBound(int chn_low, int chn_up);
-    void efficiency(int m);
+    void trapefficiency(int m);
+    void normefficiency();
     void plot();
     void saveResults();
     double getFitParameter(int index);
@@ -39,8 +40,6 @@ private:
     int chn_lower_bound, chn_upper_bound; /**< Upper and lower bound for fitting and peak area */
     double livetime, err_livetime; /** The time that the counting experiment lasted with error*/
     double activity, err_activity; /** The source's activity, with error */
-    double effic, err_effic; /** The detector efficiency, with error */
-
 };
 
 #endif // ANALYZER_H

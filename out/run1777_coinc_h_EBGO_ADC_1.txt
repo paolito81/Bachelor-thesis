@@ -1,0 +1,20 @@
+******************************************
+Fit Results:
+
+Slope : -0.0902207 +/- 0.0023294
+Y-intercept : 134.804 +/- 2.81159
+Normalization 1 (peak area if F5 : 44716.8 +/- 683.799
+Mean value 1 : 1008.6 +/- 0.852108
+Standard Deviation 1 : 51.2737 +/- 0.640184
+Normalization 2 (peak area if F5 : 41279.1 +/- 650.356
+Mean value 2 : 1146.91 +/- 0.97405
+Standard Deviation 2 : 52.9246 +/- 0.648576
+Fit p-value: 0.766281
+******************************************
+
+
+
+
+
+
+
