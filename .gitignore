@@ -10,5 +10,13 @@ compile_commands.json
 CTestTestfile.cmake
 _deps
 build/
-root files/
+root files/run1770_coinc.root
+root files/run1771_coinc.root
+root files/run1772_coinc.root
+root files/run1773_coinc.root
+root files/run1774_coinc.root
+root files/run1778_coinc.root
+root files/run1779_coinc.root
+root files/run1780_coinc.root
+root files/run1780_coinc.root
 .vs/
