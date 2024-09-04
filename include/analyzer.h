@@ -14,7 +14,7 @@
 class Analyzer {
 public:
 
-    enum FuncType {F1, F2, F3};
+    enum FuncType {F1, F2, F3, F4};
 
     Analyzer(const std::string& filename, const std::string& histname, FuncType ftype);
     ~Analyzer();

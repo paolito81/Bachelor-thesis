@@ -3,7 +3,7 @@ Fit Results:
 
 Slope : -0.0114436 +/- 0.00134081
 Y-intercept : 27.3849 +/- 2.86517
-Normalization : 29.6031 +/- 0.582962
+Normalization (peak area if F4) : 29.6031 +/- 0.582962
 Mean value : 2109.55 +/- 1.54128
 Standard Deviation : 69.9894 +/- 1.77537
 Fit p-value: 0.0244818
