@@ -7,7 +7,7 @@ Normalization (peak area if F4) : 208270 +/- 896.006
 Mean value : 523.497 +/- 0.128299
 Standard Deviation : 39.5195 +/- 0.149262
 Fit p-value: 0.748737
-Efficiency value: 0.672977 +- 0.00189498
+Efficiency value: -9.25596e+61 +- -9.25596e+61
 ******************************************
 
 

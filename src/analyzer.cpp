@@ -7,6 +7,7 @@
 #include <iostream>
 #include "utils.h"
 #include <fstream>
+#include <cmath>
 
 /**
 * @brief The constructor for the Analyzer object
@@ -74,19 +75,24 @@ Analyzer::~Analyzer() {
 * @param p4 Gaussian standard deviation
 */
 void Analyzer::setFitParameters(double p0, double p1, double p2, double p3, double p4, double p5, double p6, double p7, double p8, double p9, double p10) {
-	if (ftype == F1 || ftype == F4) {
+	
+	func->SetParameter(0, p0);
+	func->SetParameter(1, p1);
+	func->SetParameter(2, p2);
+	func->SetParameter(3, p3);
+	func->SetParameter(4, p4);
+
+	switch (ftype)
+	{
+	case F1:
+	case F4:
 		func->SetParName(0, "Slope");
 		func->SetParName(1, "Y-intercept");
 		func->SetParName(2, "Normalization (peak area if F4)");
 		func->SetParName(3, "Mean value");
 		func->SetParName(4, "Standard Deviation");
-		func->SetParameter(0, p0);
-		func->SetParameter(1, p1);
-		func->SetParameter(2, p2);
-		func->SetParameter(3, p3);
-		func->SetParameter(4, p4);
-	}
-	else if (ftype == F2) {
+		break;
+	case F2:
 		func->SetParName(0, "Slope");
 		func->SetParName(1, "Y-intercept");
 		func->SetParName(2, "Normalization 1");
@@ -95,17 +101,11 @@ void Analyzer::setFitParameters(double p0, double p1, double p2, double p3, doub
 		func->SetParName(5, "Normalization 2");
 		func->SetParName(6, "Mean value 2");
 		func->SetParName(7, "Standard Deviation 2");
-		func->SetParameter(0, p0);
-		func->SetParameter(1, p1);
-		func->SetParameter(2, p2);
-		func->SetParameter(3, p3);
-		func->SetParameter(4, p4);
 		func->SetParameter(5, p5);
 		func->SetParameter(6, p6);
 		func->SetParameter(7, p7);
-	}
-	else if (ftype == F3) {
-		func->SetParName(0, "Slope");
+		break;
+	case F3:
 		func->SetParName(1, "Y-intercept");
 		func->SetParName(2, "Normalization 1");
 		func->SetParName(3, "Mean value 1");
@@ -116,19 +116,17 @@ void Analyzer::setFitParameters(double p0, double p1, double p2, double p3, doub
 		func->SetParName(8, "Normalization 3");
 		func->SetParName(9, "Mean value 3");
 		func->SetParName(10, "Standard Deviation 3");
-		func->SetParameter(0, p0);
-		func->SetParameter(1, p1);
-		func->SetParameter(2, p2);
-		func->SetParameter(3, p3);
-		func->SetParameter(4, p4);
 		func->SetParameter(5, p5);
 		func->SetParameter(6, p6);
 		func->SetParameter(7, p7);
 		func->SetParameter(8, p8);
 		func->SetParameter(9, p9);
 		func->SetParameter(10, p10);
+		break;
+	default:
+		std::cout << "Invalid function type!" << std::endl;
+		break;
 	}
-	
 }
 
 /**
@@ -142,14 +140,15 @@ void Analyzer::efficiency(int m) {
 	
 	double area = (histogram->GetBinContent(histogram->FindBin(chn_lower_bound) - 1 - m) + histogram->GetBinContent(histogram->FindBin(chn_upper_bound) + 1 + m)) * (chn_upper_bound - chn_lower_bound) / 2;
 	
-	double eff = (integral - area) / (histogram->GetEntries());
+	//double effic = (integral - area) / (activity*livetime);
 
 	double err_peak = (std::sqrt(integral + area * (1 + (chn_upper_bound - chn_lower_bound) / (2 * m))));
 
-	double std_dev = err_peak / (histogram->GetEntries());
+	//double err_effic = std::sqrt(err_peak*err_peak + err_activity*err_activity + err_livetime*err_livetime);
 
-	effic = eff;
-	err_effic = std_dev;
+	//what were these for???
+	//effic = eff;
+	//err_effic = std_dev;
 
 	std::cout << "                                                                     " << std::endl;
 	std::cout << "                                                                     " << std::endl;

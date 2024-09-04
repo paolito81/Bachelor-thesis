@@ -13,7 +13,7 @@
 */
 class Analyzer {
 public:
-
+    //F1 single gaus, F2 double gaus, F3 triple gaus (unused), F4 single gausn
     enum FuncType {F1, F2, F3, F4};
 
     Analyzer(const std::string& filename, const std::string& histname, FuncType ftype);
@@ -39,6 +39,8 @@ private:
     FuncType ftype; /**< Function type for fitting (gaussian or double gaussian) */
     double p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10; /**< Fit parameters */
     int chn_lower_bound, chn_upper_bound; /**< Upper and lower bound for fitting and peak area */
+    double livetime, err_livetime;
+    double activity, err_activity;
     double effic, err_effic;
 
 };
