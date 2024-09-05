@@ -24,6 +24,7 @@ public:
     void normefficiency();
     void plot();
     void saveResults();
+    void pulser();
     double getFitParameter(int index);
     double getFitParameterError(int index);
     TCanvas* Analyzer::getCanvas() const;

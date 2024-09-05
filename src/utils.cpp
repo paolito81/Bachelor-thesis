@@ -155,6 +155,7 @@ void runAnalysis(const std::vector<Config>& configs, bool onlyOneElement) {
         analyzer.setFitParameters(config.p0, config.p1, config.p2, config.p3, config.p4, config.p5, config.p6, config.p7, config.p8, config.p9, config.p10);
         analyzer.plot();
         analyzer.trapefficiency(config.m);
+        analyzer.pulser();
         canvases.push_back(analyzer.getCanvas());
         analyzer.saveResults();
         configCount++;

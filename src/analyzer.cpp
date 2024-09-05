@@ -157,7 +157,7 @@ void Analyzer::trapefficiency(int m) {
 		//effic = eff;
 		//err_effic = std_dev;
 
-		std::cout << "\n\n\n" << std::endl;
+		std::cout << "\n\n" << std::endl;
 		std::cout << "=====================================================================" << std::endl;
 		std::cout << "Peak area (N counts):                     " << (integral - area) << "   +/-   " << err_peak << std::endl;
 		//std::cout << "Efficiency:                     " << eff << "   +/-   " << std_dev << std::endl;
@@ -165,7 +165,6 @@ void Analyzer::trapefficiency(int m) {
 	else {
 		std::cout << "\n\n" << std::endl;
 		std::cout << "Couldn't calculate efficiency with the peak area method, the function type is not F1 or F4." << std::endl;
-		std::cout << "\n\n\n\n" << std::endl;
 	}
 }
 
@@ -177,13 +176,13 @@ void Analyzer::normefficiency() {
 	double eff1 = func->GetParameter(2) / (activity * livetime);
     //EFFICIENCY ERROR
 	if (ftype == F4) {
-		std::cout << "\n\n\n" << std::endl;
+		std::cout << "\n\n" << std::endl;
 		std::cout << "=====================================================================" << std::endl;
 		std::cout << "Efficiency:                     " << eff1 << "   +/-   " << std::endl;
 	}
 	if (ftype == F5) {
 		double eff2 = func->GetParameter(5);
-		std::cout << "\n\n\n" << std::endl;
+		std::cout << "\n\n" << std::endl;
 		std::cout << "=====================================================================" << std::endl;
 		std::cout << "Efficiency 1:                     " << eff1 << "   +/-   " << std::endl;
 		std::cout << "Efficiency 2:                     " << eff2 << "   +/-   " << std::endl;
@@ -252,10 +251,11 @@ void Analyzer::saveResults() {
 
 	//outFile << "Efficiency value: " << effic << " +- " << err_effic << "\n";
 
-	outFile << "******************************************\n\n\n\n\n\n\n\n";
+	outFile << "******************************************";
 	outFile.close();
 
 	std::cout << "Results saved to " << outputFilePath << std::endl;
+	std::cout << "\n\n";
 }
 
 
@@ -265,4 +265,23 @@ double Analyzer::getFitParameter(int index) {
 
 double Analyzer::getFitParameterError(int index) {
 	return func->GetParError(index);
+}
+
+/**
+ * @brief Function to calculate the live time of the counting experiment  
+ */
+void Analyzer::pulser() {// pulser always falls around 4500, the coincidence is between 2600 and 3500
+	
+	std::string pulsername = "EnergyADC/h_EBGO_ADC_0";
+	TH1F* pulser = dynamic_cast<TH1F*>(inFile->Get(pulsername.c_str()));
+
+	double pulsercounts = pulser->Integral(pulser->FindBin(4400), pulser->FindBin(4600));
+
+	double histocounts = histogram->Integral(histogram->FindBin(2600), histogram->FindBin(3500));
+
+	livetime = 1 + histocounts / pulsercounts;
+
+	//std::cout << "=====================================================================" << std::endl;
+	std::cout << "Live time:                     " << livetime << "   +/-   " << std::endl;
+	std::cout << "\n\n";
 }
