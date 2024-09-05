@@ -14,7 +14,11 @@
 * 
 */
 Analyzer::Analyzer(const std::string& filename, const std::string& histname, FuncType ftype) :
-	filename(filename), histname(histname), inFile(nullptr), histogram(nullptr), func(nullptr), canvas(nullptr), ftype(ftype) {
+	filename(filename), histname(histname), inFile(nullptr), histogram(nullptr), func(nullptr), canvas(nullptr), ftype(ftype),
+	p0(0), p1(0), p2(0), p3(0), p4(0), p5(0), p6(0), p7(0), p8(0), p9(0), p10(0),
+	chn_lower_bound(0), chn_upper_bound(1),
+	livetime(0), err_livetime(0), activity(0), err_activity(0)
+{
 
 	inFile = new TFile(filename.c_str(), "read");
 
