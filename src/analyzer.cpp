@@ -262,11 +262,20 @@ void Analyzer::saveResults() {
 	std::cout << "\n\n";
 }
 
-
+/**
+ * @brief function to get fit parameter
+ * @param index the index to the fit parameter
+ * @return the fit parameter
+ */
 double Analyzer::getFitParameter(int index) {
 	return func->GetParameter(index);
 }
 
+/**
+ * @brief function to get fit parameter error
+ * @param index the index to the fit parameter
+ * @return the error to the fit parameter
+ */
 double Analyzer::getFitParameterError(int index) {
 	return func->GetParError(index);
 }

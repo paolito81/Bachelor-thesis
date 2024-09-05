@@ -15,7 +15,7 @@ struct Config {
 	//double livetime, err_livetime, activity, err_activity;
 	double p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10;
 
-	void printMeanValues(std::ofstream outfile, Analyzer analyzer);
+	void printMeanValues(std::ofstream outfile, Analyzer analyzer) const;
 };
 
 #endif // CONFIG_H

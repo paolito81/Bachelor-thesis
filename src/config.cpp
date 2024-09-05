@@ -10,7 +10,7 @@
 #include <fstream>
 #include <filesystem>
 
-void Config::printMeanValues(std::ofstream outfile, Analyzer analyzer) {
+void Config::printMeanValues(std::ofstream outfile, Analyzer analyzer) const {
     
     if (ftype == Analyzer::F1) {
         double p3 = analyzer.getFitParameter(3);
