@@ -5,6 +5,7 @@
 #include <string>
 #include <graphplotter.h>
 #include <TAxis.h>
+#include <fstream>
 
 /**
 * @brief The constructor for the GraphPlotter object
@@ -62,7 +63,7 @@ void GraphPlotter::plotAndFit(int index) {
     graph->Fit(func->GetName(), "R");
     std::cout << "P-value: " << func->GetProb() << std::endl;
 
-    std::string pdfName = "../../../out/plot" + std::to_string(index) + ".pdf";
+    std::string pdfName = "../../../out/canvases/plot" + std::to_string(index) + ".pdf";
 
     c1->Update();
     c1->SaveAs(pdfName.c_str());
@@ -88,7 +89,44 @@ void GraphPlotter::printResidues(int index) {
         std::cout << "============ RESIDUES =============\n";
         std::cout << "Residues for this plot: ";
         for (size_t i = 0; i < yValues.size(); ++i) {
-            std::cout << (func->Eval(xTemp[i]) - yValues[i]) << "\t";
+            double residue = (func->Eval(xTemp[i]) - yValues[i]);
+            std::cout << residue << "\t";
+            residues.push_back(residue);
         }
         std:: cout << "\n\n";
+}
+
+void GraphPlotter::saveResults(int index) {
+    
+    std::string outputFilePath = "../../../out/res/histogram_" + std::to_string(index) + ".txt";
+
+    std::ofstream outFile(outputFilePath);
+    if (!outFile.is_open()) {
+        std::cerr << "Unable to open output file: " << outputFilePath << std::endl;
+        return;
+    }
+
+    if (func) {
+        outFile << "******************************************\n";
+        outFile << "Fit Results:\n\n";
+        for (int i = 0; i < func->GetNpar(); ++i) {
+            outFile << func->GetParName(i) << " : " << func->GetParameter(i) << " +/- " << func->GetParError(i) << "\n";
+        }
+    }
+
+    outFile << "Fit p-value: " << func->GetProb() << "\n";
+
+    outFile << "Residues: [\t";
+    for (size_t i = index * 4; i < residues.size(); ++i) {
+        outFile << residues[i] << "\t";
+    }
+    outFile << "]\n";
+
+    //outFile << "Efficiency value: " << effic << " +- " << err_effic << "\n";
+
+    outFile << "******************************************";
+    outFile.close();
+
+    std::cout << "Results saved to " << outputFilePath << std::endl;
+    std::cout << "\n\n";
 }

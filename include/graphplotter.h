@@ -14,12 +14,14 @@ public:
     void printResidues(int index);
     void addData(const std::vector<double>& xValues, const std::vector<double>& errxValues);
     void plotAndFit(int index);
+    void saveResults(int index);
 
 private:
     std::vector<double> yValues;
     int elementsPerVector;
     std::vector<std::vector<double>> sep_xValues;
     std::vector<std::vector<double>> sep_errxValues;
+    std::vector<double> residues;
     TF1* func;
 };
 

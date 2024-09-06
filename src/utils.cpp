@@ -170,6 +170,7 @@ void runAnalysis(const std::vector<Config>& configs, bool onlyOneElement) {
         for (int i = 0; i < configCount / analysisPerFile; ++i) {
             plotter.plotAndFit(i);
             plotter.printResidues(i);
+            plotter.saveResults(i);
         }
     }
 
