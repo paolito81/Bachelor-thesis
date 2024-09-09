@@ -201,7 +201,7 @@ double getHowManyYears(const std::string& date) {
     auto duration = std::chrono::duration_cast<std::chrono::seconds>(current_time - start_time);
     double years_passed = duration.count() / (365.25*60*60*24);
 
-    std::cout << "Years passed since 25/07/2016: " << years_passed << " years." << std::endl;
+    std::cout << "Years passed since " << date << ": " << years_passed << " years." << std::endl;
 
     return years_passed;
 
