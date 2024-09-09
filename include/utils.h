@@ -11,3 +11,4 @@ double trap_area(TH1F* histogram, int chn_1, int chn_2, int m);
 double var_peak(double area, double trap, int n, int m);
 
 void runAnalysis(const std::vector<Config>& configs, bool onlyOneElement);
+double getHowManyYears(const std::string& date);

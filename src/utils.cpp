@@ -10,6 +10,9 @@
 #include <config.h>
 #include <TGraphErrors.h>
 #include <graphplotter.h>
+#include <chrono>
+#include <iomanip>
+#include <sstream>
 
 const std::filesystem::path welcomeFilePath{ "../../../welcome.txt" };
 
@@ -153,7 +156,8 @@ void runAnalysis(const std::vector<Config>& configs, bool onlyOneElement) {
         Analyzer analyzer(config.filename, config.histname, config.ftype);
         analyzer.setUpperLowerBound(config.chn_lower_bound, config.chn_upper_bound);
         analyzer.setFitParameters(config.p0, config.p1, config.p2, config.p3, config.p4, config.p5, config.p6, config.p7, config.p8, config.p9, config.p10);
-        analyzer.setActivity(config.activity, config.err_activity);
+        analyzer.setActivity();
+        analyzer.printActivity();
         analyzer.plot();
         analyzer.pulser();
         analyzer.trapefficiency(config.m);
@@ -180,3 +184,25 @@ void runAnalysis(const std::vector<Config>& configs, bool onlyOneElement) {
 
 }
 
+double getHowManyYears(const std::string& date) {
+    std::tm start_date = {};
+    std::istringstream ss(date);
+    ss >> std::get_time(&start_date, "%d/%m/%Y");
+
+    if (ss.fail()) {
+        std::cerr << "Failed to parse date!" << std::endl;
+        return 1;
+    }
+
+    auto start_time = std::chrono::system_clock::from_time_t(std::mktime(&start_date));
+
+    auto current_time = std::chrono::system_clock::now();
+
+    auto duration = std::chrono::duration_cast<std::chrono::seconds>(current_time - start_time);
+    double years_passed = duration.count() / (365.25*60*60*24);
+
+    std::cout << "Years passed since 25/07/2016: " << years_passed << " years." << std::endl;
+
+    return years_passed;
+
+}

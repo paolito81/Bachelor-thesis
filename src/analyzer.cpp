@@ -299,7 +299,24 @@ void Analyzer::pulser() {// pulser always falls around 4500, the coincidence is 
 	std::cout << "\n\n";
 }
 
-void Analyzer::setActivity(double act, double err_act) {
-	activity = act;
-	err_activity = err_act;
+void Analyzer::setActivity() {
+	
+	switch (ftype)
+	{
+	case F1:
+	case F4:
+		activity = 6460 * exp(-getHowManyYears("25/07/2016") / 30.05);
+		err_activity = 70;
+		break;
+	case F2:
+	case F5:
+		activity = 9010 * exp(-getHowManyYears("01/07/2016") / 5.27);
+	}
+
+	
+	
+}
+
+void Analyzer::printActivity() {
+	std::cout << "The activity is: " << activity << " Bq" << std::endl;
 }
