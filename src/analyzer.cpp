@@ -151,11 +151,11 @@ void Analyzer::trapefficiency(int m) {
 
 		double area = (histogram->GetBinContent(histogram->FindBin(chn_lower_bound) - 1 - m) + histogram->GetBinContent(histogram->FindBin(chn_upper_bound) + 1 + m)) * (chn_upper_bound - chn_lower_bound) / 2;
 
-		//double effic = (integral - area) / (activity*livetime);
+		double effic = (integral - area) / (activity*livetime);
 
 		double err_peak = (std::sqrt(integral + area * (1 + (chn_upper_bound - chn_lower_bound) / (2 * m))));
 
-		//double err_effic = std::sqrt(err_peak*err_peak + err_activity*err_activity + err_livetime*err_livetime);
+		double err_effic = std::sqrt(err_peak*err_peak + err_activity*err_activity + err_livetime*err_livetime);
 
 		//what were these for???
 		//effic = eff;
@@ -164,7 +164,7 @@ void Analyzer::trapefficiency(int m) {
 		std::cout << "\n\n" << std::endl;
 		std::cout << "=====================================================================" << std::endl;
 		std::cout << "Peak area (N counts):                     " << (integral - area) << "   +/-   " << err_peak << std::endl;
-		//std::cout << "Efficiency:                     " << eff << "   +/-   " << std_dev << std::endl;
+		std::cout << "Efficiency (trap):                     " << effic << "   +/-   " << err_effic << std::endl;
 	}
 	else {
 		std::cout << "\n\n" << std::endl;
@@ -182,14 +182,14 @@ void Analyzer::normefficiency() {
 	if (ftype == F4) {
 		std::cout << "\n\n" << std::endl;
 		std::cout << "=====================================================================" << std::endl;
-		std::cout << "Efficiency:                     " << eff1 << "   +/-   " << std::endl;
+		std::cout << "Efficiency (norm):                     " << eff1 << "   +/-   " << std::endl;
 	}
 	if (ftype == F5) {
 		double eff2 = func->GetParameter(5);
 		std::cout << "\n\n" << std::endl;
 		std::cout << "=====================================================================" << std::endl;
-		std::cout << "Efficiency 1:                     " << eff1 << "   +/-   " << std::endl;
-		std::cout << "Efficiency 2:                     " << eff2 << "   +/-   " << std::endl;
+		std::cout << "Efficiency 1 (norm):                     " << eff1 << "   +/-   " << std::endl;
+		std::cout << "Efficiency 2 (norm):                     " << eff2 << "   +/-   " << std::endl;
 	}
 }
 
@@ -297,4 +297,9 @@ void Analyzer::pulser() {// pulser always falls around 4500, the coincidence is 
 	//std::cout << "=====================================================================" << std::endl;
 	std::cout << "Live time:                     " << livetime << "   +/-   " << std::endl;
 	std::cout << "\n\n";
+}
+
+void Analyzer::setActivity(double act, double err_act) {
+	activity = act;
+	err_activity = err_act;
 }

@@ -153,9 +153,11 @@ void runAnalysis(const std::vector<Config>& configs, bool onlyOneElement) {
         Analyzer analyzer(config.filename, config.histname, config.ftype);
         analyzer.setUpperLowerBound(config.chn_lower_bound, config.chn_upper_bound);
         analyzer.setFitParameters(config.p0, config.p1, config.p2, config.p3, config.p4, config.p5, config.p6, config.p7, config.p8, config.p9, config.p10);
+        analyzer.setActivity(config.activity, config.err_activity);
         analyzer.plot();
-        analyzer.trapefficiency(config.m);
         analyzer.pulser();
+        analyzer.trapefficiency(config.m);
+        analyzer.normefficiency();
         canvases.push_back(analyzer.getCanvas());
         analyzer.saveResults();
         configCount++;
