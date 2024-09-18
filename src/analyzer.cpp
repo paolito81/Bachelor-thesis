@@ -308,13 +308,13 @@ void Analyzer::pulser() {// pulser always falls around 4500, the coincidence is 
 		std::cerr << "Error: could not find TTree in the file!" << std::endl;
 	}
 
-	tree->Print();
+	//tree->Print();
 
 	short channel[8];
 	TH1F* h_pulser_energycoinc_BGO[6] = { nullptr };
 
 	for (int i = 0; i < 6; ++i) {
-		h_pulser_energycoinc_BGO[i] = new TH1F(Form("hist_%d", i), Form("Histogram %d", i), 100, -5, 5);
+		h_pulser_energycoinc_BGO[i] = new TH1F(Form("hist_%d", i), Form("Histogram %d", i), 4000, 0, 4000);
 	}
 
 	// Set the branch address to read the "Channel" branch into the `channel` array
@@ -353,6 +353,19 @@ void Analyzer::pulser() {// pulser always falls around 4500, the coincidence is 
 	canvas->Update();
 	canvas->SaveAs("../../../out/coinc hist/Histos.pdf");
 	//canvas->Close();
+
+	float coinc_event[6];
+
+	for (int i = 0; i < 6; ++i) {
+		coinc_event[i] = h_pulser_energycoinc_BGO[i]->Integral(h_pulser_energycoinc_BGO[i]->FindBin(2600), h_pulser_energycoinc_BGO[i]->FindBin(3500));
+		
+		std::cout << "Integral pulser and BGO" << i << ": " << coinc_event[i] << std::endl;
+	}
+
+	for (int i = 0; i < 6; ++i) {
+		double time_perc = coinc_event[i] / coinc_event[0];
+		std::cout << "Live time percetage for CHN" << i << ": " << time_perc << std::endl;
+	}
 
 
 
