@@ -314,7 +314,7 @@ void Analyzer::pulser() {// pulser always falls around 4500, the coincidence is 
 	TH1F* h_pulser_energycoinc_BGO[6] = { nullptr };
 
 	for (int i = 0; i < 6; ++i) {
-		h_pulser_energycoinc_BGO[i] = new TH1F(Form("hist_%d", i), Form("Histogram %d", i), 4000, 0, 4000);
+		h_pulser_energycoinc_BGO[i] = new TH1F(Form("hist_%d", i), Form("Histogram %d", i), 4000, 2700, 3500);
 	}
 
 	// Set the branch address to read the "Channel" branch into the `channel` array
@@ -322,22 +322,23 @@ void Analyzer::pulser() {// pulser always falls around 4500, the coincidence is 
 
 	for (int i = 0; i < tree->GetEntries(); ++i) {
 		tree->GetEntry(i);  // Get the current entry
-
-		if (channel[0] > 0 && channel[1] > 2600 && channel[1] < 3500)
+		
+		if (channel[0] > 0 && channel[1] > 2892 && channel[1] < 2915)
 			h_pulser_energycoinc_BGO[0]->Fill(channel[1]);
-		if (channel[0] > 0 && channel[2] > 2600 && channel[2] < 3500)
+		if (channel[0] > 0 && channel[2] > 2820 && channel[2] < 2844)
 			h_pulser_energycoinc_BGO[1]->Fill(channel[2]);
-		if (channel[0] > 0 && channel[3] > 2600 && channel[3] < 3500)
+		if (channel[0] > 0 && channel[3] > 2840 && channel[3] < 2870)
 			h_pulser_energycoinc_BGO[2]->Fill(channel[3]);
-		if (channel[0] > 0 && channel[4] > 2600 && channel[4] < 3500)
+		if (channel[0] > 0 && channel[4] > 2900 && channel[4] < 2925)
 			h_pulser_energycoinc_BGO[3]->Fill(channel[4]);
-		if (channel[0] > 0 && channel[5] > 2600 && channel[5] < 3500)
+		if (channel[0] > 0 && channel[5] > 2734 && channel[5] < 2758)
 			h_pulser_energycoinc_BGO[4]->Fill(channel[5]);
-		if (channel[0] > 0 && channel[6] > 2600 && channel[6] < 3500)
+		if (channel[0] > 0 && channel[6] > 2820 && channel[6] < 2842)
 			h_pulser_energycoinc_BGO[5]->Fill(channel[6]);
+
 	}
 
-	TCanvas* canvas = new TCanvas("histos", "Canvas with all histos", 1200, 800);
+	TCanvas* canvas = new TCanvas("histograms", "Canvas with all histograms", 1200, 800);
 	canvas->Divide(3, 2);
 
 	for (int i = 0; i < 6; ++i) {
