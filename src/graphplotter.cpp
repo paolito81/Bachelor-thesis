@@ -84,6 +84,7 @@ void GraphPlotter::setFitFunction(const std::string& funcName, const std::string
     func = new TF1(funcName.c_str(), formula.c_str(), xmin, xmax);
 }
 
+// add a plotting method
 void GraphPlotter::printResidues(int index) {
         std::vector<double>& xTemp = sep_xValues[index];
         std::cout << "============ RESIDUES =============\n";

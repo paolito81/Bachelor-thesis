@@ -184,6 +184,11 @@ void runAnalysis(const std::vector<Config>& configs, bool onlyOneElement) {
 
 }
 
+/**
+ * @brief A function to get how many years have passed since the source's manufacturing date
+ * @param date the source's manufacturing date
+ * @return years_passed How many years have passed
+ */
 double getHowManyYears(const std::string& date) {
     std::tm start_date = {};
     std::istringstream ss(date);
