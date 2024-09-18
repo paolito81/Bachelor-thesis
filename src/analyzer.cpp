@@ -8,6 +8,7 @@
 #include "utils.h"
 #include <fstream>
 #include <cmath>
+#include <TTree.h>
 
 /**
 * @brief The constructor for the Analyzer object
@@ -283,7 +284,7 @@ double Analyzer::getFitParameterError(int index) {
 /**
  * @brief Function to calculate the live time of the counting experiment  
  */
-void Analyzer::pulser() {// pulser always falls around 4500, the coincidence is between 2600 and 3500
+/*void Analyzer::pulser() {// pulser always falls around 4500, the coincidence is between 2600 and 3500
 	
 	std::string pulsername = "EnergyADC/h_EBGO_ADC_0";
 	TH1F* pulser = dynamic_cast<TH1F*>(inFile->Get(pulsername.c_str()));
@@ -297,6 +298,101 @@ void Analyzer::pulser() {// pulser always falls around 4500, the coincidence is 
 	//std::cout << "=====================================================================" << std::endl;
 	std::cout << "Live time:                     " << livetime << "   +/-   " << std::endl;
 	std::cout << "\n\n";
+}*/
+
+void Analyzer::pulser() {// pulser always falls around 4500, the coincidence is between 2600 and 3500
+
+	TTree* tree = dynamic_cast<TTree*>(inFile->Get("T_coinc"));
+
+	if (!tree) {
+		std::cerr << "Error: could not find TTree in the file!" << std::endl;
+	}
+
+	tree->Print();
+
+	short channel[8];
+	TH1F* h_pulser_energycoinc_BGO[6] = { nullptr };
+
+	for (int i = 0; i < 6; ++i) {
+		h_pulser_energycoinc_BGO[i] = new TH1F(Form("hist_%d", i), Form("Histogram %d", i), 100, -5, 5);
+	}
+
+	// Set the branch address to read the "Channel" branch into the `channel` array
+	tree->SetBranchAddress("Channel", channel);
+
+	for (int i = 0; i < tree->GetEntries(); ++i) {
+		tree->GetEntry(i);  // Get the current entry
+
+		if (channel[0] > 0 && channel[1] > 2600 && channel[1] < 3500)
+			h_pulser_energycoinc_BGO[0]->Fill(channel[1]);
+		if (channel[0] > 0 && channel[2] > 2600 && channel[2] < 3500)
+			h_pulser_energycoinc_BGO[1]->Fill(channel[2]);
+		if (channel[0] > 0 && channel[3] > 2600 && channel[3] < 3500)
+			h_pulser_energycoinc_BGO[2]->Fill(channel[3]);
+		if (channel[0] > 0 && channel[4] > 2600 && channel[4] < 3500)
+			h_pulser_energycoinc_BGO[3]->Fill(channel[4]);
+		if (channel[0] > 0 && channel[5] > 2600 && channel[5] < 3500)
+			h_pulser_energycoinc_BGO[4]->Fill(channel[5]);
+		if (channel[0] > 0 && channel[6] > 2600 && channel[6] < 3500)
+			h_pulser_energycoinc_BGO[5]->Fill(channel[6]);
+	}
+
+	TCanvas* canvas = new TCanvas("histos", "Canvas with all histos", 1200, 800);
+	canvas->Divide(3, 2);
+
+	for (int i = 0; i < 6; ++i) {
+		canvas->cd(i + 1);
+		if (h_pulser_energycoinc_BGO[i]) {
+			h_pulser_energycoinc_BGO[i]->Draw();
+		}
+		else {
+			std::cerr << "Histogram " << i << " is null" << std::endl;
+		}
+	}
+
+	canvas->Update();
+	canvas->SaveAs("../../../out/coinc hist/Histos.pdf");
+	//canvas->Close();
+
+
+
+	/*
+	short channel[8];
+	
+
+	tree->SetBranchAddress("Channel", channel);
+
+	for (int i = 0; i < tree->GetEntries(); ++i) {
+		tree->GetEntry(i);
+
+		if (channel[0] > 0 && channel[1] > 2600 && channel[1] < 3500)
+			h_pulser_energycoinc_BGO[1]->Fill(channel[1]);
+		if (channel[0] > 0 && channel[2] > 2600 && channel[2] < 3500)
+			h_pulser_energycoinc_BGO[2]->Fill(channel[2]);
+		if (channel[0] > 0 && channel[3] > 2600 && channel[3] < 3500)
+			h_pulser_energycoinc_BGO[3]->Fill(channel[3]);
+		if (channel[0] > 0 && channel[4] > 2600 && channel[4] < 3500)
+			h_pulser_energycoinc_BGO[4]->Fill(channel[4]);
+		if (channel[0] > 0 && channel[5] > 2600 && channel[5] < 3500)
+			h_pulser_energycoinc_BGO[5]->Fill(channel[5]);
+		if (channel[0] > 0 && channel[6] > 2600 && channel[6] < 3500)
+			h_pulser_energycoinc_BGO[6]->Fill(channel[6]);
+	}
+
+	float coinc_event[8];
+
+	for (int i = 0; i < 8; ++i) {
+		coinc_event[i] = 0;
+	}
+
+	for (int i = 1; i < 7; ++i) {
+		coinc_event[i] = h_pulser_energycoinc_BGO[i]->Integral(2600, 3500);
+
+		std::cout << "Integral pulser and BGO" << i << ": " << coinc_event[i] << std::endl;
+	}*/
+
+
+
 }
 
 void Analyzer::setActivity() {
