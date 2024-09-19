@@ -1,0 +1,21 @@
+******************************************
+Fit Results:
+
+Slope : -0.043443 +/- 0.0238946
+Y-intercept : 84.0343 +/- 25.9427
+Normalization 1 (peak area if F5 : 43067 +/- 1764.86
+Mean value 1 : 1041.09 +/- 1.47414
+Standard Deviation 1 : 54.2491 +/- 1.54701
+Normalization 2 (peak area if F5 : 40529.3 +/- 2048.91
+Mean value 2 : 1183.46 +/- 1.6009
+Standard Deviation 2 : 56.5823 +/- 1.96166
+Fit p-value: 0.902889
+
+Pulser integral: 1791
+Total time for measurements: 173 s
+Live time percentage: 0.975433
+
+Activity for the source today: 1893.38 Bq
+Efficiency value for first peak: 0.134792 +- 0
+Efficiency value for second peak: 0.126849 +- 0
+******************************************

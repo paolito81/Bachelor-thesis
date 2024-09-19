@@ -9,6 +9,7 @@
 #include <fstream>
 #include <cmath>
 #include <TTree.h>
+#include <TStyle.h>
 
 /**
 * @brief The constructor for the Analyzer object
@@ -192,7 +193,7 @@ void Analyzer::normefficiency() {
 		std::cout << "Efficiency (norm):                     " << efficiency1 << "   +/-   " << std::endl;
 	}
 	if (ftype == F5) {
-		efficiency2 = func->GetParameter(5);
+		efficiency2 = func->GetParameter(5) / (activity * total_time * time_perc);
 		std::cout << "\n\n" << std::endl;
 		std::cout << "=====================================================================" << std::endl;
 		std::cout << "Efficiency 1 (norm):                     " << efficiency1 << "   +/-   " << std::endl;
@@ -256,6 +257,7 @@ void Analyzer::saveResults() {
 	outFile << "Pulser integral: " << pulser_integral << "\n";
 	outFile << "Total time for measurements: " << total_time << " s" << "\n";
 	outFile << "Live time percentage: " << time_perc << "\n\n";
+	outFile << "Activity for the source today: " << activity << " Bq" << "\n";
 
 	if (ftype == F4) {
 		outFile << "Efficiency value: " << efficiency1 << " +- " << err_efficiency1 << "\n";
@@ -408,7 +410,11 @@ void Analyzer::pulser(int pulser_min, int pulser_max) {// pulser always falls ar
 	std::string name = histname + " coinc";
 	
 	short channel[8];
-	TH1F* h_pulser_energycoinc_BGO = new TH1F(name.c_str(), name.c_str(), 4000, pulser_min, pulser_max);
+	TH1F* h_pulser_energycoinc_BGO = new TH1F(name.c_str(), name.c_str(), (pulser_max - pulser_min), pulser_min, pulser_max);
+	gStyle->SetOptStat(0);
+	h_pulser_energycoinc_BGO->SetFillColor(kAzure - 9);
+	h_pulser_energycoinc_BGO->SetLineColor(kBlack);
+	h_pulser_energycoinc_BGO->SetLineWidth(2);
 
 	// Set the branch address to read the "Channel" branch into the `channel` array
 	tree->SetBranchAddress("Channel", channel);
@@ -421,6 +427,7 @@ void Analyzer::pulser(int pulser_min, int pulser_max) {// pulser always falls ar
 	}
 
 	TCanvas* canvas = new TCanvas(Form("histogram", histname), Form("Coinc. Histogram for", histname), 1200, 800);
+
 
 	if (h_pulser_energycoinc_BGO) {
 		h_pulser_energycoinc_BGO->Draw();

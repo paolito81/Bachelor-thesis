@@ -131,8 +131,8 @@ static void processFitParameters(const Config& config, Analyzer& analyzer, std::
 }
 
 /**
- *@brief  used to run analysis through configuration vector
- *config vector should be in the order in which class variables are declared
+ *@brief  used to run analysis through configuration vector.
+ *config vector should be in the order in which class variables are declared. The order of parameters is: filename, histname, funcType, chn_lower_bound, chn_upper_bound, m, pulser_min, pulser_max, p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10.
  * 
  *@param configs A vector of Config objects
  *@param onlyOneElement A bool that says whether the analyzed file contains Caesium, Cobalt, or both
