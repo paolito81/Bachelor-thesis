@@ -7,4 +7,10 @@ Normalization (peak area if F4) : 218585 +/- 1308.5
 Mean value : 562.025 +/- 0.138426
 Standard Deviation : 37.9513 +/- 0.175512
 Fit p-value: 0.329985
+
+Pulser integral: 4763
+Total time for measurements: 463 s
+Live time percentage: 0.985093
+
+Efficiency value: 0.097317 +- 0
 ******************************************

@@ -46,6 +46,7 @@ private:
     double activity, err_activity; /** The source's activity, with error */
     double pulser_integral; /** The integral over the pulser histogram, used for livetime calculation */
     double total_time, time_perc;
+    double efficiency1, efficiency2, err_efficiency1, err_efficiency2;
 };
 
 #endif // ANALYZER_H

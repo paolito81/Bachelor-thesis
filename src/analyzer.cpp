@@ -19,7 +19,8 @@ Analyzer::Analyzer(const std::string& filename, const std::string& histname, Fun
 	p0(0), p1(0), p2(0), p3(0), p4(0), p5(0), p6(0), p7(0), p8(0), p9(0), p10(0),
 	chn_lower_bound(0), chn_upper_bound(1),
 	err_livetime(0), activity(0), err_activity(0), total_time(0), time_perc(0),
-	pulser_integral(0)
+	pulser_integral(0),
+	efficiency1(0), efficiency2(0), err_efficiency1(0), err_efficiency2(0)
 {
 
 	inFile = new TFile(filename.c_str(), "read");
@@ -183,19 +184,19 @@ void Analyzer::trapefficiency(int m) {
  */
 void Analyzer::normefficiency() {
 	
-	double eff1 = func->GetParameter(2) / (activity * total_time * time_perc);
+	efficiency1 = func->GetParameter(2) / (activity * total_time * time_perc);
     //EFFICIENCY ERROR
 	if (ftype == F4) {
 		std::cout << "\n\n" << std::endl;
 		std::cout << "=====================================================================" << std::endl;
-		std::cout << "Efficiency (norm):                     " << eff1 << "   +/-   " << std::endl;
+		std::cout << "Efficiency (norm):                     " << efficiency1 << "   +/-   " << std::endl;
 	}
 	if (ftype == F5) {
-		double eff2 = func->GetParameter(5);
+		efficiency2 = func->GetParameter(5);
 		std::cout << "\n\n" << std::endl;
 		std::cout << "=====================================================================" << std::endl;
-		std::cout << "Efficiency 1 (norm):                     " << eff1 << "   +/-   " << std::endl;
-		std::cout << "Efficiency 2 (norm):                     " << eff2 << "   +/-   " << std::endl;
+		std::cout << "Efficiency 1 (norm):                     " << efficiency1 << "   +/-   " << std::endl;
+		std::cout << "Efficiency 2 (norm):                     " << efficiency2 << "   +/-   " << std::endl;
 	}
 }
 
@@ -251,9 +252,18 @@ void Analyzer::saveResults() {
 		}
 	}
 
-	outFile << "Fit p-value: " << func->GetProb() << "\n";
+	outFile << "Fit p-value: " << func->GetProb() << "\n\n";
+	outFile << "Pulser integral: " << pulser_integral << "\n";
+	outFile << "Total time for measurements: " << total_time << " s" << "\n";
+	outFile << "Live time percentage: " << time_perc << "\n\n";
 
-	//outFile << "Efficiency value: " << effic << " +- " << err_effic << "\n";
+	if (ftype == F4) {
+		outFile << "Efficiency value: " << efficiency1 << " +- " << err_efficiency1 << "\n";
+	}
+	if (ftype == F5) {
+		outFile << "Efficiency value for first peak: " << efficiency1 << " +- " << err_efficiency1 << "\n";
+		outFile << "Efficiency value for second peak: " << efficiency2 << " +- " << err_efficiency2 << "\n";
+	}
 
 	outFile << "******************************************";
 	outFile.close();
@@ -398,7 +408,7 @@ void Analyzer::pulser(int pulser_min, int pulser_max) {// pulser always falls ar
 	std::string name = histname + " coinc";
 	
 	short channel[8];
-	TH1F* h_pulser_energycoinc_BGO = new TH1F(name.c_str(), name.c_str(), 4000, pulser_min - 15, pulser_max + 15);
+	TH1F* h_pulser_energycoinc_BGO = new TH1F(name.c_str(), name.c_str(), 4000, pulser_min, pulser_max);
 
 	// Set the branch address to read the "Channel" branch into the `channel` array
 	tree->SetBranchAddress("Channel", channel);
@@ -432,6 +442,9 @@ void Analyzer::pulser(int pulser_min, int pulser_max) {// pulser always falls ar
 	std::cout << "Live time percetage for CHN" << index << ": " << time_perc << std::endl;
 }
 
+/**
+ * @brief A function to set the activity for the source, on this day
+ */
 void Analyzer::setActivity() {
 	
 	switch (ftype)
@@ -447,6 +460,9 @@ void Analyzer::setActivity() {
 	}
 }
 
+/**
+ * @brief A function to set the total time, the time for which measurements are taken 
+ */
 void Analyzer::setTotalTime() {
 	if (filename == "../../../root files/run1776_coinc.root") {
 		total_time = 463;
@@ -465,6 +481,9 @@ void Analyzer::setTotalTime() {
 	}
 }
 
+/**
+ * @brief A function to print the activity class member
+ */
 void Analyzer::printActivity() const {
 	std::cout << "The activity is: " << activity << " Bq" << std::endl;
 }
