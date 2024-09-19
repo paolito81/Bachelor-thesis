@@ -21,12 +21,13 @@ public:
     void setFitParameters(double p0, double p1, double p2, double p3, double p4, double p5, double p6, double p7, double p8, double p9, double p10);
     void setUpperLowerBound(int chn_low, int chn_up);
     void setActivity();
-    void printActivity();
+    void setTotalTime();
+    void printActivity() const;
     void trapefficiency(int m);
     void normefficiency();
     void plot();
     void saveResults();
-    void pulser();
+    void pulser(int pulser_min, int pulser_max);
     double getFitParameter(int index);
     double getFitParameterError(int index);
     TCanvas* getCanvas() const;
@@ -41,8 +42,10 @@ private:
     FuncType ftype; /**< Function type for fitting (gaussian or double gaussian) */
     double p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10; /**< Fit parameters */
     int chn_lower_bound, chn_upper_bound; /**< Upper and lower bound for fitting and peak area */
-    double livetime, err_livetime; /** The time that the counting experiment lasted with error*/
+    double err_livetime; /** The time that the counting experiment lasted with error*/
     double activity, err_activity; /** The source's activity, with error */
+    double pulser_integral; /** The integral over the pulser histogram, used for livetime calculation */
+    double total_time, time_perc;
 };
 
 #endif // ANALYZER_H

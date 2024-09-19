@@ -157,9 +157,10 @@ void runAnalysis(const std::vector<Config>& configs, bool onlyOneElement) {
         analyzer.setUpperLowerBound(config.chn_lower_bound, config.chn_upper_bound);
         analyzer.setFitParameters(config.p0, config.p1, config.p2, config.p3, config.p4, config.p5, config.p6, config.p7, config.p8, config.p9, config.p10);
         analyzer.setActivity();
+        analyzer.setTotalTime();
         analyzer.printActivity();
         analyzer.plot();
-        analyzer.pulser();
+        analyzer.pulser(config.pulser_min, config.pulser_max);
         analyzer.trapefficiency(config.m);
         analyzer.normefficiency();
         canvases.push_back(analyzer.getCanvas());
@@ -211,3 +212,30 @@ double getHowManyYears(const std::string& date) {
     return years_passed;
 
 }
+
+int extractLastNumber(const std::string& str) {
+    // Find the last underscore
+    size_t pos = str.find_last_of('_');
+
+    // Extract the substring after the last underscore and convert it to an integer
+    if (pos != std::string::npos) {
+        return std::stoi(str.substr(pos + 1));
+    }
+
+    // If no underscore is found or no number is present, return a default value
+    return -1;
+}
+
+std::string getOutputFilePath(std::string& folder, std::string& filename, std::string& histname) {
+    size_t lastSlashPos_f = filename.find_last_of("/");
+    size_t lastDotPos_f = filename.find_last_of(".");
+    std::string outputFileName_f = filename.substr(lastSlashPos_f + 1, lastDotPos_f - lastSlashPos_f - 1);
+
+    size_t lastSlashPos_h = histname.find_last_of("/");
+    std::string outputFileName_h = histname.substr(lastSlashPos_h + 1, -1);
+
+    std::string outputFilePath = "../../../" + folder + outputFileName_f + "_" + outputFileName_h;
+
+    return outputFilePath;
+}
+

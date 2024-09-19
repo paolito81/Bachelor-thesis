@@ -14,6 +14,7 @@ int main (int argc, char* argv[]) {
 
     display("welcome");
 
+    // The order of parameters is: filename, histname, funcType, chn_lower_bound, chn_upper_bound, m, pulser_min, pulser_max, p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10.
     std::vector<Config> configs1775 = {
         {"../../../root files/run1775_coinc.root", "EnergyADC/h_EBGO_ADC_1", Analyzer::F1, 460, 650, 40, -0.45, 471, 2300, 550, 40},
         {"../../../root files/run1775_coinc.root", "EnergyADC/h_EBGO_ADC_1", Analyzer::F2, 850, 1255, 40, -0.2, 471, 800, 1000, 40, 800, 1125, 60},
@@ -61,12 +62,12 @@ int main (int argc, char* argv[]) {
     };
 
     std::vector<Config> configs1776_F4 = {
-        {"../../../root files/run1776_coinc.root", "EnergyADC/h_EBGO_ADC_1", Analyzer::F4, 450, 650, 70, -0.5, 400, 0.009, 560, 40},
-        {"../../../root files/run1776_coinc.root", "EnergyADC/h_EBGO_ADC_2", Analyzer::F4, 450, 650, 70, -0.5, 400, 0.009, 560, 40},
-        {"../../../root files/run1776_coinc.root", "EnergyADC/h_EBGO_ADC_3", Analyzer::F4, 380, 585, 70, -0.5, 400, 0.01,  500, 50},
-        {"../../../root files/run1776_coinc.root", "EnergyADC/h_EBGO_ADC_4", Analyzer::F4, 410, 620, 70, -0.5, 400, 0.01,  520, 50},
-        {"../../../root files/run1776_coinc.root", "EnergyADC/h_EBGO_ADC_5", Analyzer::F4, 400, 630, 70, -0.5, 400, 0.01,  520, 60},
-        {"../../../root files/run1776_coinc.root", "EnergyADC/h_EBGO_ADC_6", Analyzer::F4, 450, 685, 70, -0.5, 400, 0.01,  590, 50},
+        {"../../../root files/run1776_coinc.root", "EnergyADC/h_EBGO_ADC_1", Analyzer::F4, 450, 650, 70, 2880, 2930, -0.5, 400, 0.009, 560, 40},
+        {"../../../root files/run1776_coinc.root", "EnergyADC/h_EBGO_ADC_2", Analyzer::F4, 450, 650, 70, 2800, 2850, -0.5, 400, 0.009, 560, 40},
+        {"../../../root files/run1776_coinc.root", "EnergyADC/h_EBGO_ADC_3", Analyzer::F4, 380, 585, 70, 2820, 2880, -0.5, 400, 0.01,  500, 50},
+        {"../../../root files/run1776_coinc.root", "EnergyADC/h_EBGO_ADC_4", Analyzer::F4, 410, 620, 70, 2890, 2930, -0.5, 400, 0.01,  520, 50},
+        {"../../../root files/run1776_coinc.root", "EnergyADC/h_EBGO_ADC_5", Analyzer::F4, 400, 630, 70, 2720, 2760, -0.5, 400, 0.01,  520, 60},
+        {"../../../root files/run1776_coinc.root", "EnergyADC/h_EBGO_ADC_6", Analyzer::F4, 450, 685, 70, 2810, 2850, -0.5, 400, 0.01,  590, 50},
     };
 
     std::vector<Config> configs1777_F5 = {
