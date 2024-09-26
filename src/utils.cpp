@@ -114,12 +114,12 @@ static void processFitParameters(const Config& config, Analyzer& analyzer, std::
     double p3 = analyzer.getFitParameter(3);
     double v3 = analyzer.getFitParameterError(3);
 
-    if (config.ftype == Analyzer::F1) {
+    if (config.ftype == Analyzer::F1 || config.ftype == Analyzer::F4) {
         yValues.push_back(p3);
         erryValues.push_back(v3);
         outfile << config.filename << "\t" << config.histname << "\t" << p3 << " +- " << v3 << "\t" << "-" << "\n";
     }
-    else if (config.ftype == Analyzer::F2) {
+    else if (config.ftype == Analyzer::F2 || config.ftype == Analyzer::F5) {
         double p6 = analyzer.getFitParameter(6);
         double v6 = analyzer.getFitParameterError(6);
         yValues.push_back(p3);

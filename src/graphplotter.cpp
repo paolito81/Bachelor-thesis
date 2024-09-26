@@ -63,7 +63,7 @@ void GraphPlotter::plotAndFit(int index) {
     graph->Fit(func->GetName(), "R");
     std::cout << "P-value: " << func->GetProb() << std::endl;
 
-    std::string pdfName = "../../../out/canvases/plot" + std::to_string(index) + ".pdf";
+    std::string pdfName = "../../../out/residues plots/plot" + std::to_string(index) + ".pdf";
 
     c1->Update();
     c1->SaveAs(pdfName.c_str());
@@ -99,7 +99,7 @@ void GraphPlotter::printResidues(int index) {
 
 void GraphPlotter::saveResults(int index) {
     
-    std::string outputFilePath = "../../../out/res/histogram_" + std::to_string(index) + ".txt";
+    std::string outputFilePath = "../../../out/residues/histogram_" + std::to_string(index) + ".txt";
 
     std::ofstream outFile(outputFilePath);
     if (!outFile.is_open()) {
