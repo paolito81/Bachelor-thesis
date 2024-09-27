@@ -3,15 +3,15 @@ Fit Results:
 
 Slope : -0.293269 +/- 0.0257414
 Y-intercept : 202.835 +/- 13.6207
-Normalization (peak area if F4) : 80335.1 +/- 859.566
-Mean value : 560.454 +/- 0.230956
-Standard Deviation : 38.3281 +/- 0.313157
+Normalization 1 : 80335.1 +/- 859.566
+Mean value 1 : 560.454 +/- 0.230956
+Standard Deviation 1 : 38.3281 +/- 0.313157
 Fit p-value: 0.840544
 
 Pulser integral: 1748
 Total time for measurements: 170 s
 Live time percentage: 0.978261
 
-Activity for the source today: 4921.38 Bq
-Efficiency value: 0.0981555 +- 0
+Activity for the source today: 4548.21 Bq
+Efficiency value for first peak: 0.106209 +- 0
 ******************************************

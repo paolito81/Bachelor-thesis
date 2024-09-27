@@ -13,6 +13,7 @@
 #include <chrono>
 #include <iomanip>
 #include <sstream>
+#include <regex>
 
 const std::filesystem::path welcomeFilePath{ "../../../welcome.txt" };
 
@@ -181,6 +182,7 @@ void runAnalysis(const std::vector<Config>& configs, bool onlyOneElement) {
         }
     }
 
+    createSpreadsheet();
     outfile.close();
 
 }
@@ -239,3 +241,101 @@ std::string getOutputFilePath(std::string& folder, std::string& filename, std::s
     return outputFilePath;
 }
 
+double extractValue(const std::string& line, const std::string& label) {
+    size_t pos = line.find(label);
+    if (pos != std::string::npos) {
+        std::stringstream ss(line.substr(pos + label.size()));
+        double value;
+        ss >> value;
+        return value;
+    }
+    return 0.0;
+}
+
+std::pair<double, double> extractValueWithUncertainty(const std::string& line, const std::string& label) {
+    size_t pos = line.find(label);
+    if (pos != std::string::npos) {
+        std::string valueStr = line.substr(pos + label.size());
+        std::regex valueRegex(R"(([-+]?[0-9]*\.?[0-9]+) \+/- ([-+]?[0-9]*\.?[0-9]+))");
+        std::smatch match;
+        if (std::regex_search(valueStr, match, valueRegex)) {
+            double value = std::stod(match[1].str());
+            double uncertainty = std::stod(match[2].str());
+            return { value, uncertainty };
+        }
+    }
+    return { 0.0, 0.0 };  // Return default if no match found
+}
+
+void processSpreadsheetFile(const std::string& inputFile, std::ofstream& csvFile) {
+    std::ifstream file(inputFile);
+    std::string line;
+
+    size_t lastSlash = inputFile.find_last_of("/\\");
+    std::string shortenedFileName = inputFile.substr(lastSlash + 1);
+
+    std::pair<double, double> slope, intercept, norm1, mean1, stddev1, norm2, mean2, stddev2;
+    double pValue = 0;
+    double pulserIntegral = 0, totalTime = 0, liveTimePercentage = 0, activity = 0, efficiency1 = 0, efficiency2 = 0;
+
+    if (file.is_open()) {
+        while (std::getline(file, line)) {
+            // Extract values and uncertainties based on labels
+            if (line.find("Slope") != std::string::npos) slope = extractValueWithUncertainty(line, "Slope : ");
+            else if (line.find("Y-intercept") != std::string::npos) intercept = extractValueWithUncertainty(line, "Y-intercept : ");
+            else if (line.find("Normalization 1") != std::string::npos) norm1 = extractValueWithUncertainty(line, "Normalization 1 : ");
+            else if (line.find("Mean value 1") != std::string::npos) mean1 = extractValueWithUncertainty(line, "Mean value 1 : ");
+            else if (line.find("Standard Deviation 1") != std::string::npos) stddev1 = extractValueWithUncertainty(line, "Standard Deviation 1 : ");
+            else if (line.find("Normalization 2") != std::string::npos) norm2 = extractValueWithUncertainty(line, "Normalization 2 : ");
+            else if (line.find("Mean value 2") != std::string::npos) mean2 = extractValueWithUncertainty(line, "Mean value 2 : ");
+            else if (line.find("Standard Deviation 2") != std::string::npos) stddev2 = extractValueWithUncertainty(line, "Standard Deviation 2 : ");
+            else if (line.find("Fit p-value") != std::string::npos) pValue = extractValue(line, "Fit p-value: ");  // Single value, no uncertainty
+            else if (line.find("Pulser integral") != std::string::npos) pulserIntegral = extractValue(line, "Pulser integral: ");  // Single value
+            else if (line.find("Total time for measurements") != std::string::npos) totalTime = extractValue(line, "Total time for measurements: ");
+            else if (line.find("Live time percentage") != std::string::npos) liveTimePercentage = extractValue(line, "Live time percentage: ");
+            else if (line.find("Activity for the source today") != std::string::npos) activity = extractValue(line, "Activity for the source today: ");
+            else if (line.find("Efficiency value for first peak") != std::string::npos) efficiency1 = extractValue(line, "Efficiency value for first peak: ");
+            else if (line.find("Efficiency value for second peak") != std::string::npos) efficiency2 = extractValue(line, "Efficiency value for second peak: ");
+        }
+        file.close();
+        // Write extracted data as a row in the CSV file, including uncertainties in separate columns
+        csvFile << shortenedFileName << "," << slope.first << "," << slope.second << ","  // Value and uncertainty
+            << intercept.first << "," << intercept.second << ","
+            << norm1.first << "," << norm1.second << ","
+            << mean1.first << "," << mean1.second << ","
+            << stddev1.first << "," << stddev1.second << ","
+            << norm2.first << "," << norm2.second << ","
+            << mean2.first << "," << mean2.second << ","
+            << stddev2.first << "," << stddev2.second << ","
+            << pValue << ","  // Single value
+            << pulserIntegral << "," << totalTime << "," << liveTimePercentage << ","
+            << activity << "," << efficiency1 << "," << efficiency2 << "\n";
+    }
+    
+}
+
+void createSpreadsheet() {
+    std::string big_results_filename = "../../../out/results_spreadsheet.csv";
+    std::ofstream csvFile(big_results_filename);
+
+    csvFile << "File Name,Slope,Y-intercept,Normalization 1,Mean 1,Standard Deviation 1,Normalization 2,"
+        << "Mean 2,Standard Deviation 2,Fit p-value,Pulser Integral,Total Time,Live Time Percentage,"
+        << "Activity,Efficiency 1,Efficiency 2\n";
+
+    std::vector<std::string> inputFiles = {
+        //"run1775_coinc_h_EBGO_ADC_1.txt", "run1775_coinc_h_EBGO_ADC_2.txt", "run1775_coinc_h_EBGO_ADC_3.txt", "run1775_coinc_h_EBGO_ADC_4.txt", "run1775_coinc_h_EBGO_ADC_5.txt", "run1775_coinc_h_EBGO_ADC_6.txt",
+        "../../../out/fit results/run1776_coinc_h_EBGO_ADC_1.txt", "../../../out/fit results/run1776_coinc_h_EBGO_ADC_2.txt", "../../../out/fit results/run1776_coinc_h_EBGO_ADC_3.txt", "../../../out/fit results/run1776_coinc_h_EBGO_ADC_4.txt", "../../../out/fit results/run1776_coinc_h_EBGO_ADC_5.txt", "../../../out/fit results/run1776_coinc_h_EBGO_ADC_6.txt",
+        "../../../out/fit results/run1777_coinc_h_EBGO_ADC_1.txt", "../../../out/fit results/run1777_coinc_h_EBGO_ADC_2.txt", "../../../out/fit results/run1777_coinc_h_EBGO_ADC_3.txt", "../../../out/fit results/run1777_coinc_h_EBGO_ADC_4.txt", "../../../out/fit results/run1777_coinc_h_EBGO_ADC_5.txt", "../../../out/fit results/run1777_coinc_h_EBGO_ADC_6.txt",
+        //"run1778_coinc_h_EBGO_ADC_1.txt",
+        "../../../out/fit results/run1779_coinc_h_EBGO_ADC_1.txt", "../../../out/fit results/run1779_coinc_h_EBGO_ADC_2.txt", "../../../out/fit results/run1779_coinc_h_EBGO_ADC_3.txt", "../../../out/fit results/run1779_coinc_h_EBGO_ADC_4.txt", "../../../out/fit results/run1779_coinc_h_EBGO_ADC_5.txt", "../../../out/fit results/run1779_coinc_h_EBGO_ADC_6.txt",
+        "../../../out/fit results/run1780_coinc_h_EBGO_ADC_1.txt", "../../../out/fit results/run1780_coinc_h_EBGO_ADC_2.txt", "../../../out/fit results/run1780_coinc_h_EBGO_ADC_3.txt", "../../../out/fit results/run1780_coinc_h_EBGO_ADC_4.txt", "../../../out/fit results/run1780_coinc_h_EBGO_ADC_5.txt", "../../../out/fit results/run1780_coinc_h_EBGO_ADC_6.txt",
+    };
+
+    for (const auto& file : inputFiles) {
+        processSpreadsheetFile(file, csvFile);
+    }
+
+    csvFile.close();
+    std::cout << "Spreadsheet CSV file generated: " << big_results_filename << std::endl;
+
+}

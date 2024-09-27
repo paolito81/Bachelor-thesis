@@ -14,3 +14,7 @@ void runAnalysis(const std::vector<Config>& configs, bool onlyOneElement);
 double getHowManyYears(const std::string& date);
 int extractLastNumber(const std::string& str);
 std::string getOutputFilePath(std::string& folder, std::string& filename, std::string& histname);
+std::pair<double, double> extractValueWithUncertainty(const std::string& line, const std::string& label);
+double extractValue(const std::string& line, const std::string& label);
+void processSpreadsheetFile(const std::string& inputFile, std::ofstream& csvFile);
+void createSpreadsheet();

@@ -105,18 +105,18 @@ void Analyzer::setFitParameters(double p0, double p1, double p2, double p3, doub
 	case F4:
 		func->SetParName(0, "Slope");
 		func->SetParName(1, "Y-intercept");
-		func->SetParName(2, "Normalization (peak area if F4)");
-		func->SetParName(3, "Mean value");
-		func->SetParName(4, "Standard Deviation");
+		func->SetParName(2, "Normalization 1");
+		func->SetParName(3, "Mean value 1");
+		func->SetParName(4, "Standard Deviation 1");
 		break;
 	case F2:
 	case F5:
 		func->SetParName(0, "Slope");
 		func->SetParName(1, "Y-intercept");
-		func->SetParName(2, "Normalization 1 (peak area if F5");
+		func->SetParName(2, "Normalization 1");
 		func->SetParName(3, "Mean value 1");
 		func->SetParName(4, "Standard Deviation 1");
-		func->SetParName(5, "Normalization 2 (peak area if F5");
+		func->SetParName(5, "Normalization 2");
 		func->SetParName(6, "Mean value 2");
 		func->SetParName(7, "Standard Deviation 2");
 		func->SetParameter(5, p5);
@@ -190,7 +190,7 @@ void Analyzer::normefficiency() {
 	if (ftype == F4) {
 		std::cout << "\n\n" << std::endl;
 		std::cout << "=====================================================================" << std::endl;
-		std::cout << "Efficiency (norm):                     " << efficiency1 << "   +/-   " << std::endl;
+		std::cout << "Efficiency 1 (norm):                     " << efficiency1 << "   +/-   " << std::endl;
 	}
 	if (ftype == F5) {
 		efficiency2 = func->GetParameter(5) / (activity * total_time * time_perc);
@@ -260,7 +260,7 @@ void Analyzer::saveResults() {
 	outFile << "Activity for the source today: " << activity << " Bq" << "\n";
 
 	if (ftype == F4) {
-		outFile << "Efficiency value: " << efficiency1 << " +- " << err_efficiency1 << "\n";
+		outFile << "Efficiency value for first peak: " << efficiency1 << " +- " << err_efficiency1 << "\n";
 	}
 	if (ftype == F5) {
 		outFile << "Efficiency value for first peak: " << efficiency1 << " +- " << err_efficiency1 << "\n";
@@ -458,12 +458,12 @@ void Analyzer::setActivity() {
 	{
 	case F1:
 	case F4:
-		activity = 6460 * exp(-getHowManyYears("25/07/2016") / 30.05);
+		activity = 0.85 * 6460 * exp(-getHowManyYears("25/07/2016") / (30.08/0.693));
 		err_activity = 70;
 		break;
 	case F2:
 	case F5:
-		activity = 9010 * exp(-getHowManyYears("01/07/2016") / 5.27);
+		activity = 9010 * exp(-getHowManyYears("01/07/2016") / (5.27/0.693));
 	}
 }
 
