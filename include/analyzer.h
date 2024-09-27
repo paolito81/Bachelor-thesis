@@ -42,11 +42,11 @@ private:
     FuncType ftype; /**< Function type for fitting (gaussian or double gaussian) */
     double p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10; /**< Fit parameters */
     int chn_lower_bound, chn_upper_bound; /**< Upper and lower bound for fitting and peak area */
-    double err_livetime; /** The time that the counting experiment lasted with error*/
     double activity, err_activity; /** The source's activity, with error */
     double pulser_integral; /** The integral over the pulser histogram, used for livetime calculation */
     double total_time, time_perc;
     double efficiency1, efficiency2, err_efficiency1, err_efficiency2;
+    double trap_efficiency, err_trap_efficiency;
 };
 
 #endif // ANALYZER_H

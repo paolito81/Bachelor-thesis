@@ -19,9 +19,9 @@ Analyzer::Analyzer(const std::string& filename, const std::string& histname, Fun
 	filename(filename), histname(histname), inFile(nullptr), histogram(nullptr), func(nullptr), canvas(nullptr), ftype(ftype),
 	p0(0), p1(0), p2(0), p3(0), p4(0), p5(0), p6(0), p7(0), p8(0), p9(0), p10(0),
 	chn_lower_bound(0), chn_upper_bound(1),
-	err_livetime(0), activity(0), err_activity(0), total_time(0), time_perc(0),
+	activity(0), err_activity(0), total_time(0), time_perc(0),
 	pulser_integral(0),
-	efficiency1(0), efficiency2(0), err_efficiency1(0), err_efficiency2(0)
+	efficiency1(0), efficiency2(0), err_efficiency1(0), err_efficiency2(0), trap_efficiency(0), err_trap_efficiency(0)
 {
 
 	inFile = new TFile(filename.c_str(), "read");
@@ -156,23 +156,19 @@ void Analyzer::setFitParameters(double p0, double p1, double p2, double p3, doub
 void Analyzer::trapefficiency(int m) {
 	if (ftype == F1 || ftype == F4) {
 		double integral = histogram->Integral(histogram->FindBin(chn_lower_bound), histogram->FindBin(chn_upper_bound));
-
 		double area = (histogram->GetBinContent(histogram->FindBin(chn_lower_bound) - 1 - m) + histogram->GetBinContent(histogram->FindBin(chn_upper_bound) + 1 + m)) * (chn_upper_bound - chn_lower_bound) / 2;
+		double peak = integral - area;
 
-		double effic = (integral - area) / (activity*total_time*time_perc);
+		trap_efficiency = peak / (activity*total_time*time_perc);
 
-		double err_peak = (std::sqrt(integral + area * (1 + (chn_upper_bound - chn_lower_bound) / (2 * m))));
+		double err_peak = (sqrt(integral + area * (1 + (chn_upper_bound - chn_lower_bound) / (2 * m))));
 
-		double err_effic = std::sqrt(err_peak*err_peak + err_activity*err_activity + err_livetime*err_livetime);
-
-		//what were these for???
-		//effic = eff;
-		//err_effic = std_dev;
+		err_trap_efficiency = trap_efficiency * sqrt((err_peak / peak)*(err_peak/peak) + (err_activity/activity)* (err_activity / activity)) / (total_time*time_perc);
 
 		std::cout << "\n\n" << std::endl;
 		std::cout << "=====================================================================" << std::endl;
-		std::cout << "Peak area (N counts):                     " << (integral - area) << "   +/-   " << err_peak << std::endl;
-		std::cout << "Efficiency (trap):                     " << effic << "   +/-   " << err_effic << std::endl;
+		std::cout << "Peak area (N counts):                     " << peak << "   +/-   " << err_peak << std::endl;
+		std::cout << "Efficiency (trap):                     " << trap_efficiency << "   +/-   " << err_trap_efficiency << std::endl;
 	}
 	else {
 		std::cout << "\n\n" << std::endl;
@@ -186,18 +182,21 @@ void Analyzer::trapefficiency(int m) {
 void Analyzer::normefficiency() {
 	
 	efficiency1 = func->GetParameter(2) / (activity * total_time * time_perc);
-    //EFFICIENCY ERROR
+	err_efficiency1 = efficiency1 * sqrt((func->GetParError(2) / func->GetParameter(2)) * (func->GetParError(2) / func->GetParameter(2)) + (err_activity / activity)*(err_activity / activity)) / (total_time * time_perc);
+	
 	if (ftype == F4) {
 		std::cout << "\n\n" << std::endl;
 		std::cout << "=====================================================================" << std::endl;
-		std::cout << "Efficiency 1 (norm):                     " << efficiency1 << "   +/-   " << std::endl;
+		std::cout << "Efficiency 1 (norm):                     " << efficiency1 << "   +/-   " << err_efficiency1 << std::endl;
 	}
 	if (ftype == F5) {
 		efficiency2 = func->GetParameter(5) / (activity * total_time * time_perc);
+		err_efficiency2 = efficiency2 * sqrt((func->GetParError(5) / func->GetParameter(5)) * (func->GetParError(5) / func->GetParameter(5)) + (err_activity / activity)*(err_activity / activity)) / (total_time * time_perc);
+
 		std::cout << "\n\n" << std::endl;
 		std::cout << "=====================================================================" << std::endl;
-		std::cout << "Efficiency 1 (norm):                     " << efficiency1 << "   +/-   " << std::endl;
-		std::cout << "Efficiency 2 (norm):                     " << efficiency2 << "   +/-   " << std::endl;
+		std::cout << "Efficiency 1 (norm):                     " << efficiency1 << "   +/-   " << err_efficiency1 << std::endl;
+		std::cout << "Efficiency 2 (norm):                     " << efficiency2 << "   +/-   " << err_efficiency2 <<  std::endl;
 	}
 }
 
@@ -260,11 +259,12 @@ void Analyzer::saveResults() {
 	outFile << "Activity for the source today: " << activity << " Bq" << "\n";
 
 	if (ftype == F4) {
-		outFile << "Efficiency value for first peak: " << efficiency1 << " +- " << err_efficiency1 << "\n";
+		outFile << "Efficiency value for first peak: " << efficiency1 << " +/- " << err_efficiency1 << "\n";
+		outFile << "Efficiency value with trap method: " << trap_efficiency << " +/- " << err_trap_efficiency << "\n";
 	}
 	if (ftype == F5) {
-		outFile << "Efficiency value for first peak: " << efficiency1 << " +- " << err_efficiency1 << "\n";
-		outFile << "Efficiency value for second peak: " << efficiency2 << " +- " << err_efficiency2 << "\n";
+		outFile << "Efficiency value for first peak: " << efficiency1 << " +/- " << err_efficiency1 << "\n";
+		outFile << "Efficiency value for second peak: " << efficiency2 << " +/- " << err_efficiency2 << "\n";
 	}
 
 	outFile << "******************************************";
@@ -291,107 +291,6 @@ double Analyzer::getFitParameter(int index) {
 double Analyzer::getFitParameterError(int index) {
 	return func->GetParError(index);
 }
-
-
-/*void Analyzer::pulser() {// pulser always falls around 4500, the coincidence is between 2600 and 3500
-	
-	std::string pulsername = "EnergyADC/h_EBGO_ADC_0";
-	TH1F* pulser = dynamic_cast<TH1F*>(inFile->Get(pulsername.c_str()));
-
-	double pulsercounts = pulser->Integral(pulser->FindBin(4400), pulser->FindBin(4600));
-
-	double histocounts = histogram->Integral(histogram->FindBin(2600), histogram->FindBin(3500));
-
-	livetime = 1 + histocounts / pulsercounts;
-
-	//std::cout << "=====================================================================" << std::endl;
-	std::cout << "Live time:                     " << livetime << "   +/-   " << std::endl;
-	std::cout << "\n\n";
-}*/
-/*
-void Analyzer::pulser() {// pulser always falls around 4500, the coincidence is between 2600 and 3500
-
-	TTree* tree = dynamic_cast<TTree*>(inFile->Get("T_coinc"));
-
-	if (!tree) {
-		std::cerr << "Error: could not find TTree in the file!" << std::endl;
-	}
-
-	//tree->Print();
-
-	short channel[8];
-	TH1F* h_pulser_energycoinc_BGO[7] = { nullptr };
-
-	for (int i = 0; i < 7; ++i) {
-		h_pulser_energycoinc_BGO[i] = new TH1F(Form("hist_%d", i), Form("Histogram %d", i), 4000, 2500, 5000);
-	}
-
-	// Set the branch address to read the "Channel" branch into the `channel` array
-	tree->SetBranchAddress("Channel", channel);
-
-	for (int i = 0; i < tree->GetEntries(); ++i) {
-		tree->GetEntry(i);  // Get the current entry
-		
-		if (channel[0] > 0 && channel[0] > 4000 && channel[0] < 5000)
-			h_pulser_energycoinc_BGO[0]->Fill(channel[0]);
-		if (channel[0] > 0 && channel[1] > 2880 && channel[1] < 2930)
-			h_pulser_energycoinc_BGO[1]->Fill(channel[1]);
-		if (channel[0] > 0 && channel[2] > 2800 && channel[2] < 2850)
-			h_pulser_energycoinc_BGO[2]->Fill(channel[2]);
-		if (channel[0] > 0 && channel[3] > 2820 && channel[3] < 2880)
-			h_pulser_energycoinc_BGO[3]->Fill(channel[3]);
-		if (channel[0] > 0 && channel[4] > 2890 && channel[4] < 2930)
-			h_pulser_energycoinc_BGO[4]->Fill(channel[4]);
-		if (channel[0] > 0 && channel[5] > 2720 && channel[5] < 2760)
-			h_pulser_energycoinc_BGO[5]->Fill(channel[5]);
-		if (channel[0] > 0 && channel[6] > 2810 && channel[6] < 2850)
-			h_pulser_energycoinc_BGO[6]->Fill(channel[6]);
-
-	}
-
-	TCanvas* canvas = new TCanvas("histograms", "Canvas with all histograms", 1200, 800);
-	canvas->Divide(3, 3);
-
-	for (int i = 0; i < 7; ++i) {
-		canvas->cd(i + 1);
-		
-		Double_t min = h_pulser_energycoinc_BGO[i]->GetXaxis()->GetXmin();
-		Double_t max = h_pulser_energycoinc_BGO[i]->GetXaxis()->GetXmax();
-
-		if (h_pulser_energycoinc_BGO[i]->GetEntries() > 0) {
-			min = h_pulser_energycoinc_BGO[i]->GetMinimum();
-			max = h_pulser_energycoinc_BGO[i]->GetMaximum();
-		}
-		
-		h_pulser_energycoinc_BGO[i]->GetXaxis()->SetRangeUser(min, max);
-
-		if (h_pulser_energycoinc_BGO[i]) {
-			h_pulser_energycoinc_BGO[i]->Draw();
-		}
-		else {
-			std::cerr << "Histogram " << i << " is null" << std::endl;
-		}
-	}
-
-	canvas->Update();
-	canvas->SaveAs("../../../out/coinc hist/Histos.pdf");
-	//canvas->Close();
-
-	float coinc_event[7];
-
-	coinc_event[0] = h_pulser_energycoinc_BGO[0]->Integral(h_pulser_energycoinc_BGO[0]->FindBin(4000), h_pulser_energycoinc_BGO[0]->FindBin(5000));
-	for (int i = 1; i < 7; ++i) {
-		coinc_event[i] = h_pulser_energycoinc_BGO[i]->Integral(h_pulser_energycoinc_BGO[i]->FindBin(2600), h_pulser_energycoinc_BGO[i]->FindBin(3500));
-		
-		std::cout << "Integral pulser for BGO" << i << ": " << coinc_event[i] << std::endl;
-	}
-
-	for (int i = 0; i < 7; ++i) {
-		double time_perc = coinc_event[i] / coinc_event[0];
-		std::cout << "Live time percetage for CHN" << i << ": " << time_perc << std::endl;
-	}
-
-}*/
 
 /**
  * @brief Function to calculate the live time percentage of the counting experiment
@@ -459,11 +358,12 @@ void Analyzer::setActivity() {
 	case F1:
 	case F4:
 		activity = 0.85 * 6460 * exp(-getHowManyYears("25/07/2016") / (30.08/0.693));
-		err_activity = 70;
+		err_activity = 0.85 * 70 * exp(-getHowManyYears("25/07/2016") / (30.08 / 0.693));
 		break;
 	case F2:
 	case F5:
 		activity = 9010 * exp(-getHowManyYears("01/07/2016") / (5.27/0.693));
+		err_activity = 70 * exp(-getHowManyYears("01/07/2016") / (5.27 / 0.693));
 	}
 }
 

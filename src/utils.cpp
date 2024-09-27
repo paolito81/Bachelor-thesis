@@ -215,6 +215,11 @@ double getHowManyYears(const std::string& date) {
 
 }
 
+/**
+ * @brief Function to get the last number from the histogram directory (used for indexing)
+ * @param str The directory (or string)
+ * @return the last number in the string
+ */
 int extractLastNumber(const std::string& str) {
     // Find the last underscore
     size_t pos = str.find_last_of('_');
@@ -228,6 +233,13 @@ int extractLastNumber(const std::string& str) {
     return -1;
 }
 
+/**
+ * @brief Function to get the output file directory
+ * @param folder The folder in which the file goes
+ * @param filename the file name
+ * @param histname the histogram name
+ * @return the whole path
+ */
 std::string getOutputFilePath(std::string& folder, std::string& filename, std::string& histname) {
     size_t lastSlashPos_f = filename.find_last_of("/");
     size_t lastDotPos_f = filename.find_last_of(".");
@@ -241,6 +253,12 @@ std::string getOutputFilePath(std::string& folder, std::string& filename, std::s
     return outputFilePath;
 }
 
+/**
+ * @brief Function to extract the value from the string in .txt files containing results
+ * @param line The line to parse
+ * @param label The label that should be sought
+ * @return The value corresponding to the line
+ */
 double extractValue(const std::string& line, const std::string& label) {
     size_t pos = line.find(label);
     if (pos != std::string::npos) {
@@ -252,11 +270,17 @@ double extractValue(const std::string& line, const std::string& label) {
     return 0.0;
 }
 
+/**
+ * @brief Function to extract the value/uncertainty pair from .txt files
+ * @param line The line to parse
+ * @param label The label that should be sought
+ * @return The value/uncertainty pair
+ */
 std::pair<double, double> extractValueWithUncertainty(const std::string& line, const std::string& label) {
     size_t pos = line.find(label);
     if (pos != std::string::npos) {
         std::string valueStr = line.substr(pos + label.size());
-        std::regex valueRegex(R"(([-+]?[0-9]*\.?[0-9]+) \+/- ([-+]?[0-9]*\.?[0-9]+))");
+        std::regex valueRegex(R"(([-+]?[0-9]*\.?[0-9]+(?:[eE][-+]?[0-9]+)?) \+/- ([-+]?[0-9]*\.?[0-9]+(?:[eE][-+]?[0-9]+)?))");
         std::smatch match;
         if (std::regex_search(valueStr, match, valueRegex)) {
             double value = std::stod(match[1].str());
@@ -267,6 +291,11 @@ std::pair<double, double> extractValueWithUncertainty(const std::string& line, c
     return { 0.0, 0.0 };  // Return default if no match found
 }
 
+/**
+ * @brief Function to write all values from a single .txt file into the .csv spreadsheet
+ * @param inputFile The input .txt file
+ * @param csvFile The .csv spreadsheet
+ */
 void processSpreadsheetFile(const std::string& inputFile, std::ofstream& csvFile) {
     std::ifstream file(inputFile);
     std::string line;
@@ -274,13 +303,14 @@ void processSpreadsheetFile(const std::string& inputFile, std::ofstream& csvFile
     size_t lastSlash = inputFile.find_last_of("/\\");
     std::string shortenedFileName = inputFile.substr(lastSlash + 1);
 
-    std::pair<double, double> slope, intercept, norm1, mean1, stddev1, norm2, mean2, stddev2;
+    std::pair<double, double> slope, intercept, norm1, mean1, stddev1, norm2, mean2, stddev2, efficiency1, efficiency2, trap_efficiency;
     double pValue = 0;
-    double pulserIntegral = 0, totalTime = 0, liveTimePercentage = 0, activity = 0, efficiency1 = 0, efficiency2 = 0;
+    double pulserIntegral = 0, totalTime = 0, liveTimePercentage = 0, activity = 0;
 
     if (file.is_open()) {
         while (std::getline(file, line)) {
             // Extract values and uncertainties based on labels
+            //these will have to be modified when uncertainties are implemented
             if (line.find("Slope") != std::string::npos) slope = extractValueWithUncertainty(line, "Slope : ");
             else if (line.find("Y-intercept") != std::string::npos) intercept = extractValueWithUncertainty(line, "Y-intercept : ");
             else if (line.find("Normalization 1") != std::string::npos) norm1 = extractValueWithUncertainty(line, "Normalization 1 : ");
@@ -294,11 +324,14 @@ void processSpreadsheetFile(const std::string& inputFile, std::ofstream& csvFile
             else if (line.find("Total time for measurements") != std::string::npos) totalTime = extractValue(line, "Total time for measurements: ");
             else if (line.find("Live time percentage") != std::string::npos) liveTimePercentage = extractValue(line, "Live time percentage: ");
             else if (line.find("Activity for the source today") != std::string::npos) activity = extractValue(line, "Activity for the source today: ");
-            else if (line.find("Efficiency value for first peak") != std::string::npos) efficiency1 = extractValue(line, "Efficiency value for first peak: ");
-            else if (line.find("Efficiency value for second peak") != std::string::npos) efficiency2 = extractValue(line, "Efficiency value for second peak: ");
+            else if (line.find("Efficiency value for first peak") != std::string::npos) efficiency1 = extractValueWithUncertainty(line, "Efficiency value for first peak: ");
+            else if (line.find("Efficiency value for second peak") != std::string::npos) efficiency2 = extractValueWithUncertainty(line, "Efficiency value for second peak: ");
+            else if (line.find("Efficiency value with trap method") != std::string::npos) trap_efficiency = extractValueWithUncertainty(line, "Efficiency value with trap method: ");
         }
         file.close();
         // Write extracted data as a row in the CSV file, including uncertainties in separate columns
+        //csvFile << std::scientific << std::setprecision(6);
+
         csvFile << shortenedFileName << "," << slope.first << "," << slope.second << ","  // Value and uncertainty
             << intercept.first << "," << intercept.second << ","
             << norm1.first << "," << norm1.second << ","
@@ -309,18 +342,24 @@ void processSpreadsheetFile(const std::string& inputFile, std::ofstream& csvFile
             << stddev2.first << "," << stddev2.second << ","
             << pValue << ","  // Single value
             << pulserIntegral << "," << totalTime << "," << liveTimePercentage << ","
-            << activity << "," << efficiency1 << "," << efficiency2 << "\n";
+            << activity << "," 
+            << efficiency1.first << "," << efficiency1.second << ","
+            << efficiency2.first << "," << efficiency2.second << ","
+            << trap_efficiency.first << "," << trap_efficiency.second << "\n";
     }
     
 }
 
+/**
+ * @brief The function to create the whole spreadsheet
+ */
 void createSpreadsheet() {
     std::string big_results_filename = "../../../out/results_spreadsheet.csv";
     std::ofstream csvFile(big_results_filename);
 
-    csvFile << "File Name,Slope,Y-intercept,Normalization 1,Mean 1,Standard Deviation 1,Normalization 2,"
-        << "Mean 2,Standard Deviation 2,Fit p-value,Pulser Integral,Total Time,Live Time Percentage,"
-        << "Activity,Efficiency 1,Efficiency 2\n";
+    csvFile << "File Name,Slope,ErrSlope,Y-intercept,ErrY-Intercept,Normalization 1,ErrNormalization 1,Mean 1,ErrMean 1,Standard Deviation 1,ErrStandard Deviation 1,Normalization 2,ErrNormalization 2,"
+        << "Mean 2,ErrMean 2,Standard Deviation 2,ErrStandard Deviation 2,Fit p-value,Pulser Integral,Total Time [s],Live Time Percentage,"
+        << "Activity [Bq],Efficiency 1,ErrEfficiency 1,Efficiency 2,ErrEfficiency 2,Efficiency Trap,ErrEfficiency Trap\n";
 
     std::vector<std::string> inputFiles = {
         //"run1775_coinc_h_EBGO_ADC_1.txt", "run1775_coinc_h_EBGO_ADC_2.txt", "run1775_coinc_h_EBGO_ADC_3.txt", "run1775_coinc_h_EBGO_ADC_4.txt", "run1775_coinc_h_EBGO_ADC_5.txt", "run1775_coinc_h_EBGO_ADC_6.txt",
