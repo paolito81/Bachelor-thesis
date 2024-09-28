@@ -1,4 +1,5 @@
 #include <TGraphErrors.h>
+#include <TGraph.h>
 #include <TF1.h>
 #include <TCanvas.h>
 #include <vector>
@@ -6,6 +7,7 @@
 #include <graphplotter.h>
 #include <TAxis.h>
 #include <fstream>
+#include <utils.h>
 
 /**
 * @brief The constructor for the GraphPlotter object
@@ -85,7 +87,7 @@ void GraphPlotter::setFitFunction(const std::string& funcName, const std::string
 }
 
 // add a plotting method
-void GraphPlotter::printResidues(int index) {
+void GraphPlotter::setAndPrintResidues(int index) {
         std::vector<double>& xTemp = sep_xValues[index];
         std::cout << "============ RESIDUES =============\n";
         std::cout << "Residues for this plot: ";
@@ -97,6 +99,10 @@ void GraphPlotter::printResidues(int index) {
         std:: cout << "\n\n";
 }
 
+/**
+ * @brief Function to save the results in a .txt file of the GraphPlotter, used for residues
+ * @param index 
+ */
 void GraphPlotter::saveResults(int index) {
     
     std::string outputFilePath = "../../../out/residues/histogram_" + std::to_string(index) + ".txt";
@@ -131,3 +137,37 @@ void GraphPlotter::saveResults(int index) {
     std::cout << "Results saved to " << outputFilePath << std::endl;
     std::cout << "\n\n";
 }
+
+/**
+ * @brief Function to plot the residues in a graph, for displaying purposes
+ * @param index 
+ */
+void GraphPlotter::plotResidues(int index) {
+    std::vector<double> x_counts = { 1,2,3,4 };
+    std::string canvasName = "residueCanvas" + std::to_string(index);
+    std::vector<double> tempRes;
+
+    for (size_t i = index * 4; i < residues.size(); ++i) {
+        tempRes.push_back(residues[i]);
+    }
+
+    TCanvas* residueCanvas = new TCanvas(canvasName.c_str(), "Residues", 800, 600);
+    TGraph* residueGraph = new TGraph(tempRes.size(), x_counts.data(), tempRes.data());
+
+    std::string graphName = "Residues graph " + std::to_string(index);
+
+    residueGraph->SetTitle(graphName.c_str());
+    residueGraph->GetYaxis()->SetTitle("Residue Energy [keV]");
+    residueGraph->GetXaxis()->SetTitle("Residue number [#]");
+    residueGraph->SetMarkerStyle(21);
+    residueGraph->SetMarkerSize(1);
+
+    residueGraph->Draw("AP");
+
+    residueCanvas->Update();
+
+
+    std::string outputPath = "../../../out/residues graphs/" + canvasName + ".pdf";
+
+    residueCanvas->SaveAs(outputPath.c_str());
+ }

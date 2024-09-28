@@ -57,7 +57,6 @@ static double var_peak(double area, double trap, int n, int m) {
     return variance;
 }
 
-
 //UNUSED
 static void MakeGraphErrors(int configCount, int elementsPerVector, std::vector<double>& xValues, std::vector<double>& errxValues) {
     std::vector<double> yValues = { 661,1173.2,1332.5,2505.7 };
@@ -161,7 +160,7 @@ void runAnalysis(const std::vector<Config>& configs, bool onlyOneElement) {
         analyzer.setTotalTime();
         analyzer.printActivity();
         analyzer.plot();
-        analyzer.pulser(config.pulser_min, config.pulser_max);
+        //analyzer.pulser(config.pulser_min, config.pulser_max);
         analyzer.trapefficiency(config.m);
         analyzer.normefficiency();
         canvases.push_back(analyzer.getCanvas());
@@ -177,8 +176,9 @@ void runAnalysis(const std::vector<Config>& configs, bool onlyOneElement) {
 
         for (int i = 0; i < configCount / analysisPerFile; ++i) {
             plotter.plotAndFit(i);
-            plotter.printResidues(i);
+            plotter.setAndPrintResidues(i);
             plotter.saveResults(i);
+            plotter.plotResidues(i);
         }
     }
 
