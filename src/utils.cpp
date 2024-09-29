@@ -160,7 +160,7 @@ void runAnalysis(const std::vector<Config>& configs, bool onlyOneElement) {
         analyzer.setTotalTime();
         analyzer.printActivity();
         analyzer.plot();
-        //analyzer.pulser(config.pulser_min, config.pulser_max);
+        analyzer.pulser(config.pulser_min, config.pulser_max);
         analyzer.trapefficiency(config.m);
         analyzer.normefficiency();
         canvases.push_back(analyzer.getCanvas());

@@ -38,7 +38,7 @@ int main(int argc, char* argv[]) {
 
         {"../../../root files/run1775_coinc.root", "EnergyADC/h_EBGO_ADC_6", Analyzer::F4, 490, 630, 40, 2815, 2850, -0.45, 500, 80000, 580, 40},
         {"../../../root files/run1775_coinc.root", "EnergyADC/h_EBGO_ADC_6", Analyzer::F5, 925, 1270, 40, 2815, 2850, -0.2, 471, 32000, 1040, 40, 45000, 1170, 60},
-        {"../../../root files/run1775_coinc.root", "EnergyADC/h_EBGO_ADC_6", Analyzer::F4, 2075, 2330, 40, 2815, 2850, -0.1, 150, 3500, 2190, 70}
+        {"../../../root files/run1775_coinc.root", "EnergyADC/h_EBGO_ADC_6", Analyzer::F4, 2050, 2350, 40, 2815, 2850, -0.01, 30, 7000, 2190, 70}
 
     };
     /*
@@ -51,12 +51,12 @@ int main(int argc, char* argv[]) {
     };*/
 
     std::vector<Config> configs1776 = {
-        {"../../../root files/run1776_coinc.root", "EnergyADC/h_EBGO_ADC_1", Analyzer::F4, 450, 650, 70, 2880, 2930, -0.5, 400, 0.009, 560, 40},
-        {"../../../root files/run1776_coinc.root", "EnergyADC/h_EBGO_ADC_2", Analyzer::F4, 450, 650, 70, 2800, 2850, -0.5, 400, 0.009, 560, 40},
-        {"../../../root files/run1776_coinc.root", "EnergyADC/h_EBGO_ADC_3", Analyzer::F4, 380, 585, 70, 2820, 2880, -0.5, 400, 0.01,  500, 50},
-        {"../../../root files/run1776_coinc.root", "EnergyADC/h_EBGO_ADC_4", Analyzer::F4, 410, 620, 70, 2890, 2930, -0.5, 400, 0.01,  520, 50},
-        {"../../../root files/run1776_coinc.root", "EnergyADC/h_EBGO_ADC_5", Analyzer::F4, 400, 630, 70, 2720, 2760, -0.5, 400, 0.01,  520, 60},
-        {"../../../root files/run1776_coinc.root", "EnergyADC/h_EBGO_ADC_6", Analyzer::F4, 450, 685, 70, 2810, 2850, -0.5, 400, 0.01,  590, 50},
+        {"../../../root files/run1776_coinc.root", "EnergyADC/h_EBGO_ADC_1", Analyzer::F4, 450, 650, 2880, 2880, 2930, -0.5, 400, 0.009, 560, 40},
+        {"../../../root files/run1776_coinc.root", "EnergyADC/h_EBGO_ADC_2", Analyzer::F4, 450, 650, 2800, 2800, 2850, -0.5, 400, 0.009, 560, 40},
+        {"../../../root files/run1776_coinc.root", "EnergyADC/h_EBGO_ADC_3", Analyzer::F4, 380, 585, 2820, 2820, 2880, -0.5, 400, 0.01,  500, 50},
+        {"../../../root files/run1776_coinc.root", "EnergyADC/h_EBGO_ADC_4", Analyzer::F4, 410, 620, 2890, 2890, 2930, -0.5, 400, 0.01,  520, 50},
+        {"../../../root files/run1776_coinc.root", "EnergyADC/h_EBGO_ADC_5", Analyzer::F4, 400, 630, 2720, 2720, 2760, -0.5, 400, 0.01,  520, 60},
+        {"../../../root files/run1776_coinc.root", "EnergyADC/h_EBGO_ADC_6", Analyzer::F4, 450, 685, 2810, 2810, 2850, -0.5, 400, 0.01,  590, 50},
     };
 
     std::vector<Config> configs1777 = {
@@ -78,21 +78,21 @@ int main(int argc, char* argv[]) {
     };
 
     std::vector<Config> configs1780 = { 
-        { "../../../root files/run1780_coinc.root", "EnergyADC/h_EBGO_ADC_1", Analyzer::F4, 460, 650, 40, 2910, 2940, -0.5, 250, 80000, 560, 50 },
-        { "../../../root files/run1780_coinc.root", "EnergyADC/h_EBGO_ADC_2", Analyzer::F4, 440, 660, 40, 2838, 2866, -0.5, 250, 80000, 550, 50 },
-        { "../../../root files/run1780_coinc.root", "EnergyADC/h_EBGO_ADC_3", Analyzer::F4, 390, 580, 40, 2840, 2874, -0.5, 250, 80000, 490, 50 },
-        { "../../../root files/run1780_coinc.root", "EnergyADC/h_EBGO_ADC_4", Analyzer::F4, 410, 595, 40, 2920, 2946, -0.5, 250, 80000, 510, 50 }, //fix parameters
-        { "../../../root files/run1780_coinc.root", "EnergyADC/h_EBGO_ADC_5", Analyzer::F4, 400, 620, 40, 2750, 2780, -0.5, 250, 80000, 510, 40 },
-        { "../../../root files/run1780_coinc.root", "EnergyADC/h_EBGO_ADC_6", Analyzer::F4, 465, 660, 40, 2820, 2844, -0.5, 250, 80000, 575, 50 },
+        { "../../../root files/run1780_coinc.root", "EnergyADC/h_EBGO_ADC_1", Analyzer::F4, 460, 650, 2910, 2910, 2940, -0.5, 250, 80000, 560, 50 },
+        { "../../../root files/run1780_coinc.root", "EnergyADC/h_EBGO_ADC_2", Analyzer::F4, 440, 660, 2838, 2838, 2866, -0.5, 250, 80000, 550, 50 },
+        { "../../../root files/run1780_coinc.root", "EnergyADC/h_EBGO_ADC_3", Analyzer::F4, 390, 580, 2840, 2840, 2874, -0.5, 250, 80000, 490, 50 },
+        { "../../../root files/run1780_coinc.root", "EnergyADC/h_EBGO_ADC_4", Analyzer::F4, 410, 595, 2920, 2920, 2946, -0.5, 250, 80000, 510, 50 }, //fix parameters
+        { "../../../root files/run1780_coinc.root", "EnergyADC/h_EBGO_ADC_5", Analyzer::F4, 400, 620, 2750, 2750, 2780, -0.5, 250, 80000, 510, 40 },
+        { "../../../root files/run1780_coinc.root", "EnergyADC/h_EBGO_ADC_6", Analyzer::F4, 465, 660, 2820, 2820, 2844, -0.5, 250, 80000, 575, 50 },
     };
 
 
-    runAnalysis(configs1775, false); //total time unknown
-    //runAnalysis(configs1776, true); //results are coherent
-    //runAnalysis(configs1777, true); //results are not very coherent
+    //runAnalysis(configs1775, false); //total time unknown
+    runAnalysis(configs1776, true); //results are coherent
+    runAnalysis(configs1777, true); //results are not very coherent
     //runAnalysis(configs1778, true); //total time unknown
-    //runAnalysis(configs1779, true); //results are coherent
-    //runAnalysis(configs1780, true); //results are coherent
+    runAnalysis(configs1779, true); //results are coherent
+    runAnalysis(configs1780, true); //results are coherent
 
     app.Run();
     return 0;
