@@ -156,7 +156,10 @@ void Analyzer::setFitParameters(double p0, double p1, double p2, double p3, doub
 void Analyzer::trapefficiency(int m) {
 	if (ftype == F1 || ftype == F4) {
 		double integral = histogram->Integral(histogram->FindBin(chn_lower_bound), histogram->FindBin(chn_upper_bound));
-		double area = (histogram->GetBinContent(histogram->FindBin(chn_lower_bound) - 1 - m) + histogram->GetBinContent(histogram->FindBin(chn_upper_bound) + 1 + m)) * (chn_upper_bound - chn_lower_bound) / 2;
+		
+		double area = (chn_upper_bound - chn_lower_bound) * (histogram->Integral(histogram->FindBin(chn_lower_bound - m), histogram->FindBin(chn_lower_bound - 1)) +
+			histogram->Integral(histogram->FindBin(chn_upper_bound + 1), histogram->FindBin(chn_upper_bound + m))) / (2 * m);
+		
 		double peak = integral - area;
 
 		trap_efficiency = peak / (activity*total_time*time_perc);
