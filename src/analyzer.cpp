@@ -19,7 +19,7 @@ Analyzer::Analyzer(const std::string& filename, const std::string& histname, Fun
 	filename(filename), histname(histname), inFile(nullptr), histogram(nullptr), func(nullptr), canvas(nullptr), ftype(ftype),
 	p0(0), p1(0), p2(0), p3(0), p4(0), p5(0), p6(0), p7(0), p8(0), p9(0), p10(0),
 	chn_lower_bound(0), chn_upper_bound(1),
-	activity(0), err_activity(0), total_time(0), time_perc(0),
+	activity(0), err_activity(0), total_time(0), err_total_time(0), time_perc(0),
 	pulser_integral(0),
 	efficiency1(0), efficiency2(0), err_efficiency1(0), err_efficiency2(0), trap_efficiency(0), err_trap_efficiency(0)
 {
@@ -59,7 +59,7 @@ Analyzer::Analyzer(const std::string& filename, const std::string& histname, Fun
 	}
 	else if (ftype == F3)
 	{
-		func = new TF1("f1", "[0]*x + [1] + [2]*exp(-0.5*((x-[3])/[4])^2) + [5]*exp(-0.5*((x-[6])/[7])^2) + [8]*exp(-0.5*((x-[9])/[10])^2)", chn_lower_bound, chn_upper_bound);
+		func = new TF1("f1", "[0]*x + [1] + gausn(2) + gausn(5) + [8]*x^2", chn_lower_bound, chn_upper_bound);
 	}
 	else if (ftype == F4)
 	{
@@ -124,6 +124,7 @@ void Analyzer::setFitParameters(double p0, double p1, double p2, double p3, doub
 		func->SetParameter(7, p7);
 		break;
 	case F3:
+		func->SetParName(0, "Slope");
 		func->SetParName(1, "Y-intercept");
 		func->SetParName(2, "Normalization 1");
 		func->SetParName(3, "Mean value 1");
@@ -131,15 +132,11 @@ void Analyzer::setFitParameters(double p0, double p1, double p2, double p3, doub
 		func->SetParName(5, "Normalization 2");
 		func->SetParName(6, "Mean value 2");
 		func->SetParName(7, "Standard Deviation 2");
-		func->SetParName(8, "Normalization 3");
-		func->SetParName(9, "Mean value 3");
-		func->SetParName(10, "Standard Deviation 3");
+		func->SetParName(8, "Quadratic term");
 		func->SetParameter(5, p5);
 		func->SetParameter(6, p6);
 		func->SetParameter(7, p7);
 		func->SetParameter(8, p8);
-		func->SetParameter(9, p9);
-		func->SetParameter(10, p10);
 		break;
 	default:
 		std::cout << "Invalid function type!" << std::endl;
@@ -156,6 +153,7 @@ void Analyzer::setFitParameters(double p0, double p1, double p2, double p3, doub
 void Analyzer::trapefficiency(int m) {
 	if (ftype == F1 || ftype == F4) {
 		double integral = histogram->Integral(histogram->FindBin(chn_lower_bound), histogram->FindBin(chn_upper_bound));
+		double err_integral = sqrt(integral);
 		
 		double area = (chn_upper_bound - chn_lower_bound) * (histogram->Integral(histogram->FindBin(chn_lower_bound - m), histogram->FindBin(chn_lower_bound - 1)) +
 			histogram->Integral(histogram->FindBin(chn_upper_bound + 1), histogram->FindBin(chn_upper_bound + m))) / (2 * m);
@@ -178,6 +176,145 @@ void Analyzer::trapefficiency(int m) {
 		std::cout << "Couldn't calculate efficiency with the peak area method, the function type is not F1 or F4." << std::endl;
 	}
 }
+/*
+void Analyzer::normefficiency_redux(double EL, double ER, double E1L, double E2L, double E1R, double E2R) {
+	
+	if (ftype == F1 || ftype == F4) {
+
+	int binLeft = histogram->FindBin(EL);
+	int binRight = histogram->FindBin(ER);
+	int binBackgroundLeft1 = histogram->FindBin(E1L);
+	int binBackgroundLeft2 = histogram->FindBin(E2L);
+	int binBackgroundRight1 = histogram->FindBin(E1R);
+	int binBackgroundRight2 = histogram->FindBin(E2R);
+
+	double PeakRawSum = histogram->Integral(binLeft, binRight);
+	double err_PeakRawSum = sqrt(PeakRawSum);
+
+	double backgroundLeft = histogram->Integral(binBackgroundLeft1, binBackgroundLeft2);
+	double backgroundRight = histogram->Integral(binBackgroundRight1, binBackgroundRight2);
+
+	int binNumberLeft = binBackgroundLeft2 - binBackgroundLeft1 + 1;
+	int binNumberRight = binBackgroundRight2 - binBackgroundRight2 + 1;
+	int binNumberPeak = binRight - binLeft + 1;
+
+	double dP = 0;
+	double peak_centroid = 0;
+	for (int i = binLeft; i <= binRight; ++i) {
+		dP = histogram->GetBinContent(i);
+		peak_centroid += dP * i;
+	}
+
+	double dBackgroundLeft = 0;
+	double left_background_centroid = 0;
+	for (int i = binBackgroundLeft1; i <= binBackgroundLeft2; ++i) {
+		dBackgroundLeft = histogram->GetBinContent(i);
+		left_background_centroid += dBackgroundLeft * i;
+	}
+
+	double dBackgroundRight = 0;
+	double right_background_centroid = 0;
+	for (int i = binBackgroundRight1; i <= binBackgroundRight2; ++i) {
+		dBackgroundRight = histogram->GetBinContent(i);
+		right_background_centroid += dBackgroundRight * i;
+	}
+
+	double distanceLeft = std::fabs(peak_centroid - left_background_centroid);
+	double distanceRight = std::fabs(peak_centroid - right_background_centroid);
+
+	double weightLeft = distanceLeft / (distanceLeft + distanceRight);
+	double weightRight = distanceRight / (distanceLeft + distanceRight);
+
+	//che cos'è f??
+	double f = backgroundLeft / binNumberLeft * weightLeft + backgroundRight / binNumberRight * weightRight;
+	double background = f * binNumberPeak;
+
+	double err_background = sqrt(background);
+
+	double PeakNetSum = PeakRawSum - background;
+	double err_PeakNetSum = sqrt(pow(err_PeakRawSum, 2) + pow(err_background, 2));
+
+
+		std::cout << "\n\n" << std::endl;
+		std::cout << "=====================================================================" << std::endl;
+		std::cout << "Peak area (N counts):                     " << PeakNetSum << "   +/-   " << err_PeakNetSum << std::endl;
+		std::cout << "Efficiency (trap):                     " << trap_efficiency << "   +/-   " << err_trap_efficiency << std::endl;
+	}
+
+}
+*/
+
+void Analyzer::trapefficiency_redux(int m) {
+
+	if (ftype == F1 || ftype == F4) {
+
+		int binLeft = histogram->FindBin(chn_lower_bound);
+		int binRight = histogram->FindBin(chn_upper_bound);
+		int binBackgroundLeft1 = histogram->FindBin(chn_lower_bound - 1 - m);
+		int binBackgroundLeft2 = histogram->FindBin(chn_lower_bound - 1);
+		int binBackgroundRight1 = histogram->FindBin(chn_upper_bound + 1);
+		int binBackgroundRight2 = histogram->FindBin(chn_upper_bound + 1 + m);
+
+		double PeakRawSum = histogram->Integral(binLeft, binRight);
+		double err_PeakRawSum = sqrt(PeakRawSum);
+
+		double backgroundLeft = histogram->Integral(binBackgroundLeft1, binBackgroundLeft2);
+		double backgroundRight = histogram->Integral(binBackgroundRight1, binBackgroundRight2);
+
+		int binNumberLeft = binBackgroundLeft2 - binBackgroundLeft1 + 1;
+		int binNumberRight = binBackgroundRight2 - binBackgroundRight1 + 1;
+		int binNumberPeak = binRight - binLeft + 1;
+
+		double dP = 0;
+		double peak_centroid = 0;
+		for (int i = binLeft; i <= binRight; ++i) {
+			dP = histogram->GetBinContent(i);
+			peak_centroid += dP * i;
+		}
+
+		double dBackgroundLeft = 0;
+		double left_background_centroid = 0;
+		for (int i = binBackgroundLeft1; i <= binBackgroundLeft2; ++i) {
+			dBackgroundLeft = histogram->GetBinContent(i);
+			left_background_centroid += dBackgroundLeft * i;
+		}
+
+		double dBackgroundRight = 0;
+		double right_background_centroid = 0;
+		for (int i = binBackgroundRight1; i <= binBackgroundRight2; ++i) {
+			dBackgroundRight = histogram->GetBinContent(i);
+			right_background_centroid += dBackgroundRight * i;
+		}
+
+		double distanceLeft = std::fabs(peak_centroid - left_background_centroid);
+		double distanceRight = std::fabs(peak_centroid - right_background_centroid);
+
+		double weightLeft = distanceLeft / (distanceLeft + distanceRight);
+		double weightRight = distanceRight / (distanceLeft + distanceRight);
+
+		//che cos'è f??
+		double f = backgroundLeft / binNumberLeft * weightLeft + backgroundRight / binNumberRight * weightRight;
+		double background = f * binNumberPeak;
+
+		double err_background = sqrt(background);
+
+		double PeakNetSum = PeakRawSum - background;
+		double err_PeakNetSum = sqrt(pow(err_PeakRawSum, 2) + pow(err_background, 2));
+
+		trap_efficiency = PeakNetSum / (activity * total_time * time_perc);
+		err_trap_efficiency = trap_efficiency * sqrt(pow(err_PeakNetSum/PeakNetSum, 2) + pow(err_activity/activity, 2) + pow(err_total_time/total_time, 2))/time_perc;
+
+		std::cout << "\n\n" << std::endl;
+		std::cout << "=====================================================================" << std::endl;
+		std::cout << "Peak area (N counts):                     " << PeakNetSum << "   +/-   " << err_PeakNetSum << std::endl;
+		std::cout << "Efficiency (trap):                     " << trap_efficiency << "   +/-   " << err_trap_efficiency << std::endl;
+	}
+	else if (ftype == F2 || ftype == F5 || ftype == F3) {
+		std::cout << "\n\n" << std::endl;
+		std::cout << "Couldn't calculate efficiency with the peak area method, the function type is not F1 or F4." << std::endl;
+	}
+
+}
 
 /**
  * @brief Calculates efficiency with the fit parameter method, only works for F4 and F5
@@ -192,7 +329,7 @@ void Analyzer::normefficiency() {
 		std::cout << "=====================================================================" << std::endl;
 		std::cout << "Efficiency 1 (norm):                     " << efficiency1 << "   +/-   " << err_efficiency1 << std::endl;
 	}
-	if (ftype == F5) {
+	if (ftype == F3 || ftype == F5) {
 		efficiency2 = func->GetParameter(5) / (activity * total_time * time_perc);
 		err_efficiency2 = efficiency2 * sqrt((func->GetParError(5) / func->GetParameter(5)) * (func->GetParError(5) / func->GetParameter(5)) + (err_activity / activity)*(err_activity / activity)) / (total_time * time_perc);
 
@@ -265,7 +402,7 @@ void Analyzer::saveResults() {
 		outFile << "Efficiency value for first peak: " << efficiency1 << " +/- " << err_efficiency1 << "\n";
 		outFile << "Efficiency value with trap method: " << trap_efficiency << " +/- " << err_trap_efficiency << "\n";
 	}
-	if (ftype == F5) {
+	if (ftype == F5 || ftype == F3) {
 		outFile << "Efficiency value for first peak: " << efficiency1 << " +/- " << err_efficiency1 << "\n";
 		outFile << "Efficiency value for second peak: " << efficiency2 << " +/- " << err_efficiency2 << "\n";
 	}
@@ -364,6 +501,7 @@ void Analyzer::setActivity() {
 		err_activity = 0.85 * 70 * exp(-getHowManyYears("25/07/2016") / (30.08 / 0.693));
 		break;
 	case F2:
+	case F3:
 	case F5:
 		activity = 9010 * exp(-getHowManyYears("01/07/2016") / (5.27/0.693));
 		err_activity = 70 * exp(-getHowManyYears("01/07/2016") / (5.27 / 0.693));
@@ -374,6 +512,7 @@ void Analyzer::setActivity() {
  * @brief A function to set the total time, the time for which measurements are taken 
  */
 void Analyzer::setTotalTime() {
+	err_total_time = 1;
 	if (filename == "../../../root files/run1776_coinc.root") {
 		total_time = 463;
 	}

@@ -12,7 +12,7 @@ Pulser integral: 4763
 Total time for measurements: 463 s
 Live time percentage: 0.981734
 
-Activity for the source today: 4547.64 Bq
-Efficiency value for first peak: 0.10122 +/- 2.61017e-06
-Efficiency value with trap method: 0.113273 +/- 2.75034e-06
+Activity for the source today: 4546.96 Bq
+Efficiency value for first peak: 0.101236 +/- 2.61056e-06
+Efficiency value with trap method: 0.10609 +/- 0.00121972
 ******************************************

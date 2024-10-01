@@ -119,7 +119,7 @@ static void processFitParameters(const Config& config, Analyzer& analyzer, std::
         erryValues.push_back(v3);
         outfile << config.filename << "\t" << config.histname << "\t" << p3 << " +- " << v3 << "\t" << "-" << "\n";
     }
-    else if (config.ftype == Analyzer::F2 || config.ftype == Analyzer::F5) {
+    else if (config.ftype == Analyzer::F2 || config.ftype == Analyzer::F5 || config.ftype == Analyzer::F3) {
         double p6 = analyzer.getFitParameter(6);
         double v6 = analyzer.getFitParameterError(6);
         yValues.push_back(p3);
@@ -161,7 +161,8 @@ void runAnalysis(const std::vector<Config>& configs, bool onlyOneElement) {
         analyzer.printActivity();
         analyzer.plot();
         analyzer.pulser(config.pulser_min, config.pulser_max);
-        analyzer.trapefficiency(config.m);
+        //analyzer.trapefficiency(config.m);
+        analyzer.trapefficiency_redux(config.m);
         analyzer.normefficiency();
         canvases.push_back(analyzer.getCanvas());
         analyzer.saveResults();
@@ -332,8 +333,8 @@ void processSpreadsheetFile(const std::string& inputFile, std::ofstream& csvFile
         // Write extracted data as a row in the CSV file, including uncertainties in separate columns
         //csvFile << std::scientific << std::setprecision(6);
 
-        csvFile << shortenedFileName << "," << slope.first << "," << slope.second << ","  // Value and uncertainty
-            << intercept.first << "," << intercept.second << ","
+        csvFile << shortenedFileName << "," //<< slope.first << "," << slope.second << ","  // Value and uncertainty
+            //<< intercept.first << "," << intercept.second << ","
             << norm1.first << "," << norm1.second << ","
             << mean1.first << "," << mean1.second << ","
             << stddev1.first << "," << stddev1.second << ","
@@ -357,7 +358,7 @@ void createSpreadsheet() {
     std::string big_results_filename = "../../../out/results_spreadsheet.csv";
     std::ofstream csvFile(big_results_filename);
 
-    csvFile << "File Name,Slope,ErrSlope,Y-intercept,ErrY-Intercept,Normalization 1,ErrNormalization 1,Mean 1,ErrMean 1,Standard Deviation 1,ErrStandard Deviation 1,Normalization 2,ErrNormalization 2,"
+    csvFile << "File Name,Normalization 1,ErrNormalization 1,Mean 1,ErrMean 1,Standard Deviation 1,ErrStandard Deviation 1,Normalization 2,ErrNormalization 2,"
         << "Mean 2,ErrMean 2,Standard Deviation 2,ErrStandard Deviation 2,Fit p-value,Pulser Integral,Total Time [s],Live Time Percentage,"
         << "Activity [Bq],Efficiency 1,ErrEfficiency 1,Efficiency 2,ErrEfficiency 2,Efficiency Trap,ErrEfficiency Trap\n";
 

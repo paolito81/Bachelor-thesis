@@ -25,6 +25,7 @@ public:
     void printActivity() const;
     void trapefficiency(int m);
     void normefficiency();
+    void trapefficiency_redux(int m);
     void plot();
     void saveResults();
     void pulser(int pulser_min, int pulser_max);
@@ -44,7 +45,7 @@ private:
     int chn_lower_bound, chn_upper_bound; /**< Upper and lower bound for fitting and peak area */
     double activity, err_activity; /** The source's activity, with error */
     double pulser_integral; /** The integral over the pulser histogram (CHN0), used for livetime calculation */
-    double total_time, time_perc;
+    double total_time, time_perc, err_total_time;
     double efficiency1, efficiency2, err_efficiency1, err_efficiency2;
     double trap_efficiency, err_trap_efficiency;
 };
