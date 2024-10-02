@@ -1,5 +1,7 @@
 \beamer@sectionintoc {1}{Introduzione}{3}{0}{1}
 \beamer@sectionintoc {2}{Obiettivi della tesi}{7}{0}{2}
 \beamer@sectionintoc {3}{Il rivelatore}{8}{0}{3}
-\beamer@sectionintoc {4}{Caratterizzaione}{10}{0}{4}
-\beamer@sectionintoc {5}{Conclusion}{13}{0}{5}
+\beamer@sectionintoc {4}{Richiami teorici}{10}{0}{4}
+\beamer@sectionintoc {5}{L'elettronica}{13}{0}{5}
+\beamer@sectionintoc {6}{Caratterizzaione}{14}{0}{6}
+\beamer@sectionintoc {7}{Conclusion}{23}{0}{7}

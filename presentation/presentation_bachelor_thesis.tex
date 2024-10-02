@@ -45,7 +45,7 @@
 \title[Short Title]{Caratterizzazione di un rivelatore gamma 4$\pi$ per lo studio della reazione 14N(p,$\gamma$)15O \\ \textit{Subtitle or Reference, if any}}
 \author[P. Pusterla]{Paolo Pusterla}
 \institute[UniTo]{Università degli Studi di Torino}
-\date{6/7/8 Novembre 2024}
+\date{Novembre 2024}
 
 % LOGO
 \titlegraphic{\includegraphics[height=2.5cm]{img/logo.png}} % Change the logo path as needed
@@ -116,19 +116,109 @@
 	\end{figure}
 \end{frame}
 
+\section{Richiami teorici}
+\begin{frame}{Sezione d'urto}
+	\begin{itemize}
+		\item La \emph{sezione d'urto} di una reazione nucleare è una grandezza utilizzata per descrivere la probabilità che la reazione avvenga.
+		\item La si può calcolare sperimentalmente come:
+		
+%		\begin{equation}
+%			\sigma = \dfrac{\mathrm{numero di interazione per unità di tempo}}{(\mathrm{numero di particelle incidenti per unità di tempo})\cdot(\mathrm{numero di nuclei bersaglio all'interno del fascio incidente})}
+%		\end{equation}
+		
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Efficienza}
+	\begin{itemize}
+		\item L'efficienza di uno scintillatore è il rapporto tra il numero di conteggi prodotti da esso e il numero di conteggi prodotti dalla sorgente:
+		
+		\begin{equation}
+			\varepsilon = \dfrac{N_{\gamma}}{N_{int}}
+		\end{equation}
+		
+		\item Si tratta pertanto di quanti fotoni lo strumento "vede" rispetto al totale
+		\item Invertendo l'equazione possiamo ricavare $N_{int}$, per poi trovare la sezione d'urto
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Efficienza}
+	\begin{itemize}
+		\item Nel caso dei nostri istogrammi, composti da un picco gaussiano centrato su un'energia caratteristica e un fondo di \emph{bremsstrahlung}, l'efficienza si può calcolare nel modo seguente:
+		
+		\begin{equation}
+			\varepsilon = \dfrac{N_{cont.}}{A(t*) \Delta t}
+		\end{equation}
+	
+		dove $N_{cont.}$ è il numero di conteggi del picco gaussiano sottraendone il fondo, $A(t*)$ è l'attività calcolata al momento della misura, $\Delta t$ è il tempo "vivo" dello strumento.
+	\end{itemize}
+\end{frame}
+
+\section{L'elettronica}
+
+\begin{frame}{Tempo vivo/morto}
+	\begin{itemize}
+		\item Ogni strumento è elettronicamente vincolato a processare il segnale in ingresso
+		\item Questo può richiedere fino a ns
+		\item Un fotone in arrivo durante questo intervallo di tempo non può essere quindi rilevato
+		\item Alla fine della misura verrano osservati meno fotoni di quelli effettivamente giunti allo strumento, perché quest'ultimo è attivo solo per una parte di tempo rispetto al totale della misura.
+		\item L'intervallo in cui lo strumento è attivo e pronto a ricevere nuovi segnali è il \emph{tempo vivo}.
+	\end{itemize}
+\end{frame}
+
 \section{Caratterizzaione}
 \begin{frame}{Caratterizzazione in energia}
 	\begin{itemize}
-		\item La caratterizzazione in energia è effettuata utilizzando due sorgenti radioattive: Cobalto-60 e Cesio-137.
+		\item La caratterizzazione in energia è effettuata utilizzando due sorgenti radioattive: $^{60}$Co e $^{137}$Cs.
 		\item Caratteristiche degli elementi utilizzati?
 	\end{itemize}
 \end{frame}
+
 \begin{frame}
 	\begin{itemize}
 		\item I modi di decadimento degli elementi utilizzati sono
 		\item Schema?? Energie che figurano nel nostro caso
 	\end{itemize}
 \end{frame}
+
+\begin{frame}{Struttura dei dati}
+	\begin{itemize}
+		\item I dati ricavati sono contenuti in file .root
+		\item Ogni file .root contiene 8 istogrammi, con indici da 0 a 7, di conteggi
+		\item L'istogramma 0 contiene il pulser, utilizzato per calcolare il tempo vivo dello scintillatore
+		\item Gli istogrammi da 1 a 6 sono i singoli spicchi del BGO
+		\item L'istogramma 7 è
+	\end{itemize}
+\end{frame}
+
+\begin{frame}
+	METTERE FOTO DI UN ISTOGRAMMA
+\end{frame}
+
+\begin{frame}{Calcolo della calibrazione}
+	\begin{itemize}
+		\item La calibrazione viene effettuata sul file \texttt{run1775\_coinc.root}, con entrambe le sorgenti.
+		\item \emph{Calibrare} uno scintillatore significa trovare il fattore di conversione da \textbf{canali} a \textbf{energia}.
+		\item Per ogni spicchio del BGO si esegue un fit per trovare il valore dei picchi caratteristici e del picco somma in canali.
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Esempio di istogramma}
+	METTERE ISTOGRAMMA DEL FILE 1775
+\end{frame}
+
+\begin{frame}{Calcolo della calibrazione}
+	\begin{itemize}
+			\item I valori dei picchi vengono graficati contro quelli in energia caratteristici, noti.
+		\item Si effettua dunque un fit lineare per i punti di ciascun istogramma.
+		\item I coefficienti angolari di questi fit sono i fattori di conversione cercati.
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Grafici}
+	METTERE GRAFICI DEI PLOT DELLA CALIBRAZIONE
+\end{frame}
+
 \begin{frame}{Calcolo dell'efficienza}
 	\begin{itemize}
 		\item Per il calcolo dell'efficienza si possono applicare due metodi diversi
