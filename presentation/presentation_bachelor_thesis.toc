@@ -4,4 +4,4 @@
 \beamer@sectionintoc {4}{Richiami teorici}{10}{0}{4}
 \beamer@sectionintoc {5}{L'elettronica}{13}{0}{5}
 \beamer@sectionintoc {6}{Caratterizzaione}{14}{0}{6}
-\beamer@sectionintoc {7}{Conclusion}{23}{0}{7}
+\beamer@sectionintoc {7}{Conclusion}{25}{0}{7}

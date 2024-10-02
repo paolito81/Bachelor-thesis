@@ -10,6 +10,7 @@
 #include <cmath>
 #include <TTree.h>
 #include <TStyle.h>
+#include <TMath.h>
 
 /**
 * @brief The constructor for the Analyzer object
@@ -322,7 +323,7 @@ void Analyzer::trapefficiency_redux(int m) {
 void Analyzer::normefficiency() {
 	
 	efficiency1 = func->GetParameter(2) / (activity * total_time * time_perc);
-	err_efficiency1 = efficiency1 * sqrt((func->GetParError(2) / func->GetParameter(2)) * (func->GetParError(2) / func->GetParameter(2)) + (err_activity / activity)*(err_activity / activity)) / (total_time * time_perc);
+	err_efficiency1 = efficiency1 * sqrt(pow(func->GetParError(2) / func->GetParameter(2), 2) + pow(err_activity / activity, 2) + pow(err_total_time / total_time, 2))/time_perc;
 	
 	if (ftype == F4) {
 		std::cout << "\n\n" << std::endl;
@@ -331,7 +332,7 @@ void Analyzer::normefficiency() {
 	}
 	if (ftype == F3 || ftype == F5) {
 		efficiency2 = func->GetParameter(5) / (activity * total_time * time_perc);
-		err_efficiency2 = efficiency2 * sqrt((func->GetParError(5) / func->GetParameter(5)) * (func->GetParError(5) / func->GetParameter(5)) + (err_activity / activity)*(err_activity / activity)) / (total_time * time_perc);
+		err_efficiency2 = efficiency2 * sqrt(pow(func->GetParError(5) / func->GetParameter(5), 2) + pow(err_activity / activity, 2) + pow(err_total_time/total_time, 2)) / time_perc;
 
 		std::cout << "\n\n" << std::endl;
 		std::cout << "=====================================================================" << std::endl;
@@ -535,4 +536,23 @@ void Analyzer::setTotalTime() {
  */
 void Analyzer::printActivity() const {
 	std::cout << "The activity is: " << activity << " Bq" << std::endl;
+}
+
+/**
+ * @brief A function to compute a Z Test between the efficiency values calculated through the trapezoid method and the fit method
+ */
+void Analyzer::ZTestEfficiencies() const {
+
+	if (ftype == F1 || ftype == F4) {
+		double Z_stat = (efficiency1 - trap_efficiency) / sqrt(pow(err_efficiency1, 2) + pow(err_trap_efficiency, 2));
+		double pvalue = 1 - 0.5 * TMath::Erfc(Z_stat / TMath::Sqrt(2));
+
+		std::cout << "Efficiencies Z test: " << "\n";
+		std::cout << "Z statistic: " << Z_stat << "\n";
+		std::cout << "Z test p-value: " << pvalue << "\n";
+
+		if (fabs(Z_stat) < 3) {
+			std::cout << "Data is within 3 sigma of the expected distribution." << std::endl;
+		}
+	}
 }

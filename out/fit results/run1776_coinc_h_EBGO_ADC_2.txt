@@ -1,18 +1,18 @@
 ******************************************
 Fit Results:
 
-Slope : -0.915187 +/- 0.0362027
-Y-intercept : 657.397 +/- 19.8342
-Normalization 1 : 214070 +/- 1261.26
-Mean value 1 : 554.961 +/- 0.140411
-Standard Deviation 1 : 38.8737 +/- 0.180488
-Fit p-value: 0.877344
+Slope : -0.841166 +/- 0.00478072
+Y-intercept : 587.379 +/- 3.04854
+Normalization 1 : 219925 +/- 528.598
+Mean value 1 : 554.595 +/- 0.0993083
+Standard Deviation 1 : 39.586 +/- 0.0869049
+Fit p-value: 5.15967e-10
 
 Pulser integral: 4763
 Total time for measurements: 463 s
 Live time percentage: 0.982784
 
-Activity for the source today: 4546.96 Bq
-Efficiency value for first peak: 0.103465 +/- 2.80456e-06
-Efficiency value with trap method: 0.109809 +/- 0.00125963
+Activity for the source today: 4546.71 Bq
+Efficiency value for first peak: 0.106301 +/- 0.00122306
+Efficiency value with trap method: 0.128976 +/- 0.00147546
 ******************************************

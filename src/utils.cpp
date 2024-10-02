@@ -164,6 +164,7 @@ void runAnalysis(const std::vector<Config>& configs, bool onlyOneElement) {
         //analyzer.trapefficiency(config.m);
         analyzer.trapefficiency_redux(config.m);
         analyzer.normefficiency();
+        analyzer.ZTestEfficiencies();
         canvases.push_back(analyzer.getCanvas());
         analyzer.saveResults();
         configCount++;

@@ -29,6 +29,7 @@ public:
     void plot();
     void saveResults();
     void pulser(int pulser_min, int pulser_max);
+    void ZTestEfficiencies() const;
     double getFitParameter(int index);
     double getFitParameterError(int index);
     TCanvas* getCanvas() const;
