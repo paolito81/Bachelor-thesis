@@ -249,12 +249,12 @@ void Analyzer::trapefficiency_redux(int m) {
 
 	if (ftype == F1 || ftype == F4) {
 
-		int binLeft = histogram->FindBin(chn_lower_bound);
-		int binRight = histogram->FindBin(chn_upper_bound);
-		int binBackgroundLeft1 = histogram->FindBin(chn_lower_bound - 1 - m);
-		int binBackgroundLeft2 = histogram->FindBin(chn_lower_bound - 1);
-		int binBackgroundRight1 = histogram->FindBin(chn_upper_bound + 1);
-		int binBackgroundRight2 = histogram->FindBin(chn_upper_bound + 1 + m);
+		int binLeft = histogram->FindBin(peak_lower);
+		int binRight = histogram->FindBin(peak_upper);
+		int binBackgroundLeft1 = histogram->FindBin(peak_lower - 1 - m);
+		int binBackgroundLeft2 = histogram->FindBin(peak_lower - 1);
+		int binBackgroundRight1 = histogram->FindBin(peak_upper + 1);
+		int binBackgroundRight2 = histogram->FindBin(peak_upper + 1 + m);
 
 		double PeakRawSum = histogram->Integral(binLeft, binRight);
 		double err_PeakRawSum = sqrt(PeakRawSum);
@@ -545,7 +545,7 @@ void Analyzer::ZTestEfficiencies() const {
 
 	if (ftype == F1 || ftype == F4) {
 		double Z_stat = (efficiency1 - trap_efficiency) / sqrt(pow(err_efficiency1, 2) + pow(err_trap_efficiency, 2));
-		double pvalue = 1 - 0.5 * TMath::Erfc(Z_stat / TMath::Sqrt(2));
+		double pvalue = TMath::Erfc(fabs(Z_stat) / TMath::Sqrt(2));
 
 		std::cout << "Efficiencies Z test: " << "\n";
 		std::cout << "Z statistic: " << Z_stat << "\n";
@@ -554,5 +554,12 @@ void Analyzer::ZTestEfficiencies() const {
 		if (fabs(Z_stat) < 3) {
 			std::cout << "Data is within 3 sigma of the expected distribution." << std::endl;
 		}
+	}
+}
+
+void Analyzer::setPeakUpperLower(int peakl, int peaku) {
+	if (ftype == F1 || ftype == F4) {
+		peak_lower = peakl;
+		peak_upper = peaku;
 	}
 }
