@@ -6,6 +6,8 @@
 \usepackage{csquotes}
 \usepackage{amsmath}
 \usepackage{tikz}
+\usepackage{caption}
+\usepackage{subcaption}
 \usetheme{Madrid}
 
 % COLORS 
@@ -50,6 +52,15 @@
 % LOGO
 \titlegraphic{\includegraphics[height=2.5cm]{img/logo.png}} % Change the logo path as needed
 
+%add table of contents before each section
+\AtBeginSection[]
+{
+	\begin{frame}
+		\frametitle{Table of Contents}
+		\tableofcontents[currentsection]
+	\end{frame}
+}
+
 \begin{document}
 	
 	\begin{frame}
@@ -66,68 +77,164 @@
 		\begin{itemize}
 			\item L'esperimento LUNA (Laboratory for Underground Nuclear Astrophysics) ricrea i processi nucleari che sono avvenuti durante la nucleosintesi primordiale e che avvengono tutt'ora nelle stelle.
 			\item Essendo processi molto rari, un laboratorio sulla superficie terrestre non è adatto per le misure sperimentali di questi, poiché i raggi cosmici maschererebbero il segnale debole atteso.
-			\item Per questo motivo i Laboratori Nazionali del Gran Sasso sono i luoghi adatti per questi esperimenti: le sale sperimentali in cui si effettuano sono protette e schermate dai 1400 m di roccia del monte Aquila. 
 		\end{itemize}
 	\end{frame}
 	
-	\begin{frame}{La reazione}
+	
+	\begin{frame}{Proposta dell'esperimento}
 		\begin{itemize}
-			\item Viene studiata la reazione $^{14}$N(p,$\gamma$)$^{15}$O del ciclo CNO, determinante per la produzione di neutrini solari.
-			\item La misura della sezione d'urto di questa reazione ha portato alla riduzione di un fattore 2 del flusso di neutrini solari prodotti dal ciclo CNO.
-			\item Ha inoltre permesso di aggiornare la stima dell'età della Via Lattea.
+			\item I neutrini solari giocano un ruolo fondamentale nella determinazione della composizione del Sole.
+			\item Sono prodotti nel ciclo CNO del Sole.
+			\item In particolare, la sezione d'urto della reazione $^{14}$N(p, $\gamma$)$^{15}$O è la fonte di errore principale sulle stime del flusso di neutrini.
 		\end{itemize}
 	\end{frame}
-
+		
 	\begin{frame}{Il ciclo CNO}
 		\begin{figure}[H]
 			\includegraphics[width=0.5\textwidth]{img/CNO_Cycle.pdf}
 			\caption{Ciclo Carbonio-Azoto-Ossigeno}
 		\end{figure}
 	\end{frame}
-
-	\begin{frame}{L'acceleratore LUNA2 400 kV}
+	
+	\begin{frame}{Proposta dell'esperimento}
 		\begin{itemize}
-			\item Il fascio ionico utilizzato nell'esperimento è fornito dall'acceleratore elettrostatico LUNA2 a 400 kV.
-			\item Installato nel 2001, ha soppiantato il precedente acceleratore di 50 kV (utilizzato sino al 2003) e fornisce fasci di ioni molto più intensi e temporalmente stabili.
+			\item A energie solari (15-50 keV) la sezione d'urto è troppo piccola per essere misurata direttamente.
+			\item Le stime odierne sono quindi estrapolazioni da energie più alte.
+			\item Il progetto ha come obiettivo determinare la sezione d'urto ad energie 50-370 keV.
 		\end{itemize}
 	\end{frame}
 	
-	\section{Obiettivi della tesi}
-	\begin{frame}{Obiettivi}
-		\begin{itemize}
-			\item L'obiettivo della tesi è quello di caratterizzare in efficienza uno scintillatore $4\pi$ utilizzato per la rivelazione di raggi $\gamma$ nella riproduzione della reazione $^{14}$N(p,$\gamma$)$^{15}$O. 
-			\item Include relevant equations, graphs, or figures.
-		\end{itemize}
-	\end{frame}
-	
-	\section{Il rivelatore}
-	\begin{frame}{Il rivelatore $4\pi$}
-		\begin{itemize}
-			\item Lo scintillatore utilizzato è un rivelatore in germanato di bismuto (Bi$_{4}$Ge$_{3}$O$_{12}$, detto BGO).
-			\item Il cristallo, di forma cilindrica, è otticamente separato in 6 spicchi diversi.
-			\item I fotoni di scintillazione di ciascuno dei 6 segmenti sono rivelati da due fotomoltiplicatori.
-		\end{itemize}
-	\end{frame}
+%\begin{frame}{Sfide sperimentali della misura diretta}
+%	\begin{itemize}
+%		\item La \emph{sezione d'urto} di una reazione nucleare è una grandezza utilizzata per descrivere la probabilità che la reazione avvenga.
+%		\item La si può calcolare sperimentalmente come:
+%	\end{itemize}
+%	
+%	\begin{equation}
+%		\sigma = 
+%		\dfrac{
+%			\only<1>{\tikz[baseline]{\node[anchor=base,draw,rectangle,red,thick,inner sep=2pt] (num) {$N_{reaz}/\Delta t$};}} % First slide
+%			\only<2>{N_{reaz}/\Delta t} % Normal text for slide 2 and 3
+%		}{
+%			\only<2>{\tikz[baseline]{\node[anchor=base,draw,rectangle,red,thick,inner sep=2pt] (proj) {$N_{proj} / \Delta t$};}} % Second slide
+%			\only<1-2>{N_{proj} / \Delta t} % Normal text for slides 1 and 2
+%			\times
+%			\only<3>{\tikz[baseline]{\node[anchor=base,draw,rectangle,red,thick,inner sep=2pt] (bers) {$N_{bers} / A$};}} % Third slide
+%			\only<1-2>{N_{bers} / A} % Normal text for slides 1 and 2
+%		}
+%	\end{equation}
+%	
+%	% Slide 1 explanation for numerator
+%	\only<1>{
+%		\begin{tikzpicture}[overlay]
+%			\draw[->, red, thick] (num.east) -- ++(1,0) node[right] {Numero di reazione per unità di tempo};
+%		\end{tikzpicture}
+%	}
+%	
+%	% Slide 2 explanation for N_proj / Delta t
+%	\only<2>{
+%		\begin{tikzpicture}[overlay]
+%			\draw[->, red, thick] (proj.east) -- ++(1,0) node[right] {Numero di proiettili per unità di tempo};
+%		\end{tikzpicture}
+%	}
+%	
+%	% Slide 3 explanation for N_bers / A
+%	\only<3>{
+%		\begin{tikzpicture}[overlay]
+%			\draw[->, red, thick] (bers.east) -- ++(1,0) node[right] {Numero di bersagli per unità di area};
+%		\end{tikzpicture}
+%	}
+%	
+%\end{frame}
 
-\begin{frame}{Il rivelatore $4\pi$}
-	\begin{figure}[h]
-		\includegraphics[width=0.8\textwidth]{img/BGO.png}
-		\caption{Rappresentazione schematica del rivelatore BGO. In alto una sezione sagittale, in basso una sezione trasversale.}
-	\end{figure}
-\end{frame}
 
-\section{Richiami teorici}
-\begin{frame}{Sezione d'urto}
+\begin{frame}{Sfide sperimentali della misura diretta}
 	\begin{itemize}
 		\item La \emph{sezione d'urto} di una reazione nucleare è una grandezza utilizzata per descrivere la probabilità che la reazione avvenga.
 		\item La si può calcolare sperimentalmente come:
-		
-%		\begin{equation}
-%			\sigma = \dfrac{\mathrm{numero di interazione per unità di tempo}}{(\mathrm{numero di particelle incidenti per unità di tempo})\cdot(\mathrm{numero di nuclei bersaglio all'interno del fascio incidente})}
-%		\end{equation}
-		
+		\begin{equation}
+			\sigma = \dfrac{N_{reaz}/\Delta t}{N_{proj}/\Delta t \times N_{bers}/A \times \varepsilon}
+		\end{equation}
+	\item<2-> $N_{reaz}/\Delta t$ è il numero di reazioni per unità di tempo;
+	\item<3-> $N_{proj}/\Delta t \approx 10^{14}$ pps per intensità tipiche di un fascio stabile
+	\item<4-> $N_{bers}/A \approx 10^{19}$ atomi/cm per un tipico bersaglio allo stato solido
+	\item<5-> $\sigma \approx 10^{-12}$ barn, spesso è anche più piccola
+	\item<6-> $\varepsilon \approx 1 \div 10 \%$ per i raggi gamma
 	\end{itemize}
 \end{frame}
+\begin{frame}{Reaction rate}
+	\begin{itemize}
+		\item<1-> Il \emph{reaction rate} vale quindi appena $1\div 10$ conteggi al giorno
+		\item<2-> Basta pochissimo rumore per nascondere i segnali che rivelano le reazioni
+		\item<3-> La soluzione è cercare di minimizzare il rumore di fondo 
+	\end{itemize}
+\end{frame}
+
+	\begin{frame}{Località}
+		\begin{columns}
+			\begin{column}{0.5\textwidth}
+				\begin{itemize}
+					\item I Laboratori Nazionali del Gran Sasso, situati nella frazione di Assergi, sono schermati dai 1400 m di roccia del Monte Aquila.
+					\item Ciò fa sì che il fondo di raggi cosmici sia fortemente soppresso
+					\item Qui è collocato l'acceleratore LUNA2 a 400 kV, in attività dal 2001, che permette di concentrare fasci ionici molto intensi e stabili.
+				\end{itemize}
+			\end{column}
+			\begin{column}{0.5\textwidth}
+				\centering
+				\includegraphics[width=0.8\textwidth]{img/location.png}
+				\captionof{figure}{LNGS, Assergi, AQ.}
+			\end{column}
+		\end{columns}
+	\end{frame}
+	
+	\begin{frame}{Fondo}
+		\centering
+		\includegraphics[width=0.7\textwidth]{img/noise.png}
+		\captionof{figure}{Grafico riportante il rumore di fondo in superficie, sotto una schermatura parziale sottoterra e sotto una schermatura totale sottoterra.}
+	\end{frame}
+	
+	\section{Obiettivi della tesi}
+	\begin{frame}{Obiettivi della tesi}
+		\begin{itemize}
+			\item L'obiettivo della tesi è quello di caratterizzare in efficienza lo scintillatore $4\pi$ utilizzato per la rivelazione di raggi $\gamma$ nella riproduzione della reazione $^{14}$N(p,$\gamma$)$^{15}$O. 
+			\item Nell'esperimento si proietta un intenso fascio di protoni su bersagli solidi di TiN (nitruro di titanio).  
+		\end{itemize}
+	\end{frame}
+
+	\section{Il rivelatore}
+	\begin{frame}{Il rivelatore $4\pi$}
+		\begin{columns}
+			\begin{column}{0.45\textwidth}
+				\begin{itemize}
+					\item La radiazione gamma emessa dalla reazione è rivelata da uno scintillatore.
+					\item Si tratta di un rivelatore in germanato di bismuto (Bi$_{4}$Ge$_{3}$O$_{12}$, detto BGO), coprente il 95\% dell'angolo solido totale attorno al bersaglio.
+				\end{itemize}
+			\end{column}
+			\begin{column}{0.45\textwidth}
+				\centering
+				\includegraphics[width=\textwidth]{img/bgo_3d.png}
+				\captionof{figure}{Rappresentazione 3D del rivelatore BGO.}
+			\end{column}
+		\end{columns}
+		
+	\end{frame}
+
+\begin{frame}{Il rivelatore $4\pi$}
+	\begin{columns}
+		\begin{column}{0.45\textwidth}
+			\begin{itemize}
+				\item Il cristallo, a simmetria cilindrica, è otticamente separato in 6 spicchi diversi.
+				\item I fotoni di scintillazione di ciascuno dei 6 segmenti sono rivelati da due fotomoltiplicatori.
+			\end{itemize}
+		\end{column}
+		\begin{column}{0.45\textwidth}
+			\centering
+			\includegraphics[width=\textwidth]{img/BGO.png}
+			\captionof{figure}{Rappresentazione schematica del rivelatore BGO. In alto una sezione sagittale, in basso una sezione trasversale.}
+		\end{column}
+	\end{columns}
+\end{frame}
+
 
 \begin{frame}{Efficienza}
 	\begin{itemize}
@@ -154,8 +261,6 @@
 	\end{itemize}
 \end{frame}
 
-\section{L'elettronica}
-
 \begin{frame}{Tempo vivo/morto}
 	\begin{itemize}
 		\item Ogni strumento è elettronicamente vincolato a processare il segnale in ingresso
@@ -166,7 +271,7 @@
 	\end{itemize}
 \end{frame}
 
-\section{Caratterizzaione}
+\section{Caratterizzazione}
 \begin{frame}{Caratterizzazione in energia}
 	\begin{itemize}
 		\item La caratterizzazione in energia è effettuata utilizzando due sorgenti radioattive: $^{60}$Co e $^{137}$Cs.
@@ -174,27 +279,29 @@
 \end{frame}
 
 \begin{frame}{$^{60}$Co}
-	\begin{itemize}
-		\item Il $^{60}$Co decade tramite decadimento $\beta^{-}$ (99.75\%) in $^{60}$Ni ed emette due raggi gamma di energie 1.17 MeV e 1.33 MeV.
-		\item Ha il vantaggio di emettere raggi gamma ad alta intensità con un'emivita relativamente lunga di 5.27 anni. 
-		\item Trova applicazione nella radioterapia del cancro.
-	\end{itemize}
+
+
+			\begin{itemize}
+				\item<1-> Il $^{60}$Co decade tramite decadimento $\beta^{-}$ (99.75\%) in $^{60}$Ni ed emette due raggi gamma di energie 1.17 MeV e 1.33 MeV.
+				\item<2-> Ha il vantaggio di emettere raggi gamma ad alta intensità con un'emivita relativamente lunga di 5.27 anni. 
+				\item<3-> Trova applicazione nella radioterapia del cancro.
+			\end{itemize}
+
+		\centering
+		\includegraphics[width=0.5\textwidth]{img/Cobalt-60m-decay.png}
+		\captionof{figure}{Schema di decadimento del $^{137}$Cs.}
+
 \end{frame}
 
 \begin{frame}{$^{137}$Cs}
 	\begin{itemize}
-		\item Il $^{137}$Cs decade sempre tramite decadimento $\beta^{-}$.
-		\item Il 94.6\% dei decadimenti hanno come prodotto uno stato metastabile del $^{137}$Ba. 
-		\item Questo stato eccitato emette l'85\% delle volte raggi gamma di 661.7 keV decadendo nello stato fondamentale del $^{137}$Ba (tutti i raggi gamma provenienti dal $^{137}$Cs sono prodotti così).
-		\item Trova applicazione nella calibrazione di strumenti.
+		\item<1-> Il $^{137}$Cs decade sempre tramite decadimento $\beta^{-}$.
+		\item<2-> Il 94.6\% dei decadimenti hanno come prodotto uno stato metastabile del $^{137}$Ba. 
+		\item<3-> Questo stato eccitato emette l'85\% delle volte raggi gamma di 661.7 keV decadendo nello stato fondamentale del $^{137}$Ba (tutti i raggi gamma provenienti dal $^{137}$Cs sono prodotti così).
 	\end{itemize}
-\end{frame}
-
-\begin{frame}
-	\begin{itemize}
-		\item I modi di decadimento degli elementi utilizzati sono
-		\item Schema?? Energie che figurano nel nostro caso
-	\end{itemize}
+		\centering
+		\includegraphics[width=0.5\textwidth]{img/Cs-137-decay.png}
+		\captionof{figure}{Schema di decadimento del $^{137}$Cs.}
 \end{frame}
 
 \begin{frame}{Struttura dei dati}
@@ -207,8 +314,31 @@
 	\end{itemize}
 \end{frame}
 
-\begin{frame}
-	METTERE FOTO DI UN ISTOGRAMMA
+\begin{frame}{Istogrammi}
+	\begin{figure}
+		\centering
+		\begin{minipage}{0.45\textwidth}
+			\centering
+			\includegraphics[width=\linewidth]{img/ex1775.pdf} % Replace with your image path
+		\end{minipage}
+		\hfill
+		\begin{minipage}{0.45\textwidth}
+			\centering
+			\includegraphics[width=\linewidth]{img/ex1776.pdf} % Replace with your image path
+		\end{minipage}
+		
+		\vspace{0.4cm} % Adjust vertical space between rows
+		
+		\begin{minipage}{0.45\textwidth}
+			\centering
+			\includegraphics[width=\linewidth]{img/ex1777.pdf} % Replace with your image path
+		\end{minipage}
+		\hfill
+		\begin{minipage}{0.45\textwidth}
+			\centering
+			\includegraphics[width=\linewidth]{img/pulser.pdf} % Replace with your image path
+		\end{minipage}
+	\end{figure}
 \end{frame}
 
 \begin{frame}{Calcolo della calibrazione}
@@ -217,10 +347,6 @@
 		\item \emph{Calibrare} uno scintillatore significa trovare il fattore di conversione da \textbf{canali} a \textbf{energia}.
 		\item Per ogni spicchio del BGO si esegue un fit per trovare il valore dei picchi caratteristici e del picco somma in canali.
 	\end{itemize}
-\end{frame}
-
-\begin{frame}{Esempio di istogramma}
-	METTERE ISTOGRAMMA DEL FILE 1775
 \end{frame}
 
 \begin{frame}{Calcolo della calibrazione}
