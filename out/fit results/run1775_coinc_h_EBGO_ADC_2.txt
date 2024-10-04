@@ -10,9 +10,9 @@ Fit p-value: 0.0073415
 
 Pulser integral: 6369
 Total time for measurements: 0 s
-Live time percentage: 0
+Live time percentage: 0.973151
 
-Activity for the source today: 4547.65 Bq
+Activity for the source today: 4546.2 Bq
 Efficiency value for first peak: inf +/- inf
 Efficiency value with trap method: inf +/- inf
 ******************************************

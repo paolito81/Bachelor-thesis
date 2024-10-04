@@ -1,5 +1,5 @@
 \beamer@sectionintoc {1}{Introduzione}{3}{0}{1}
-\beamer@sectionintoc {2}{Obiettivi della tesi}{19}{0}{2}
-\beamer@sectionintoc {3}{Il rivelatore}{21}{0}{3}
-\beamer@sectionintoc {4}{Caratterizzazione}{27}{0}{4}
-\beamer@sectionintoc {5}{Conclusion}{41}{0}{5}
+\beamer@sectionintoc {2}{Obiettivi della tesi}{20}{0}{2}
+\beamer@sectionintoc {3}{Il rivelatore}{22}{0}{3}
+\beamer@sectionintoc {4}{Caratterizzazione}{28}{0}{4}
+\beamer@sectionintoc {5}{Conclusion}{47}{0}{5}

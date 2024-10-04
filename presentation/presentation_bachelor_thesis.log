@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 23.1) (preloaded format=pdflatex 2023.3.2)  3 OCT 2024 19:01
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 23.1) (preloaded format=pdflatex 2023.3.2)  4 OCT 2024 13:12
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1238,133 +1238,183 @@ Overfull \vbox (6.61139pt too high) detected at line 188
 [17
 
  <./img/location.png>]
-<img/noise.png, id=319, 666.99188pt x 468.24937pt>
+<img/LUNA2.png, id=319, 857.45343pt x 572.89032pt>
+File: img/LUNA2.png Graphic file (type png)
+<use img/LUNA2.png>
+Package pdftex.def Info: img/LUNA2.png  used on input line 194.
+(pdftex.def)             Requested size: 308.06367pt x 205.8295pt.
+
+Overfull \vbox (2.75891pt too high) detected at line 194
+ []
+
+[18
+
+ <./img/LUNA2.png>]
+<img/noise.png, id=328, 666.99188pt x 468.24937pt>
 File: img/noise.png Graphic file (type png)
 <use img/noise.png>
-Package pdftex.def Info: img/noise.png  used on input line 194.
+Package pdftex.def Info: img/noise.png  used on input line 200.
 (pdftex.def)             Requested size: 239.60567pt x 168.20525pt.
- [18
+ [19
 
- <./img/noise.png>]
-(presentation_bachelor_thesis.toc) [19
+ <./img/noise.png>] (presentation_bachelor_thesis.toc) [20
 
-] [20
+] [21
 
-] (presentation_bachelor_thesis.toc) [21
+] (presentation_bachelor_thesis.toc) [22
 
 ]
-<img/bgo_3d.png, id=358, 520.94624pt x 372.64218pt>
+<img/bgo_3d.png, id=367, 520.94624pt x 372.64218pt>
 File: img/bgo_3d.png Graphic file (type png)
 <use img/bgo_3d.png>
-Package pdftex.def Info: img/bgo_3d.png  used on input line 220.
+Package pdftex.def Info: img/bgo_3d.png  used on input line 226.
 (pdftex.def)             Requested size: 154.03183pt x 110.17867pt.
- [22
-
- <./img/bgo_3d.png>]
-<img/BGO.png, id=367, 703.62875pt x 413.545pt>
-File: img/BGO.png Graphic file (type png)
-<use img/BGO.png>
-Package pdftex.def Info: img/BGO.png  used on input line 236.
-(pdftex.def)             Requested size: 154.03183pt x 90.52583pt.
  [23
 
- <./img/BGO.png>] [24
+ <./img/bgo_3d.png>]
+<img/BGO.png, id=376, 703.62875pt x 413.545pt>
+File: img/BGO.png Graphic file (type png)
+<use img/BGO.png>
+Package pdftex.def Info: img/BGO.png  used on input line 242.
+(pdftex.def)             Requested size: 154.03183pt x 90.52583pt.
 
-] [25
+[24
+
+ <./img/BGO.png>] [25
 
 ] [26
 
-]
-(presentation_bachelor_thesis.toc) [27
+] [27
 
-] [28
+] (presentation_bachelor_thesis.toc) [28
 
 ]
-<img/Cobalt-60m-decay.png, id=417, 1927.2pt x 940.51375pt>
+[29
+
+]
+<img/Cobalt-60m-decay.png, id=426, 1927.2pt x 940.51375pt>
 File: img/Cobalt-60m-decay.png Graphic file (type png)
 <use img/Cobalt-60m-decay.png>
-Package pdftex.def Info: img/Cobalt-60m-decay.png  used on input line 294.
+Package pdftex.def Info: img/Cobalt-60m-decay.png  used on input line 300.
 (pdftex.def)             Requested size: 171.14764pt x 83.5232pt.
- [29
+ [30
 
  <./img/Cobalt-60m-decay.png>]
 File: img/Cobalt-60m-decay.png Graphic file (type png)
 <use img/Cobalt-60m-decay.png>
-Package pdftex.def Info: img/Cobalt-60m-decay.png  used on input line 294.
-(pdftex.def)             Requested size: 171.14764pt x 83.5232pt.
-
-[30
-
-]
-File: img/Cobalt-60m-decay.png Graphic file (type png)
-<use img/Cobalt-60m-decay.png>
-Package pdftex.def Info: img/Cobalt-60m-decay.png  used on input line 294.
+Package pdftex.def Info: img/Cobalt-60m-decay.png  used on input line 300.
 (pdftex.def)             Requested size: 171.14764pt x 83.5232pt.
  [31
 
 ]
-<img/Cs-137-decay.png, id=439, 1927.2pt x 1065.9825pt>
+File: img/Cobalt-60m-decay.png Graphic file (type png)
+<use img/Cobalt-60m-decay.png>
+Package pdftex.def Info: img/Cobalt-60m-decay.png  used on input line 300.
+(pdftex.def)             Requested size: 171.14764pt x 83.5232pt.
+ [32
+
+]
+<img/Cs-137-decay.png, id=448, 1927.2pt x 1065.9825pt>
 File: img/Cs-137-decay.png Graphic file (type png)
 <use img/Cs-137-decay.png>
-Package pdftex.def Info: img/Cs-137-decay.png  used on input line 305.
+Package pdftex.def Info: img/Cs-137-decay.png  used on input line 311.
 (pdftex.def)             Requested size: 171.14764pt x 94.66557pt.
- [32
+ [33
 
  <./img/Cs-137-decay.png>]
 File: img/Cs-137-decay.png Graphic file (type png)
 <use img/Cs-137-decay.png>
-Package pdftex.def Info: img/Cs-137-decay.png  used on input line 305.
+Package pdftex.def Info: img/Cs-137-decay.png  used on input line 311.
 (pdftex.def)             Requested size: 171.14764pt x 94.66557pt.
- [33
+
+[34
 
 ]
 File: img/Cs-137-decay.png Graphic file (type png)
 <use img/Cs-137-decay.png>
-Package pdftex.def Info: img/Cs-137-decay.png  used on input line 305.
+Package pdftex.def Info: img/Cs-137-decay.png  used on input line 311.
 (pdftex.def)             Requested size: 171.14764pt x 94.66557pt.
- [34
+ [35
 
-] [35
+] [36
 
 ]
-<img/ex1775.pdf, id=467, 569.12625pt x 288.07625pt>
+<img/ex1775.pdf, id=476, 569.12625pt x 288.07625pt>
 File: img/ex1775.pdf Graphic file (type pdf)
 <use img/ex1775.pdf>
-Package pdftex.def Info: img/ex1775.pdf  used on input line 342.
+Package pdftex.def Info: img/ex1775.pdf  used on input line 348.
 (pdftex.def)             Requested size: 154.03183pt x 77.96623pt.
-<img/ex1776.pdf, id=468, 569.12625pt x 288.07625pt>
+<img/ex1776.pdf, id=477, 569.12625pt x 288.07625pt>
 File: img/ex1776.pdf Graphic file (type pdf)
 <use img/ex1776.pdf>
-Package pdftex.def Info: img/ex1776.pdf  used on input line 342.
+Package pdftex.def Info: img/ex1776.pdf  used on input line 348.
 (pdftex.def)             Requested size: 154.03183pt x 77.96623pt.
-<img/ex1777.pdf, id=469, 569.12625pt x 288.07625pt>
+<img/ex1777.pdf, id=478, 569.12625pt x 288.07625pt>
 File: img/ex1777.pdf Graphic file (type pdf)
 <use img/ex1777.pdf>
-Package pdftex.def Info: img/ex1777.pdf  used on input line 342.
+Package pdftex.def Info: img/ex1777.pdf  used on input line 348.
 (pdftex.def)             Requested size: 154.03183pt x 77.96623pt.
-<img/pulser.pdf, id=470, 569.12625pt x 288.07625pt>
+<img/pulser.pdf, id=479, 569.12625pt x 288.07625pt>
 File: img/pulser.pdf Graphic file (type pdf)
 <use img/pulser.pdf>
-Package pdftex.def Info: img/pulser.pdf  used on input line 342.
+Package pdftex.def Info: img/pulser.pdf  used on input line 348.
 (pdftex.def)             Requested size: 154.03183pt x 77.96623pt.
- [36
+ [37
 
  <./img/ex1775.pdf, page is rotated 90 degrees> <./img/ex1776.pdf, page is rota
 ted 90 degrees> <./img/ex1777.pdf, page is rotated 90 degrees> <./img/pulser.pd
-f, page is rotated 90 degrees>] [37
-
-] [38
+f, page is rotated 90 degrees>] [38
 
 ] [39
 
-] [40
+]
+<img/plot0_empty.pdf, id=675, 569.12625pt x 409.53pt>
+File: img/plot0_empty.pdf Graphic file (type pdf)
+<use img/plot0_empty.pdf>
+Package pdftex.def Info: img/plot0_empty.pdf  used on input line 377.
+(pdftex.def)             Requested size: 154.03183pt x 110.83702pt.
+ [40
 
-] (presentation_bachelor_thesis.toc) [41
+ <./img/plot0_empty.pdf, page is rotated 90 degrees>]
+<img/plot0.pdf, id=725, 569.12625pt x 409.53pt>
+File: img/plot0.pdf Graphic file (type pdf)
+<use img/plot0.pdf>
+Package pdftex.def Info: img/plot0.pdf  used on input line 377.
+(pdftex.def)             Requested size: 154.03183pt x 110.83702pt.
+ [41
 
-] [42
+ <./img/plot0.pdf, page is rotated 90 degrees>]
+File: img/plot0.pdf Graphic file (type pdf)
+<use img/plot0.pdf>
+Package pdftex.def Info: img/plot0.pdf  used on input line 377.
+(pdftex.def)             Requested size: 154.03183pt x 110.83702pt.
+ [42
+
+] [43
 
 ]
-[43
+<img/residues0.pdf, id=789, 569.12625pt x 409.53pt>
+File: img/residues0.pdf Graphic file (type pdf)
+<use img/residues0.pdf>
+Package pdftex.def Info: img/residues0.pdf  used on input line 394.
+(pdftex.def)             Requested size: 154.03183pt x 110.83702pt.
+ [44
+
+ <./img/residues0.pdf, page is rotated 90 degrees>]
+File: img/residues0.pdf Graphic file (type pdf)
+<use img/residues0.pdf>
+Package pdftex.def Info: img/residues0.pdf  used on input line 394.
+(pdftex.def)             Requested size: 154.03183pt x 110.83702pt.
+
+[45
+
+] [46
+
+] (presentation_bachelor_thesis.toc) [47
+
+] [48
+
+] [49
 
 ]
 \tf@nav=\write7
@@ -1376,41 +1426,38 @@ f, page is rotated 90 degrees>] [37
 \tf@snm=\write9
 \openout9 = `presentation_bachelor_thesis.snm'.
 
- (presentation_bachelor_thesis.aux)
+
+(presentation_bachelor_thesis.aux)
 Package rerunfilecheck Info: File `presentation_bachelor_thesis.out' has not ch
 anged.
 (rerunfilecheck)             Checksum: 2FA50BF305CA7CC987BE009EB5B44DB4;584.
  ) 
 Here is how much of TeX's memory you used:
- 27863 strings out of 476339
- 566654 string characters out of 5788120
+ 27902 strings out of 476339
+ 567370 string characters out of 5788120
  1861340 words of memory out of 5000000
- 47621 multiletter control sequences out of 15000+600000
+ 47645 multiletter control sequences out of 15000+600000
  525658 words of font info for 80 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  128i,15n,122p,432b,746s stack positions out of 10000i,1000n,20000p,200000b,200000s
-
-pdfTeX warning (dest): name{Navigation44} has been referenced but does not exis
-t, replaced by a fixed one
-
-<C:/Users/puste/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cm
-mi10.pfb><C:/Users/puste/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfo
-nts/cm/cmmi12.pfb><C:/Users/puste/AppData/Local/Programs/MiKTeX/fonts/type1/pub
-lic/amsfonts/cm/cmmi8.pfb><C:/Users/puste/AppData/Local/Programs/MiKTeX/fonts/t
-ype1/public/amsfonts/cm/cmss10.pfb><C:/Users/puste/AppData/Local/Programs/MiKTe
-X/fonts/type1/public/amsfonts/cm/cmss12.pfb><C:/Users/puste/AppData/Local/Progr
-ams/MiKTeX/fonts/type1/public/amsfonts/cm/cmss8.pfb><C:/Users/puste/AppData/Loc
-al/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmssbx10.pfb><C:/Users/puste/
-AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmssi10.pfb><C:/Us
-ers/puste/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmssi12.
-pfb><C:/Users/puste/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/c
-m/cmssi8.pfb><C:/Users/puste/AppData/Local/Programs/MiKTeX/fonts/type1/public/a
-msfonts/cm/cmsy10.pfb><C:/Users/puste/AppData/Local/Programs/MiKTeX/fonts/type1
-/public/amsfonts/cm/cmsy8.pfb><C:/Users/puste/AppData/Local/Programs/MiKTeX/fon
-ts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on presentation_bachelor_thesis.pdf (43 pages, 1585926 bytes).
+<C:/Users/puste/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/
+cmmi10.pfb><C:/Users/puste/AppData/Local/Programs/MiKTeX/fonts/type1/public/ams
+fonts/cm/cmmi12.pfb><C:/Users/puste/AppData/Local/Programs/MiKTeX/fonts/type1/p
+ublic/amsfonts/cm/cmmi8.pfb><C:/Users/puste/AppData/Local/Programs/MiKTeX/fonts
+/type1/public/amsfonts/cm/cmss10.pfb><C:/Users/puste/AppData/Local/Programs/MiK
+TeX/fonts/type1/public/amsfonts/cm/cmss12.pfb><C:/Users/puste/AppData/Local/Pro
+grams/MiKTeX/fonts/type1/public/amsfonts/cm/cmss8.pfb><C:/Users/puste/AppData/L
+ocal/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmssbx10.pfb><C:/Users/pust
+e/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmssi10.pfb><C:/
+Users/puste/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmssi1
+2.pfb><C:/Users/puste/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts
+/cm/cmssi8.pfb><C:/Users/puste/AppData/Local/Programs/MiKTeX/fonts/type1/public
+/amsfonts/cm/cmsy10.pfb><C:/Users/puste/AppData/Local/Programs/MiKTeX/fonts/typ
+e1/public/amsfonts/cm/cmsy8.pfb><C:/Users/puste/AppData/Local/Programs/MiKTeX/f
+onts/type1/public/amsfonts/cm/cmtt10.pfb>
+Output written on presentation_bachelor_thesis.pdf (49 pages, 3815650 bytes).
 PDF statistics:
- 786 PDF objects out of 1000 (max. 8388607)
- 93 named destinations out of 1000 (max. 500000)
- 197 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 959 PDF objects out of 1000 (max. 8388607)
+ 104 named destinations out of 1000 (max. 500000)
+ 217 words of extra memory for PDF output out of 10000 (max. 10000000)
 

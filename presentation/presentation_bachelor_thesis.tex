@@ -187,6 +187,12 @@
 		\end{columns}
 	\end{frame}
 	
+	\begin{frame}{L'acceleratore}
+		\centering
+		\includegraphics[width=0.9\textwidth]{img/LUNA2.png}
+		\captionof{figure}{L'acceleratore LUNA2 a 400 kV.}
+	\end{frame}
+	
 	\begin{frame}{Fondo}
 		\centering
 		\includegraphics[width=0.7\textwidth]{img/noise.png}
@@ -223,7 +229,7 @@
 	\begin{columns}
 		\begin{column}{0.45\textwidth}
 			\begin{itemize}
-				\item Il cristallo, a simmetria cilindrica, è otticamente separato in 6 spicchi diversi.
+				\item Il cristallo, a simmetria cilindrica, è otticamente separato in 6 spicchi uguali.
 				\item I fotoni di scintillazione di ciascuno dei 6 segmenti sono rivelati da due fotomoltiplicatori.
 			\end{itemize}
 		\end{column}
@@ -251,7 +257,7 @@
 
 \begin{frame}{Efficienza}
 	\begin{itemize}
-		\item Nel caso dei nostri istogrammi, composti da un picco gaussiano centrato su un'energia caratteristica e un fondo di \emph{bremsstrahlung}, l'efficienza si può calcolare nel modo seguente:
+		\item Nel caso dei nostri istogrammi, composti da un picco gaussiano centrato su un'energia caratteristica e un fondo di \emph{bremsstrahlung}, l'efficienza si può stimare nel modo seguente:
 		
 		\begin{equation}
 			\varepsilon = \dfrac{N_{cont.}}{A(t*) \Delta t}
@@ -350,15 +356,41 @@
 \end{frame}
 
 \begin{frame}{Calcolo della calibrazione}
-	\begin{itemize}
-			\item I valori dei picchi vengono graficati contro quelli in energia caratteristici, noti.
-		\item Si effettua dunque un fit lineare per i punti di ciascun istogramma.
-		\item I coefficienti angolari di questi fit sono i fattori di conversione cercati.
-	\end{itemize}
+	\begin{columns}
+		\begin{column}{0.4\textwidth}
+			\begin{itemize}
+				\item<1-> I valori dei picchi vengono graficati contro quelli in energia caratteristici, noti.
+				\item<3-> Si effettua dunque un fit lineare per i punti di ciascun istogramma.
+				\item<4-> I coefficienti angolari di questi fit sono i fattori di conversione cercati.
+			\end{itemize}
+		\end{column}
+		\begin{column}{0.5\textwidth}
+			\begin{figure}
+				\centering
+				\only<2>{\includegraphics[width=0.9\textwidth]{img/plot0_empty.pdf}}
+				\only<3->{\includegraphics[width=0.9\textwidth]{img/plot0.pdf}}
+				%TERZA GRAFICA PER FARE VEDERE I RISULTATI
+			\end{figure}
+		\end{column}
+	\end{columns}
+	
 \end{frame}
 
-\begin{frame}{Grafici}
-	METTERE GRAFICI DEI PLOT DELLA CALIBRAZIONE
+\begin{frame}{Residui}
+	\begin{columns}
+		\begin{column}{0.4\textwidth}
+			\begin{itemize}
+				\item<1-> I residui sono la differenza tra i valori in energia noti e quelli assunti dalla retta
+				\item<2-> Sono una rappresentazione della bontà della calibrazione
+				\item<3-> In generale una calibrazione è buona se i residui non superano la decina di keV
+			\end{itemize}
+		\end{column}
+		\begin{column}{0.5\textwidth}
+			\centering
+			\only<2->{\includegraphics[width=0.9\textwidth]{img/residues0.pdf}}
+		\end{column}
+	\end{columns}
+	
 \end{frame}
 
 \begin{frame}{Calcolo dell'efficienza}
