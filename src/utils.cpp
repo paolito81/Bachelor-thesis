@@ -195,24 +195,32 @@ void runAnalysis(const std::vector<Config>& configs, bool onlyOneElement) {
  * @param date the source's manufacturing date
  * @return years_passed How many years have passed
  */
-double getHowManyYears(const std::string& date) {
+double getHowManyYears(const std::string& start_date_str, const std::string& end_date_str) {
     std::tm start_date = {};
-    std::istringstream ss(date);
-    ss >> std::get_time(&start_date, "%d/%m/%Y");
+    std::istringstream ss_start(start_date_str);
+    ss_start >> std::get_time(&start_date, "%d/%m/%Y");
 
-    if (ss.fail()) {
+    if (ss_start.fail()) {
         std::cerr << "Failed to parse date!" << std::endl;
-        return 1;
+        return -1;
+    }
+
+    std::tm end_date = {};
+    std::istringstream ss_end(end_date_str);
+    ss_end >> std::get_time(&end_date, "%d/%m/%Y");
+
+    if (ss_end.fail()) {
+        std::cerr << "Failed to parse date!" << std::endl;
+        return -1;
     }
 
     auto start_time = std::chrono::system_clock::from_time_t(std::mktime(&start_date));
+    auto end_time = std::chrono::system_clock::from_time_t(std::mktime(&end_date));
 
-    auto current_time = std::chrono::system_clock::now();
-
-    auto duration = std::chrono::duration_cast<std::chrono::seconds>(current_time - start_time);
+    auto duration = std::chrono::duration_cast<std::chrono::seconds>(end_time - start_time);
     double years_passed = duration.count() / (365.25*60*60*24);
 
-    std::cout << "Years passed since " << date << ": " << years_passed << " years." << std::endl;
+    std::cout << "Years passed between " << start_date_str << " and " << end_date_str << ": " << years_passed << " years." << std::endl;
 
     return years_passed;
 
@@ -335,8 +343,8 @@ void processSpreadsheetFile(const std::string& inputFile, std::ofstream& csvFile
         // Write extracted data as a row in the CSV file, including uncertainties in separate columns
         //csvFile << std::scientific << std::setprecision(6);
 
-        csvFile << shortenedFileName << "," //<< slope.first << "," << slope.second << ","  // Value and uncertainty
-            //<< intercept.first << "," << intercept.second << ","
+        csvFile << shortenedFileName << "," << slope.first << "," << slope.second << ","  // Value and uncertainty
+            << intercept.first << "," << intercept.second << ","
             << norm1.first << "," << norm1.second << ","
             << mean1.first << "," << mean1.second << ","
             << stddev1.first << "," << stddev1.second << ","
@@ -360,7 +368,7 @@ void createSpreadsheet() {
     std::string big_results_filename = "../../../out/results_spreadsheet.csv";
     std::ofstream csvFile(big_results_filename);
 
-    csvFile << "File Name,Normalization 1,ErrNormalization 1,Mean 1,ErrMean 1,Standard Deviation 1,ErrStandard Deviation 1,Normalization 2,ErrNormalization 2,"
+    csvFile << "File Name,Slope,ErrSlope,Intercept,ErrIntercept,Normalization 1,ErrNormalization 1,Mean 1,ErrMean 1,Standard Deviation 1,ErrStandard Deviation 1,Normalization 2,ErrNormalization 2,"
         << "Mean 2,ErrMean 2,Standard Deviation 2,ErrStandard Deviation 2,Fit p-value,Pulser Integral,Total Time [s],Live Time Percentage,"
         << "Activity [Bq],Efficiency 1,ErrEfficiency 1,Efficiency 2,ErrEfficiency 2,Efficiency Trap,ErrEfficiency Trap\n";
 

@@ -11,6 +11,8 @@
 #include <TTree.h>
 #include <TStyle.h>
 #include <TMath.h>
+#include <TLine.h>
+#include <TLegend.h>
 
 /**
 * @brief The constructor for the Analyzer object
@@ -48,6 +50,7 @@ Analyzer::Analyzer(const std::string& filename, const std::string& histname, Fun
 	}
 
 	canvas = new TCanvas();
+	legend = new TLegend(0.7, 0.7, 0.9, 0.9);
 	
 	// Function type selector
 	if (ftype == F1)
@@ -346,11 +349,50 @@ void Analyzer::normefficiency() {
 */
 void Analyzer::plot() {
 	histogram->Fit("f1", "", "", chn_lower_bound, chn_upper_bound);
+	histogram->GetXaxis()->SetRangeUser(300, 1600);
 	
+	canvas->SetLogy();
+
+	double line_ymin = histogram->GetMinimum();
+	double line_ymax = 300;
+
+	TLine* line_low = new TLine(chn_lower_bound, line_ymin, chn_lower_bound, line_ymax);
+	TLine* line_up = new TLine(chn_upper_bound, line_ymin, chn_upper_bound, line_ymax);
+
+	TLine* peak_low = new TLine(peak_lower, line_ymin, peak_lower, line_ymax);
+	TLine* peak_up = new TLine(peak_upper, line_ymin, peak_upper, line_ymax);
+
+	line_low->SetLineColor(kBlue);
+	line_up->SetLineColor(kBlue);
+
+	peak_low->SetLineColor(kGreen);
+	peak_up->SetLineColor(kGreen);
+
 	func->Draw();
 	histogram->Draw();
+	line_low->Draw();
+	line_up->Draw();
+	peak_low->Draw();
+	peak_up->Draw();
+
+	std::string chn_lower_bound_str = std::to_string(chn_lower_bound);
+	std::string chn_upper_bound_str = std::to_string(chn_upper_bound);
+	std::string fit_entry = "Fit limits: (" + chn_lower_bound_str + ", " + chn_upper_bound_str + ")";
+
+	legend->AddEntry(func, "Fitted function", "l");
+	legend->AddEntry(peak_low, "Peak limits", "l");
+	legend->AddEntry(line_low, fit_entry.c_str(), "l");
+	legend->SetTextSize(0.03);
+	legend->SetBorderSize(0);
+	legend->SetFillStyle(0);
+	legend->Draw();
+
 	canvas->Update();
+
+	std::string save_name = "../../../out/hist canvases/histogram_" + std::to_string(extractLastNumber(histname)) + "_logy.pdf";
 	
+	canvas->SaveAs(save_name.c_str());
+
 	std::cout << "p-value:                        " << func->GetProb() << std::endl;
 }
 
@@ -498,14 +540,14 @@ void Analyzer::setActivity() {
 	{
 	case F1:
 	case F4:
-		activity = 0.85 * 6460 * exp(-getHowManyYears("25/07/2016") / (30.08/0.693));
-		err_activity = 0.85 * 70 * exp(-getHowManyYears("25/07/2016") / (30.08 / 0.693));
+		activity = 0.85 * 6460 * exp(-getHowManyYears("25/07/2016", "03/04/2024") / (30.08 / 0.693));
+		err_activity = 0.85 * 70 * exp(-getHowManyYears("25/07/2016", "03/04/2024") / (30.08 / 0.693));
 		break;
 	case F2:
 	case F3:
 	case F5:
-		activity = 9010 * exp(-getHowManyYears("01/07/2016") / (5.27/0.693));
-		err_activity = 70 * exp(-getHowManyYears("01/07/2016") / (5.27 / 0.693));
+		activity = 9010 * exp(-getHowManyYears("01/07/2016", "03/04/2024") / (5.27/0.693));
+		err_activity = 70 * exp(-getHowManyYears("01/07/2016", "03/04/2024") / (5.27 / 0.693));
 	}
 }
 

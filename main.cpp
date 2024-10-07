@@ -108,9 +108,9 @@ int main(int argc, char* argv[]) {
     };
 
 
-    runAnalysis(configs1775, false); //total time unknown
+    //runAnalysis(configs1775, false); //total time unknown
     //runAnalysis(configs1776, true); //results are coherent
-    //runAnalysis(configs1777, true); //results are not very coherent
+    runAnalysis(configs1777, true); //results are not very coherent
     //runAnalysis(configs1777_F3, true);
     //runAnalysis(configs1778, true); //total time unknown
     //runAnalysis(configs1779, true); //results are coherent

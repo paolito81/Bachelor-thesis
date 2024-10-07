@@ -43,6 +43,7 @@ private:
     TF1* func; /**< Pointer to the function to be fitted */
     TCanvas* canvas; /**< Pointer to the canvas */
     FuncType ftype; /**< Function type for fitting (gaussian or double gaussian) */
+    TLegend* legend; /** Legend for the canvas */
     double p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10; /**< Fit parameters */
     int chn_lower_bound, chn_upper_bound;
     int peak_lower, peak_upper;
