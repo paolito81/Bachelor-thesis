@@ -351,7 +351,7 @@ void Analyzer::plot() {
 	histogram->Fit("f1", "", "", chn_lower_bound, chn_upper_bound);
 	histogram->GetXaxis()->SetRangeUser(300, 1600);
 	
-	canvas->SetLogy();
+	//canvas->SetLogy();
 
 	double line_ymin = histogram->GetMinimum();
 	double line_ymax = 300;
@@ -362,11 +362,14 @@ void Analyzer::plot() {
 	TLine* peak_low = new TLine(peak_lower, line_ymin, peak_lower, line_ymax);
 	TLine* peak_up = new TLine(peak_upper, line_ymin, peak_upper, line_ymax);
 
+	TLine* oblique = new TLine(peak_lower, func->Eval(peak_lower), peak_upper, func->Eval(peak_upper));
+
 	line_low->SetLineColor(kBlue);
 	line_up->SetLineColor(kBlue);
 
-	peak_low->SetLineColor(kGreen);
-	peak_up->SetLineColor(kGreen);
+	peak_low->SetLineColor(kBlack);
+	peak_up->SetLineColor(kBlack);
+	oblique->SetLineColor(kBlack);
 
 	func->Draw();
 	histogram->Draw();
@@ -374,6 +377,7 @@ void Analyzer::plot() {
 	line_up->Draw();
 	peak_low->Draw();
 	peak_up->Draw();
+	//oblique->Draw();
 
 	std::string chn_lower_bound_str = std::to_string(chn_lower_bound);
 	std::string chn_upper_bound_str = std::to_string(chn_upper_bound);
