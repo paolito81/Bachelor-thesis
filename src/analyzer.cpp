@@ -351,7 +351,7 @@ void Analyzer::plot() {
 	histogram->Fit("f1", "", "", chn_lower_bound, chn_upper_bound);
 	histogram->GetXaxis()->SetRangeUser(300, 1600);
 	
-	//canvas->SetLogy();
+	canvas->SetLogy();
 
 	double line_ymin = histogram->GetMinimum();
 	double line_ymax = 300;
