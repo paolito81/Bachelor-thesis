@@ -1,7 +1,7 @@
 Filename	                            Histogram	            p3      p6      p9
-../../../root files/run1780_coinc.root	EnergyADC/h_EBGO_ADC_1	560.373 +- 0.155404	-
-../../../root files/run1780_coinc.root	EnergyADC/h_EBGO_ADC_2	551.872 +- 0.162295	-
-../../../root files/run1780_coinc.root	EnergyADC/h_EBGO_ADC_3	488.128 +- 0.15472	-
-../../../root files/run1780_coinc.root	EnergyADC/h_EBGO_ADC_4	513.017 +- 0.134879	-
-../../../root files/run1780_coinc.root	EnergyADC/h_EBGO_ADC_5	519.74 +- 0.165546	-
-../../../root files/run1780_coinc.root	EnergyADC/h_EBGO_ADC_6	578.083 +- 0.174494	-
+../../../root files/run1779_coinc.root	EnergyADC/h_EBGO_ADC_1	1004.58 +- 0.891044	1142.32 +- 1.01062
+../../../root files/run1779_coinc.root	EnergyADC/h_EBGO_ADC_2	989.4 +- 1.04657	1124.5 +- 1.20082
+../../../root files/run1779_coinc.root	EnergyADC/h_EBGO_ADC_3	877.869 +- 1.45437	996.702 +- 1.61582
+../../../root files/run1779_coinc.root	EnergyADC/h_EBGO_ADC_4	916.677 +- 0.548444	1042.52 +- 0.637366
+../../../root files/run1779_coinc.root	EnergyADC/h_EBGO_ADC_5	933.522 +- 1.41591	1061.57 +- 1.62304
+../../../root files/run1779_coinc.root	EnergyADC/h_EBGO_ADC_6	1035.82 +- 1.04896	1177.5 +- 1.15355
