@@ -140,7 +140,7 @@ static void processFitParameters(const Config& config, Analyzer& analyzer, std::
  *@param onlyOneElement A bool that says whether the analyzed file contains Caesium, Cobalt, or both
  */ 
 void runAnalysis(const std::vector<Config>& configs, bool onlyOneElement) {
-    
+
     std::vector<TCanvas*> canvases;
     std::ofstream outfile("../../../out/peak_energies.txt");
     if (!outfile.is_open()) {
@@ -153,6 +153,7 @@ void runAnalysis(const std::vector<Config>& configs, bool onlyOneElement) {
     std::vector<double> yValues = { 661,1173.2,1332.5,2505.7 }; //sempre gli stessi, presi dal sito NNDC
     int configCount = 0;
     int analysisPerFile = 3;
+    std::vector<double> yValues_resolution;
 
     for (const auto& config : configs) {
         Analyzer analyzer(config.filename, config.histname, config.ftype);
@@ -164,16 +165,17 @@ void runAnalysis(const std::vector<Config>& configs, bool onlyOneElement) {
         analyzer.printActivity();
         analyzer.plot();
         analyzer.pulser(config.pulser_min, config.pulser_max);
-        //analyzer.trapefficiency(config.m);
         analyzer.trapefficiency_redux(config.m);
         analyzer.normefficiency();
         analyzer.ZTestEfficiencies();
+        analyzer.printResolution();
+        yValues_resolution.push_back(analyzer.getResolution());
         canvases.push_back(analyzer.getCanvas());
         analyzer.saveResults();
         configCount++;
         processFitParameters(config, analyzer, xValues, errxValues, outfile);
     }
-    
+
     if (!onlyOneElement) {
         GraphPlotter plotter(yValues, 4);
         plotter.setFitFunction("linear", "[0] + [1] * x", 0, 2300);
@@ -185,7 +187,9 @@ void runAnalysis(const std::vector<Config>& configs, bool onlyOneElement) {
             plotter.saveResults(i);
             plotter.plotResidues(i);
         }
-    }
+    }    
+
+    plotAndFitResolutions(yValues_resolution);
 
     createSpreadsheet();
     outfile.close();
@@ -427,4 +431,64 @@ void createEdepHistogram() {
 
     // Optionally save the histogram to a file
     canvas->SaveAs("../../../out/EdepHistogram.pdf");
+}
+
+void plotAndFitResolutions(std::vector<double>& resolutions) {
+    // x-axis values (fixed for all graphs)
+    double x_values[8] = { 511, 765, 1384.37, 2375.72, 5180.51, 6171.86, 6791.23, 7556.23 };
+
+    // Open file for output
+    std::ofstream outputFile("../../../out/resolution.txt");
+    outputFile << "Channel\tSlope \tErrSlope\tIntercept \tErrIntercept \tpValue\n";
+
+    // Check if the resolutions vector has 48 elements
+    if (resolutions.size() != 48) {
+        std::cerr << "Error: 'resolutions' vector must contain exactly 48 elements." << std::endl;
+        return;
+    }
+
+    TCanvas* c = new TCanvas("c", "Resolution Graphs", 800, 600);
+    c->Divide(3, 2); // Divide canvas into 6 pads
+
+    // Create 6 TGraphs, each with 8 points
+    for (int i = 0; i < 6; ++i) {
+        c->cd(i + 1); // Switch to the next pad
+        TGraph* graph = new TGraph(8, x_values, &resolutions[i * 8]);
+
+        // Set graph title and axis labels
+        graph->SetTitle(Form("Channel %d", i + 1));
+        graph->GetXaxis()->SetTitle("Energy [keV]");
+        graph->GetYaxis()->SetTitle("Resolution");
+
+        // Fit the function y = a + b / sqrt(x)
+        TF1* fitFunc = new TF1("fitFunc", "[0] + [1]/sqrt(x)", 500, 8000); // Define fit range
+        graph->Fit(fitFunc);
+
+        // Draw graph and fit
+        graph->Draw("AP");
+        graph->SetMarkerStyle(21);
+
+        // Get fit parameters
+        double a = fitFunc->GetParameter(0);
+        double a_err = fitFunc->GetParError(0);
+        double b = fitFunc->GetParameter(1);
+        double b_err = fitFunc->GetParError(1);
+        double p = fitFunc->GetProb();
+
+        // Save results to file
+        outputFile << "Graph " << i + 1 << "\t" << a << "\t" << a_err << "\t" << b << "\t\t\t" << b_err << "\t\t\t" << p << "\n";
+
+        // Save each graph as an image
+        TString graphFileName = Form("../../../out/resolution graphs/Graph_%d.pdf", i + 1);
+        c->SaveAs(graphFileName); // Save the current canvas/pad
+    }
+
+    // Save the entire canvas with all graphs
+    c->SaveAs("../../../out/resolution graphs/ResolutionGraphs.pdf"); // Save the canvas with all graphs displayed
+
+    // Close output file
+    outputFile.close();
+
+    // Update canvas to display the plots
+    c->Update();
 }

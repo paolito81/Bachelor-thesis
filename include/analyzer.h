@@ -27,12 +27,14 @@ public:
     void trapefficiency(int m);
     void normefficiency();
     void trapefficiency_redux(int m);
+    void printResolution();
     void plot();
     void saveResults();
     void pulser(int pulser_min, int pulser_max);
     void ZTestEfficiencies() const;
     double getFitParameter(int index);
     double getFitParameterError(int index);
+    double getResolution();
     TCanvas* getCanvas() const;
 
 protected:
@@ -52,6 +54,7 @@ protected:
     double total_time, time_perc, err_total_time;
     double efficiency1, efficiency2, err_efficiency1, err_efficiency2;
     double trap_efficiency, err_trap_efficiency;
+    double resolution, err_resolution;
 };
 
 #endif // ANALYZER_H

@@ -20,3 +20,4 @@ void processSpreadsheetFile(const std::string& inputFile, std::ofstream& csvFile
 void createSpreadsheet();
 void runSimulation(const std::string& filename, const std::string& treename, const std::string& branchname);
 void createEdepHistogram();
+void plotAndFitResolutions(std::vector<double>& resolutions);

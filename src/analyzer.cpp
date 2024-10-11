@@ -24,7 +24,8 @@ Analyzer::Analyzer(const std::string& filename, const std::string& histname, Fun
 	chn_lower_bound(0), chn_upper_bound(1),
 	activity(0), err_activity(0), total_time(0), err_total_time(0), time_perc(0),
 	pulser_integral(0),
-	efficiency1(0), efficiency2(0), err_efficiency1(0), err_efficiency2(0), trap_efficiency(0), err_trap_efficiency(0)
+	efficiency1(0), efficiency2(0), err_efficiency1(0), err_efficiency2(0), trap_efficiency(0), err_trap_efficiency(0),
+	resolution(0), err_resolution(0)
 {
 
 	inFile = new TFile(filename.c_str(), "read");
@@ -351,7 +352,7 @@ void Analyzer::plot() {
 	histogram->Fit("f1", "", "", chn_lower_bound, chn_upper_bound);
 	histogram->GetXaxis()->SetRangeUser(300, 1600);
 	
-	canvas->SetLogy();
+	//canvas->SetLogy();
 
 	double line_ymin = histogram->GetMinimum();
 	double line_ymax = 300;
@@ -486,53 +487,55 @@ double Analyzer::getFitParameterError(int index) {
  */
 void Analyzer::pulser(int pulser_min, int pulser_max) {// pulser always falls around 4500, the coincidence is between 2600 and 3500
 
-	TTree* tree = dynamic_cast<TTree*>(inFile->Get("T_coinc"));
+	if (ftype != F1) {
+		TTree* tree = dynamic_cast<TTree*>(inFile->Get("T_coinc"));
 
-	if (!tree) {
-		std::cerr << "Error: could not find TTree in the file!" << std::endl;
+		if (!tree) {
+			std::cerr << "Error: could not find TTree in the file!" << std::endl;
+		}
+
+		int index = extractLastNumber(histname);
+		std::string name = histname + " coinc";
+
+		short channel[8];
+		TH1F* h_pulser_energycoinc_BGO = new TH1F(name.c_str(), name.c_str(), (pulser_max - pulser_min), pulser_min, pulser_max);
+		gStyle->SetOptStat(0);
+		h_pulser_energycoinc_BGO->SetFillColor(kAzure - 9);
+		h_pulser_energycoinc_BGO->SetLineColor(kBlack);
+		h_pulser_energycoinc_BGO->SetLineWidth(2);
+
+		// Set the branch address to read the "Channel" branch into the `channel` array
+		tree->SetBranchAddress("Channel", channel);
+
+		for (int i = 0; i < tree->GetEntries(); ++i) {
+			tree->GetEntry(i);  // Get the current entry
+
+			if (channel[0] > 0 && channel[index] > pulser_min && channel[index] < pulser_max)
+				h_pulser_energycoinc_BGO->Fill(channel[index]);
+		}
+
+		TCanvas* canvas = new TCanvas(Form("histogram", histname), Form("Coinc. Histogram for", histname), 1200, 800);
+
+
+		if (h_pulser_energycoinc_BGO) {
+			h_pulser_energycoinc_BGO->Draw();
+		}
+		else {
+			std::cerr << "Histogram " << index << " is null" << std::endl;
+		}
+
+		std::string folder = "out/coinc hist/";
+		std::string saveName = getOutputFilePath(folder, filename, histname) + "_COINC" + ".pdf";
+
+		canvas->Update();
+		canvas->SaveAs(saveName.c_str());
+
+		float coinc_event = h_pulser_energycoinc_BGO->Integral(h_pulser_energycoinc_BGO->FindBin(pulser_min), h_pulser_energycoinc_BGO->FindBin(pulser_max));
+		time_perc = coinc_event / pulser_integral;
+
+		std::cout << "Integral pulser for BGO" << index << ": " << coinc_event << std::endl;
+		std::cout << "Live time percetage for CHN" << index << ": " << time_perc << std::endl;
 	}
-
-	int index = extractLastNumber(histname);
-	std::string name = histname + " coinc";
-	
-	short channel[8];
-	TH1F* h_pulser_energycoinc_BGO = new TH1F(name.c_str(), name.c_str(), (pulser_max - pulser_min), pulser_min, pulser_max);
-	gStyle->SetOptStat(0);
-	h_pulser_energycoinc_BGO->SetFillColor(kAzure - 9);
-	h_pulser_energycoinc_BGO->SetLineColor(kBlack);
-	h_pulser_energycoinc_BGO->SetLineWidth(2);
-
-	// Set the branch address to read the "Channel" branch into the `channel` array
-	tree->SetBranchAddress("Channel", channel);
-
-	for (int i = 0; i < tree->GetEntries(); ++i) {
-		tree->GetEntry(i);  // Get the current entry
-
-		if (channel[0] > 0 && channel[index] > pulser_min && channel[index] < pulser_max)
-			h_pulser_energycoinc_BGO->Fill(channel[index]);
-	}
-
-	TCanvas* canvas = new TCanvas(Form("histogram", histname), Form("Coinc. Histogram for", histname), 1200, 800);
-
-
-	if (h_pulser_energycoinc_BGO) {
-		h_pulser_energycoinc_BGO->Draw();
-	}
-	else {
-		std::cerr << "Histogram " << index << " is null" << std::endl;
-	}
-
-	std::string folder = "out/coinc hist/";
-	std::string saveName = getOutputFilePath(folder, filename, histname) + "_COINC" + ".pdf";
-
-	canvas->Update();
-	canvas->SaveAs(saveName.c_str());
-
-	float coinc_event = h_pulser_energycoinc_BGO->Integral(h_pulser_energycoinc_BGO->FindBin(pulser_min), h_pulser_energycoinc_BGO->FindBin(pulser_max));
-	time_perc = coinc_event / pulser_integral;
-
-	std::cout << "Integral pulser for BGO" << index << ": " << coinc_event << std::endl;
-	std::cout << "Live time percetage for CHN" << index << ": " << time_perc << std::endl;
 }
 
 /**
@@ -589,7 +592,7 @@ void Analyzer::printActivity() const {
  */
 void Analyzer::ZTestEfficiencies() const {
 
-	if (ftype == F1 || ftype == F4) {
+	if (ftype == F4) {
 		double Z_stat = (efficiency1 - trap_efficiency) / sqrt(pow(err_efficiency1, 2) + pow(err_trap_efficiency, 2));
 		double pvalue = TMath::Erfc(fabs(Z_stat) / TMath::Sqrt(2));
 
@@ -608,4 +611,24 @@ void Analyzer::setPeakUpperLower(int peakl, int peaku) {
 		peak_lower = peakl;
 		peak_upper = peaku;
 	}
+}
+
+void Analyzer::printResolution() {
+	if (ftype == F1 || ftype == F4) {
+		double x_values[8] = { 511, 765, 1384.37, 2375.72, 5180.51, 6171.86, 6791.23, 7556.23 };
+
+		for (int i = 0; i < 8; ++i) {
+			if (func->GetParameter(3) > (x_values[i] - 200) && func->GetParameter(3) < (x_values[i] + 200)) {
+				resolution = 100 * func->GetParameter(4) / x_values[i];
+				err_resolution = 100 * func->GetParError(4) / x_values[i];
+
+				std::cout << "Resolution for peak " << func->GetParameter(4) << " keV (%): \t" << resolution << " +/- " << err_resolution << std::endl;;
+			}
+		}
+		
+	}
+}
+
+double Analyzer::getResolution() {
+	return resolution;
 }

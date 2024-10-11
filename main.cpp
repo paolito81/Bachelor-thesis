@@ -41,14 +41,6 @@ int main(int argc, char* argv[]) {
         {"../../../root files/run1775_coinc.root", "EnergyADC/h_EBGO_ADC_6", Analyzer::F4, 2050, 2350,0,0, 40, 2815, 2850, -0.01, 30, 7000, 2190, 70}/**/
 
     };
-    /*
-    std::vector<Config> configs1776_F1 = {
-        {"../../../root files/run1776_coinc.root", "EnergyADC/h_EBGO_ADC_2", Analyzer::F1, 450, 650, 40, -0.5, 400, 0.009, 560, 40},
-        {"../../../root files/run1776_coinc.root", "EnergyADC/h_EBGO_ADC_3", Analyzer::F1, 380, 585, 40, -0.5, 400, 0.01,  500, 50},
-        {"../../../root files/run1776_coinc.root", "EnergyADC/h_EBGO_ADC_4", Analyzer::F1, 410, 620, 40, -0.5, 400, 0.01,  520, 50},
-        {"../../../root files/run1776_coinc.root", "EnergyADC/h_EBGO_ADC_5", Analyzer::F1, 400, 630, 40, -0.5, 400, 0.01,  520, 60},
-        {"../../../root files/run1776_coinc.root", "EnergyADC/h_EBGO_ADC_6", Analyzer::F1, 450, 685, 30, -0.5, 400, 0.01,  590, 50},
-    };*/
 
     std::vector<Config> configs1776 = {
         {"../../../root files/run1776_coinc.root", "EnergyADC/h_EBGO_ADC_1", Analyzer::F4, 300, 710, 460, 675, 200, 2880, 2930, -0.05, 400, 0.009, 560, 40},
@@ -106,6 +98,61 @@ int main(int argc, char* argv[]) {
         { "../../../root files/run1780_coinc.root", "EnergyADC/h_EBGO_ADC_6", Analyzer::F4, 360, 710, 470, 675, 200, 2820, 2844, -0.5, 250, 80000, 575, 50 },/**/
     };
 
+    std::vector<Config> configs3553 = {
+        {"../../../root files/run3553_coinc_final.root", "Energy/h_EBGO_1", Analyzer::F1, 400, 600, 0, 0, 0, 0, 0, 1, 0, 15000, 520, 50},
+        {"../../../root files/run3553_coinc_final.root", "Energy/h_EBGO_1", Analyzer::F1, 660, 840, 0, 0, 0, 0, 0, -1, 150, 1000, 750, 50},
+        {"../../../root files/run3553_coinc_final.root", "Energy/h_EBGO_1", Analyzer::F1, 1200, 1550, 0, 0, 0, 0, 0, -0.05, 300, 5000, 1400, 50},
+        {"../../../root files/run3553_coinc_final.root", "Energy/h_EBGO_1", Analyzer::F1, 2200, 2600, 0, 0, 0, 0, 0, -0.1, 150, 5000, 2375, 150},
+        {"../../../root files/run3553_coinc_final.root", "Energy/h_EBGO_1", Analyzer::F1, 5000, 5400, 0, 0, 0, 0, 0, 0.001, 0, 50, 5180, 120},
+        {"../../../root files/run3553_coinc_final.root", "Energy/h_EBGO_1", Analyzer::F1, 5870, 6500, 0, 0, 0, 0, 0, -0.1, 200, 1500, 6171, 50},
+        {"../../../root files/run3553_coinc_final.root", "Energy/h_EBGO_1", Analyzer::F1, 6540, 7050, 0, 0, 0, 0, 0, -0.1, 150, 500, 6791, 200},
+        {"../../../root files/run3553_coinc_final.root", "Energy/h_EBGO_1", Analyzer::F1, 7300, 7800, 0, 0, 0, 0, 0, -0.01, 20, 200, 7556, 200},
+
+        {"../../../root files/run3553_coinc_final.root", "Energy/h_EBGO_2", Analyzer::F1, 400, 600, 0, 0, 0, 0, 0, 1, 0, 15000, 520, 50},
+        {"../../../root files/run3553_coinc_final.root", "Energy/h_EBGO_2", Analyzer::F1, 660, 840, 0, 0, 0, 0, 0, -1, 150, 1000, 750, 50},
+        {"../../../root files/run3553_coinc_final.root", "Energy/h_EBGO_2", Analyzer::F1, 1200, 1550, 0, 0, 0, 0, 0, -0.05, 300, 5000, 1400, 50},
+        {"../../../root files/run3553_coinc_final.root", "Energy/h_EBGO_2", Analyzer::F1, 2200, 2600, 0, 0, 0, 0, 0, -0.1, 150, 300, 2375, 110},
+       {"../../../root files/run3553_coinc_final.root", "Energy/h_EBGO_2", Analyzer::F1, 5000, 5400, 0, 0, 0, 0, 0, 0.001, 0, 50, 5180, 120},
+        {"../../../root files/run3553_coinc_final.root", "Energy/h_EBGO_2", Analyzer::F1, 5870, 6500, 0, 0, 0, 0, 0, -0.1, 200, 1500, 6171, 50},
+        {"../../../root files/run3553_coinc_final.root", "Energy/h_EBGO_2", Analyzer::F1, 6540, 7050, 0, 0, 0, 0, 0, -0.1, 150, 500, 6791, 200},
+        {"../../../root files/run3553_coinc_final.root", "Energy/h_EBGO_2", Analyzer::F1, 7300, 7800, 0, 0, 0, 0, 0, -0.01, 20, 200, 7556, 200},
+                                                                                       
+        {"../../../root files/run3553_coinc_final.root", "Energy/h_EBGO_3", Analyzer::F1, 400, 600, 0, 0, 0, 0, 0, 1, 0, 15000, 520, 50},
+        {"../../../root files/run3553_coinc_final.root", "Energy/h_EBGO_3", Analyzer::F1, 660, 840, 0, 0, 0, 0, 0, -1, 150, 1000, 750, 50},
+        {"../../../root files/run3553_coinc_final.root", "Energy/h_EBGO_3", Analyzer::F1, 1200, 1550, 0, 0, 0, 0, 0, -0.05, 300, 5000, 1400, 50},
+        {"../../../root files/run3553_coinc_final.root", "Energy/h_EBGO_3", Analyzer::F1, 2200, 2600, 0, 0, 0, 0, 0, -0.1, 150, 300, 2375, 150},
+        {"../../../root files/run3553_coinc_final.root", "Energy/h_EBGO_3", Analyzer::F1, 5050, 5300, 0, 0, 0, 0, 0, 0.01, -50, 1600, 5180, 120},/**/
+        {"../../../root files/run3553_coinc_final.root", "Energy/h_EBGO_3", Analyzer::F1, 5870, 6500, 0, 0, 0, 0, 0, -0.1, 200, 1500, 6171, 50},
+        {"../../../root files/run3553_coinc_final.root", "Energy/h_EBGO_3", Analyzer::F1, 6540, 7050, 0, 0, 0, 0, 0, -0.1, 150, 500, 6791, 200},
+        {"../../../root files/run3553_coinc_final.root", "Energy/h_EBGO_3", Analyzer::F1, 7300, 7800, 0, 0, 0, 0, 0, -0.01, 20, 200, 7556, 200},
+                                                                                       
+        {"../../../root files/run3553_coinc_final.root", "Energy/h_EBGO_4", Analyzer::F1, 400, 600, 0, 0, 0, 0, 0, 1, 0, 15000, 520, 50},
+        {"../../../root files/run3553_coinc_final.root", "Energy/h_EBGO_4", Analyzer::F1, 660, 840, 0, 0, 0, 0, 0, -1, 150, 1000, 750, 50},
+        {"../../../root files/run3553_coinc_final.root", "Energy/h_EBGO_4", Analyzer::F1, 1200, 1550, 0, 0, 0, 0, 0, -0.05, 300, 5000, 1400, 50},
+        {"../../../root files/run3553_coinc_final.root", "Energy/h_EBGO_4", Analyzer::F1, 2200, 2600, 0, 0, 0, 0, 0, -0.1, 150, 5000, 2375, 150},
+        {"../../../root files/run3553_coinc_final.root", "Energy/h_EBGO_4", Analyzer::F1, 5000, 5400, 0, 0, 0, 0, 0, 0.001, 0, 50, 5180, 120},
+        {"../../../root files/run3553_coinc_final.root", "Energy/h_EBGO_4", Analyzer::F1, 5870, 6500, 0, 0, 0, 0, 0, -0.1, 200, 1500, 6171, 50},
+        {"../../../root files/run3553_coinc_final.root", "Energy/h_EBGO_4", Analyzer::F1, 6540, 7050, 0, 0, 0, 0, 0, -0.1, 150, 500, 6791, 200},
+        {"../../../root files/run3553_coinc_final.root", "Energy/h_EBGO_4", Analyzer::F1, 7300, 7800, 0, 0, 0, 0, 0, -0.01, 20, 200, 7556, 200},
+                                                                                       
+        {"../../../root files/run3553_coinc_final.root", "Energy/h_EBGO_5", Analyzer::F1, 400, 600, 0, 0, 0, 0, 0, 1, 0, 15000, 520, 50},
+        {"../../../root files/run3553_coinc_final.root", "Energy/h_EBGO_5", Analyzer::F1, 660, 840, 0, 0, 0, 0, 0, -1, 150, 1000, 750, 50},
+        {"../../../root files/run3553_coinc_final.root", "Energy/h_EBGO_5", Analyzer::F1, 1200, 1550, 0, 0, 0, 0, 0, -0.05, 300, 5000, 1400, 50},
+        {"../../../root files/run3553_coinc_final.root", "Energy/h_EBGO_5", Analyzer::F1, 2200, 2600, 0, 0, 0, 0, 0, -0.1, 150, 300, 2375, 150},
+        {"../../../root files/run3553_coinc_final.root", "Energy/h_EBGO_5", Analyzer::F1, 5000, 5400, 0, 0, 0, 0, 0, 0.001, 0, 50, 5180, 120},
+        {"../../../root files/run3553_coinc_final.root", "Energy/h_EBGO_5", Analyzer::F1, 5870, 6500, 0, 0, 0, 0, 0, -0.1, 200, 1500, 6171, 50},
+        {"../../../root files/run3553_coinc_final.root", "Energy/h_EBGO_5", Analyzer::F1, 6540, 7050, 0, 0, 0, 0, 0, -0.1, 150, 500, 6791, 200},
+        {"../../../root files/run3553_coinc_final.root", "Energy/h_EBGO_5", Analyzer::F1, 7300, 7800, 0, 0, 0, 0, 0, -0.01, 20, 200, 7556, 200},
+                                                                                       
+        {"../../../root files/run3553_coinc_final.root", "Energy/h_EBGO_6", Analyzer::F1, 400, 600, 0, 0, 0, 0, 0, 1, 0, 15000, 520, 50},
+        {"../../../root files/run3553_coinc_final.root", "Energy/h_EBGO_6", Analyzer::F1, 660, 840, 0, 0, 0, 0, 0, -1, 150, 1000, 750, 50},
+        {"../../../root files/run3553_coinc_final.root", "Energy/h_EBGO_6", Analyzer::F1, 1200, 1550, 0, 0, 0, 0, 0, -0.05, 300, 5000, 1400, 50},
+        {"../../../root files/run3553_coinc_final.root", "Energy/h_EBGO_6", Analyzer::F1, 2200, 2600, 0, 0, 0, 0, 0, -0.1, 150, 5000, 2375, 150},
+        {"../../../root files/run3553_coinc_final.root", "Energy/h_EBGO_6", Analyzer::F1, 5000, 5400, 0, 0, 0, 0, 0, 0.001, 0, 50, 5180, 120},
+        {"../../../root files/run3553_coinc_final.root", "Energy/h_EBGO_6", Analyzer::F1, 5870, 6500, 0, 0, 0, 0, 0, -0.1, 200, 1500, 6171, 50},
+        {"../../../root files/run3553_coinc_final.root", "Energy/h_EBGO_6", Analyzer::F1, 6540, 7050, 0, 0, 0, 0, 0, -0.1, 150, 500, 6791, 200},
+        {"../../../root files/run3553_coinc_final.root", "Energy/h_EBGO_6", Analyzer::F1, 7300, 7800, 0, 0, 0, 0, 0, -0.01, 20, 200, 7556, 200},/**/
+    };
 
     //runAnalysis(configs1775, false); //total time unknown
     //runAnalysis(configs1776, true); //results are coherent
@@ -115,10 +162,12 @@ int main(int argc, char* argv[]) {
     //runAnalysis(configs1779, true); //results are coherent
     //runAnalysis(configs1779_F3, true);
     //runAnalysis(configs1780, true); //results are coherent
+    runAnalysis(configs3553, true);
+
 
     //runSimulation("../../../simulations/137-Cs/SimLuna.7.root", "Tree1", "Edep");
     
-    createEdepHistogram();
+    //createEdepHistogram();
 
 
     app.Run();

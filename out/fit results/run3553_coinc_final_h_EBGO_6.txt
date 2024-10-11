@@ -1,0 +1,16 @@
+******************************************
+Fit Results:
+
+Slope : -0.0119932 +/- 0.00303195
+Y-intercept : 102.529 +/- 22.3209
+Normalization 1 : 13.6453 +/- 1.51448
+Mean value 1 : 7567.98 +/- 9.32239
+Standard Deviation 1 : 130.463 +/- 15.4632
+Fit p-value: 0.0225364
+
+Pulser integral: 6202
+Total time for measurements: 0 s
+Live time percentage: 0
+
+Activity for the source today: 4599.42 Bq
+******************************************
