@@ -44,7 +44,7 @@
 
 % TITLE, AUTHORS, INSTITUTE, DATE
 
-\title[Short Title]{Caratterizzazione di un rivelatore gamma 4$\pi$ per lo studio della reazione 14N(p,$\gamma$)15O \\ \textit{Relatrice: Francesca Cavanna}}
+\title[Short Title]{Caratterizzazione di un rivelatore gamma 4$\pi$ per lo studio della reazione 14N(p,$\gamma$)15O \\ \textit{Relatori: Francesca Cavanna, Ranjan Sariyal}}
 \author[P. Pusterla]{Paolo Pusterla}
 \institute[UniTo]{Università degli Studi di Torino}
 \date{Novembre 2024}
@@ -85,7 +85,7 @@
 		\begin{itemize}
 			\item<1-> I neutrini solari giocano un ruolo fondamentale nella determinazione della composizione del Sole.
 			\item<2-> Sono prodotti nel ciclo CNO del Sole.
-			\item<3-> In particolare, la sezione d'urto della reazione $^{14}$N(p, $\gamma$)$^{15}$O è la fonte di errore principale sulle stime del flusso di neutrini.
+			\item<3-> In particolare, la sezione d'urto della reazione $^{14}$N(p, $\gamma$)$^{15}$O è la fonte di errore principale sulle stime del flusso di neutrini, in quanto la più breve dell'intero ciclo.
 		\end{itemize}
 	\end{frame}
 		
@@ -164,7 +164,7 @@
 \end{frame}
 \begin{frame}{Reaction rate}
 	\begin{itemize}
-		\item<1-> Il \emph{reaction rate} vale quindi appena $1\div 10$ conteggi al giorno
+		\item<1-> Il \emph{reaction rate} ($N_{reaz}/\Delta t$) vale quindi appena $1\div 10$ conteggi al giorno
 		\item<2-> Basta pochissimo rumore per nascondere i segnali che rivelano le reazioni
 		\item<3-> La soluzione è cercare di minimizzare il rumore di fondo 
 	\end{itemize}
@@ -202,7 +202,7 @@
 	\section{Obiettivi della tesi}
 	\begin{frame}{Obiettivi della tesi}
 		\begin{itemize}
-			\item<1-> L'obiettivo della tesi è quello di caratterizzare in efficienza lo scintillatore $4\pi$ utilizzato per la rivelazione di raggi $\gamma$ nella riproduzione della reazione $^{14}$N(p,$\gamma$)$^{15}$O. 
+			\item<1-> L'obiettivo della tesi è quello di calibrare in energia e caratterizzare in efficienza lo scintillatore $4\pi$ utilizzato per la rivelazione di raggi $\gamma$ nella riproduzione della reazione $^{14}$N(p,$\gamma$)$^{15}$O. 
 			\item<2-> Nell'esperimento si proietta un intenso fascio di protoni su bersagli solidi di TiN (nitruro di titanio).  
 			\item<3-> L'analisi dei dati viene confrontata con delle simulazioni in GEANT4.
 		\end{itemize}
@@ -215,6 +215,7 @@
 				\begin{itemize}
 					%\item La radiazione gamma emessa dalla reazione è rivelata da uno scintillatore.
 					\item Si tratta di un rivelatore in germanato di bismuto (Bi$_{4}$Ge$_{3}$O$_{12}$, detto BGO), coprente il 95\% dell'angolo solido totale attorno al bersaglio.
+					\item Si tratta di uno scintillatore, ossia uno strumento che quando eccitato da radiazione ionizzante, ne assorbe l'energia depositata e la riemette sotto forma di fotoni
 				\end{itemize}
 			\end{column}
 			\begin{column}{0.45\textwidth}
@@ -256,6 +257,86 @@
 %	\end{itemize}
 %\end{frame}
 
+\section{Calibrazione in energia}
+
+\begin{frame}{Calibrazione in energia}
+	\begin{itemize}
+		\item La calibrazione in energia consiste nel calcolo dei fattori che convertono da valori in canali (CHN) a valori in energia (keV) 
+		\item Viene effettuata con due sorgenti radioattive
+		\item Tutta l'analisi dei dati è effettuata in ROOT, framework per l'analisi dei dati scritta in C++ e sviluppata dal CERN.
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{$^{60}$Co}
+	
+	
+	\begin{itemize}
+		\item<1-> Il $^{60}$Co decade tramite decadimento $\beta^{-}$ (99.75\%) in $^{60}$Ni ed emette due raggi gamma di energie 1.17 MeV e 1.33 MeV.
+		\item<2-> Ha il vantaggio di emettere raggi gamma ad alta intensità con un'emivita relativamente lunga di 5.27 anni. 
+		\item<3-> Trova applicazione nella radioterapia del cancro.
+	\end{itemize}
+	
+	\centering
+	\includegraphics[width=0.5\textwidth]{img/Cobalt-60m-decay.png}
+	\captionof{figure}{Schema di decadimento del $^{137}$Cs.}
+	
+\end{frame}
+
+
+
+\begin{frame}{$^{137}$Cs}
+	\begin{itemize}
+		\item<1-> Il $^{137}$Cs decade sempre tramite decadimento $\beta^{-}$.
+		\item<2-> Il 94.6\% dei decadimenti hanno come prodotto uno stato metastabile del $^{137}$Ba. 
+		\item<3-> Questo stato eccitato emette l'85\% delle volte raggi gamma di 661.7 keV decadendo nello stato fondamentale del $^{137}$Ba (tutti i raggi gamma provenienti dal $^{137}$Cs sono prodotti così).
+	\end{itemize}
+	\centering
+	\includegraphics[width=0.5\textwidth]{img/Cs-137-decay.png}
+	\captionof{figure}{Schema di decadimento del $^{137}$Cs.}
+\end{frame}
+
+\begin{frame}{Calcolo della calibrazione}
+	\begin{columns}
+		\begin{column}{0.4\textwidth}
+			\begin{itemize}
+				\item<1-> I valori dei picchi vengono graficati contro quelli in energia caratteristici, noti.
+				\item<3-> Si effettua dunque un fit lineare per i punti di ciascun istogramma.
+				\item<4-> I coefficienti angolari di questi fit sono i fattori di conversione cercati.
+			\end{itemize}
+		\end{column}
+		\begin{column}{0.5\textwidth}
+			\begin{figure}
+				\centering
+				\only<2>{\includegraphics[width=0.9\textwidth]{img/plot0_empty.pdf}}
+				\only<3->{\includegraphics[width=0.9\textwidth]{img/plot0.pdf}}
+				%TERZA GRAFICA PER FARE VEDERE I RISULTATI
+			\end{figure}
+		\end{column}
+	\end{columns}
+	
+\end{frame}
+
+
+
+\begin{frame}{Residui}
+	\begin{columns}
+		\begin{column}{0.4\textwidth}
+			\begin{itemize}
+				\item<1-> I residui sono la differenza tra i valori in energia noti e quelli assunti dalla retta
+				\item<2-> Sono una rappresentazione della bontà della calibrazione
+				\item<3-> In generale una calibrazione è buona se i residui non superano la decina di keV
+			\end{itemize}
+		\end{column}
+		\begin{column}{0.5\textwidth}
+			\centering
+			\only<2->{\includegraphics[width=0.9\textwidth]{img/residues0.pdf}}
+		\end{column}
+	\end{columns}
+	
+\end{frame}
+
+
+\section{Efficienza}
 \begin{frame}{Efficienza}
 	\begin{itemize}
 		\item<1-> Nel caso dei nostri istogrammi, composti da un picco gaussiano centrato su un'energia caratteristica e un fondo di \emph{bremsstrahlung}, l'efficienza si può stimare nel modo seguente:
@@ -268,58 +349,49 @@
 	\end{itemize}
 \end{frame}
 
-\begin{frame}{Tempo vivo/morto}
+\begin{frame}{Calcolo dell'efficienza}
 	\begin{itemize}
-		\item Ogni strumento è elettronicamente vincolato a processare il segnale in ingresso
-		\item Questo può richiedere fino a ns
-		\item Un fotone in arrivo durante questo intervallo di tempo non può essere quindi rilevato
-		\item Alla fine della misura verrano osservati meno fotoni di quelli effettivamente giunti allo strumento, perché quest'ultimo è attivo solo per una parte di tempo rispetto al totale della misura.
-		\item L'intervallo in cui lo strumento è attivo e pronto a ricevere nuovi segnali è il \emph{tempo vivo}.
+		\item Per il calcolo dell'efficienza è necessario trovare il numero di conteggi nei picchi gaussiani. Si possono applicare due metodi diversi per trovarlo:
 	\end{itemize}
-\end{frame}
-
-\section{Caratterizzazione}
-%\begin{frame}{Caratterizzazione in energia}
-%	\begin{itemize}
-%		\item La caratterizzazione in energia è effettuata utilizzando due sorgenti radioattive: $^{60}$Co e $^{137}$Cs.
-%	\end{itemize}
-%\end{frame}
-
-\begin{frame}{$^{60}$Co}
-
-
+	\hrule height 0.3mm \vspace{2mm}
+	
+	\begin{columns}
+		\column{0.5\textwidth}
+		\only<2->{\centering \emph{Trapezio} 
 			\begin{itemize}
-				\item<1-> Il $^{60}$Co decade tramite decadimento $\beta^{-}$ (99.75\%) in $^{60}$Ni ed emette due raggi gamma di energie 1.17 MeV e 1.33 MeV.
-				\item<2-> Ha il vantaggio di emettere raggi gamma ad alta intensità con un'emivita relativamente lunga di 5.27 anni. 
-				\item<3-> Trova applicazione nella radioterapia del cancro.
-			\end{itemize}
-
-		\centering
-		\includegraphics[width=0.5\textwidth]{img/Cobalt-60m-decay.png}
-		\captionof{figure}{Schema di decadimento del $^{137}$Cs.}
-
+				\item Metodo geometrico
+				\item Consiste nell'isolare la regione del picco e rimuoverne il fondo trapezoidale
+				\item Adatto solo per il cesio: i due picchi del cobalto non sono sufficientemente risolti dallo strumento
+		\end{itemize}}
+		
+		\column{0.5\textwidth}
+		\only<3->{\centering \emph{Parametrico}
+			\begin{itemize}
+				\item Metodo che sfrutta i parametri del fit
+				\item Il coefficiente di normalizzazione del picco gaussiano è il numero di conteggi nel picco
+				\item Adatto per cesio e cobalto
+		\end{itemize}}
+	\end{columns}
+	
+\end{frame}
+\begin{frame}{Metodo del trapezio}
+	\centering
+	\includegraphics[width=0.9\textwidth]{img/trapezoid.pdf}
+	\captionof{figure}{Visualizzazione del metodo del trapezio.}
 \end{frame}
 
-\begin{frame}{$^{137}$Cs}
+\begin{frame}{Attività e tempo vivo}
 	\begin{itemize}
-		\item<1-> Il $^{137}$Cs decade sempre tramite decadimento $\beta^{-}$.
-		\item<2-> Il 94.6\% dei decadimenti hanno come prodotto uno stato metastabile del $^{137}$Ba. 
-		\item<3-> Questo stato eccitato emette l'85\% delle volte raggi gamma di 661.7 keV decadendo nello stato fondamentale del $^{137}$Ba (tutti i raggi gamma provenienti dal $^{137}$Cs sono prodotti così).
+		\item L'attività viene calcolata al momento della presa dati, in data 03/04/2024
+		\item Il tempo vivo è ricavato dal TTree delle coincidenze, ossia dove lo spicchio del BGO registra i fotoni del pulser nello spettro dei canali
 	\end{itemize}
-		\centering
-		\includegraphics[width=0.5\textwidth]{img/Cs-137-decay.png}
-		\captionof{figure}{Schema di decadimento del $^{137}$Cs.}
+\end{frame}
+\begin{frame}{Istogramma coincidenze}
+	\centering
+	\includegraphics[width=0.9\textwidth]{img/run1776_coinc_h_EBGO_ADC_1_COINC.pdf}
 \end{frame}
 
-%\begin{frame}{Struttura dei dati}
-%	\begin{itemize}
-%		\item I dati ricavati sono contenuti in file \texttt{.root}
-%		\item Ogni file \texttt{.root} contiene 8 istogrammi, con indici da 0 a 7, di conteggi
-%		\item L'istogramma 0 contiene il pulser, utilizzato per calcolare il tempo vivo dello scintillatore
-%		\item Gli istogrammi da 1 a 6 sono i singoli spicchi del BGO
-%		%\item L'istogramma 7 è
-%	\end{itemize}
-%\end{frame}
+
 
 \begin{frame}{Istogrammi}
 	\begin{figure}
@@ -356,102 +428,8 @@
 %	\end{itemize}
 %\end{frame}
 
-\begin{frame}{Calcolo della calibrazione}
-	\begin{columns}
-		\begin{column}{0.4\textwidth}
-			\begin{itemize}
-				\item<1-> I valori dei picchi vengono graficati contro quelli in energia caratteristici, noti.
-				\item<3-> Si effettua dunque un fit lineare per i punti di ciascun istogramma.
-				\item<4-> I coefficienti angolari di questi fit sono i fattori di conversione cercati.
-			\end{itemize}
-		\end{column}
-		\begin{column}{0.5\textwidth}
-			\begin{figure}
-				\centering
-				\only<2>{\includegraphics[width=0.9\textwidth]{img/plot0_empty.pdf}}
-				\only<3->{\includegraphics[width=0.9\textwidth]{img/plot0.pdf}}
-				%TERZA GRAFICA PER FARE VEDERE I RISULTATI
-			\end{figure}
-		\end{column}
-	\end{columns}
-	
-\end{frame}
 
-\begin{frame}{Risultati del fit}
-	\begin{table}[ht]
-		\centering
-		\resizebox{0.7\textwidth}{!}{
-			\begin{tabular}{@{}cccc@{}}
-				\toprule
-				Canale & Conversione [keV/CHN] \\ \midrule
-				CHN1 & 1.1863 \(\pm\) 0.0009 \\
-				CHN2 & 1.1659 \(\pm\) 0.0013 \\
-				CHN3 & 1.3550 \(\pm\) 0.0019 \\
-				CHN4 & 1.2676 \(\pm\) 0.0006 \\
-				CHN5 & 1.2574 \(\pm\) 0.0010 \\
-				CHN6 & 1.1388 \(\pm\) 0.0014 \\
-				\bottomrule
-		\end{tabular}}
-	\end{table}
-\end{frame}
 
-\begin{frame}{Residui}
-	\begin{columns}
-		\begin{column}{0.4\textwidth}
-			\begin{itemize}
-				\item<1-> I residui sono la differenza tra i valori in energia noti e quelli assunti dalla retta
-				\item<2-> Sono una rappresentazione della bontà della calibrazione
-				\item<3-> In generale una calibrazione è buona se i residui non superano la decina di keV
-			\end{itemize}
-		\end{column}
-		\begin{column}{0.5\textwidth}
-			\centering
-			\only<2->{\includegraphics[width=0.9\textwidth]{img/residues0.pdf}}
-		\end{column}
-	\end{columns}
-	
-\end{frame}
-
-\begin{frame}{Calcolo dell'efficienza}
-	\begin{itemize}
-		\item Per il calcolo dell'efficienza è necessario trovare il numero di conteggi nei picchi gaussiani. Si possono applicare due metodi diversi per trovarlo:
-	\end{itemize}
-	\hrule height 0.3mm \vspace{2mm}
-	
-	\begin{columns}
-		\column{0.5\textwidth}
-		\only<2->{\centering \emph{Trapezio} 
-			\begin{itemize}
-				\item Metodo geometrico
-				\item Consiste nell'isolare la regione del picco e rimuoverne il fondo trapezoidale
-				\item Adatto solo per il cesio: i due picchi del cobalto non sono sufficientemente risolti dallo strumento
-		\end{itemize}}
-		
-		\column{0.5\textwidth}
-		\only<3->{\centering \emph{Parametrico}
-		\begin{itemize}
-			\item Metodo che sfrutta i parametri del fit
-			\item Il coefficiente di normalizzazione del picco gaussiano è il numero di conteggi nel picco
-			\item Adatto per cesio e cobalto
-	\end{itemize}}
-	\end{columns}
-			
-\end{frame}
-\begin{frame}{Metodo del trapezio}
-	\centering
-	\includegraphics[width=0.9\textwidth]{img/trapezoid.pdf}
-	\captionof{figure}{Visualizzazione del metodo del trapezio.}
-\end{frame}
-\begin{frame}{Attività e tempo vivo}
-	\begin{itemize}
-		\item L'attività viene calcolata al momento della presa dati, in data 03/04/2024
-		\item Il tempo vivo è ricavato dal TTree delle coincidenze, ossia dove lo spicchio del BGO registra i fotoni del pulser nello spettro dei canali
-	\end{itemize}
-\end{frame}
-\begin{frame}{Istogramma coincidenze}
-	\centering
-	\includegraphics[width=0.9\textwidth]{img/run1776_coinc_h_EBGO_ADC_1_COINC.pdf}
-\end{frame}
 
 
 \section{Simulazioni}
@@ -469,5 +447,57 @@
 		\textbf{Grazie per l'attenzione.}
 	\end{frame}
 	
+\begin{frame}{Backup}
+	\centering
+	Slide di backup
+\end{frame}
+
+
+\begin{frame}{Tempo vivo/morto}
+	\begin{itemize}
+		\item Ogni strumento è elettronicamente vincolato a processare il segnale in ingresso
+		\item Questo può richiedere fino a ns
+		\item Un fotone in arrivo durante questo intervallo di tempo non può essere quindi rilevato
+		\item Alla fine della misura verrano osservati meno fotoni di quelli effettivamente giunti allo strumento, perché quest'ultimo è attivo solo per una parte di tempo rispetto al totale della misura.
+		\item L'intervallo in cui lo strumento è attivo e pronto a ricevere nuovi segnali è il \emph{tempo vivo}.
+	\end{itemize}
+\end{frame}
+\begin{frame}{Risultati del fit}
+	\begin{table}[ht]
+		\centering
+		\resizebox{0.7\textwidth}{!}{
+			\begin{tabular}{@{}cccc@{}}
+				\toprule
+				Canale & Conversione [keV/CHN] \\ \midrule
+				CHN1 & 1.1863 \(\pm\) 0.0009 \\
+				CHN2 & 1.1659 \(\pm\) 0.0013 \\
+				CHN3 & 1.3550 \(\pm\) 0.0019 \\
+				CHN4 & 1.2676 \(\pm\) 0.0006 \\
+				CHN5 & 1.2574 \(\pm\) 0.0010 \\
+				CHN6 & 1.1388 \(\pm\) 0.0014 \\
+				\bottomrule
+		\end{tabular}}
+	\end{table}
+\end{frame}	
+
+\begin{frame}{Caratterizzazione in energia}
+	\begin{itemize}
+			\item La caratterizzazione in energia è effettuata utilizzando due sorgenti radioattive: $^{60}$Co e $^{137}$Cs.
+		\end{itemize}
+\end{frame}
+
+
+
+\begin{frame}{Struttura dei dati}
+	\begin{itemize}
+			\item I dati ricavati sono contenuti in file \texttt{.root}
+			\item Ogni file \texttt{.root} contiene 8 istogrammi, con indici da 0 a 7, di conteggi
+			\item L'istogramma 0 contiene il pulser, utilizzato per calcolare il tempo vivo dello scintillatore
+			\item Gli istogrammi da 1 a 6 sono i singoli spicchi del BGO
+			\item L'istogramma 7 è la corrente del fascio incidente sul BGO
+		\end{itemize}
+\end{frame}
+
+
 \end{document}
 
