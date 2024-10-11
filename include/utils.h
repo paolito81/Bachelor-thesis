@@ -18,3 +18,5 @@ std::pair<double, double> extractValueWithUncertainty(const std::string& line, c
 double extractValue(const std::string& line, const std::string& label);
 void processSpreadsheetFile(const std::string& inputFile, std::ofstream& csvFile);
 void createSpreadsheet();
+void runSimulation(const std::string& filename, const std::string& treename, const std::string& branchname);
+void createEdepHistogram();

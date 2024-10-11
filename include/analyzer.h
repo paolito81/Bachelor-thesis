@@ -35,7 +35,7 @@ public:
     double getFitParameterError(int index);
     TCanvas* getCanvas() const;
 
-private:
+protected:
     std::string filename; /**< String containing the directory to the .root file */
     std::string histname; /**< String containing the directory to the histogram file */
     TFile* inFile; /**< Pointer to the ROOT file */

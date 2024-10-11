@@ -1,5 +1,6 @@
 #include <TFile.h>
 #include <TH1F.h>
+#include <TTree.h>
 #include <iostream>
 #include <utils.h>
 #include <iomanip>
@@ -14,6 +15,7 @@
 #include <iomanip>
 #include <sstream>
 #include <regex>
+#include <simulation.h>
 
 const std::filesystem::path welcomeFilePath{ "../../../welcome.txt" };
 
@@ -388,4 +390,41 @@ void createSpreadsheet() {
     csvFile.close();
     std::cout << "Spreadsheet CSV file generated: " << big_results_filename << std::endl;
 
+}
+
+void runSimulation(const std::string& filename, const std::string& treename, const std::string& branchname) {
+    Simulation simulation(filename, treename, branchname);
+    simulation.loadTree();
+    //simulation.analyzeTree();
+    simulation.scanTree();
+}
+
+void createEdepHistogram() {
+    // Step 1: Open the ROOT file
+    TFile* file = TFile::Open("../../../simulations/137-Cs/SimLuna_137Cs.root");
+    
+    if (!file || file->IsZombie()) {
+        std::cerr << "Failed to open file!" << std::endl;
+        return;
+    }
+
+    // Step 2: Access the TTree
+    TTree* tree = (TTree*)file->Get("Tree1"); // Replace with your actual tree name
+    if (!tree) {
+        std::cerr << "Failed to get TTree!" << std::endl;
+        return;
+    }
+
+    // Step 3: Create a histogram for Edep
+    TH1F* histEdep = new TH1F("histEdep", "Histogram of Edep;Edep (units);Entries", 2500, 0, 2500); // Adjust bins and range as needed
+
+    tree->Draw("Edep>>histEdep");
+
+    // Step 5: Draw the histogram
+    TCanvas* canvas = new TCanvas("canvas", "Edep Histogram", 800, 600);
+    canvas->SetLogy();
+    histEdep->Draw();
+
+    // Optionally save the histogram to a file
+    canvas->SaveAs("../../../out/EdepHistogram.pdf");
 }
