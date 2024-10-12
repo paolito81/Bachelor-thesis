@@ -1,12 +1,12 @@
 ******************************************
 Fit Results:
 
-Slope : -0.0158262 +/- 0.00353097
-Y-intercept : 132.897 +/- 25.6636
-Normalization 1 : 21.9696 +/- 1.53125
-Mean value 1 : 7582.78 +/- 6.05092
-Standard Deviation 1 : 121.937 +/- 9.5716
-Fit p-value: 0.0274436
+Slope : -0.0230885 +/- 0.00151033
+Y-intercept : 185.183 +/- 12.0773
+Normalization 1 : 25.0522 +/- 0.699185
+Mean value 1 : 7590.88 +/- 3.74173
+Standard Deviation 1 : 129.717 +/- 4.18291
+Fit p-value: 0.016404
 
 Pulser integral: 6202
 Total time for measurements: 0 s

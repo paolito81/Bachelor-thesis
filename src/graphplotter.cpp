@@ -143,7 +143,7 @@ void GraphPlotter::saveResults(int index) {
  * @param index 
  */
 void GraphPlotter::plotResidues(int index) {
-    std::vector<double> x_counts = { 1,2,3,4 };
+    std::vector<double> x_counts = { 661,1173.2,1332.5,2505.7 };
     std::string canvasName = "residueCanvas" + std::to_string(index);
     std::vector<double> tempRes;
 

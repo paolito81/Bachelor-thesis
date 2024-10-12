@@ -487,7 +487,7 @@ double Analyzer::getFitParameterError(int index) {
  */
 void Analyzer::pulser(int pulser_min, int pulser_max) {// pulser always falls around 4500, the coincidence is between 2600 and 3500
 
-	if (ftype != F1) {
+	if (ftype != F1 && ftype != F2) {
 		TTree* tree = dynamic_cast<TTree*>(inFile->Get("T_coinc"));
 
 		if (!tree) {

@@ -475,11 +475,20 @@ void plotAndFitResolutions(std::vector<double>& resolutions) {
         double b_err = fitFunc->GetParError(1);
         double p = fitFunc->GetProb();
 
+        TLegend* legend = new TLegend(0.6, 0.7, 0.95, 0.95); // Top-right corner
+        legend->SetBorderSize(2);  
+        //legend->SetFillStyle(0);    // Transparent fill
+        legend->SetTextSize(0.03);
+        legend->AddEntry((TObject*)0, Form("p0 = %.3f #pm %.3f", a, a_err), ""); // Add p0
+        legend->AddEntry((TObject*)0, Form("p1 = %.2f #pm %.2f", b, b_err), ""); // Add p1
+        legend->Draw();             // Draw the legend
+
         // Save results to file
         outputFile << "Graph " << i + 1 << "\t" << a << "\t" << a_err << "\t" << b << "\t\t\t" << b_err << "\t\t\t" << p << "\n";
 
         // Save each graph as an image
         TString graphFileName = Form("../../../out/resolution graphs/Graph_%d.pdf", i + 1);
+        c->Update();
         c->SaveAs(graphFileName); // Save the current canvas/pad
     }
 
@@ -491,4 +500,77 @@ void plotAndFitResolutions(std::vector<double>& resolutions) {
 
     // Update canvas to display the plots
     c->Update();
+}
+
+void plotAndFitResolutionsParabolas(std::vector<double>& resolutions) {
+    // x-axis values (fixed for all graphs)
+    double x_values[8] = { 511, 765, 1384.37, 2375.72, 5180.51, 6171.86, 6791.23, 7556.23 };
+
+    // Open file for output
+    std::ofstream outputFile("../../../out/resolution_par.txt");
+    outputFile << "Channel\tSlope \tErrSlope\tIntercept \tErrIntercept \tpValue\n";
+
+    // Check if the resolutions vector has 48 elements
+    if (resolutions.size() != 48) {
+        std::cerr << "Error: 'resolutions' vector must contain exactly 48 elements." << std::endl;
+        return;
+    }
+
+    TCanvas* canv = new TCanvas("c", "Resolution Graphs", 800, 600);
+    canv->Divide(3, 2); // Divide canvas into 6 pads
+
+    // Create 6 TGraphs, each with 8 points
+    for (int i = 0; i < 6; ++i) {
+        canv->cd(i + 1); // Switch to the next pad
+        TGraph* graph = new TGraph(8, x_values, &resolutions[i * 8]);
+
+        // Set graph title and axis labels
+        graph->SetTitle(Form("Channel %d", i + 1));
+        graph->GetXaxis()->SetTitle("Energy [keV]");
+        graph->GetYaxis()->SetTitle("Resolution");
+
+        // Fit the function y = a + b / sqrt(x)
+        TF1* fitFunc = new TF1("fitFunc", "[0] + [1]*x + [2]*x^2", 500, 8000); // Define fit range
+        graph->Fit(fitFunc);
+
+        // Draw graph and fit
+        graph->Draw("AP");
+        graph->SetMarkerStyle(21);
+
+        // Get fit parameters
+        double a = fitFunc->GetParameter(0);
+        double a_err = fitFunc->GetParError(0);
+        double b = fitFunc->GetParameter(1);
+        double b_err = fitFunc->GetParError(1);
+        double c = fitFunc->GetParameter(2);
+        double c_err = fitFunc->GetParameter(2);
+        double p = fitFunc->GetProb();
+
+        TLegend* legend = new TLegend(0.6, 0.6, 0.95, 0.95); // Top-right corner
+        legend->SetBorderSize(2);
+        //legend->SetFillStyle(0);    // Transparent fill
+        legend->SetTextSize(0.03);
+        legend->AddEntry((TObject*)0, Form("p0 = %.3f #pm %.3f", a, a_err), ""); // Add p0
+        legend->AddEntry((TObject*)0, Form("p1 = %.3f #pm %.3f", b, b_err), ""); // Add p1
+        legend->AddEntry((TObject*)0, Form("p2 = %.3f #pm %.3f", b, b_err), ""); // Add p2
+
+        legend->Draw();             // Draw the legend
+
+        // Save results to file
+        outputFile << "Graph " << i + 1 << "\t" << a << "\t" << a_err << "\t" << b << "\t\t\t" << b_err << "\t\t\t" << p << "\n";
+
+        // Save each graph as an image
+        TString graphFileName = Form("../../../out/resolution graphs/Graph_par_%d.pdf", i + 1);
+        canv->Update();
+        canv->SaveAs(graphFileName); // Save the current canvas/pad
+    }
+
+    // Save the entire canvas with all graphs
+    canv->SaveAs("../../../out/resolution graphs/ResolutionGraphs_par.pdf"); // Save the canvas with all graphs displayed
+
+    // Close output file
+    outputFile.close();
+
+    // Update canvas to display the plots
+    canv->Update();
 }

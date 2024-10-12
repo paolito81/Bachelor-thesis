@@ -4,4 +4,4 @@
 \beamer@sectionintoc {4}{Calibrazione in energia}{35}{0}{4}
 \beamer@sectionintoc {5}{Efficienza}{50}{0}{5}
 \beamer@sectionintoc {6}{Simulazioni}{60}{0}{6}
-\beamer@sectionintoc {7}{Conclusion}{61}{0}{7}
+\beamer@sectionintoc {7}{Conclusion}{64}{0}{7}

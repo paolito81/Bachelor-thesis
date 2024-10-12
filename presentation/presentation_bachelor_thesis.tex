@@ -433,7 +433,27 @@
 
 
 \section{Simulazioni}
-
+\begin{frame}{Risoluzione}
+	\begin{itemize}
+		\item Le simulazioni contengono picchi di energia ideali, a cui non è stata applicata la risoluzione dello strumento
+		\item Questa si può trovare eseguendo fit gaussiani sugli istogrammi in energia, anziché canali
+		\item La risoluzione è il rapporto tra la deviazione standard del picco e la corrispondente energia nota
+		\item Le risoluzioni si mettono su un grafico contro le corrispettive energie note, fittandovi una funzione:
+		
+		\begin{equation*}
+			f(x) = a + \dfrac{b}{\sqrt{x}}
+		\end{equation*}
+	\end{itemize}
+\end{frame}
+\begin{frame}{Fit risoluzioni}
+	\centering
+	\includegraphics[width=0.9\textwidth]{img/ResolutionGraphs.pdf}
+\end{frame}
+\begin{frame}{Simulazioni}
+	\begin{itemize}
+		\item Le risoluzioni trovate servono per "spalmare" i picchi ideali delle simulazioni, che poi possono essere analizzati come gli istogrammi visti in precedenza
+	\end{itemize}
+\end{frame}
 	
 	\section{Conclusion}
 	\begin{frame}{Conclusione}
