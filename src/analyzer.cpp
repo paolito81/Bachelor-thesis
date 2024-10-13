@@ -39,9 +39,7 @@ Analyzer::Analyzer(const std::string& filename, const std::string& histname, Fun
 	// Retrieve the histogram from the file
 	histogram = dynamic_cast<TH1F*>(inFile->Get(histname.c_str()));
 
-	// Calculate pulser integral
-	TH1F* pulser_hist = dynamic_cast<TH1F*>(inFile->Get("EnergyADC/h_EBGO_ADC_0"));
-	pulser_integral = pulser_hist->Integral(pulser_hist->FindBin(4000), pulser_hist->FindBin(5000));
+	
 
 	// Check if the histogram is retrieved successfully
 	if (!histogram) {
@@ -488,6 +486,10 @@ double Analyzer::getFitParameterError(int index) {
 void Analyzer::pulser(int pulser_min, int pulser_max) {// pulser always falls around 4500, the coincidence is between 2600 and 3500
 
 	if (ftype != F1 && ftype != F2) {
+		// Calculate pulser integral
+		TH1F* pulser_hist = dynamic_cast<TH1F*>(inFile->Get("EnergyADC/h_EBGO_ADC_0"));
+		pulser_integral = pulser_hist->Integral(pulser_hist->FindBin(4000), pulser_hist->FindBin(5000));
+
 		TTree* tree = dynamic_cast<TTree*>(inFile->Get("T_coinc"));
 
 		if (!tree) {

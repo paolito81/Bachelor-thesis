@@ -161,6 +161,10 @@ int main(int argc, char* argv[]) {
         {"../../../root files/run3553_coinc_final.root", "Energy/h_EBGO_6", Analyzer::F1, 7300, 8000, 0, 0, 0, 0, 0, -0.01, 20, 200, 7556, 200},/**/
     };
 
+    std::vector<Config> configsSimulations = {
+        {"../../../macros/SimLuna.2.histo1.root", "h_BGO_res1", Analyzer::F1, 640, 690, 0, 0, 0, 0, 0, 0, 0, 1e6, 661, 15}
+    };
+
     //runAnalysis(configs1775, false); //total time unknown
     //runAnalysis(configs1776, true); //results are coherent
     //runAnalysis(configs1777, true); //results are not very coherent
@@ -169,13 +173,14 @@ int main(int argc, char* argv[]) {
     //runAnalysis(configs1779, true); //results are coherent
     //runAnalysis(configs1779_F3, true);
     //runAnalysis(configs1780, true); //results are coherent
-    runAnalysis(configs3553, true);
-
+    //runAnalysis(configs3553, true);
+    //runAnalysis(configsSimulations, true);
 
     //runSimulation("../../../simulations/137-Cs/SimLuna.7.root", "Tree1", "Edep");
     
     //createEdepHistogram();
 
+    analyzeSimulations();
 
     app.Run();
     return 0;

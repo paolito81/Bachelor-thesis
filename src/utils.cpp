@@ -461,7 +461,7 @@ void plotAndFitResolutions(std::vector<double>& resolutions) {
         graph->GetYaxis()->SetTitle("Resolution");
 
         // Fit the function y = a + b / sqrt(x)
-        TF1* fitFunc = new TF1("fitFunc", "[0] + [1]/sqrt(x)", 500, 8000); // Define fit range
+        TF1* fitFunc = new TF1("fitFunc", "[0] + [1]/sqrt(x) + [2]*x", 500, 8000); // Define fit range
         graph->Fit(fitFunc);
 
         // Draw graph and fit
@@ -502,75 +502,44 @@ void plotAndFitResolutions(std::vector<double>& resolutions) {
     c->Update();
 }
 
-void plotAndFitResolutionsParabolas(std::vector<double>& resolutions) {
-    // x-axis values (fixed for all graphs)
-    double x_values[8] = { 511, 765, 1384.37, 2375.72, 5180.51, 6171.86, 6791.23, 7556.23 };
+void analyzeSimulations() {
+    for (int i = 2; i <= 10; ++i) {
+        TString file_to_load = Form("../../../macros/SimLuna.%d.histos.root", i);
 
-    // Open file for output
-    std::ofstream outputFile("../../../out/resolution_par.txt");
-    outputFile << "Channel\tSlope \tErrSlope\tIntercept \tErrIntercept \tpValue\n";
+        TFile* f_in = new TFile(file_to_load);      // open input file
 
-    // Check if the resolutions vector has 48 elements
-    if (resolutions.size() != 48) {
-        std::cerr << "Error: 'resolutions' vector must contain exactly 48 elements." << std::endl;
-        return;
+        if (!f_in || f_in->IsZombie())              //check if file exists, if not return error
+        {
+            std::cout << "Failed to load " << std::endl;
+        }
+
+        for (int j = 1; j <= 6; ++j) {
+            TH1F* sim_hist = dynamic_cast<TH1F*>(f_in->Get(Form("h_BGO_res%d", j)));
+
+            if (!sim_hist || sim_hist->GetEntries() == 0) {
+                std::cerr << "Failed to retrieve histogram!" << std::endl;
+                f_in->Close();
+                return;
+            }
+
+            TCanvas* canv = new TCanvas();
+            sim_hist->Draw();
+
+            TF1* peak = new TF1("f1", "[0]*x + [1] + gausn(2)", 640, 690);
+            peak->SetParameter(0, -0.01);
+            peak->SetParameter(1, 0);
+            peak->SetParameter(2, 80000);
+            peak->SetParameter(3, 661);
+            peak->SetParameter(4, 5);
+
+            sim_hist->Fit("f1");
+            peak->Draw();
+
+            canv->Update();
+            canv->SaveAs(Form("../../../out/simulation graphs/SimLuna%d_h_BGO_res%d", i, j));
+
+            std::cout << "Efficiency for this simulated detector: " << peak->GetParameter(2) / 1e6 << std::endl;
+        }
+
     }
-
-    TCanvas* canv = new TCanvas("c", "Resolution Graphs", 800, 600);
-    canv->Divide(3, 2); // Divide canvas into 6 pads
-
-    // Create 6 TGraphs, each with 8 points
-    for (int i = 0; i < 6; ++i) {
-        canv->cd(i + 1); // Switch to the next pad
-        TGraph* graph = new TGraph(8, x_values, &resolutions[i * 8]);
-
-        // Set graph title and axis labels
-        graph->SetTitle(Form("Channel %d", i + 1));
-        graph->GetXaxis()->SetTitle("Energy [keV]");
-        graph->GetYaxis()->SetTitle("Resolution");
-
-        // Fit the function y = a + b / sqrt(x)
-        TF1* fitFunc = new TF1("fitFunc", "[0] + [1]*x + [2]*x^2", 500, 8000); // Define fit range
-        graph->Fit(fitFunc);
-
-        // Draw graph and fit
-        graph->Draw("AP");
-        graph->SetMarkerStyle(21);
-
-        // Get fit parameters
-        double a = fitFunc->GetParameter(0);
-        double a_err = fitFunc->GetParError(0);
-        double b = fitFunc->GetParameter(1);
-        double b_err = fitFunc->GetParError(1);
-        double c = fitFunc->GetParameter(2);
-        double c_err = fitFunc->GetParameter(2);
-        double p = fitFunc->GetProb();
-
-        TLegend* legend = new TLegend(0.6, 0.6, 0.95, 0.95); // Top-right corner
-        legend->SetBorderSize(2);
-        //legend->SetFillStyle(0);    // Transparent fill
-        legend->SetTextSize(0.03);
-        legend->AddEntry((TObject*)0, Form("p0 = %.3f #pm %.3f", a, a_err), ""); // Add p0
-        legend->AddEntry((TObject*)0, Form("p1 = %.3f #pm %.3f", b, b_err), ""); // Add p1
-        legend->AddEntry((TObject*)0, Form("p2 = %.3f #pm %.3f", b, b_err), ""); // Add p2
-
-        legend->Draw();             // Draw the legend
-
-        // Save results to file
-        outputFile << "Graph " << i + 1 << "\t" << a << "\t" << a_err << "\t" << b << "\t\t\t" << b_err << "\t\t\t" << p << "\n";
-
-        // Save each graph as an image
-        TString graphFileName = Form("../../../out/resolution graphs/Graph_par_%d.pdf", i + 1);
-        canv->Update();
-        canv->SaveAs(graphFileName); // Save the current canvas/pad
-    }
-
-    // Save the entire canvas with all graphs
-    canv->SaveAs("../../../out/resolution graphs/ResolutionGraphs_par.pdf"); // Save the canvas with all graphs displayed
-
-    // Close output file
-    outputFile.close();
-
-    // Update canvas to display the plots
-    canv->Update();
 }

@@ -21,4 +21,4 @@ void createSpreadsheet();
 void runSimulation(const std::string& filename, const std::string& treename, const std::string& branchname);
 void createEdepHistogram();
 void plotAndFitResolutions(std::vector<double>& resolutions);
-void plotAndFitResolutionsParabolas(std::vector<double>& resolutions);
+void analyzeSimulations();
