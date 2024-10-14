@@ -165,11 +165,12 @@ void runAnalysis(const std::vector<Config>& configs, bool onlyOneElement) {
         analyzer.printActivity();
         analyzer.plot();
         analyzer.pulser(config.pulser_min, config.pulser_max);
+        analyzer.setRes();
         analyzer.trapefficiency_redux(config.m);
         analyzer.normefficiency();
         analyzer.ZTestEfficiencies();
-        analyzer.printResolution();
-        yValues_resolution.push_back(analyzer.getResolution());
+        analyzer.printRefResolution();
+        yValues_resolution.push_back(analyzer.getRefResolution());
         canvases.push_back(analyzer.getCanvas());
         analyzer.saveResults();
         configCount++;
@@ -189,7 +190,7 @@ void runAnalysis(const std::vector<Config>& configs, bool onlyOneElement) {
         }
     }    
 
-    plotAndFitResolutions(yValues_resolution);
+    //plotAndFitResolutions(yValues_resolution);
 
     createSpreadsheet();
     outfile.close();
@@ -320,7 +321,7 @@ void processSpreadsheetFile(const std::string& inputFile, std::ofstream& csvFile
     size_t lastSlash = inputFile.find_last_of("/\\");
     std::string shortenedFileName = inputFile.substr(lastSlash + 1);
 
-    std::pair<double, double> slope, intercept, norm1, mean1, stddev1, norm2, mean2, stddev2, efficiency1, efficiency2, trap_efficiency;
+    std::pair<double, double> slope, intercept, norm1, mean1, stddev1, norm2, mean2, stddev2, efficiency1, efficiency2, trap_efficiency, res1, res2;
     double pValue = 0;
     double pulserIntegral = 0, totalTime = 0, liveTimePercentage = 0, activity = 0;
 
@@ -344,6 +345,9 @@ void processSpreadsheetFile(const std::string& inputFile, std::ofstream& csvFile
             else if (line.find("Efficiency value for first peak") != std::string::npos) efficiency1 = extractValueWithUncertainty(line, "Efficiency value for first peak: ");
             else if (line.find("Efficiency value for second peak") != std::string::npos) efficiency2 = extractValueWithUncertainty(line, "Efficiency value for second peak: ");
             else if (line.find("Efficiency value with trap method") != std::string::npos) trap_efficiency = extractValueWithUncertainty(line, "Efficiency value with trap method: ");
+            else if (line.find("Resolution for first peak") != std::string::npos) res1 = extractValueWithUncertainty(line, "Resolution for first peak: ");
+            else if (line.find("Resolution for second peak") != std::string::npos) res2 = extractValueWithUncertainty(line, "Resolution for second peak: ");
+
         }
         file.close();
         // Write extracted data as a row in the CSV file, including uncertainties in separate columns
@@ -359,10 +363,12 @@ void processSpreadsheetFile(const std::string& inputFile, std::ofstream& csvFile
             << stddev2.first << "," << stddev2.second << ","
             << pValue << ","  // Single value
             << pulserIntegral << "," << totalTime << "," << liveTimePercentage << ","
-            << activity << "," 
+            << activity << ","
             << efficiency1.first << "," << efficiency1.second << ","
             << efficiency2.first << "," << efficiency2.second << ","
-            << trap_efficiency.first << "," << trap_efficiency.second << "\n";
+            << trap_efficiency.first << "," << trap_efficiency.second << ","
+            << res1.first << "," << res1.second << ","
+            << res2.first << "," << res2.second << "\n";
     }
     
 }
@@ -376,7 +382,7 @@ void createSpreadsheet() {
 
     csvFile << "File Name,Slope,ErrSlope,Intercept,ErrIntercept,Normalization 1,ErrNormalization 1,Mean 1,ErrMean 1,Standard Deviation 1,ErrStandard Deviation 1,Normalization 2,ErrNormalization 2,"
         << "Mean 2,ErrMean 2,Standard Deviation 2,ErrStandard Deviation 2,Fit p-value,Pulser Integral,Total Time [s],Live Time Percentage,"
-        << "Activity [Bq],Efficiency 1,ErrEfficiency 1,Efficiency 2,ErrEfficiency 2,Efficiency Trap,ErrEfficiency Trap\n";
+        << "Activity [Bq],Efficiency 1,ErrEfficiency 1,Efficiency 2,ErrEfficiency 2,Efficiency Trap,ErrEfficiency Trap,Resolution1,ErrResolution1,Resolution2,ErrResolution2\n";
 
     std::vector<std::string> inputFiles = {
         //"run1775_coinc_h_EBGO_ADC_1.txt", "run1775_coinc_h_EBGO_ADC_2.txt", "run1775_coinc_h_EBGO_ADC_3.txt", "run1775_coinc_h_EBGO_ADC_4.txt", "run1775_coinc_h_EBGO_ADC_5.txt", "run1775_coinc_h_EBGO_ADC_6.txt",
@@ -502,9 +508,14 @@ void plotAndFitResolutions(std::vector<double>& resolutions) {
     c->Update();
 }
 
-void analyzeSimulations() {
+void analyzeCaesiumSimulations() {
+
+    std::string outputFilePath = "../../../out/Caesium_Simulation_results.txt";
+    std::ofstream outputFile(outputFilePath);
+    outputFile << "File name\t" << "Efficiency (661 keV)\t" << std::endl;
+
     for (int i = 2; i <= 10; ++i) {
-        TString file_to_load = Form("../../../macros/SimLuna.%d.histos.root", i);
+        TString file_to_load = Form("../../../macros/137-Cs/SimLuna.%d.histos.root", i);
 
         TFile* f_in = new TFile(file_to_load);      // open input file
 
@@ -536,10 +547,65 @@ void analyzeSimulations() {
             peak->Draw();
 
             canv->Update();
-            canv->SaveAs(Form("../../../out/simulation graphs/SimLuna%d_h_BGO_res%d", i, j));
+            canv->SaveAs(Form("../../../out/simulation graphs/SimLuna%d_h_BGO_res%d_Caesium.pdf", i, j));
 
             std::cout << "Efficiency for this simulated detector: " << peak->GetParameter(2) / 1e6 << std::endl;
+            outputFile << file_to_load << "\t" << peak->GetParameter(2) / 1e6 << "+/-" << peak->GetParError(2) / 1e6 << std::endl;
         }
 
     }
+    outputFile.close();
+}
+
+void analyzeCobaltSimulations() {
+
+    std::string outputFilePath = "../../../out/Cobalt_Simulation_results.txt";
+    std::ofstream outputFile(outputFilePath);
+    outputFile << "File name\t" << "Efficiency (1173 keV)\t" << "Efficiency (1332 keV)\t" << std::endl;
+
+    for (int i = 1; i <= 10; ++i) {
+        TString file_to_load = Form("../../../macros/60-Co/SimLuna.%d.histos.root", i);
+
+        TFile* f_in = new TFile(file_to_load);      // open input file
+
+        if (!f_in || f_in->IsZombie())              //check if file exists, if not return error
+        {
+            std::cout << "Failed to load " << std::endl;
+        }
+
+        for (int j = 1; j <= 6; ++j) {
+            TH1F* sim_hist = dynamic_cast<TH1F*>(f_in->Get(Form("h_BGO_res%d", j)));
+
+            if (!sim_hist || sim_hist->GetEntries() == 0) {
+                std::cerr << "Failed to retrieve histogram!" << std::endl;
+                f_in->Close();
+                return;
+            }
+
+            TCanvas* canv = new TCanvas();
+            sim_hist->Draw();
+
+            TF1* peak = new TF1("f1", "[0]*x + [1] + gausn(2) + gausn(5)", 1150, 1350);
+            peak->SetParameter(0, 0);
+            peak->SetParameter(1, 0);
+            peak->SetParameter(2, 40000);
+            peak->SetParameter(3, 1173);
+            peak->SetParameter(4, 5);
+            peak->SetParameter(5, 40000);
+            peak->SetParameter(6, 1332);
+            peak->SetParameter(7, 5);
+
+            sim_hist->Fit("f1");
+            peak->Draw();
+
+            canv->Update();
+            canv->SaveAs(Form("../../../out/simulation graphs/SimLuna%d_h_BGO_res%d_Cobalt.pdf", i, j));
+
+            std::cout << "Efficiencies for this simulated detector: " << peak->GetParameter(2) / 1e6 << ", " << peak->GetParameter(5) / 1e6 << std::endl;
+            outputFile << file_to_load << "\t" << peak->GetParameter(2) / 1e6 << "+/-" << peak->GetParError(2) / 1e6 
+                << "\t" << peak->GetParameter(5) / 1e6 << "+/-" << peak->GetParError(5) / 1e6 << "\t" << std::endl;
+        }
+
+    }
+    outputFile.close();
 }

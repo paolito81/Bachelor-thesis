@@ -13,6 +13,7 @@ Total time for measurements: 463 s
 Live time percentage: 0.983414
 
 Activity for the source today: 4599.42 Bq
+Resolution for first peak: 0.0752961 +/- 0.000176252
 Efficiency value for first peak: 0.0994919 +/- 0.00114908
 Efficiency value with trap method: 0.0994425 +/- 0.00114507
 ******************************************

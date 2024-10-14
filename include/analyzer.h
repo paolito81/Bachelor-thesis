@@ -23,18 +23,19 @@ public:
     void setPeakUpperLower(int peakl, int peaku);
     void setActivity();
     void setTotalTime();
+    void setRes();
     void printActivity() const;
     void trapefficiency(int m);
     void normefficiency();
     void trapefficiency_redux(int m);
-    void printResolution();
+    void printRefResolution();
     void plot();
     void saveResults();
     void pulser(int pulser_min, int pulser_max);
     void ZTestEfficiencies() const;
     double getFitParameter(int index);
     double getFitParameterError(int index);
-    double getResolution();
+    double getRefResolution();
     TCanvas* getCanvas() const;
 
 protected:
@@ -55,6 +56,7 @@ protected:
     double efficiency1, efficiency2, err_efficiency1, err_efficiency2;
     double trap_efficiency, err_trap_efficiency;
     double resolution, err_resolution;
+    double res1, err_res1, res2, err_res2;
 };
 
 #endif // ANALYZER_H

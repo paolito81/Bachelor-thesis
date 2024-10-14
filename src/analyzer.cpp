@@ -19,13 +19,15 @@
 * 
 */
 Analyzer::Analyzer(const std::string& filename, const std::string& histname, FuncType ftype) :
-	filename(filename), histname(histname), inFile(nullptr), histogram(nullptr), func(nullptr), canvas(nullptr), ftype(ftype),
+	filename(filename), histname(histname), inFile(nullptr), histogram(nullptr), func(nullptr), canvas(nullptr), legend(nullptr), ftype(ftype),
 	p0(0), p1(0), p2(0), p3(0), p4(0), p5(0), p6(0), p7(0), p8(0), p9(0), p10(0),
+	peak_lower(0), peak_upper(0),
 	chn_lower_bound(0), chn_upper_bound(1),
 	activity(0), err_activity(0), total_time(0), err_total_time(0), time_perc(0),
 	pulser_integral(0),
 	efficiency1(0), efficiency2(0), err_efficiency1(0), err_efficiency2(0), trap_efficiency(0), err_trap_efficiency(0),
-	resolution(0), err_resolution(0)
+	resolution(0), err_resolution(0),
+	res1(0), err_res1(0), res2(0), err_res2(0)
 {
 
 	inFile = new TFile(filename.c_str(), "read");
@@ -443,6 +445,11 @@ void Analyzer::saveResults() {
 	outFile << "Total time for measurements: " << total_time << " s" << "\n";
 	outFile << "Live time percentage: " << time_perc << "\n\n";
 	outFile << "Activity for the source today: " << activity << " Bq" << "\n";
+	outFile << "Resolution for first peak: " << res1 << " +/- " << err_res1 << "\n";
+
+	if (ftype == F2 || ftype == F5) {
+		outFile << "Resolution for second peak: " << res2 << " +/- " << err_res2 << "\n";
+	}
 
 	if (ftype == F4) {
 		outFile << "Efficiency value for first peak: " << efficiency1 << " +/- " << err_efficiency1 << "\n";
@@ -615,7 +622,7 @@ void Analyzer::setPeakUpperLower(int peakl, int peaku) {
 	}
 }
 
-void Analyzer::printResolution() {
+void Analyzer::printRefResolution() {
 	if (ftype == F1 || ftype == F4) {
 		double x_values[8] = { 511, 765, 1384.37, 2375.72, 5180.51, 6171.86, 6791.23, 7556.23 };
 
@@ -631,6 +638,16 @@ void Analyzer::printResolution() {
 	}
 }
 
-double Analyzer::getResolution() {
+double Analyzer::getRefResolution() {
 	return resolution;
+}
+
+void Analyzer::setRes() {
+	res1 = func->GetParameter(4) / func->GetParameter(3);
+	err_res1 = res1 * sqrt(pow(func->GetParError(4) / func->GetParameter(4), 2) + pow(func->GetParError(3) / func->GetParameter(3), 2));
+
+	if (ftype == F2 || ftype == F5) {
+		res2 = func->GetParameter(7) / func->GetParameter(6);
+		err_res2 = res2 * sqrt(pow(func->GetParError(7) / func->GetParameter(7), 2) + pow(func->GetParError(6) / func->GetParameter(6), 2));
+	}
 }
