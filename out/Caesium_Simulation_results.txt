@@ -1,55 +1,55 @@
-File name	Efficiency (661 keV)	
-../../../macros/137-Cs/SimLuna.2.histos.root	0.0877242+/-0.000296287
-../../../macros/137-Cs/SimLuna.2.histos.root	0.0876411+/-0.000296897
-../../../macros/137-Cs/SimLuna.2.histos.root	0.0885045+/-0.000298794
-../../../macros/137-Cs/SimLuna.2.histos.root	0.0880358+/-0.000297613
-../../../macros/137-Cs/SimLuna.2.histos.root	0.0882645+/-0.000297539
-../../../macros/137-Cs/SimLuna.2.histos.root	0.088486+/-0.000295879
-../../../macros/137-Cs/SimLuna.3.histos.root	0.0879244+/-0.000297919
-../../../macros/137-Cs/SimLuna.3.histos.root	0.0885372+/-0.000294567
-../../../macros/137-Cs/SimLuna.3.histos.root	0.0881225+/-0.000298671
-../../../macros/137-Cs/SimLuna.3.histos.root	0.0884639+/-0.000299946
-../../../macros/137-Cs/SimLuna.3.histos.root	0.0881567+/-0.00029791
-../../../macros/137-Cs/SimLuna.3.histos.root	0.0885017+/-0.000294689
-../../../macros/137-Cs/SimLuna.4.histos.root	0.0878661+/-0.000296519
-../../../macros/137-Cs/SimLuna.4.histos.root	0.0879692+/-0.000298595
-../../../macros/137-Cs/SimLuna.4.histos.root	0.0885944+/-0.000298125
-../../../macros/137-Cs/SimLuna.4.histos.root	0.0879066+/-0.00029633
-../../../macros/137-Cs/SimLuna.4.histos.root	0.0876587+/-0.000297451
-../../../macros/137-Cs/SimLuna.4.histos.root	0.0887435+/-0.000291606
-../../../macros/137-Cs/SimLuna.5.histos.root	0.0879691+/-0.000296114
-../../../macros/137-Cs/SimLuna.5.histos.root	0.0876335+/-0.000288231
-../../../macros/137-Cs/SimLuna.5.histos.root	0.0880371+/-0.000297026
-../../../macros/137-Cs/SimLuna.5.histos.root	0.0878431+/-0.000300572
-../../../macros/137-Cs/SimLuna.5.histos.root	0.0883197+/-0.000298824
-../../../macros/137-Cs/SimLuna.5.histos.root	0.0881101+/-0.000298719
-../../../macros/137-Cs/SimLuna.6.histos.root	0.0881741+/-0.000297612
-../../../macros/137-Cs/SimLuna.6.histos.root	0.0879139+/-0.000296639
-../../../macros/137-Cs/SimLuna.6.histos.root	0.0881137+/-0.000297853
-../../../macros/137-Cs/SimLuna.6.histos.root	0.0882331+/-0.000297197
-../../../macros/137-Cs/SimLuna.6.histos.root	0.0885333+/-0.000297131
-../../../macros/137-Cs/SimLuna.6.histos.root	0.0882285+/-0.000295727
-../../../macros/137-Cs/SimLuna.7.histos.root	0.0882896+/-0.00029722
-../../../macros/137-Cs/SimLuna.7.histos.root	0.0883464+/-0.000291272
-../../../macros/137-Cs/SimLuna.7.histos.root	0.0882183+/-0.000298434
-../../../macros/137-Cs/SimLuna.7.histos.root	0.0880775+/-0.000296542
-../../../macros/137-Cs/SimLuna.7.histos.root	0.0877671+/-0.000296943
-../../../macros/137-Cs/SimLuna.7.histos.root	0.0884393+/-0.000292524
-../../../macros/137-Cs/SimLuna.8.histos.root	0.0879477+/-0.000297315
-../../../macros/137-Cs/SimLuna.8.histos.root	0.0880973+/-0.000298743
-../../../macros/137-Cs/SimLuna.8.histos.root	0.088223+/-0.000298493
-../../../macros/137-Cs/SimLuna.8.histos.root	0.0885153+/-0.000298944
-../../../macros/137-Cs/SimLuna.8.histos.root	0.0881684+/-0.000297208
-../../../macros/137-Cs/SimLuna.8.histos.root	0.0879941+/-0.000298532
-../../../macros/137-Cs/SimLuna.9.histos.root	0.0884419+/-0.000296641
-../../../macros/137-Cs/SimLuna.9.histos.root	0.0883297+/-0.000296631
-../../../macros/137-Cs/SimLuna.9.histos.root	0.0880704+/-0.00029168
-../../../macros/137-Cs/SimLuna.9.histos.root	0.0882971+/-0.00029646
-../../../macros/137-Cs/SimLuna.9.histos.root	0.088003+/-0.000297344
-../../../macros/137-Cs/SimLuna.9.histos.root	0.0882492+/-0.000291592
-../../../macros/137-Cs/SimLuna.10.histos.root	0.0880099+/-0.000296512
-../../../macros/137-Cs/SimLuna.10.histos.root	0.0881243+/-0.000297818
-../../../macros/137-Cs/SimLuna.10.histos.root	0.0884007+/-0.000294264
-../../../macros/137-Cs/SimLuna.10.histos.root	0.0879869+/-0.000299009
-../../../macros/137-Cs/SimLuna.10.histos.root	0.0876246+/-0.000294158
-../../../macros/137-Cs/SimLuna.10.histos.root	0.0885659+/-0.000299611
+File name					Efficiency (661 keV)	Resolution (661 keV)	
+../../../macros/137-Cs/SimLuna.2.histos.root	0.103281+/-0.000354206	0.0100026
+../../../macros/137-Cs/SimLuna.2.histos.root	0.103168+/-0.000355609	0.0105712
+../../../macros/137-Cs/SimLuna.2.histos.root	0.103259+/-0.00035392	0.0115141
+../../../macros/137-Cs/SimLuna.2.histos.root	0.103446+/-0.000357873	0.00957901
+../../../macros/137-Cs/SimLuna.2.histos.root	0.103327+/-0.000355602	0.0109064
+../../../macros/137-Cs/SimLuna.2.histos.root	0.103263+/-0.000358106	0.010555
+../../../macros/137-Cs/SimLuna.3.histos.root	0.104052+/-0.000355689	0.0101218
+../../../macros/137-Cs/SimLuna.3.histos.root	0.10407+/-0.000355211	0.0106348
+../../../macros/137-Cs/SimLuna.3.histos.root	0.103956+/-0.000354452	0.0115142
+../../../macros/137-Cs/SimLuna.3.histos.root	0.10406+/-0.000358382	0.00958405
+../../../macros/137-Cs/SimLuna.3.histos.root	0.104186+/-0.000351932	0.0109268
+../../../macros/137-Cs/SimLuna.3.histos.root	0.104159+/-0.00035448	0.0106179
+../../../macros/137-Cs/SimLuna.4.histos.root	0.103328+/-0.000355005	0.0100186
+../../../macros/137-Cs/SimLuna.4.histos.root	0.103397+/-0.000352546	0.0106012
+../../../macros/137-Cs/SimLuna.4.histos.root	0.103317+/-0.000354366	0.0115501
+../../../macros/137-Cs/SimLuna.4.histos.root	0.103462+/-0.000348468	0.00958993
+../../../macros/137-Cs/SimLuna.4.histos.root	0.10331+/-0.000352962	0.0109526
+../../../macros/137-Cs/SimLuna.4.histos.root	0.103128+/-0.000354039	0.010559
+../../../macros/137-Cs/SimLuna.5.histos.root	0.103131+/-0.000352467	0.0100156
+../../../macros/137-Cs/SimLuna.5.histos.root	0.103143+/-0.000353122	0.010603
+../../../macros/137-Cs/SimLuna.5.histos.root	0.10322+/-0.000355928	0.0115269
+../../../macros/137-Cs/SimLuna.5.histos.root	0.103252+/-0.000355711	0.00953221
+../../../macros/137-Cs/SimLuna.5.histos.root	0.103218+/-0.000352253	0.0109671
+../../../macros/137-Cs/SimLuna.5.histos.root	0.103199+/-0.00035484	0.0106628
+../../../macros/137-Cs/SimLuna.6.histos.root	0.103332+/-0.000354239	0.0100652
+../../../macros/137-Cs/SimLuna.6.histos.root	0.103326+/-0.000353793	0.0105649
+../../../macros/137-Cs/SimLuna.6.histos.root	0.10349+/-0.000357253	0.0115541
+../../../macros/137-Cs/SimLuna.6.histos.root	0.103175+/-0.000354788	0.00951659
+../../../macros/137-Cs/SimLuna.6.histos.root	0.103126+/-0.000352823	0.0109054
+../../../macros/137-Cs/SimLuna.6.histos.root	0.103523+/-0.000355113	0.0106262
+../../../macros/137-Cs/SimLuna.7.histos.root	0.103622+/-0.000356166	0.00999979
+../../../macros/137-Cs/SimLuna.7.histos.root	0.103701+/-0.000360908	0.0106428
+../../../macros/137-Cs/SimLuna.7.histos.root	0.103853+/-0.000356393	0.0115189
+../../../macros/137-Cs/SimLuna.7.histos.root	0.103819+/-0.000354551	0.00959824
+../../../macros/137-Cs/SimLuna.7.histos.root	0.103635+/-0.000353357	0.0109615
+../../../macros/137-Cs/SimLuna.7.histos.root	0.103708+/-0.000359086	0.0106215
+../../../macros/137-Cs/SimLuna.8.histos.root	0.103538+/-0.000353333	0.0100706
+../../../macros/137-Cs/SimLuna.8.histos.root	0.103614+/-0.000360183	0.0106466
+../../../macros/137-Cs/SimLuna.8.histos.root	0.10376+/-0.000354709	0.0115384
+../../../macros/137-Cs/SimLuna.8.histos.root	0.103582+/-0.000350606	0.00956077
+../../../macros/137-Cs/SimLuna.8.histos.root	0.103362+/-0.00035401	0.0108563
+../../../macros/137-Cs/SimLuna.8.histos.root	0.103478+/-0.000353014	0.0105669
+../../../macros/137-Cs/SimLuna.9.histos.root	0.103713+/-0.000354594	0.010088
+../../../macros/137-Cs/SimLuna.9.histos.root	0.103342+/-0.000365365	0.0105561
+../../../macros/137-Cs/SimLuna.9.histos.root	0.104+/-0.000353028	0.011551
+../../../macros/137-Cs/SimLuna.9.histos.root	0.103625+/-0.000353194	0.00955792
+../../../macros/137-Cs/SimLuna.9.histos.root	0.103782+/-0.000351661	0.0108811
+../../../macros/137-Cs/SimLuna.9.histos.root	0.103626+/-0.000354213	0.0106494
+../../../macros/137-Cs/SimLuna.10.histos.root	0.103348+/-0.000358017	0.0100532
+../../../macros/137-Cs/SimLuna.10.histos.root	0.103487+/-0.000352395	0.0105875
+../../../macros/137-Cs/SimLuna.10.histos.root	0.103709+/-0.000354441	0.0115175
+../../../macros/137-Cs/SimLuna.10.histos.root	0.103472+/-0.000355918	0.00957851
+../../../macros/137-Cs/SimLuna.10.histos.root	0.103487+/-0.000353018	0.0109451
+../../../macros/137-Cs/SimLuna.10.histos.root	0.103724+/-0.000355367	0.0106132

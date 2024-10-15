@@ -512,7 +512,7 @@ void analyzeCaesiumSimulations() {
 
     std::string outputFilePath = "../../../out/Caesium_Simulation_results.txt";
     std::ofstream outputFile(outputFilePath);
-    outputFile << "File name\t" << "Efficiency (661 keV)\t" << std::endl;
+    outputFile << "File name\t" << "Efficiency (661 keV)\t" << "Resolution (661 keV)\t" << std::endl;
 
     for (int i = 2; i <= 10; ++i) {
         TString file_to_load = Form("../../../macros/137-Cs/SimLuna.%d.histos.root", i);
@@ -526,6 +526,8 @@ void analyzeCaesiumSimulations() {
 
         for (int j = 1; j <= 6; ++j) {
             TH1F* sim_hist = dynamic_cast<TH1F*>(f_in->Get(Form("h_BGO_res%d", j)));
+            sim_hist->GetXaxis()->SetRangeUser(600, 750);
+
 
             if (!sim_hist || sim_hist->GetEntries() == 0) {
                 std::cerr << "Failed to retrieve histogram!" << std::endl;
@@ -533,8 +535,8 @@ void analyzeCaesiumSimulations() {
                 return;
             }
 
-            TCanvas* canv = new TCanvas();
-            sim_hist->Draw();
+            TCanvas* canv = new TCanvas("cssim", "Caesium simulation", 800, 600);
+            canv->SetLogy();
 
             TF1* peak = new TF1("f1", "[0]*x + [1] + gausn(2)", 640, 690);
             peak->SetParameter(0, -0.01);
@@ -544,13 +546,17 @@ void analyzeCaesiumSimulations() {
             peak->SetParameter(4, 5);
 
             sim_hist->Fit("f1");
-            peak->Draw();
-
+            
+            sim_hist->Draw();
+            peak->Draw("SAME");
             canv->Update();
             canv->SaveAs(Form("../../../out/simulation graphs/SimLuna%d_h_BGO_res%d_Caesium.pdf", i, j));
 
-            std::cout << "Efficiency for this simulated detector: " << peak->GetParameter(2) / 1e6 << std::endl;
-            outputFile << file_to_load << "\t" << peak->GetParameter(2) / 1e6 << "+/-" << peak->GetParError(2) / 1e6 << std::endl;
+            std::cout << "Efficiency for this simulated detector: " << peak->GetParameter(2) / (0.85*1e6) << std::endl;
+            outputFile << file_to_load << "\t" << peak->GetParameter(2) / (0.85 * 1e6) << "+/-" << peak->GetParError(2) / (0.85 * 1e6) << "\t"
+               << peak->GetParameter(4) / peak->GetParameter(3) << std::endl;
+
+            //delete canv;
         }
 
     }
@@ -575,6 +581,8 @@ void analyzeCobaltSimulations() {
 
         for (int j = 1; j <= 6; ++j) {
             TH1F* sim_hist = dynamic_cast<TH1F*>(f_in->Get(Form("h_BGO_res%d", j)));
+            sim_hist->GetXaxis()->SetRangeUser(1000, 1450);
+
 
             if (!sim_hist || sim_hist->GetEntries() == 0) {
                 std::cerr << "Failed to retrieve histogram!" << std::endl;
@@ -582,8 +590,8 @@ void analyzeCobaltSimulations() {
                 return;
             }
 
-            TCanvas* canv = new TCanvas();
-            sim_hist->Draw();
+            TCanvas* canv = new TCanvas("cosim", "Cobalt simulation", 800, 600);
+            canv->SetLogy();
 
             TF1* peak = new TF1("f1", "[0]*x + [1] + gausn(2) + gausn(5)", 1150, 1350);
             peak->SetParameter(0, 0);
@@ -596,16 +604,146 @@ void analyzeCobaltSimulations() {
             peak->SetParameter(7, 5);
 
             sim_hist->Fit("f1");
-            peak->Draw();
 
+            sim_hist->Draw();
+            peak->Draw("SAME");
             canv->Update();
             canv->SaveAs(Form("../../../out/simulation graphs/SimLuna%d_h_BGO_res%d_Cobalt.pdf", i, j));
 
             std::cout << "Efficiencies for this simulated detector: " << peak->GetParameter(2) / 1e6 << ", " << peak->GetParameter(5) / 1e6 << std::endl;
             outputFile << file_to_load << "\t" << peak->GetParameter(2) / 1e6 << "+/-" << peak->GetParError(2) / 1e6 
                 << "\t" << peak->GetParameter(5) / 1e6 << "+/-" << peak->GetParError(5) / 1e6 << "\t" << std::endl;
+
+            delete canv;
         }
 
     }
     outputFile.close();
+}
+
+void analyzeCobaltDoubleSimulations() {
+
+    std::string outputFilePath = "../../../out/Cobalt_Simulation_results.txt";
+    std::ofstream outputFile(outputFilePath);
+    outputFile << "File name\t" << "Efficiency (1173 keV)\t" << "Efficiency (1332 keV)\t" << "Resolution (1173 keV)\t" << "Resolution (1332 keV)\t" << std::endl;
+
+    for (int i = 1; i <= 10; ++i) {
+        TString file_to_load = Form("../../../macros/60-Co/SimLuna.%d.histos.root", i);
+
+        TFile* f_in = new TFile(file_to_load);      // open input file
+
+        if (!f_in || f_in->IsZombie())              //check if file exists, if not return error
+        {
+            std::cout << "Failed to load " << std::endl;
+        }
+
+        for (int j = 1; j <= 6; ++j) {
+            TH1F* sim_hist = dynamic_cast<TH1F*>(f_in->Get(Form("h_BGO_res%d", j)));
+            sim_hist->GetXaxis()->SetRangeUser(1000, 1450);
+
+
+            if (!sim_hist || sim_hist->GetEntries() == 0) {
+                std::cerr << "Failed to retrieve histogram!" << std::endl;
+                f_in->Close();
+                return;
+            }
+
+            TCanvas* canv = new TCanvas("cosim", "Cobalt simulation", 800, 600);
+            canv->SetLogy();
+
+            TF1* peak1 = new TF1("f1", "[0]*x + [1] + gausn(2)", 1150, 1192);
+            peak1->SetParameter(0, 0);
+            peak1->SetParameter(1, 0);
+            peak1->SetParameter(2, 40000);
+            peak1->SetParameter(3, 1173);
+            peak1->SetParameter(4, 5);
+            
+            TF1* peak2 = new TF1("f2", "[0]*x + [1] + gausn(2)", 1315, 1350);
+            peak2->SetParameter(2, 40000);
+            peak2->SetParameter(3, 1332);
+            peak2->SetParameter(4, 5);
+
+            sim_hist->Fit("f1");
+            sim_hist->Fit("f2");
+
+            sim_hist->Draw();
+            peak1->Draw("SAME");
+            peak2->Draw("SAME");
+            canv->Update();
+            canv->SaveAs(Form("../../../out/simulation graphs/SimLuna%d_h_BGO_res%d_Cobalt.pdf", i, j));
+
+            std::cout << "Efficiencies for this simulated detector: " << peak1->GetParameter(2) / 1e6 << ", " << peak2->GetParameter(2) / 1e6 << std::endl;
+            outputFile << file_to_load << "\t" << peak1->GetParameter(2) / 1e6 << "+/-" << peak1->GetParError(2) / 1e6
+                << "\t" << peak2->GetParameter(2) / 1e6 << "+/-" << peak2->GetParError(2) / 1e6 << "\t" << "\t" <<
+                peak1->GetParameter(4) / peak1->GetParameter(3) << "\t" << peak2->GetParameter(4) / peak2->GetParameter(3) << "\t" << std::endl;
+
+            delete canv;
+        }
+
+    }
+    outputFile.close();
+}
+
+void compareSimExpHistograms() {
+    TFile* file_exp_cs = new TFile("../../../root files/run1776_coinc.root");
+    TFile* file_sim_cs = new TFile("../../../macros/137-Cs/SimLuna.5.histos.root");
+
+    if (!file_exp_cs || file_exp_cs->IsZombie() || !file_sim_cs || file_sim_cs->IsZombie())              //check if file exists, if not return error
+    {
+        std::cout << "Failed to load " << std::endl;
+    }
+
+    TCanvas* canvas_cs = new TCanvas("cs comp", "Caesium experimental-simulated comparison", 800, 600);
+    canvas_cs->SetLogy();
+    TLegend* legend_cs = new TLegend(0.7, 0.7, 0.9, 0.9);
+    TH1F* exp_hist_cs = dynamic_cast<TH1F*>(file_exp_cs->Get("Energy/h_EBGO_1"));
+    TH1F* sim_hist_cs = dynamic_cast<TH1F*>(file_sim_cs->Get("h_BGO_res1"));
+    exp_hist_cs->GetXaxis()->SetRangeUser(0, 1000);
+    sim_hist_cs->GetXaxis()->SetRangeUser(0, 1000);
+    exp_hist_cs->SetLineColor(kGreen);
+    sim_hist_cs->SetLineColor(kRed);
+    legend_cs->AddEntry(exp_hist_cs, "Experimental", "f");
+    legend_cs->AddEntry(sim_hist_cs, "Simulated", "f");
+    
+    sim_hist_cs->Draw();
+    exp_hist_cs->Draw("SAME");
+    
+    legend_cs->Draw();
+    canvas_cs->Update();
+    canvas_cs->SaveAs("../../../out/comparison graphs/Caesium.pdf");
+
+    file_exp_cs->Close();
+    file_sim_cs->Close();
+
+    TFile* file_exp_co = new TFile("../../../root files/run1777_coinc.root");
+    TFile* file_sim_co = new TFile("../../../macros/60-Co/SimLuna.5.histos.root");
+
+    if (!file_exp_co || file_exp_co->IsZombie() || !file_sim_co || file_sim_co->IsZombie())              //check if file exists, if not return error
+    {
+        std::cout << "Failed to load " << std::endl;
+    }
+
+    TCanvas* canvas_co = new TCanvas("co comp", "Cobalt experimental-simulated comparison", 800, 600);
+    canvas_co->SetLogy();
+    TLegend* legend_co = new TLegend(0.7, 0.7, 0.9, 0.9);
+
+    TH1F* exp_hist_co = dynamic_cast<TH1F*>(file_exp_co->Get("Energy/h_EBGO_1"));
+    TH1F* sim_hist_co = dynamic_cast<TH1F*>(file_sim_co->Get("h_BGO_res1"));
+    exp_hist_co->GetXaxis()->SetRangeUser(0, 2800);
+    sim_hist_co->GetXaxis()->SetRangeUser(0, 2800);
+    exp_hist_co->SetLineColor(kGreen);
+    sim_hist_co->SetLineColor(kRed);
+    legend_co->AddEntry(exp_hist_co, "Experimental", "f");
+    legend_co->AddEntry(sim_hist_co, "Simulated", "f");
+
+    sim_hist_co->Draw();
+
+    exp_hist_co->Draw("SAME");
+    legend_co->Draw();
+
+    canvas_co->Update();
+    canvas_co->SaveAs("../../../out/comparison graphs/Cobalt.pdf");
+
+    file_exp_co->Close();
+    file_sim_co->Close();
 }

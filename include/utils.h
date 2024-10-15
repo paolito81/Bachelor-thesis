@@ -23,3 +23,5 @@ void createEdepHistogram();
 void plotAndFitResolutions(std::vector<double>& resolutions);
 void analyzeCaesiumSimulations();
 void analyzeCobaltSimulations();
+void analyzeCobaltDoubleSimulations();
+void compareSimExpHistograms();
