@@ -350,18 +350,18 @@ void Analyzer::normefficiency() {
 */
 void Analyzer::plot() {
 	histogram->Fit("f1", "", "", chn_lower_bound, chn_upper_bound);
-	histogram->GetXaxis()->SetRangeUser(300, 1600);
+	histogram->GetXaxis()->SetRangeUser(300, 800);
 	
 	//canvas->SetLogy();
 
 	double line_ymin = histogram->GetMinimum();
-	double line_ymax = 300;
+	double line_ymax = 500;
 
 	TLine* line_low = new TLine(chn_lower_bound, line_ymin, chn_lower_bound, line_ymax);
 	TLine* line_up = new TLine(chn_upper_bound, line_ymin, chn_upper_bound, line_ymax);
 
-	TLine* peak_low = new TLine(peak_lower, line_ymin, peak_lower, line_ymax);
-	TLine* peak_up = new TLine(peak_upper, line_ymin, peak_upper, line_ymax);
+	TLine* peak_low = new TLine(peak_lower, line_ymin, peak_lower, func->Eval(peak_lower));
+	TLine* peak_up = new TLine(peak_upper, line_ymin, peak_upper, func->Eval(peak_upper));
 
 	TLine* oblique = new TLine(peak_lower, func->Eval(peak_lower), peak_upper, func->Eval(peak_upper));
 
@@ -376,8 +376,8 @@ void Analyzer::plot() {
 	histogram->Draw();
 	line_low->Draw();
 	line_up->Draw();
-	peak_low->Draw();
-	peak_up->Draw();
+	//peak_low->Draw();
+	//peak_up->Draw();
 	//oblique->Draw();
 
 	std::string chn_lower_bound_str = std::to_string(chn_lower_bound);
@@ -385,8 +385,8 @@ void Analyzer::plot() {
 	std::string fit_entry = "Fit limits: (" + chn_lower_bound_str + ", " + chn_upper_bound_str + ")";
 
 	legend->AddEntry(func, "Fitted function", "l");
-	legend->AddEntry(peak_low, "Peak limits", "l");
-	legend->AddEntry(line_low, fit_entry.c_str(), "l");
+	//legend->AddEntry(peak_low, "Peak limits", "l");
+	legend->AddEntry(line_low, "Fit limits", "l");
 	legend->SetTextSize(0.03);
 	legend->SetBorderSize(0);
 	legend->SetFillStyle(0);
@@ -394,7 +394,7 @@ void Analyzer::plot() {
 
 	canvas->Update();
 
-	std::string save_name = "../../../out/hist canvases/histogram_" + std::to_string(extractLastNumber(histname)) + "_logy.pdf";
+	std::string save_name = "../../../out/hist canvases/histogram_" + std::to_string(extractLastNumber(histname)) + ".pdf";
 	
 	canvas->SaveAs(save_name.c_str());
 

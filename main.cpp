@@ -46,7 +46,7 @@ int main(int argc, char* argv[]) {
         {"../../../root files/run1776_coinc.root", "EnergyADC/h_EBGO_ADC_1", Analyzer::F4, 300, 710, 460, 675, 200, 2880, 2930, -0.05, 400, 0.009, 560, 40},
         {"../../../root files/run1776_coinc.root", "EnergyADC/h_EBGO_ADC_2", Analyzer::F4, 340, 710, 450, 650, 200, 2800, 2850, -0.001, 400, 0.009, 560, 40},
         {"../../../root files/run1776_coinc.root", "EnergyADC/h_EBGO_ADC_3", Analyzer::F4, 300, 650, 400, 580, 180, 2820, 2880, -0.5, 400, 0.01,  500, 50},
-        {"../../../root files/run1776_coinc.root", "EnergyADC/h_EBGO_ADC_4", Analyzer::F4, 350, 650, 430, 590, 160, 2890, 2930, -0.5, 400, 0.01,  520, 50},
+        {"../../../root files/run1776_coinc.root", "EnergyADC/h_EBGO_ADC_4", Analyzer::F4, 350, 650, 430, 595, 160, 2890, 2930, -0.5, 400, 0.01,  520, 50},
         {"../../../root files/run1776_coinc.root", "EnergyADC/h_EBGO_ADC_5", Analyzer::F4, 350, 680, 410, 620, 200, 2720, 2760, -0.5, 400, 0.01,  520, 60},
         {"../../../root files/run1776_coinc.root", "EnergyADC/h_EBGO_ADC_6", Analyzer::F4, 350, 750, 460, 670, 210, 2810, 2850, -0.5, 400, 0.01,  590, 50}/**/
     };
@@ -166,7 +166,7 @@ int main(int argc, char* argv[]) {
     };
 
     //runAnalysis(configs1775, false); //total time unknown
-    //runAnalysis(configs1776, true); //results are coherent
+    runAnalysis(configs1776, true); //results are coherent
     //runAnalysis(configs1777, true); //results are not very coherent
     //runAnalysis(configs1777_F3, true);
     //runAnalysis(configs1778, true); //total time unknown
@@ -180,7 +180,7 @@ int main(int argc, char* argv[]) {
     
     //createEdepHistogram();
 
-    analyzeCaesiumSimulations();
+    //analyzeCaesiumSimulations();
     //analyzeCobaltDoubleSimulations();
     //compareSimExpHistograms();
 

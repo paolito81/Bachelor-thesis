@@ -72,28 +72,29 @@
 	\end{frame}
 	
 	% Section and Frame examples
-	\section{Introduzione}
-	\begin{frame}{L'esperimento}
-		\begin{itemize}
-			\item<1-> L'esperimento LUNA (Laboratory for Underground Nuclear Astrophysics) ricrea i processi nucleari che sono avvenuti durante la nucleosintesi primordiale e che avvengono tutt'ora nelle stelle.
-			\item<2-> Essendo processi molto rari, un laboratorio sulla superficie terrestre non è adatto per le misure sperimentali di questi, poiché i raggi cosmici maschererebbero il segnale debole atteso.
-		\end{itemize}
-	\end{frame}
+%	\section{Introduzione}
+%	\begin{frame}{L'esperimento}
+%		\begin{itemize}
+%			\item<1-> L'esperimento LUNA (Laboratory for Underground Nuclear Astrophysics) ricrea i processi nucleari che sono avvenuti durante la nucleosintesi primordiale e che avvengono tutt'ora nelle stelle.
+%			\item<2-> Essendo processi molto rari, un laboratorio sulla superficie terrestre non è adatto per le misure sperimentali di questi, poiché i raggi cosmici maschererebbero il segnale debole atteso.
+%		\end{itemize}
+%	\end{frame}
 	
 	
-	\begin{frame}{Proposta dell'esperimento}
+	\begin{frame}{Motivazione astrofisica}
 		\begin{itemize}
 			\item<1-> I neutrini solari giocano un ruolo fondamentale nella determinazione della composizione del Sole.
 			\item<2-> Sono prodotti nel ciclo CNO del Sole.
 			\item<3-> In particolare, la sezione d'urto della reazione $^{14}$N(p, $\gamma$)$^{15}$O è la fonte di errore principale sulle stime del flusso di neutrini, in quanto la più breve dell'intero ciclo.
 			\item<4-> A energie solari (15-50 keV) la sezione d'urto è troppo piccola per essere misurata direttamente.
-			\item<5-> Il progetto ha come obiettivo determinare la sezione d'urto ad energie 50-370 keV.
+			\item<5-> La tesi ha come obiettivo contribuire alla determinazione della sezione d'urto ad energie 50-370 keV.
 		\end{itemize}
 	\end{frame}
 		
 	\begin{frame}{Il ciclo CNO}
 		\begin{figure}[H]
-			\includegraphics[width=0.5\textwidth]{img/CNO_Cycle.pdf}
+			%riquadro zona interssata
+			\includegraphics[width=0.5\textwidth]{img/CNO_Cycle.png}
 			\caption{Ciclo Carbonio-Azoto-Ossigeno}
 		\end{figure}
 	\end{frame}
@@ -151,43 +152,41 @@
 		\begin{equation}
 			\sigma = \dfrac{N_{reaz}/\Delta t}{N_{proj}/\Delta t \times N_{bers}/A \times \varepsilon}
 		\end{equation}
-	\item<3-> $N_{reaz}/\Delta t$ è il numero di reazioni per unità di tempo;
-	\item<4-> $N_{proj}/\Delta t \approx 10^{14}$ pps per intensità tipiche di un fascio stabile
-	\item<5-> $N_{bers}/A \approx 10^{19}$ atomi/cm per un tipico bersaglio allo stato solido
-	\item<6-> $\sigma \approx 10^{-12}$ barn, spesso è anche più piccola
-	\item<7-> $\varepsilon \approx 1 \div 10 \%$ per i raggi gamma
+		\item<3-> Con una $\sigma \approx 10^{-12}$ barn si ha... 
+		\item<4-> Il \emph{reaction rate} ($N_{reaz}/\Delta t$) vale quindi appena $1\div 10$ conteggi al giorno
+		%A VOCE
+%	\item<3-> $N_{reaz}/\Delta t$ è il numero di reazioni per unità di tempo;
+%	\item<4-> $N_{proj}/\Delta t \approx 10^{14}$ pps per intensità tipiche di un fascio stabile
+%	\item<5-> $N_{bers}/A \approx 10^{19}$ atomi/cm per un tipico bersaglio allo stato solido
+%	\item<6-> $\sigma \approx 10^{-12}$ barn, spesso è anche più piccola
+%	\item<7-> $\varepsilon \approx 1 \div 10 \%$ per i raggi gamma
 	\end{itemize}
 \end{frame}
-\begin{frame}{Reaction rate}
-	\begin{itemize}
-		\item<1-> Il \emph{reaction rate} ($N_{reaz}/\Delta t$) vale quindi appena $1\div 10$ conteggi al giorno
-		\item<2-> Basta pochissimo rumore per nascondere i segnali che rivelano le reazioni
-		\item<3-> La soluzione è cercare di minimizzare il rumore di fondo 
-	\end{itemize}
-\end{frame}
+%\begin{frame}{Reaction rate}
+%	\begin{itemize}
+%		\item<1-> Il \emph{reaction rate} ($N_{reaz}/\Delta t$) vale quindi appena $1\div 10$ conteggi al giorno
+%		\item<2-> Basta pochissimo rumore per nascondere i segnali che rivelano le reazioni
+%		\item<3-> La soluzione è cercare di minimizzare il rumore di fondo 
+%	\end{itemize}
+%\end{frame}
 
-	\begin{frame}{Località}
-		\begin{columns}
-			\begin{column}{0.5\textwidth}
-				\begin{itemize}
-					\item<1-> I Laboratori Nazionali del Gran Sasso, situati nella frazione di Assergi, sono schermati dai 1400 m di roccia del Monte Aquila.
-					\item<2-> Ciò fa sì che il fondo di raggi cosmici sia fortemente soppresso
-					\item<3-> Qui è collocato l'acceleratore LUNA2 a 400 kV, in attività dal 2001, che permette di concentrare fasci ionici molto intensi e stabili.
-				\end{itemize}
-			\end{column}
-			\begin{column}{0.5\textwidth}
-				\centering
-				\includegraphics[width=0.8\textwidth]{img/location.png}
-				\captionof{figure}{LNGS, Assergi, AQ.}
-			\end{column}
-		\end{columns}
-	\end{frame}
-	
-	\begin{frame}{L'acceleratore}
-		\centering
-		\includegraphics[width=0.9\textwidth]{img/LUNA2.png}
-		\captionof{figure}{L'acceleratore LUNA2 a 400 kV.}
-	\end{frame}
+%	\begin{frame}{Località}
+%		\begin{columns}
+%			\begin{column}{0.5\textwidth}
+%				\begin{itemize}
+%					\item<1-> I Laboratori Nazionali del Gran Sasso, situati nella frazione di Assergi, sono schermati dai 1400 m di roccia del Monte Aquila.
+%					\item<2-> Ciò fa sì che il fondo di raggi cosmici sia fortemente soppresso
+%					\item<3-> Qui è collocato l'acceleratore LUNA2 a 400 kV, che permette di concentrare fasci ionici molto intensi e stabili.
+%				\end{itemize}
+%			\end{column}
+%			\begin{column}{0.5\textwidth}
+	%tenere immagine
+%				\centering
+%				\includegraphics[width=0.8\textwidth]{img/location.png}
+%				\captionof{figure}{LNGS, Assergi, AQ.}
+%			\end{column}
+%		\end{columns}
+%	\end{frame}
 	
 	\begin{frame}{Fondo}
 		\centering
@@ -195,6 +194,20 @@
 		\captionof{figure}{Grafico riportante il rumore di fondo in superficie, sotto una schermatura parziale sottoterra e sotto una schermatura totale sottoterra.}
 	\end{frame}
 	
+	
+\begin{frame}{LUNA 400 kV}%spiegare a voce
+	\centering
+	\includegraphics[width=0.9\textwidth]{img/LUNA2.png}
+	\captionof{figure}{L'acceleratore LUNA a 400 kV.}
+\end{frame}
+
+\begin{frame}{Apparato sperimentale}
+	%immagine 3d del bgo
+	%bersaglio solido in TiN (immagine sul'elog)
+	%si tratta di un reivelatore...
+	%la seconda a voce
+\end{frame}
+
 	\section{Obiettivi della tesi}
 	\begin{frame}{Obiettivi della tesi}
 		\begin{itemize}
@@ -226,14 +239,14 @@
 \begin{frame}{Il rivelatore $4\pi$}
 	\begin{columns}
 		\begin{column}{0.45\textwidth}
-			\begin{itemize}
+			\begin{itemize}%a voce
 				\item Il cristallo, a simmetria cilindrica, è otticamente separato in 6 spicchi uguali.
 				%\item I fotoni di scintillazione di ciascuno dei 6 segmenti sono rivelati da due fotomoltiplicatori.
 			\end{itemize}
 		\end{column}
 		\begin{column}{0.45\textwidth}
 			\centering
-			\includegraphics[width=\textwidth]{img/BGO.png}
+			\includegraphics[width=\textwidth]{img/BGO.png}%solo parte inferiore, a voce
 			\captionof{figure}{Rappresentazione schematica del rivelatore BGO. In alto una sezione sagittale, in basso una sezione trasversale.}
 		\end{column}
 	\end{columns}
@@ -254,45 +267,38 @@
 %\end{frame}
 
 \section{Calibrazione in energia}
-
 \begin{frame}{Calibrazione in energia}
 	\begin{itemize}
-		\item La calibrazione in energia consiste nel calcolo dei fattori che convertono da valori in canali (CHN) a valori in energia (keV) 
 		\item Viene effettuata con due sorgenti radioattive, 60-Co e 137-Cs
-		\item Tutta l'analisi dei dati è effettuata in ROOT, framework per l'analisi dei dati scritta in C++ e sviluppata dal CERN.
+		%\item La calibrazione in energia consiste nel calcolo dei fattori che convertono da valori in canali (CHN) a valori in energia (keV) 
+		%\item Tutta l'analisi dei dati è effettuata in ROOT, framework per l'analisi dei dati scritta in C++ e sviluppata dal CERN.
 	\end{itemize}
+	
+	\vspace{5mm} % Adds some vertical space between the item and the images
+	
+	\begin{columns}
+		\column{0.5\textwidth}
+		\uncover<2->{\centering
+			\includegraphics[width=0.9\textwidth]{img/Cs-137-decay.png}
+			\centering
+			\includegraphics[width=\linewidth]{img/ex1776.pdf}}
+		\column{0.5\textwidth}
+		\uncover<3->{\centering
+			\includegraphics[width=0.9\textwidth]{img/Cobalt-60m-decay.png}
+			\centering
+			\includegraphics[width=\linewidth]{img/ex1777.pdf}}
+	\end{columns}
 \end{frame}
 
 
 
-\begin{frame}{$^{60}$Co}
-	
-	
-	\begin{itemize}
-		\item<1-> Il $^{60}$Co decade tramite decadimento $\beta^{-}$ (99.75\%) in $^{60}$Ni ed emette due raggi gamma di energie 1.17 MeV e 1.33 MeV.
-		\item<2-> Ha il vantaggio di emettere raggi gamma ad alta intensità con un'emivita relativamente lunga di 5.27 anni. 
-		\item<3-> Trova applicazione nella radioterapia del cancro.
-	\end{itemize}
-	
-	\centering
-	\includegraphics[width=0.5\textwidth]{img/Cobalt-60m-decay.png}
-	\captionof{figure}{Schema di decadimento del $^{137}$Cs.}
-	
-\end{frame}
 
-
-
-\begin{frame}{$^{137}$Cs}
-	\begin{itemize}
-		\item<1-> Il $^{137}$Cs decade sempre tramite decadimento $\beta^{-}$.
-		\item<2-> Il 94.6\% dei decadimenti hanno come prodotto uno stato metastabile del $^{137}$Ba. 
-		\item<3-> Questo stato eccitato emette l'85\% delle volte raggi gamma di 661.7 keV decadendo nello stato fondamentale del $^{137}$Ba (tutti i raggi gamma provenienti dal $^{137}$Cs sono prodotti così).
-	\end{itemize}
-	\centering
-	\includegraphics[width=0.5\textwidth]{img/Cs-137-decay.png}
-	\captionof{figure}{Schema di decadimento del $^{137}$Cs.}
-\end{frame}
-
+%mostrare solo istrogramma calibrazione in energia
+%bgo 6 segmenti, tutti analizzati
+%mostrato uno solo
+%mettere spicchio 4
+%zoom solo fino a cobalto
+%togliere riquadro in alto a sinistra
 
 \begin{frame}{Istogrammi}
 	\begin{figure}
@@ -322,14 +328,14 @@
 \end{frame}
 
 \begin{frame}{Calcolo della calibrazione}
-	\begin{columns}
-		\begin{column}{0.4\textwidth}
-			\begin{itemize}
-				\item<1-> Si effettuano fit sui file con entrambe le sorgenti
-				\item<2-> I valori dei picchi vengono graficati contro quelli in energia caratteristici, noti.
-				\item<4-> Si effettua dunque un fit lineare per i punti di ciascun istogramma.
-				\item<5-> I coefficienti angolari di questi fit sono i fattori di conversione cercati.
-			\end{itemize}
+	\begin{columns}%mettere foto istogramma spicchio 4 con due elementi
+		\begin{column}{0.4\textwidth}% a voce
+%			\begin{itemize}
+%				\item<1-> Si effettuano fit sui file con entrambe le sorgenti
+%				\item<2-> I valori dei picchi vengono graficati contro quelli in energia caratteristici, noti.
+%				\item<4-> Si effettua dunque un fit lineare per i punti di ciascun istogramma.
+%				\item<5-> I coefficienti angolari di questi fit sono i fattori di conversione cercati.
+%			\end{itemize}
 		\end{column}
 		\begin{column}{0.5\textwidth}
 			\begin{figure}
@@ -340,83 +346,88 @@
 			\end{figure}
 		\end{column}
 	\end{columns}
-	
+	%grafico lineare, valori parametri in un angolo della slide
+	%retta per il quarto spicchio, spettro del quarto, tabella (possibilmente quarto spicchio)
+	%mettere espressione
+	%mettere residui
 \end{frame}
 
 
 
-\begin{frame}{Residui}
-	\begin{columns}
-		\begin{column}{0.4\textwidth}
-			\begin{itemize}
-				\item<1-> I residui sono la differenza tra i valori in energia noti e quelli assunti dalla retta
-				\item<2-> Sono una rappresentazione della bontà della calibrazione
-				\item<3-> In generale una calibrazione è buona se i residui non superano la decina di keV
-			\end{itemize}
-		\end{column}
-		\begin{column}{0.5\textwidth}
-			\centering
-			\only<2->{\includegraphics[width=0.9\textwidth]{img/residues0.pdf}}
-		\end{column}
-	\end{columns}
-	
-\end{frame}
+
+
+
+
+
 
 
 \section{Efficienza}
 \begin{frame}{Efficienza}
 	\begin{itemize}
-		\item<1-> Nel caso dei nostri istogrammi, composti da un picco gaussiano centrato su un'energia caratteristica e un fondo di \emph{bremsstrahlung}, l'efficienza si può stimare nel modo seguente:
-		
+		\item<1-> L'efficienza è un fattore fondamentale per ricavare la sezione d'urto.
+		\item<2-> Si può stimare dalla formula:
 		\begin{equation}
 			\varepsilon = \dfrac{N_{cont.}}{A(t*) \Delta t}
 		\end{equation}
-	
-		\visible<2->{dove $N_{cont.}$ è il numero di conteggi del picco gaussiano sottraendone il fondo, $A(t*)$ è l'attività calcolata al momento della misura, $\Delta t$ è il tempo "vivo" dello strumento.}
+		\item<3-> L'attività è calcolata al momento della misurazione.
 	\end{itemize}
+	
+	\vspace{0.5cm}
+	
+	% This part will be revealed on the second slide (within the same frame)
+	\visible<4->{
+		\begin{columns}
+			\begin{column}{0.5\textwidth}
+				\includegraphics[width=\textwidth]{img/parameter.pdf}
+			\end{column}
+			\begin{column}{0.5\textwidth}
+				\includegraphics[width=\textwidth]{img/trapezoid.pdf}
+			\end{column}
+		\end{columns}
+	}
 \end{frame}
 
-\begin{frame}{Calcolo dell'efficienza}
-	\begin{itemize}
-		\item Per il calcolo dell'efficienza è necessario trovare il numero di conteggi nei picchi gaussiani. Si possono applicare due metodi diversi per trovarlo:
-	\end{itemize}
-	\hrule height 0.3mm \vspace{2mm}
-	
-	\begin{columns}
-		\column{0.5\textwidth}
-		\only<2->{\centering \emph{Trapezio} 
-			\begin{itemize}
-				\item Metodo geometrico
-				\item Consiste nell'isolare la regione del picco e rimuoverne il fondo trapezoidale
-				\item Adatto solo per il cesio: i due picchi del cobalto non sono sufficientemente risolti dallo strumento
-		\end{itemize}}
-		
-		\column{0.5\textwidth}
-		\only<3->{\centering \emph{Parametrico}
-			\begin{itemize}
-				\item Metodo che sfrutta i parametri del fit
-				\item Il coefficiente di normalizzazione del picco gaussiano è il numero di conteggi nel picco
-				\item Adatto per cesio e cobalto
-		\end{itemize}}
-	\end{columns}
-	
-\end{frame}
-\begin{frame}{Metodo del trapezio}
-	\centering
-	\includegraphics[width=0.9\textwidth]{img/trapezoid.pdf}
-	\captionof{figure}{Visualizzazione del metodo del trapezio.}
-\end{frame}
+%\begin{frame}{Calcolo dell'efficienza}%si può dire tutto a voce, sulla immagine del picco senza fit (dall'altra parte mettere immagine con fit)
+%	\begin{itemize}
+%		\item Per il calcolo dell'efficienza è necessario trovare il numero di conteggi nei picchi gaussiani. Si possono applicare due metodi diversi per trovarlo:
+%	\end{itemize}
+%	\hrule height 0.3mm \vspace{2mm}
+%	
+%	\begin{columns}
+%		\column{0.5\textwidth}
+%		\uncover<2->{\centering \emph{Trapezio} 
+%			\begin{itemize}
+%				\item Metodo geometrico
+%				\item Consiste nell'isolare la regione del picco e rimuoverne il fondo trapezoidale
+%				\item Adatto solo per il cesio: i due picchi del cobalto non sono sufficientemente risolti dallo strumento
+%		\end{itemize}}
+%		
+%		\column{0.5\textwidth}
+%		\uncover<3->{\centering \emph{Parametrico}
+%			\begin{itemize}
+%				\item Metodo che sfrutta i parametri del fit
+%				\item Il coefficiente di normalizzazione del picco gaussiano è il numero di conteggi nel picco
+%				\item Adatto per cesio e cobalto
+%		\end{itemize}}
+%	\end{columns}
+%	
+%\end{frame}
 
-\begin{frame}{Attività e tempo vivo}
+\begin{frame}{Tempo morto}%solo tempo vivo, indicare per spicchio 4 quanto vale. (tempo morto anziché tempo vivo)
 	\begin{itemize}
-		\item L'attività viene calcolata al momento della presa dati, in data 03/04/2024
+		%\item L'attività viene calcolata al momento della presa dati, in data 03/04/2024
 		\item Il tempo vivo è ricavato dal TTree delle coincidenze, ossia dove lo spicchio del BGO registra i fotoni del pulser nello spettro dei canali
 	\end{itemize}
+	\begin{columns}
+		\begin{column}{0.5\textwidth}
+			\includegraphics[width=\textwidth]{img/run1776_coinc_h_EBGO_ADC_4_COINC.pdf}
+		\end{column}
+		\begin{column}{0.5\textwidth}
+			\includegraphics[width=\textwidth]{img/pulser.pdf}
+		\end{column}
+	\end{columns}
 \end{frame}
-\begin{frame}{Istogramma coincidenze}
-	\centering
-	\includegraphics[width=0.9\textwidth]{img/run1776_coinc_h_EBGO_ADC_1_COINC.pdf}
-\end{frame}
+
 
 
 
@@ -434,34 +445,36 @@
 
 
 \section{Simulazioni}
-\begin{frame}{Risoluzione}
-	\begin{itemize}
-		\item Le simulazioni contengono picchi di energia ideali, a cui non è stata applicata la risoluzione dello strumento
-		\item Questa si può trovare eseguendo fit gaussiani sugli istogrammi in energia, anziché canali
-		\item La risoluzione è il rapporto tra la deviazione standard del picco e la corrispondente energia nota
-		\item Le risoluzioni si mettono su un grafico contro le corrispettive energie note, fittandovi una funzione:
-		
-		\begin{equation*}
-			f(x) = a + \dfrac{b}{\sqrt{x}}
-		\end{equation*}
-	\end{itemize}
+\begin{frame}{Risoluzione energetica}%inserire spettro simulato con ris inf e far veder come viene fuori con risoluzione dopo applicazione
+%	\begin{itemize}
+%		\item Le simulazioni contengono picchi di energia ideali, a cui non è stata applicata la risoluzione dello strumento
+%		\item Questa si può trovare eseguendo fit gaussiani sugli istogrammi in energia, anziché canali
+%		\item La risoluzione è il rapporto tra la deviazione standard del picco e la corrispondente energia nota
+%		\item Le risoluzioni si mettono su un grafico contro le corrispettive energie note, fittandovi una funzione:
+%		
+%		\begin{equation*}
+%			f(E) = a + \dfrac{b}{\sqrt{E}}
+%		\end{equation*}
+%	\end{itemize}
+%lasciare funzione fittata
 \end{frame}
+%mettere spettro sim e exp sovrapposti
 \begin{frame}{Fit risoluzioni}
 	\centering
 	\includegraphics[width=0.9\textwidth]{img/ResolutionGraphs.pdf}
 \end{frame}
 \begin{frame}{Simulazioni}
 	\begin{itemize}
-		\item Le risoluzioni trovate servono per "spalmare" i picchi ideali delle simulazioni, che poi possono essere analizzati come gli istogrammi visti in precedenza
+		\item %mettere tabelle confronto tra exp e sim (spicchio 4) 
 	\end{itemize}
 \end{frame}
 	
-	\section{Conclusion}
+	\section{Conclusione}
 	\begin{frame}{Conclusione}
 		\begin{itemize}
-			\item Risultati calibrazione
-			\item Risultati efficienza
-			\item Risultati simulazioni
+			\item<1-> Durante la tesi ci è occupato dello studio della reazione...
+			\item<2-> Il rivelatore utilizzato è stato calibrato in energia e ne si è calcolata l'efficienza
+			\item<3-> Si sono analizzate le simulazioni Monte Carlo, per poi confrontarle coi dati sperimentali
 		\end{itemize}
 	\end{frame}
 	
@@ -516,6 +529,34 @@
 		\end{itemize}
 \end{frame}
 
+\begin{frame}{$^{60}$Co}%parlare sullo schema
+	
+	
+	\begin{itemize}
+		\item<1-> Il $^{60}$Co decade tramite decadimento $\beta^{-}$ (99.75\%) in $^{60}$Ni ed emette due raggi gamma di energie 1.17 MeV e 1.33 MeV.
+		\item<2-> Ha il vantaggio di emettere raggi gamma ad alta intensità con un'emivita relativamente lunga di 5.27 anni. 
+		\item<3-> Trova applicazione nella radioterapia del cancro.
+	\end{itemize}
+	
+	\centering
+	\includegraphics[width=0.5\textwidth]{img/Cobalt-60m-decay.png}
+	\captionof{figure}{Schema di decadimento del $^{137}$Cs.}
+	
+\end{frame}
+
+
+
+\begin{frame}{$^{137}$Cs}
+	\begin{itemize}
+		\item<1-> Il $^{137}$Cs decade sempre tramite decadimento $\beta^{-}$.
+		\item<2-> Il 94.6\% dei decadimenti hanno come prodotto uno stato metastabile del $^{137}$Ba. 
+		\item<3-> Questo stato eccitato emette l'85\% delle volte raggi gamma di 661.7 keV decadendo nello stato fondamentale del $^{137}$Ba (tutti i raggi gamma provenienti dal $^{137}$Cs sono prodotti così).
+	\end{itemize}
+	\centering
+	\includegraphics[width=0.5\textwidth]{img/Cs-137-decay.png}
+	\captionof{figure}{Schema di decadimento del $^{137}$Cs.}
+\end{frame}
+
 \begin{frame}{\texttt{ROOT}}
 	\begin{itemize}
 		\item L'analisi dati dell'esperimento è compiuta in \texttt{ROOT}
@@ -540,6 +581,82 @@
 		\item Può accadere che lo strumento riveli due fotoni emessi dallo stesso evento contemporaneamente
 		\item In tal caso, viene registrato come un unico fotone, ma con energia pari alla somma delle energie dei fotoni 
 	\end{itemize}
+\end{frame}
+
+\begin{frame}{Residui}%mettere energie sull'asse X
+	\begin{columns}%a voce sui residui
+		\begin{column}{0.4\textwidth}
+			\begin{itemize}
+				\item<1-> I residui sono la differenza tra i valori in energia noti e quelli assunti dalla retta
+				\item<2-> Sono una rappresentazione della bontà della calibrazione
+				\item<3-> In generale una calibrazione è buona se i residui non superano la decina di keV
+			\end{itemize}
+		\end{column}
+		\begin{column}{0.5\textwidth}
+			\centering
+			\only<2->{\includegraphics[width=0.9\textwidth]{img/residues0.pdf}}
+		\end{column}
+	\end{columns}
+	
+\end{frame}
+\begin{frame}{Calcolo dell'efficienza}%si può dire tutto a voce, sulla immagine del picco senza fit (dall'altra parte mettere immagine con fit)
+	\begin{itemize}
+		\item Per il calcolo dell'efficienza è necessario trovare il numero di conteggi nei picchi gaussiani. Si possono applicare due metodi diversi per trovarlo:
+	\end{itemize}
+	\hrule height 0.3mm \vspace{2mm}
+	
+	\begin{columns}
+		\column{0.5\textwidth}
+		\uncover<2->{\centering \emph{Trapezio} 
+			\begin{itemize}
+				\item Metodo geometrico
+				\item Consiste nell'isolare la regione del picco e rimuoverne il fondo trapezoidale
+				\item Adatto solo per il cesio: i due picchi del cobalto non sono sufficientemente risolti dallo strumento
+		\end{itemize}}
+		
+		\column{0.5\textwidth}
+		\uncover<3->{\centering \emph{Parametrico}
+			\begin{itemize}
+				\item Metodo che sfrutta i parametri del fit
+				\item Il coefficiente di normalizzazione del picco gaussiano è il numero di conteggi nel picco
+				\item Adatto per cesio e cobalto
+		\end{itemize}}
+	\end{columns}
+	
+\end{frame}
+
+\section{Efficienza}
+%ricavo perché importante per sez d'urto
+\begin{frame}{Efficienza}
+	\begin{itemize}%discorso a voce, lasciare formula
+		%		\item<1-> Nel caso dei nostri istogrammi, composti da un picco gaussiano centrato su un'energia caratteristica e un fondo di \emph{bremsstrahlung}, l'efficienza si può stimare nel modo seguente:
+		%		%attività spiegata qua, tempo vivo dopo
+		%		\begin{equation}
+			%			\varepsilon = \dfrac{N_{cont.}}{A(t*) \Delta t}
+			%		\end{equation}
+		%	
+		%		\visible<2->{dove $N_{cont.}$ è il numero di conteggi del picco gaussiano sottraendone il fondo, $A(t*)$ è l'attività calcolata al momento della misura, $\Delta t$ è il tempo "vivo" dello strumento.}
+		\item<1-> L'efficienza è un fattore fondamentale per ricavare la sezione d'urto
+		\item<2-> Si può stimare dalla formula:
+		
+		\begin{equation}
+			\varepsilon = \dfrac{N_{cont.}}{A(t*) \Delta t}
+		\end{equation}
+		
+		\item<3-> L'attività è calcolata al momento della misurazione. %magari discorso sulla legge esponenziale a voce
+		
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Calcolo dell'efficienza}
+	\begin{columns}
+		\begin{column}{0.5\textwidth}
+			\includegraphics[width=\textwidth]{img/parameter.pdf}
+		\end{column}
+		\begin{column}{0.5\textwidth}
+			\includegraphics[width=\textwidth]{img/trapezoid.pdf}
+		\end{column}
+	\end{columns}
 \end{frame}
 
 \end{document}
