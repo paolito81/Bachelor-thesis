@@ -1,7 +1,7 @@
 \beamer@sectionintoc {1}{Introduzione}{3}{0}{1}
-\beamer@sectionintoc {2}{Obiettivi della tesi}{28}{0}{2}
-\beamer@sectionintoc {3}{Il rivelatore}{32}{0}{3}
-\beamer@sectionintoc {4}{Calibrazione in energia}{35}{0}{4}
-\beamer@sectionintoc {5}{Efficienza}{50}{0}{5}
+\beamer@sectionintoc {2}{Obiettivi della tesi}{27}{0}{2}
+\beamer@sectionintoc {3}{Il rivelatore}{31}{0}{3}
+\beamer@sectionintoc {4}{Calibrazione in energia}{34}{0}{4}
+\beamer@sectionintoc {5}{Efficienza}{51}{0}{5}
 \beamer@sectionintoc {6}{Simulazioni}{60}{0}{6}
 \beamer@sectionintoc {7}{Conclusion}{64}{0}{7}

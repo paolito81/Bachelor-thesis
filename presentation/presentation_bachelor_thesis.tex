@@ -86,6 +86,8 @@
 			\item<1-> I neutrini solari giocano un ruolo fondamentale nella determinazione della composizione del Sole.
 			\item<2-> Sono prodotti nel ciclo CNO del Sole.
 			\item<3-> In particolare, la sezione d'urto della reazione $^{14}$N(p, $\gamma$)$^{15}$O è la fonte di errore principale sulle stime del flusso di neutrini, in quanto la più breve dell'intero ciclo.
+			\item<4-> A energie solari (15-50 keV) la sezione d'urto è troppo piccola per essere misurata direttamente.
+			\item<5-> Il progetto ha come obiettivo determinare la sezione d'urto ad energie 50-370 keV.
 		\end{itemize}
 	\end{frame}
 		
@@ -96,13 +98,7 @@
 		\end{figure}
 	\end{frame}
 	
-	\begin{frame}{Proposta dell'esperimento}
-		\begin{itemize}
-			\item<1-> A energie solari (15-50 keV) la sezione d'urto è troppo piccola per essere misurata direttamente.
-			\item<2-> Le stime odierne sono quindi estrapolazioni da energie più alte.
-			\item<3-> Il progetto ha come obiettivo determinare la sezione d'urto ad energie 50-370 keV.
-		\end{itemize}
-	\end{frame}
+	
 	
 %\begin{frame}{Sfide sperimentali della misura diretta}
 %	\begin{itemize}
@@ -202,7 +198,7 @@
 	\section{Obiettivi della tesi}
 	\begin{frame}{Obiettivi della tesi}
 		\begin{itemize}
-			\item<1-> L'obiettivo della tesi è quello di calibrare in energia e caratterizzare in efficienza lo scintillatore $4\pi$ utilizzato per la rivelazione di raggi $\gamma$ nella riproduzione della reazione $^{14}$N(p,$\gamma$)$^{15}$O. 
+			\item<1-> L'obiettivo della tesi, incentrato sull'analisi dei dati, è quello di calibrare in energia e caratterizzare in efficienza lo scintillatore $4\pi$ utilizzato per la rivelazione di raggi $\gamma$ nella riproduzione della reazione $^{14}$N(p,$\gamma$)$^{15}$O. 
 			\item<2-> Nell'esperimento si proietta un intenso fascio di protoni su bersagli solidi di TiN (nitruro di titanio).  
 			\item<3-> L'analisi dei dati viene confrontata con delle simulazioni in GEANT4.
 		\end{itemize}
@@ -262,10 +258,12 @@
 \begin{frame}{Calibrazione in energia}
 	\begin{itemize}
 		\item La calibrazione in energia consiste nel calcolo dei fattori che convertono da valori in canali (CHN) a valori in energia (keV) 
-		\item Viene effettuata con due sorgenti radioattive
+		\item Viene effettuata con due sorgenti radioattive, 60-Co e 137-Cs
 		\item Tutta l'analisi dei dati è effettuata in ROOT, framework per l'analisi dei dati scritta in C++ e sviluppata dal CERN.
 	\end{itemize}
 \end{frame}
+
+
 
 \begin{frame}{$^{60}$Co}
 	
@@ -295,20 +293,49 @@
 	\captionof{figure}{Schema di decadimento del $^{137}$Cs.}
 \end{frame}
 
+
+\begin{frame}{Istogrammi}
+	\begin{figure}
+		\centering
+		\begin{minipage}{0.45\textwidth}
+			\centering
+			\includegraphics[width=\linewidth]{img/ex1775.pdf} % Replace with your image path
+		\end{minipage}
+		\hfill
+		\begin{minipage}{0.45\textwidth}
+			\centering
+			\includegraphics[width=\linewidth]{img/ex1776.pdf} % Replace with your image path
+		\end{minipage}
+		
+		\vspace{0.4cm} % Adjust vertical space between rows
+		
+		\begin{minipage}{0.45\textwidth}
+			\centering
+			\includegraphics[width=\linewidth]{img/ex1777.pdf} % Replace with your image path
+		\end{minipage}
+		\hfill
+		\begin{minipage}{0.45\textwidth}
+			\centering
+			\includegraphics[width=\linewidth]{img/pulser.pdf} % Replace with your image path
+		\end{minipage}
+	\end{figure}
+\end{frame}
+
 \begin{frame}{Calcolo della calibrazione}
 	\begin{columns}
 		\begin{column}{0.4\textwidth}
 			\begin{itemize}
-				\item<1-> I valori dei picchi vengono graficati contro quelli in energia caratteristici, noti.
-				\item<3-> Si effettua dunque un fit lineare per i punti di ciascun istogramma.
-				\item<4-> I coefficienti angolari di questi fit sono i fattori di conversione cercati.
+				\item<1-> Si effettuano fit sui file con entrambe le sorgenti
+				\item<2-> I valori dei picchi vengono graficati contro quelli in energia caratteristici, noti.
+				\item<4-> Si effettua dunque un fit lineare per i punti di ciascun istogramma.
+				\item<5-> I coefficienti angolari di questi fit sono i fattori di conversione cercati.
 			\end{itemize}
 		\end{column}
 		\begin{column}{0.5\textwidth}
 			\begin{figure}
 				\centering
-				\only<2>{\includegraphics[width=0.9\textwidth]{img/plot0_empty.pdf}}
-				\only<3->{\includegraphics[width=0.9\textwidth]{img/plot0.pdf}}
+				\only<3>{\includegraphics[width=0.9\textwidth]{img/plot0_empty.pdf}}
+				\only<4->{\includegraphics[width=0.9\textwidth]{img/plot0.pdf}}
 				%TERZA GRAFICA PER FARE VEDERE I RISULTATI
 			\end{figure}
 		\end{column}
@@ -393,32 +420,6 @@
 
 
 
-\begin{frame}{Istogrammi}
-	\begin{figure}
-		\centering
-		\begin{minipage}{0.45\textwidth}
-			\centering
-			\includegraphics[width=\linewidth]{img/ex1775.pdf} % Replace with your image path
-		\end{minipage}
-		\hfill
-		\begin{minipage}{0.45\textwidth}
-			\centering
-			\includegraphics[width=\linewidth]{img/ex1776.pdf} % Replace with your image path
-		\end{minipage}
-		
-		\vspace{0.4cm} % Adjust vertical space between rows
-		
-		\begin{minipage}{0.45\textwidth}
-			\centering
-			\includegraphics[width=\linewidth]{img/ex1777.pdf} % Replace with your image path
-		\end{minipage}
-		\hfill
-		\begin{minipage}{0.45\textwidth}
-			\centering
-			\includegraphics[width=\linewidth]{img/pulser.pdf} % Replace with your image path
-		\end{minipage}
-	\end{figure}
-\end{frame}
 
 %\begin{frame}{Calcolo della calibrazione}
 %	\begin{itemize}
@@ -458,7 +459,9 @@
 	\section{Conclusion}
 	\begin{frame}{Conclusione}
 		\begin{itemize}
-			\item COME RAPPRESENTARE I RISULTATI???????????
+			\item Risultati calibrazione
+			\item Risultati efficienza
+			\item Risultati simulazioni
 		\end{itemize}
 	\end{frame}
 	
@@ -472,6 +475,13 @@
 	Slide di backup
 \end{frame}
 
+\begin{frame}{Proposta dell'esperimento}
+	\begin{itemize}
+		\item<1-> A energie solari (15-50 keV) la sezione d'urto è troppo piccola per essere misurata direttamente.
+		\item<2-> Le stime odierne sono quindi estrapolazioni da energie più alte.
+		\item<3-> Il progetto ha come obiettivo determinare la sezione d'urto ad energie 50-370 keV.
+	\end{itemize}
+\end{frame}
 
 \begin{frame}{Tempo vivo/morto}
 	\begin{itemize}
@@ -506,6 +516,13 @@
 		\end{itemize}
 \end{frame}
 
+\begin{frame}{\texttt{ROOT}}
+	\begin{itemize}
+		\item L'analisi dati dell'esperimento è compiuta in \texttt{ROOT}
+		\item Il vantaggio di utilizzarlo è una discreta ottimizzazione per quanto riguarda l'analisi di grandi moli di dati grazie al formato file \texttt{.root}
+		\item Si utilizza principalmente in ambito di fisica delle particelle
+	\end{itemize}
+\end{frame}
 
 
 \begin{frame}{Struttura dei dati}
@@ -518,6 +535,12 @@
 		\end{itemize}
 \end{frame}
 
+\begin{frame}{Picco somma}
+	\begin{itemize}
+		\item Può accadere che lo strumento riveli due fotoni emessi dallo stesso evento contemporaneamente
+		\item In tal caso, viene registrato come un unico fotone, ma con energia pari alla somma delle energie dei fotoni 
+	\end{itemize}
+\end{frame}
 
 \end{document}
 
