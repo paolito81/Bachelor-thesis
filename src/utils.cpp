@@ -514,8 +514,7 @@ void analyzeCaesiumSimulations() {
     std::ofstream outputFile(outputFilePath);
     outputFile << "File name\t" << "Efficiency (661 keV)\t" << "Resolution (661 keV)\t" << std::endl;
 
-    for (int i = 2; i <= 10; ++i) {
-        TString file_to_load = Form("../../../macros/137-Cs/SimLuna.%d.histos.root", i);
+        TString file_to_load = "../../../macros/SimLuna_137Cs_histo.root";
 
         TFile* f_in = new TFile(file_to_load);      // open input file
 
@@ -525,8 +524,8 @@ void analyzeCaesiumSimulations() {
         }
 
         for (int j = 1; j <= 6; ++j) {
-            TH1F* sim_hist = dynamic_cast<TH1F*>(f_in->Get(Form("h_BGO_res%d", j)));
-            sim_hist->GetXaxis()->SetRangeUser(600, 750);
+            TH1F* sim_hist = dynamic_cast<TH1F*>(f_in->Get(Form("h_BGO%d_res", j)));
+            //sim_hist->GetXaxis()->SetRangeUser(600, 750);
 
 
             if (!sim_hist || sim_hist->GetEntries() == 0) {
@@ -543,21 +542,21 @@ void analyzeCaesiumSimulations() {
             peak->SetParameter(1, 0);
             peak->SetParameter(2, 80000);
             peak->SetParameter(3, 661);
-            peak->SetParameter(4, 5);
+            peak->SetParameter(4, 40);
 
             sim_hist->Fit("f1");
             
             sim_hist->Draw();
             peak->Draw("SAME");
             canv->Update();
-            canv->SaveAs(Form("../../../out/simulation graphs/SimLuna%d_h_BGO_res%d_Caesium.pdf", i, j));
+            canv->SaveAs(Form("../../../out/simulation graphs/SimLuna_h_BGO_res%d_Caesium.pdf", j));
 
             std::cout << "Efficiency for this simulated detector: " << peak->GetParameter(2) / (0.85*1e6) << std::endl;
             outputFile << file_to_load << "\t" << peak->GetParameter(2) / (0.85 * 1e6) << "+/-" << peak->GetParError(2) / (0.85 * 1e6) << "\t"
                << peak->GetParameter(4) / peak->GetParameter(3) << std::endl;
 
             //delete canv;
-        }
+        
 
     }
     outputFile.close();

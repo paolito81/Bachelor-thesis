@@ -8,9 +8,10 @@ Mean value 1 : 7601.52 +/- 7.15247
 Standard Deviation 1 : 147.727 +/- 8.86581
 Fit p-value: 0.0243664
 
-Pulser integral: 6202
+Pulser integral: 0
 Total time for measurements: 0 s
 Live time percentage: 0
 
 Activity for the source today: 4599.42 Bq
+Resolution for first peak: 0.0194339 +/- 0.00116646
 ******************************************

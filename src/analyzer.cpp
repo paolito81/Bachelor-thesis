@@ -349,9 +349,10 @@ void Analyzer::normefficiency() {
 * @brief Plot function for fitting the function, drawing onto the canvas both the histogram and the function fitted
 */
 void Analyzer::plot() {
-	histogram->Fit("f1", "", "", chn_lower_bound, chn_upper_bound);
-	histogram->GetXaxis()->SetRangeUser(300, 800);
-	
+	histogram->Fit("f1", "N", "", chn_lower_bound, chn_upper_bound);
+	histogram->GetXaxis()->SetRangeUser(4500, 8000);
+
+	gStyle->SetOptStat(0);
 	//canvas->SetLogy();
 
 	double line_ymin = histogram->GetMinimum();
@@ -374,8 +375,8 @@ void Analyzer::plot() {
 
 	func->Draw();
 	histogram->Draw();
-	line_low->Draw();
-	line_up->Draw();
+	//line_low->Draw();
+	//line_up->Draw();
 	//peak_low->Draw();
 	//peak_up->Draw();
 	//oblique->Draw();
@@ -390,7 +391,7 @@ void Analyzer::plot() {
 	legend->SetTextSize(0.03);
 	legend->SetBorderSize(0);
 	legend->SetFillStyle(0);
-	legend->Draw();
+	//legend->Draw();
 
 	canvas->Update();
 
@@ -639,7 +640,7 @@ void Analyzer::printRefResolution() {
 }
 
 double Analyzer::getRefResolution() {
-	return resolution;
+	return func->GetParameter(4) / func->GetParameter(3);
 }
 
 void Analyzer::setRes() {

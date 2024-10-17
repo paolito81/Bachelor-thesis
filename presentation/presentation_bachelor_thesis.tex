@@ -72,24 +72,18 @@
 	\end{frame}
 	
 	% Section and Frame examples
-%	\section{Introduzione}
-%	\begin{frame}{L'esperimento}
-%		\begin{itemize}
-%			\item<1-> L'esperimento LUNA (Laboratory for Underground Nuclear Astrophysics) ricrea i processi nucleari che sono avvenuti durante la nucleosintesi primordiale e che avvengono tutt'ora nelle stelle.
-%			\item<2-> Essendo processi molto rari, un laboratorio sulla superficie terrestre non è adatto per le misure sperimentali di questi, poiché i raggi cosmici maschererebbero il segnale debole atteso.
-%		\end{itemize}
-%	\end{frame}
-	
-	
-	\begin{frame}{Motivazione astrofisica}
-		\begin{itemize}
-			\item<1-> I neutrini solari giocano un ruolo fondamentale nella determinazione della composizione del Sole.
-			\item<2-> Sono prodotti nel ciclo CNO del Sole.
-			\item<3-> In particolare, la sezione d'urto della reazione $^{14}$N(p, $\gamma$)$^{15}$O è la fonte di errore principale sulle stime del flusso di neutrini, in quanto la più breve dell'intero ciclo.
-			\item<4-> A energie solari (15-50 keV) la sezione d'urto è troppo piccola per essere misurata direttamente.
-			\item<5-> La tesi ha come obiettivo contribuire alla determinazione della sezione d'urto ad energie 50-370 keV.
-		\end{itemize}
-	\end{frame}
+
+\section{Introduzione}
+\begin{frame}{Motivazione astrofisica}
+	\begin{itemize}
+		%SSM modello matematico del sole che lo rappresenta come sfera gassosa
+		\item<1-> Costruire il modello standard solare (SSM) richiede conoscenze sulla composizione chimica del Sole
+		\item<2-> Analisi spettroscopiche costruiscono due modelli in contraddizione tra loro: LZ (fotosfera 3D) e HZ (fotosfera 1D)
+		\item<3-> Per capire se la composizione sia uniforme in funzione della profondità, si studia il flusso di neutrini del CNO, combinato con le \emph{sezioni d'urto} di alcune reazioni ($^{14}$N(p, $\gamma$)$^{15}$O)
+		\item<4-> Energie solari molto basse (15-50 keV), si studia nel range 50-370 keV
+		%qua ha senso dire che la sezione d'urto è troppo piccola per essere misurata direttamente
+	\end{itemize}
+\end{frame}
 		
 	\begin{frame}{Il ciclo CNO}
 		\begin{figure}[H]
@@ -98,51 +92,6 @@
 			\caption{Ciclo Carbonio-Azoto-Ossigeno}
 		\end{figure}
 	\end{frame}
-	
-	
-	
-%\begin{frame}{Sfide sperimentali della misura diretta}
-%	\begin{itemize}
-%		\item La \emph{sezione d'urto} di una reazione nucleare è una grandezza utilizzata per descrivere la probabilità che la reazione avvenga.
-%		\item La si può calcolare sperimentalmente come:
-%	\end{itemize}
-%	
-%	\begin{equation}
-%		\sigma = 
-%		\dfrac{
-%			\only<1>{\tikz[baseline]{\node[anchor=base,draw,rectangle,red,thick,inner sep=2pt] (num) {$N_{reaz}/\Delta t$};}} % First slide
-%			\only<2>{N_{reaz}/\Delta t} % Normal text for slide 2 and 3
-%		}{
-%			\only<2>{\tikz[baseline]{\node[anchor=base,draw,rectangle,red,thick,inner sep=2pt] (proj) {$N_{proj} / \Delta t$};}} % Second slide
-%			\only<1-2>{N_{proj} / \Delta t} % Normal text for slides 1 and 2
-%			\times
-%			\only<3>{\tikz[baseline]{\node[anchor=base,draw,rectangle,red,thick,inner sep=2pt] (bers) {$N_{bers} / A$};}} % Third slide
-%			\only<1-2>{N_{bers} / A} % Normal text for slides 1 and 2
-%		}
-%	\end{equation}
-%	
-%	% Slide 1 explanation for numerator
-%	\only<1>{
-%		\begin{tikzpicture}[overlay]
-%			\draw[->, red, thick] (num.east) -- ++(1,0) node[right] {Numero di reazione per unità di tempo};
-%		\end{tikzpicture}
-%	}
-%	
-%	% Slide 2 explanation for N_proj / Delta t
-%	\only<2>{
-%		\begin{tikzpicture}[overlay]
-%			\draw[->, red, thick] (proj.east) -- ++(1,0) node[right] {Numero di proiettili per unità di tempo};
-%		\end{tikzpicture}
-%	}
-%	
-%	% Slide 3 explanation for N_bers / A
-%	\only<3>{
-%		\begin{tikzpicture}[overlay]
-%			\draw[->, red, thick] (bers.east) -- ++(1,0) node[right] {Numero di bersagli per unità di area};
-%		\end{tikzpicture}
-%	}
-%	
-%\end{frame}
 
 
 \begin{frame}{Sfide sperimentali della misura diretta}
@@ -152,8 +101,7 @@
 		\begin{equation}
 			\sigma = \dfrac{N_{reaz}/\Delta t}{N_{proj}/\Delta t \times N_{bers}/A \times \varepsilon}
 		\end{equation}
-		\item<3-> Con una $\sigma \approx 10^{-12}$ barn si ha... 
-		\item<4-> Il \emph{reaction rate} ($N_{reaz}/\Delta t$) vale quindi appena $1\div 10$ conteggi al giorno
+		\item<3-> Con una $\sigma \approx 10^{-12}$ barn si ha un \emph{reaction rate} ($N_{reaz}/\Delta t$) che vale appena $1\div 10$ conteggi al giorno
 		%A VOCE
 %	\item<3-> $N_{reaz}/\Delta t$ è il numero di reazioni per unità di tempo;
 %	\item<4-> $N_{proj}/\Delta t \approx 10^{14}$ pps per intensità tipiche di un fascio stabile
@@ -162,36 +110,16 @@
 %	\item<7-> $\varepsilon \approx 1 \div 10 \%$ per i raggi gamma
 	\end{itemize}
 \end{frame}
-%\begin{frame}{Reaction rate}
-%	\begin{itemize}
-%		\item<1-> Il \emph{reaction rate} ($N_{reaz}/\Delta t$) vale quindi appena $1\div 10$ conteggi al giorno
-%		\item<2-> Basta pochissimo rumore per nascondere i segnali che rivelano le reazioni
-%		\item<3-> La soluzione è cercare di minimizzare il rumore di fondo 
-%	\end{itemize}
-%\end{frame}
 
-%	\begin{frame}{Località}
-%		\begin{columns}
-%			\begin{column}{0.5\textwidth}
-%				\begin{itemize}
-%					\item<1-> I Laboratori Nazionali del Gran Sasso, situati nella frazione di Assergi, sono schermati dai 1400 m di roccia del Monte Aquila.
-%					\item<2-> Ciò fa sì che il fondo di raggi cosmici sia fortemente soppresso
-%					\item<3-> Qui è collocato l'acceleratore LUNA2 a 400 kV, che permette di concentrare fasci ionici molto intensi e stabili.
-%				\end{itemize}
-%			\end{column}
-%			\begin{column}{0.5\textwidth}
-	%tenere immagine
-%				\centering
-%				\includegraphics[width=0.8\textwidth]{img/location.png}
-%				\captionof{figure}{LNGS, Assergi, AQ.}
-%			\end{column}
-%		\end{columns}
-%	\end{frame}
 	
-	\begin{frame}{Fondo}
-		\centering
-		\includegraphics[width=0.7\textwidth]{img/noise.png}
-		\captionof{figure}{Grafico riportante il rumore di fondo in superficie, sotto una schermatura parziale sottoterra e sotto una schermatura totale sottoterra.}
+	\begin{frame}{Astrofisica nucleare sotterranea}
+		\begin{itemize}
+			\item<1-> Nelle stelle, le reazioni di fusione avvengono ad energie molto inferiori rispetto alla barriera coulombiana
+			\item<2-> Sezioni d'urto molto piccole implicano segnale atteso molto minore rispetto al rumore di fondo in superficie 
+		\end{itemize}
+		\uncover<3>{\centering
+			\includegraphics[width=0.7\textwidth]{img/noise.png}}
+		%\captionof{figure}{Grafico riportante il rumore di fondo in superficie, sotto una schermatura parziale sottoterra e sotto una schermatura totale sottoterra.}
 	\end{frame}
 	
 	
@@ -206,6 +134,23 @@
 	%bersaglio solido in TiN (immagine sul'elog)
 	%si tratta di un reivelatore...
 	%la seconda a voce
+	\begin{columns}
+		\begin{column}{0.45\textwidth}
+			\begin{itemize}
+				%\item La radiazione gamma emessa dalla reazione è rivelata da uno scintillatore.
+				\item<1-> Il rivelatore è in germanato di bismuto (Bi$_{4}$Ge$_{3}$O$_{12}$, detto BGO), coprente il 95\% dell'angolo solido totale attorno al bersaglio.
+				\item<3-> Il bersaglio solido è in TiN
+%				\item Si tratta di uno scintillatore, ossia uno strumento che quando eccitato da radiazione ionizzante, ne assorbe l'energia depositata e la riemette sotto forma di fotoni
+			\end{itemize}
+		\end{column}
+		\begin{column}{0.45\textwidth}
+			\uncover<2->{\centering
+				\includegraphics[width=\textwidth]{img/bgo_3d.png}}
+			%\captionof{figure}{Rappresentazione 3D del rivelatore BGO.}
+			\uncover<4->{\centering
+				\includegraphics[width=0.7\textwidth]{img/tin.jpg}}
+		\end{column}
+	\end{columns}
 \end{frame}
 
 	\section{Obiettivi della tesi}
@@ -217,59 +162,12 @@
 		\end{itemize}
 	\end{frame}
 
-	\section{Il rivelatore}
-	\begin{frame}{Il rivelatore $4\pi$}
-		\begin{columns}
-			\begin{column}{0.45\textwidth}
-				\begin{itemize}
-					%\item La radiazione gamma emessa dalla reazione è rivelata da uno scintillatore.
-					\item Si tratta di un rivelatore in germanato di bismuto (Bi$_{4}$Ge$_{3}$O$_{12}$, detto BGO), coprente il 95\% dell'angolo solido totale attorno al bersaglio.
-					\item Si tratta di uno scintillatore, ossia uno strumento che quando eccitato da radiazione ionizzante, ne assorbe l'energia depositata e la riemette sotto forma di fotoni
-				\end{itemize}
-			\end{column}
-			\begin{column}{0.45\textwidth}
-				\centering
-				\includegraphics[width=\textwidth]{img/bgo_3d.png}
-				\captionof{figure}{Rappresentazione 3D del rivelatore BGO.}
-			\end{column}
-		\end{columns}
-		
-	\end{frame}
 
-\begin{frame}{Il rivelatore $4\pi$}
-	\begin{columns}
-		\begin{column}{0.45\textwidth}
-			\begin{itemize}%a voce
-				\item Il cristallo, a simmetria cilindrica, è otticamente separato in 6 spicchi uguali.
-				%\item I fotoni di scintillazione di ciascuno dei 6 segmenti sono rivelati da due fotomoltiplicatori.
-			\end{itemize}
-		\end{column}
-		\begin{column}{0.45\textwidth}
-			\centering
-			\includegraphics[width=\textwidth]{img/BGO.png}%solo parte inferiore, a voce
-			\captionof{figure}{Rappresentazione schematica del rivelatore BGO. In alto una sezione sagittale, in basso una sezione trasversale.}
-		\end{column}
-	\end{columns}
-\end{frame}
-
-
-%\begin{frame}{Efficienza}
-%	\begin{itemize}
-%		\item L'efficienza di uno scintillatore è il rapporto tra il numero di conteggi prodotti da esso e il numero di conteggi prodotti dalla sorgente:
-%		
-%		\begin{equation}
-%			\varepsilon = \dfrac{N_{\gamma}}{N_{int}}
-%		\end{equation}
-%		
-%		\item Si tratta pertanto di quanti fotoni lo strumento "vede" rispetto al totale
-%		\item Invertendo l'equazione possiamo ricavare $N_{int}$, per poi trovare la sezione d'urto
-%	\end{itemize}
-%\end{frame}
 
 \section{Calibrazione in energia}
 \begin{frame}{Calibrazione in energia}
 	\begin{itemize}
-		\item Viene effettuata con due sorgenti radioattive, 60-Co e 137-Cs
+		\item Viene effettuata con due sorgenti radioattive, $^{137}$Cs e $^{60}$Co
 		%\item La calibrazione in energia consiste nel calcolo dei fattori che convertono da valori in canali (CHN) a valori in energia (keV) 
 		%\item Tutta l'analisi dei dati è effettuata in ROOT, framework per l'analisi dei dati scritta in C++ e sviluppata dal CERN.
 	\end{itemize}
@@ -284,7 +182,7 @@
 			\includegraphics[width=\linewidth]{img/ex1776.pdf}}
 		\column{0.5\textwidth}
 		\uncover<3->{\centering
-			\includegraphics[width=0.9\textwidth]{img/Cobalt-60m-decay.png}
+			\includegraphics[width=0.95\textwidth]{img/Cobalt-60m-decay.png}
 			\centering
 			\includegraphics[width=\linewidth]{img/ex1777.pdf}}
 	\end{columns}
@@ -300,50 +198,72 @@
 %zoom solo fino a cobalto
 %togliere riquadro in alto a sinistra
 
-\begin{frame}{Istogrammi}
-	\begin{figure}
-		\centering
-		\begin{minipage}{0.45\textwidth}
-			\centering
-			\includegraphics[width=\linewidth]{img/ex1775.pdf} % Replace with your image path
-		\end{minipage}
-		\hfill
-		\begin{minipage}{0.45\textwidth}
-			\centering
-			\includegraphics[width=\linewidth]{img/ex1776.pdf} % Replace with your image path
-		\end{minipage}
-		
-		\vspace{0.4cm} % Adjust vertical space between rows
-		
-		\begin{minipage}{0.45\textwidth}
-			\centering
-			\includegraphics[width=\linewidth]{img/ex1777.pdf} % Replace with your image path
-		\end{minipage}
-		\hfill
-		\begin{minipage}{0.45\textwidth}
-			\centering
-			\includegraphics[width=\linewidth]{img/pulser.pdf} % Replace with your image path
-		\end{minipage}
-	\end{figure}
-\end{frame}
+%\begin{frame}{Istogrammi}
+%	\begin{figure}
+%		\centering
+%		\begin{minipage}{0.45\textwidth}
+%			\centering
+%			\includegraphics[width=\linewidth]{img/ex1775.pdf} % Replace with your image path
+%		\end{minipage}
+%		\hfill
+%		\begin{minipage}{0.45\textwidth}
+%			\centering
+%			\includegraphics[width=\linewidth]{img/ex1776.pdf} % Replace with your image path
+%		\end{minipage}
+%		
+%		\vspace{0.4cm} % Adjust vertical space between rows
+%		
+%		\begin{minipage}{0.45\textwidth}
+%			\centering
+%			\includegraphics[width=\linewidth]{img/ex1777.pdf} % Replace with your image path
+%		\end{minipage}
+%		\hfill
+%		\begin{minipage}{0.45\textwidth}
+%			\centering
+%			\includegraphics[width=\linewidth]{img/pulser.pdf} % Replace with your image path
+%		\end{minipage}
+%	\end{figure}
+%\end{frame}
 
 \begin{frame}{Calcolo della calibrazione}
 	\begin{columns}%mettere foto istogramma spicchio 4 con due elementi
-		\begin{column}{0.4\textwidth}% a voce
+		\begin{column}{0.45\textwidth}% a voce
 %			\begin{itemize}
 %				\item<1-> Si effettuano fit sui file con entrambe le sorgenti
 %				\item<2-> I valori dei picchi vengono graficati contro quelli in energia caratteristici, noti.
 %				\item<4-> Si effettua dunque un fit lineare per i punti di ciascun istogramma.
 %				\item<5-> I coefficienti angolari di questi fit sono i fattori di conversione cercati.
 %			\end{itemize}
-		\end{column}
-		\begin{column}{0.5\textwidth}
 			\begin{figure}
 				\centering
-				\only<3>{\includegraphics[width=0.9\textwidth]{img/plot0_empty.pdf}}
-				\only<4->{\includegraphics[width=0.9\textwidth]{img/plot0.pdf}}
+				\only<1->{\includegraphics[width=\linewidth]{img/ex1775.pdf}}
+				\only<2>{\includegraphics[width=0.9\textwidth]{img/plot0_empty.pdf}}
+				\uncover<3->{\includegraphics[width=0.9\textwidth]{img/plot0.pdf}}
 				%TERZA GRAFICA PER FARE VEDERE I RISULTATI
 			\end{figure}
+		\end{column}
+		\begin{column}{0.45\textwidth}
+			\begin{figure}
+				\centering
+				\uncover<4->{\includegraphics[width=0.9\textwidth]{img/residues0.pdf}}
+%				\only<4->{\includegraphics[width=0.9\textwidth]{img/plot0.pdf}}
+				%TERZA GRAFICA PER FARE VEDERE I RISULTATI
+			\end{figure}
+			\uncover<5->{\begin{table}[ht]
+					\centering
+					\resizebox{0.7\textwidth}{!}{
+						\begin{tabular}{@{}cccc@{}}
+							\toprule
+							Canale & Conversione [keV/CHN] \\ \midrule
+							CHN1 & 1.1863 \(\pm\) 0.0009 \\
+							CHN2 & 1.1659 \(\pm\) 0.0013 \\
+							CHN3 & 1.3550 \(\pm\) 0.0019 \\
+							CHN4 & 1.2676 \(\pm\) 0.0006 \\
+							CHN5 & 1.2574 \(\pm\) 0.0010 \\
+							CHN6 & 1.1388 \(\pm\) 0.0014 \\
+							\bottomrule
+					\end{tabular}}
+			\end{table}}
 		\end{column}
 	\end{columns}
 	%grafico lineare, valori parametri in un angolo della slide
@@ -375,16 +295,14 @@
 	\vspace{0.5cm}
 	
 	% This part will be revealed on the second slide (within the same frame)
-	\visible<4->{
 		\begin{columns}
 			\begin{column}{0.5\textwidth}
-				\includegraphics[width=\textwidth]{img/parameter.pdf}
+				\visible<4->{\includegraphics[width=\textwidth]{img/parameter.pdf}}
 			\end{column}
 			\begin{column}{0.5\textwidth}
-				\includegraphics[width=\textwidth]{img/trapezoid.pdf}
+				\visible<5->{\includegraphics[width=\textwidth]{img/trapezoid.pdf}}
 			\end{column}
 		\end{columns}
-	}
 \end{frame}
 
 %\begin{frame}{Calcolo dell'efficienza}%si può dire tutto a voce, sulla immagine del picco senza fit (dall'altra parte mettere immagine con fit)
@@ -432,13 +350,7 @@
 
 
 
-%\begin{frame}{Calcolo della calibrazione}
-%	\begin{itemize}
-%		\item La calibrazione viene effettuata sul file \texttt{run1775\_coinc.root}, con entrambe le sorgenti.
-%		\item \emph{Calibrare} uno scintillatore significa trovare il fattore di conversione da canali a energia.
-%		\item Per ogni spicchio del BGO si esegue un fit per trovare il valore dei picchi caratteristici e del picco somma in canali.
-%	\end{itemize}
-%\end{frame}
+
 
 
 
@@ -457,12 +369,27 @@
 %		\end{equation*}
 %	\end{itemize}
 %lasciare funzione fittata
+
+	\begin{columns}
+		\begin{column}{0.5\textwidth}
+			\only<1->{\centering
+				\includegraphics[width=0.9\textwidth]{img/resolution_hist1.pdf}
+				\centering
+				\includegraphics[width=0.9\textwidth]{img/resolution_hist2.pdf}}
+		\end{column}
+		\begin{column}{0.5\textwidth}
+			\visible<2->{\begin{itemize}
+					\item Ai punti delle risoluzioni si fitta la funzione:
+				\end{itemize}
+				\begin{equation*}
+					f(E) = a + \dfrac{b}{\sqrt{E}}
+			\end{equation*}}	
+			\visible<3->{\centering
+				\includegraphics[width=0.9\textwidth]{img/ResolutionGraphs.pdf}}
+		\end{column}
+	\end{columns}
 \end{frame}
-%mettere spettro sim e exp sovrapposti
-\begin{frame}{Fit risoluzioni}
-	\centering
-	\includegraphics[width=0.9\textwidth]{img/ResolutionGraphs.pdf}
-\end{frame}
+
 \begin{frame}{Simulazioni}
 	\begin{itemize}
 		\item %mettere tabelle confronto tra exp e sim (spicchio 4) 
@@ -472,7 +399,7 @@
 	\section{Conclusione}
 	\begin{frame}{Conclusione}
 		\begin{itemize}
-			\item<1-> Durante la tesi ci è occupato dello studio della reazione...
+			\item<1-> Durante la tesi ci è occupato della calibrazione di uno strumento per lo studio della reazione  $^{14}$N(p, $\gamma$)$^{15}$O
 			\item<2-> Il rivelatore utilizzato è stato calibrato in energia e ne si è calcolata l'efficienza
 			\item<3-> Si sono analizzate le simulazioni Monte Carlo, per poi confrontarle coi dati sperimentali
 		\end{itemize}
@@ -487,7 +414,24 @@
 	\centering
 	Slide di backup
 \end{frame}
+	
+\begin{frame}{L'esperimento}
+	\begin{itemize}
+		\item<1-> L'esperimento LUNA (Laboratory for Underground Nuclear Astrophysics) ricrea i processi nucleari che sono avvenuti durante la nucleosintesi primordiale e che avvengono tutt'ora nelle stelle.
+		\item<2-> Essendo processi molto rari, un laboratorio sulla superficie terrestre non è adatto per le misure sperimentali di questi, poiché i raggi cosmici maschererebbero il segnale debole atteso.
+	\end{itemize}
+\end{frame}
 
+
+\begin{frame}{Motivazione astrofisica}
+	\begin{itemize}
+		\item<1-> I neutrini solari giocano un ruolo fondamentale nella determinazione della composizione del Sole.
+		\item<2-> Sono prodotti nel ciclo CNO del Sole.
+		\item<3-> In particolare, la sezione d'urto della reazione $^{14}$N(p, $\gamma$)$^{15}$O è la fonte di errore principale sulle stime del flusso di neutrini, in quanto la più breve dell'intero ciclo.
+		\item<4-> A energie solari (15-50 keV) la sezione d'urto è troppo piccola per essere misurata direttamente.
+		\item<5-> La tesi ha come obiettivo contribuire alla determinazione della sezione d'urto ad energie 50-370 keV.
+	\end{itemize}
+\end{frame}
 \begin{frame}{Proposta dell'esperimento}
 	\begin{itemize}
 		\item<1-> A energie solari (15-50 keV) la sezione d'urto è troppo piccola per essere misurata direttamente.
@@ -495,6 +439,81 @@
 		\item<3-> Il progetto ha come obiettivo determinare la sezione d'urto ad energie 50-370 keV.
 	\end{itemize}
 \end{frame}
+
+\begin{frame}{Reaction rate}
+	\begin{itemize}
+			\item<1-> Il \emph{reaction rate} ($N_{reaz}/\Delta t$) vale quindi appena $1\div 10$ conteggi al giorno
+			\item<2-> Basta pochissimo rumore per nascondere i segnali che rivelano le reazioni
+			\item<3-> La soluzione è cercare di minimizzare il rumore di fondo 
+		\end{itemize}
+\end{frame}
+
+	\begin{frame}{Località}
+			\begin{columns}
+					\begin{column}{0.5\textwidth}
+							\begin{itemize}
+									\item<1-> I Laboratori Nazionali del Gran Sasso, situati nella frazione di Assergi, sono schermati dai 1400 m di roccia del Monte Aquila.
+									\item<2-> Ciò fa sì che il fondo di raggi cosmici sia fortemente soppresso
+									\item<3-> Qui è collocato l'acceleratore LUNA2 a 400 kV, che permette di concentrare fasci ionici molto intensi e stabili.
+								\end{itemize}
+						\end{column}
+					\begin{column}{0.5\textwidth}
+			tenere immagine
+							\centering
+							\includegraphics[width=0.8\textwidth]{img/location.png}
+							\captionof{figure}{LNGS, Assergi, AQ.}
+						\end{column}
+				\end{columns}
+		\end{frame}
+
+	\begin{frame}{Il rivelatore $4\pi$}
+	\begin{columns}
+		\begin{column}{0.45\textwidth}
+			\begin{itemize}
+				%\item La radiazione gamma emessa dalla reazione è rivelata da uno scintillatore.
+				\item Si tratta di un rivelatore in germanato di bismuto (Bi$_{4}$Ge$_{3}$O$_{12}$, detto BGO), coprente il 95\% dell'angolo solido totale attorno al bersaglio.
+				\item Si tratta di uno scintillatore, ossia uno strumento che quando eccitato da radiazione ionizzante, ne assorbe l'energia depositata e la riemette sotto forma di fotoni
+			\end{itemize}
+		\end{column}
+		\begin{column}{0.45\textwidth}
+			\centering
+			\includegraphics[width=\textwidth]{img/bgo_3d.png}
+			\captionof{figure}{Rappresentazione 3D del rivelatore BGO.}
+		\end{column}
+	\end{columns}
+	
+\end{frame}
+
+\begin{frame}{Il rivelatore $4\pi$}
+	\begin{columns}
+		\begin{column}{0.45\textwidth}
+			\begin{itemize}%a voce
+				\item Il cristallo, a simmetria cilindrica, è otticamente separato in 6 spicchi uguali.
+				%\item I fotoni di scintillazione di ciascuno dei 6 segmenti sono rivelati da due fotomoltiplicatori.
+			\end{itemize}
+		\end{column}
+		\begin{column}{0.45\textwidth}
+			\centering
+			\includegraphics[width=\textwidth]{img/BGO.png}%solo parte inferiore, a voce
+			\captionof{figure}{Rappresentazione schematica del rivelatore BGO. In alto una sezione sagittale, in basso una sezione trasversale.}
+		\end{column}
+	\end{columns}
+\end{frame}
+
+
+\begin{frame}{Efficienza}
+	\begin{itemize}
+			\item L'efficienza di uno scintillatore è il rapporto tra il numero di conteggi prodotti da esso e il numero di conteggi prodotti dalla sorgente:
+			
+			\begin{equation}
+					\varepsilon = \dfrac{N_{\gamma}}{N_{int}}
+				\end{equation}
+			
+			\item Si tratta pertanto di quanti fotoni lo strumento "vede" rispetto al totale
+			\item Invertendo l'equazione possiamo ricavare $N_{int}$, per poi trovare la sezione d'urto
+		\end{itemize}
+\end{frame}
+
 
 \begin{frame}{Tempo vivo/morto}
 	\begin{itemize}
@@ -657,6 +676,28 @@
 			\includegraphics[width=\textwidth]{img/trapezoid.pdf}
 		\end{column}
 	\end{columns}
+\end{frame}
+
+\begin{frame}{Calcolo della calibrazione}
+	\begin{itemize}
+		\item La calibrazione viene effettuata sul file \texttt{run1775\_coinc.root}, con entrambe le sorgenti.
+		\item \emph{Calibrare} uno scintillatore significa trovare il fattore di conversione da canali a energia.
+		\item Per ogni spicchio del BGO si esegue un fit per trovare il valore dei picchi caratteristici e del picco somma in canali.
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Risoluzione energetica}%inserire spettro simulato con ris inf e far veder come viene fuori con risoluzione dopo applicazione
+		\begin{itemize}
+				\item Le simulazioni contengono picchi di energia ideali, a cui non è stata applicata la risoluzione dello strumento
+				\item Questa si può trovare eseguendo fit gaussiani sugli istogrammi in energia, anziché canali
+				\item La risoluzione è il rapporto tra la deviazione standard del picco e la corrispondente energia nota
+				\item Le risoluzioni si mettono su un grafico contro le corrispettive energie note, fittandovi una funzione:
+				
+				\begin{equation*}
+						f(E) = a + \dfrac{b}{\sqrt{E}}
+					\end{equation*}
+			\end{itemize}
+	%lasciare funzione fittata
 \end{frame}
 
 \end{document}

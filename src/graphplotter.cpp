@@ -8,6 +8,7 @@
 #include <TAxis.h>
 #include <fstream>
 #include <utils.h>
+#include <TLine.h>
 
 /**
 * @brief The constructor for the GraphPlotter object
@@ -54,7 +55,7 @@ void GraphPlotter::plotAndFit(int index) {
 
     func->SetParameters(0, 1);
 
-    graph->SetTitle("Energy calibration");
+    graph->SetTitle("Energy calibration: a + b*CHN");
     graph->GetYaxis()->SetTitle("Energy [keV]");
     graph->GetXaxis()->SetTitle("Channels [CHN]");
     graph->SetMarkerStyle(21);
@@ -154,16 +155,19 @@ void GraphPlotter::plotResidues(int index) {
     TCanvas* residueCanvas = new TCanvas(canvasName.c_str(), "Residues", 800, 600);
     TGraph* residueGraph = new TGraph(tempRes.size(), x_counts.data(), tempRes.data());
 
+    TLine* zeroline = new TLine(495, 0, 2700, 0);
+    zeroline->SetLineColor(kBlue);
+
     std::string graphName = "Residues graph " + std::to_string(index);
 
     residueGraph->SetTitle(graphName.c_str());
-    residueGraph->GetYaxis()->SetTitle("Residue Energy [keV]");
-    residueGraph->GetXaxis()->SetTitle("Residue number [#]");
+    residueGraph->GetYaxis()->SetTitle("Residue [keV]");
+    residueGraph->GetXaxis()->SetTitle("Energy [keV]");
     residueGraph->SetMarkerStyle(21);
     residueGraph->SetMarkerSize(1);
 
     residueGraph->Draw("AP");
-
+    zeroline->Draw();
     residueCanvas->Update();
 
 
