@@ -44,7 +44,7 @@
 
 % TITLE, AUTHORS, INSTITUTE, DATE
 
-\title[Short Title]{Caratterizzazione di un rivelatore gamma 4$\pi$ per lo studio della reazione 14N(p,$\gamma$)15O \\ \textit{Relatori: Francesca Cavanna, Ranjan Sariyal}}
+\title[Short Title]{Caratterizzazione di un rivelatore gamma 4$\pi$ per lo studio della reazione $^{14}$N(p,$\gamma$)$^{15}$O}
 \author[P. Pusterla]{Paolo Pusterla}
 \institute[UniTo]{Università degli Studi di Torino}
 \date{Novembre 2024}
@@ -83,50 +83,56 @@
 		\item<4-> Energie solari molto basse (15-50 keV), si studia nel range 50-370 keV
 		%qua ha senso dire che la sezione d'urto è troppo piccola per essere misurata direttamente
 	\end{itemize}
+	\centering
+	\includegraphics[width=0.3\textwidth]{img/CNO_Cycle.png}
 \end{frame}
-		
-	\begin{frame}{Il ciclo CNO}
-		\begin{figure}[H]
-			%riquadro zona interssata
-			\includegraphics[width=0.5\textwidth]{img/CNO_Cycle.png}
-			\caption{Ciclo Carbonio-Azoto-Ossigeno}
-		\end{figure}
-	\end{frame}
-
-
-\begin{frame}{Sfide sperimentali della misura diretta}
-	\begin{itemize}
-		\item<1-> La \emph{sezione d'urto} di una reazione nucleare è una grandezza utilizzata per descrivere la probabilità che la reazione avvenga.
-		\item<2-> La si può calcolare sperimentalmente come:
-		\begin{equation}
-			\sigma = \dfrac{N_{reaz}/\Delta t}{N_{proj}/\Delta t \times N_{bers}/A \times \varepsilon}
-		\end{equation}
-		\item<3-> Con una $\sigma \approx 10^{-12}$ barn si ha un \emph{reaction rate} ($N_{reaz}/\Delta t$) che vale appena $1\div 10$ conteggi al giorno
-		%A VOCE
-%	\item<3-> $N_{reaz}/\Delta t$ è il numero di reazioni per unità di tempo;
-%	\item<4-> $N_{proj}/\Delta t \approx 10^{14}$ pps per intensità tipiche di un fascio stabile
-%	\item<5-> $N_{bers}/A \approx 10^{19}$ atomi/cm per un tipico bersaglio allo stato solido
-%	\item<6-> $\sigma \approx 10^{-12}$ barn, spesso è anche più piccola
-%	\item<7-> $\varepsilon \approx 1 \div 10 \%$ per i raggi gamma
-	\end{itemize}
-\end{frame}
-
+	%metter	
 	
 	\begin{frame}{Astrofisica nucleare sotterranea}
 		\begin{itemize}
 			\item<1-> Nelle stelle, le reazioni di fusione avvengono ad energie molto inferiori rispetto alla barriera coulombiana
-			\item<2-> Sezioni d'urto molto piccole implicano segnale atteso molto minore rispetto al rumore di fondo in superficie 
+%			\item<2-> Sezioni d'urto molto piccole (nb-fb) implicano segnale atteso molto minore rispetto al rumore di fondo in superficie: vogliamo minimizzarlo
+			\item<2-> La \emph{sezione d'urto} di una reazione nucleare è una grandezza utilizzata per descrivere la probabilità che la reazione avvenga.
+			\item<4-> La si può calcolare sperimentalmente come:
+			\begin{equation}
+				\sigma = \dfrac{N_{reaz}/\Delta t}{N_{proj}/\Delta t \times N_{bers}/A \times \varepsilon}
+			\end{equation}
+			\item<5-> Con una $\sigma \approx 10^{-12}$ barn si ha un \emph{reaction rate} ($N_{reaz}/\Delta t$) che vale appena $1\div 10$ conteggi al giorno %implies misure sotterranee
 		\end{itemize}
-		\uncover<3>{\centering
-			\includegraphics[width=0.7\textwidth]{img/noise.png}}
+		
+		\begin{columns}%a sinistra italia, a destra laboratori
+			%al posto di cartina fondo
+			\begin{column}{0.6\textwidth}
+				\uncover<6->{\centering
+					\includegraphics[width=0.9\textwidth]{img/noise.png}}
+			\end{column}
+			\begin{column}{0.3\textwidth}
+				\uncover<3->{\centering
+					\includegraphics[width=0.8\textwidth]{img/location.png}}
+			\end{column}
+		\end{columns}
+		
+		
 		%\captionof{figure}{Grafico riportante il rumore di fondo in superficie, sotto una schermatura parziale sottoterra e sotto una schermatura totale sottoterra.}
 	\end{frame}
 	
+%\begin{frame}{Sfide sperimentali della misura diretta}
+%	\begin{itemize}
+%		
+%		%A VOCE
+%		%	\item<3-> $N_{reaz}/\Delta t$ è il numero di reazioni per unità di tempo;
+%		%	\item<4-> $N_{proj}/\Delta t \approx 10^{14}$ pps per intensità tipiche di un fascio stabile
+%		%	\item<5-> $N_{bers}/A \approx 10^{19}$ atomi/cm per un tipico bersaglio allo stato solido
+%		%	\item<6-> $\sigma \approx 10^{-12}$ barn, spesso è anche più piccola
+%		%	\item<7-> $\varepsilon \approx 1 \div 10 \%$ per i raggi gamma
+%	\end{itemize}
+%\end{frame}
+
 	
 \begin{frame}{LUNA 400 kV}%spiegare a voce
 	\centering
 	\includegraphics[width=0.9\textwidth]{img/LUNA2.png}
-	\captionof{figure}{L'acceleratore LUNA a 400 kV.}
+	\captionof{figure}{L'acceleratore LUNA.}
 \end{frame}
 
 \begin{frame}{Apparato sperimentale}
@@ -139,7 +145,13 @@
 			\begin{itemize}
 				%\item La radiazione gamma emessa dalla reazione è rivelata da uno scintillatore.
 				\item<1-> Il rivelatore è in germanato di bismuto (Bi$_{4}$Ge$_{3}$O$_{12}$, detto BGO), coprente il 95\% dell'angolo solido totale attorno al bersaglio.
-				\item<3-> Il bersaglio solido è in TiN
+				\item<3-> Il bersaglio solido è TiN
+				%densità atomica del TiN in atomi/cm^2
+				%parlare della catena elettronica
+				%otticamente diviso in sei spicchi
+				%si leggonon con un digitizer delal caen (modello) e c'è anche un pulser
+				
+				
 %				\item Si tratta di uno scintillatore, ossia uno strumento che quando eccitato da radiazione ionizzante, ne assorbe l'energia depositata e la riemette sotto forma di fotoni
 			\end{itemize}
 		\end{column}
@@ -155,10 +167,9 @@
 
 	\section{Obiettivi della tesi}
 	\begin{frame}{Obiettivi della tesi}
-		\begin{itemize}
-			\item<1-> L'obiettivo della tesi, incentrato sull'analisi dei dati, è quello di calibrare in energia e caratterizzare in efficienza lo scintillatore $4\pi$ utilizzato per la rivelazione di raggi $\gamma$ nella riproduzione della reazione $^{14}$N(p,$\gamma$)$^{15}$O. 
-			\item<2-> Nell'esperimento si proietta un intenso fascio di protoni su bersagli solidi di TiN (nitruro di titanio).  
-			\item<3-> L'analisi dei dati viene confrontata con delle simulazioni in GEANT4.
+		\begin{itemize}%mettere schematicamente, punto per efficienza e punto per energia
+			\item<1-> L'obiettivo della tesi, incentrato sull'analisi dei dati, è quello di calibrare in energia e caratterizzare in efficienza lo scintillatore.. 
+			\item<2-> L'analisi dei dati viene confrontata con delle simulazioni in GEANT4.
 		\end{itemize}
 	\end{frame}
 
@@ -167,7 +178,7 @@
 \section{Calibrazione in energia}
 \begin{frame}{Calibrazione in energia}
 	\begin{itemize}
-		\item Viene effettuata con due sorgenti radioattive, $^{137}$Cs e $^{60}$Co
+		\item Viene effettuata con due sorgenti radioattive, $^{137}$Cs e $^{60}$Co, ad attività nota
 		%\item La calibrazione in energia consiste nel calcolo dei fattori che convertono da valori in canali (CHN) a valori in energia (keV) 
 		%\item Tutta l'analisi dei dati è effettuata in ROOT, framework per l'analisi dei dati scritta in C++ e sviluppata dal CERN.
 	\end{itemize}
@@ -234,12 +245,13 @@
 %				\item<4-> Si effettua dunque un fit lineare per i punti di ciascun istogramma.
 %				\item<5-> I coefficienti angolari di questi fit sono i fattori di conversione cercati.
 %			\end{itemize}
-			\begin{figure}
+			\begin{figure}%chiamare secondo grafico con "Energy" anziché Energy calibration
+				%Cambiare nome "BGO 4" anziché graph 4
 				\centering
 				\only<1->{\includegraphics[width=\linewidth]{img/ex1775.pdf}}
 				\only<2>{\includegraphics[width=0.9\textwidth]{img/plot0_empty.pdf}}
 				\uncover<3->{\includegraphics[width=0.9\textwidth]{img/plot0.pdf}}
-				%TERZA GRAFICA PER FARE VEDERE I RISULTATI
+				%SISTEMARE LìORDINE DEI GRAFICI
 			\end{figure}
 		\end{column}
 		\begin{column}{0.45\textwidth}
@@ -248,7 +260,7 @@
 				\uncover<4->{\includegraphics[width=0.9\textwidth]{img/residues0.pdf}}
 %				\only<4->{\includegraphics[width=0.9\textwidth]{img/plot0.pdf}}
 				%TERZA GRAFICA PER FARE VEDERE I RISULTATI
-			\end{figure}
+			\end{figure}%chiamare conversione b e agiugngere a
 			\uncover<5->{\begin{table}[ht]
 					\centering
 					\resizebox{0.7\textwidth}{!}{
@@ -285,11 +297,11 @@
 \begin{frame}{Efficienza}
 	\begin{itemize}
 		\item<1-> L'efficienza è un fattore fondamentale per ricavare la sezione d'urto.
-		\item<2-> Si può stimare dalla formula:
+		\item<2-> Si può calcolare dall'espressione:
 		\begin{equation}
 			\varepsilon = \dfrac{N_{cont.}}{A(t*) \Delta t}
 		\end{equation}
-		\item<3-> L'attività è calcolata al momento della misurazione.
+		\item<3-> L'attività è calcolata al momento della misurazione (sorgenti radioattive di attività nota con precisione dello 0.7\% %verificare).
 	\end{itemize}
 	
 	\vspace{0.5cm}
@@ -334,8 +346,13 @@
 \begin{frame}{Tempo morto}%solo tempo vivo, indicare per spicchio 4 quanto vale. (tempo morto anziché tempo vivo)
 	\begin{itemize}
 		%\item L'attività viene calcolata al momento della presa dati, in data 03/04/2024
-		\item Il tempo vivo è ricavato dal TTree delle coincidenze, ossia dove lo spicchio del BGO registra i fotoni del pulser nello spettro dei canali
+		\item Il pulser serve per stimare il tempo morto dell'elettronica
+		%rimettere schema elettronica
+		\item Il pulser è mandato in ogni spicchio del BGo, nota la frequenza di questo si confronta con quella misurata in ogni rivelatore
+		\item Il tempo morto è ricavato dal TTree delle coincidenze, ossia dove lo spicchio del BGO registra i fotoni del pulser nello spettro dei canali%questo a voce
 	\end{itemize}
+	%leva gli istogrammi
+	%mettere schema elettroncia
 	\begin{columns}
 		\begin{column}{0.5\textwidth}
 			\includegraphics[width=\textwidth]{img/run1776_coinc_h_EBGO_ADC_4_COINC.pdf}
@@ -357,6 +374,15 @@
 
 
 \section{Simulazioni}
+
+\begin{frame}{Simulazioni}
+	\begin{itemize}
+		\item Il setup sperimentale e la reazione $^{14}$N(p,$\gamma$)$^{15}$O sono stati simulati in GEANT4
+		\item Gli spettri ottenuti con queste simulazioni sono a risoluzione energetica infinita
+		\item Ho analizzato gli spettri simulati applicando la risoluzione energetica degli spettri sperimentali
+	\end{itemize}
+\end{frame}
+
 \begin{frame}{Risoluzione energetica}%inserire spettro simulato con ris inf e far veder come viene fuori con risoluzione dopo applicazione
 %	\begin{itemize}
 %		\item Le simulazioni contengono picchi di energia ideali, a cui non è stata applicata la risoluzione dello strumento
@@ -379,7 +405,7 @@
 		\end{column}
 		\begin{column}{0.5\textwidth}
 			\visible<2->{\begin{itemize}
-					\item Ai punti delle risoluzioni si fitta la funzione:
+					\item Per trovare la risoluzione energetica si fitta la funzione:
 				\end{itemize}
 				\begin{equation*}
 					f(E) = a + \dfrac{b}{\sqrt{E}}
@@ -392,7 +418,7 @@
 
 \begin{frame}{Simulazioni}
 	\begin{itemize}
-		\item %mettere tabelle confronto tra exp e sim (spicchio 4) 
+		\item confronto tabelle e grafico%mettere tabelle confronto tra exp e sim (spicchio 4)
 	\end{itemize}
 \end{frame}
 	
@@ -644,7 +670,7 @@
 	
 \end{frame}
 
-\section{Efficienza}
+
 %ricavo perché importante per sez d'urto
 \begin{frame}{Efficienza}
 	\begin{itemize}%discorso a voce, lasciare formula

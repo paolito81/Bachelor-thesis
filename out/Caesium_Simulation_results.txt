@@ -1,2 +1,7 @@
 File name	Efficiency (661 keV)	Resolution (661 keV)	
-../../../macros/SimLuna_137Cs_histo.root	0.106935+/-0.000366779	0.0724428
+../../../macros/SimLuna_137Cs_histo.root	0.107415+/-0.000116427	0.0674815
+../../../macros/SimLuna_137Cs_histo.root	0.107185+/-0.000116879	0.0721313
+../../../macros/SimLuna_137Cs_histo.root	0.107322+/-0.000118527	0.0787227
+../../../macros/SimLuna_137Cs_histo.root	0.107467+/-0.000115973	0.0651129
+../../../macros/SimLuna_137Cs_histo.root	0.107652+/-0.000117175	0.075373
+../../../macros/SimLuna_137Cs_histo.root	0.107661+/-0.000117273	0.0716389
