@@ -9,6 +9,7 @@
 \usepackage{caption}
 \usepackage{subcaption}
 \usetheme{Madrid}
+\usepackage[absolute,overlay]{textpos}
 
 % COLORS 
 \definecolor{mqred}{RGB}{166, 25, 46}
@@ -44,8 +45,8 @@
 
 % TITLE, AUTHORS, INSTITUTE, DATE
 
-\title[F. Cavanna, R. Sariyal]{Caratterizzazione di un rivelatore gamma 4$\pi$ per lo studio della reazione $^{14}$N(p,$\gamma$)$^{15}$O}
-\author[P. Pusterla]{Paolo Pusterla}
+\title[P. Pusterla]{Caratterizzazione di un rivelatore gamma 4$\pi$ per lo studio della reazione $^{14}$N(p,$\gamma$)$^{15}$O}
+\author[Fisica]{Paolo Pusterla}
 \institute[UniTo]{Università degli Studi di Torino}
 \date{Novembre 2024}
 
@@ -65,6 +66,11 @@
 	
 	\begin{frame}
 		\titlepage
+		\begin{textblock*}{6cm}(2cm, 7.5cm) % Adjust position: (x, y) coordinates in cm
+			\footnotesize % You can adjust the font size if needed
+			\textit{F. Cavanna}\\
+			\textit{R. Sariyal}
+		\end{textblock*}
 	\end{frame}
 	
 	\begin{frame}{Outline}
