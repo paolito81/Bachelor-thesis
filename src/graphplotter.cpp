@@ -55,7 +55,7 @@ void GraphPlotter::plotAndFit(int index) {
 
     func->SetParameters(0, 1);
 
-    graph->SetTitle("Energy calibration: a + b*CHN");
+    graph->SetTitle("Energy = a + b*CHN");
     graph->GetYaxis()->SetTitle("Energy [keV]");
     graph->GetXaxis()->SetTitle("Channels [CHN]");
     graph->SetMarkerStyle(21);
@@ -63,7 +63,7 @@ void GraphPlotter::plotAndFit(int index) {
 
 
     std::cout << "\n\n\n\n" << std::endl;
-    graph->Fit(func->GetName(), "R");
+    graph->Fit(func->GetName(), "N");
     std::cout << "P-value: " << func->GetProb() << std::endl;
 
     std::string pdfName = "../../../out/residues plots/plot" + std::to_string(index) + ".pdf";
@@ -158,7 +158,7 @@ void GraphPlotter::plotResidues(int index) {
     TLine* zeroline = new TLine(495, 0, 2700, 0);
     zeroline->SetLineColor(kBlue);
 
-    std::string graphName = "Residues graph " + std::to_string(index);
+    std::string graphName = "Residues: channel " + std::to_string(index);
 
     residueGraph->SetTitle(graphName.c_str());
     residueGraph->GetYaxis()->SetTitle("Residue [keV]");

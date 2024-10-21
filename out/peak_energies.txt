@@ -1,49 +1,19 @@
 Filename	                            Histogram	            p3      p6      p9
-../../../root files/run3553_coinc_final.root	Energy/h_EBGO_1	517.394 +- 0.139963	-
-../../../root files/run3553_coinc_final.root	Energy/h_EBGO_1	760.809 +- 1.49615	-
-../../../root files/run3553_coinc_final.root	Energy/h_EBGO_1	1383.32 +- 0.466241	-
-../../../root files/run3553_coinc_final.root	Energy/h_EBGO_1	2382.72 +- 1.89096	-
-../../../root files/run3553_coinc_final.root	Energy/h_EBGO_1	5194.11 +- 7.72797	-
-../../../root files/run3553_coinc_final.root	Energy/h_EBGO_1	6176.04 +- 1.87482	-
-../../../root files/run3553_coinc_final.root	Energy/h_EBGO_1	6803.11 +- 9.1978	-
-../../../root files/run3553_coinc_final.root	Energy/h_EBGO_1	7596.68 +- 4.81284	-
-../../../root files/run3553_coinc_final.root	Energy/h_EBGO_2	517.629 +- 0.152489	-
-../../../root files/run3553_coinc_final.root	Energy/h_EBGO_2	758.615 +- 1.01958	-
-../../../root files/run3553_coinc_final.root	Energy/h_EBGO_2	1383.45 +- 0.380618	-
-../../../root files/run3553_coinc_final.root	Energy/h_EBGO_2	2383.27 +- 1.15144	-
-../../../root files/run3553_coinc_final.root	Energy/h_EBGO_2	5183.31 +- 6.05378	-
-../../../root files/run3553_coinc_final.root	Energy/h_EBGO_2	6176.16 +- 1.88617	-
-../../../root files/run3553_coinc_final.root	Energy/h_EBGO_2	6813.88 +- 8.80579	-
-../../../root files/run3553_coinc_final.root	Energy/h_EBGO_2	7590.13 +- 7.38143	-
-../../../root files/run3553_coinc_final.root	Energy/h_EBGO_3	513.117 +- 0.171623	-
-../../../root files/run3553_coinc_final.root	Energy/h_EBGO_3	761.164 +- 1.50288	-
-../../../root files/run3553_coinc_final.root	Energy/h_EBGO_3	1393.72 +- 0.426961	-
-../../../root files/run3553_coinc_final.root	Energy/h_EBGO_3	2371.7 +- 1.27645	-
-../../../root files/run3553_coinc_final.root	Energy/h_EBGO_3	5122.09 +- 8.67766	-
-../../../root files/run3553_coinc_final.root	Energy/h_EBGO_3	6163.68 +- 3.16867	-
-../../../root files/run3553_coinc_final.root	Energy/h_EBGO_3	6844.78 +- 12.021	-
-../../../root files/run3553_coinc_final.root	Energy/h_EBGO_3	7591.22 +- 8.3255	-
-../../../root files/run3553_coinc_final.root	Energy/h_EBGO_4	516.279 +- 0.0828295	-
-../../../root files/run3553_coinc_final.root	Energy/h_EBGO_4	758.669 +- 0.721056	-
-../../../root files/run3553_coinc_final.root	Energy/h_EBGO_4	1383.31 +- 0.308573	-
-../../../root files/run3553_coinc_final.root	Energy/h_EBGO_4	2381.93 +- 0.905712	-
-../../../root files/run3553_coinc_final.root	Energy/h_EBGO_4	5179.37 +- 2.96842	-
-../../../root files/run3553_coinc_final.root	Energy/h_EBGO_4	6174.09 +- 1.5142	-
-../../../root files/run3553_coinc_final.root	Energy/h_EBGO_4	6802.86 +- 3.99943	-
-../../../root files/run3553_coinc_final.root	Energy/h_EBGO_4	7590.88 +- 3.74173	-
-../../../root files/run3553_coinc_final.root	Energy/h_EBGO_5	515.188 +- 0.176139	-
-../../../root files/run3553_coinc_final.root	Energy/h_EBGO_5	761.675 +- 1.23067	-
-../../../root files/run3553_coinc_final.root	Energy/h_EBGO_5	1388.47 +- 0.43179	-
-../../../root files/run3553_coinc_final.root	Energy/h_EBGO_5	2380.09 +- 1.31659	-
-../../../root files/run3553_coinc_final.root	Energy/h_EBGO_5	5185.66 +- 11.449	-
-../../../root files/run3553_coinc_final.root	Energy/h_EBGO_5	6174.1 +- 2.57654	-
-../../../root files/run3553_coinc_final.root	Energy/h_EBGO_5	6838.09 +- 5.936	-
-../../../root files/run3553_coinc_final.root	Energy/h_EBGO_5	7601.52 +- 7.15247	-
-../../../root files/run3553_coinc_final.root	Energy/h_EBGO_6	518.182 +- 0.159156	-
-../../../root files/run3553_coinc_final.root	Energy/h_EBGO_6	759.771 +- 0.929866	-
-../../../root files/run3553_coinc_final.root	Energy/h_EBGO_6	1381.6 +- 0.379169	-
-../../../root files/run3553_coinc_final.root	Energy/h_EBGO_6	2384.18 +- 1.11991	-
-../../../root files/run3553_coinc_final.root	Energy/h_EBGO_6	5181.3 +- 3.96115	-
-../../../root files/run3553_coinc_final.root	Energy/h_EBGO_6	6175.55 +- 1.95261	-
-../../../root files/run3553_coinc_final.root	Energy/h_EBGO_6	6812.08 +- 6.46702	-
-../../../root files/run3553_coinc_final.root	Energy/h_EBGO_6	7582.34 +- 7.9421	-
+../../../root files/run1775_coinc.root	EnergyADC/h_EBGO_ADC_1	553.953 +- 0.144666	-
+../../../root files/run1775_coinc.root	EnergyADC/h_EBGO_ADC_1	984.805 +- 0.832696	1120.19 +- 0.951559
+../../../root files/run1775_coinc.root	EnergyADC/h_EBGO_ADC_1	2109.55 +- 1.54095	-
+../../../root files/run1775_coinc.root	EnergyADC/h_EBGO_ADC_2	557.297 +- 0.153116	-
+../../../root files/run1775_coinc.root	EnergyADC/h_EBGO_ADC_2	996.746 +- 1.04999	1133.49 +- 1.10971
+../../../root files/run1775_coinc.root	EnergyADC/h_EBGO_ADC_2	2138.83 +- 2.71311	-
+../../../root files/run1775_coinc.root	EnergyADC/h_EBGO_ADC_3	481.943 +- 0.149685	-
+../../../root files/run1775_coinc.root	EnergyADC/h_EBGO_ADC_3	857.171 +- 1.78512	975.417 +- 2.26729
+../../../root files/run1775_coinc.root	EnergyADC/h_EBGO_ADC_3	1844.94 +- 2.05593	-
+../../../root files/run1775_coinc.root	EnergyADC/h_EBGO_ADC_4	516.871 +- 0.0979418	-
+../../../root files/run1775_coinc.root	EnergyADC/h_EBGO_ADC_4	920.054 +- 0.389415	1047 +- 0.438886
+../../../root files/run1775_coinc.root	EnergyADC/h_EBGO_ADC_4	1973.03 +- 1.10143	-
+../../../root files/run1775_coinc.root	EnergyADC/h_EBGO_ADC_5	518.323 +- 0.101773	-
+../../../root files/run1775_coinc.root	EnergyADC/h_EBGO_ADC_5	924.985 +- 1.49107	1051.47 +- 1.52284
+../../../root files/run1775_coinc.root	EnergyADC/h_EBGO_ADC_5	1985.83 +- 1.29044	-
+../../../root files/run1775_coinc.root	EnergyADC/h_EBGO_ADC_6	574.473 +- 0.470447	-
+../../../root files/run1775_coinc.root	EnergyADC/h_EBGO_ADC_6	1026.51 +- 1.02183	1166.74 +- 1.13956
+../../../root files/run1775_coinc.root	EnergyADC/h_EBGO_ADC_6	2188.85 +- 2.39519	-

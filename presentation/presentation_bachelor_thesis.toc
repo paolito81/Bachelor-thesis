@@ -1,6 +1,6 @@
 \beamer@sectionintoc {1}{Introduzione}{3}{0}{1}
-\beamer@sectionintoc {2}{Obiettivi della tesi}{19}{0}{2}
-\beamer@sectionintoc {3}{Calibrazione in energia}{22}{0}{3}
-\beamer@sectionintoc {4}{Efficienza}{31}{0}{4}
-\beamer@sectionintoc {5}{Simulazioni}{38}{0}{5}
-\beamer@sectionintoc {6}{Conclusione}{44}{0}{6}
+\beamer@sectionintoc {2}{Obiettivi della tesi}{22}{0}{2}
+\beamer@sectionintoc {3}{Calibrazione in energia}{28}{0}{3}
+\beamer@sectionintoc {4}{Efficienza}{37}{0}{4}
+\beamer@sectionintoc {5}{Simulazioni}{46}{0}{5}
+\beamer@sectionintoc {6}{Conclusione}{56}{0}{6}

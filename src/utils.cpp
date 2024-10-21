@@ -190,7 +190,7 @@ void runAnalysis(const std::vector<Config>& configs, bool onlyOneElement) {
         }
     }    
 
-    //plotAndFitResolutions(yValues_resolution);
+    plotAndFitResolutions(yValues_resolution);
 
     createSpreadsheet();
     outfile.close();
@@ -454,10 +454,10 @@ void plotAndFitResolutions(std::vector<double>& resolutions) {
     }
 
     TCanvas* c = new TCanvas("c", "Resolution Graphs", 800, 600);
-    c->Divide(3, 2); // Divide canvas into 6 pads
+    //c->Divide(3, 2); // Divide canvas into 6 pads
 
     // Create 6 TGraphs, each with 8 points
-    for (int i = 0; i < 6; ++i) {
+    for (int i = 3; i < 4; ++i) {
         c->cd(i + 1); // Switch to the next pad
         TGraph* graph = new TGraph(8, x_values, &resolutions[i * 8]);
 
@@ -485,8 +485,8 @@ void plotAndFitResolutions(std::vector<double>& resolutions) {
         legend->SetBorderSize(2);  
         //legend->SetFillStyle(0);    // Transparent fill
         legend->SetTextSize(0.03);
-        legend->AddEntry((TObject*)0, Form("p0 = %.3f #pm %.3f", a, a_err), ""); // Add p0
-        legend->AddEntry((TObject*)0, Form("p1 = %.2f #pm %.2f", b, b_err), ""); // Add p1
+        legend->AddEntry((TObject*)0, Form("a = %.3f #pm %.3f", a, a_err), ""); // Add p0
+        legend->AddEntry((TObject*)0, Form("b = %.2f #pm %.2f", b, b_err), ""); // Add p1
         legend->Draw();             // Draw the legend
 
         // Save results to file
@@ -630,6 +630,7 @@ void compareSimExpHistograms() {
 
     TCanvas* canvas_cs = new TCanvas("cs comp", "Caesium experimental-simulated comparison", 800, 600);
     canvas_cs->SetLogy();
+    gStyle->SetOptStat(0);
     TLegend* legend_cs = new TLegend(0.7, 0.7, 0.9, 0.9);
     TH1F* exp_hist_cs = dynamic_cast<TH1F*>(file_exp_cs->Get("Energy/h_EBGO_4"));
     TH1F* sim_hist_cs = dynamic_cast<TH1F*>(file_sim_cs->Get("h_BGO4_res"));
@@ -659,6 +660,7 @@ void compareSimExpHistograms() {
     }
 
     TCanvas* canvas_co = new TCanvas("co comp", "Cobalt experimental-simulated comparison", 800, 600);
+    gStyle->SetOptStat(0);
     canvas_co->SetLogy();
     TLegend* legend_co = new TLegend(0.7, 0.7, 0.9, 0.9);
 
@@ -673,6 +675,103 @@ void compareSimExpHistograms() {
 
     sim_hist_co->Draw();
 
+    exp_hist_co->Draw("SAME");
+    legend_co->Draw();
+
+    canvas_co->Update();
+    canvas_co->SaveAs("../../../out/comparison graphs/Cobalt.pdf");
+
+    file_exp_co->Close();
+    file_sim_co->Close();
+}
+
+void compareSimExpHistogramsScaled() {
+    // Load experimental and simulated files for Caesium
+    TFile* file_exp_cs = new TFile("../../../root files/run1776_coinc.root");
+    TFile* file_sim_cs = new TFile("../../../macros/SimLuna_137Cs_histo.root");
+
+    if (!file_exp_cs || file_exp_cs->IsZombie() || !file_sim_cs || file_sim_cs->IsZombie()) {
+        std::cout << "Failed to load files for Caesium" << std::endl;
+        return;
+    }
+
+    TCanvas* canvas_cs = new TCanvas("cs comp", "Caesium experimental-simulated comparison", 800, 600);
+    canvas_cs->SetLogy();
+    gStyle->SetOptStat(0);
+    TLegend* legend_cs = new TLegend(0.7, 0.7, 0.9, 0.9);
+
+    TH1F* exp_hist_cs = dynamic_cast<TH1F*>(file_exp_cs->Get("Energy/h_EBGO_4"));
+    TH1F* sim_hist_cs = dynamic_cast<TH1F*>(file_sim_cs->Get("h_BGO4_res"));
+
+    if (!exp_hist_cs || !sim_hist_cs) {
+        std::cout << "Failed to retrieve histograms for Caesium" << std::endl;
+        return;
+    }
+
+    exp_hist_cs->GetXaxis()->SetRangeUser(0, 1000);
+    sim_hist_cs->GetXaxis()->SetRangeUser(0, 1000);
+
+    // Normalize the simulated histogram to match the experimental one
+    double exp_integral_cs = exp_hist_cs->Integral();
+    double sim_integral_cs = sim_hist_cs->Integral();
+    if (sim_integral_cs != 0) {
+        sim_hist_cs->Scale(exp_integral_cs / sim_integral_cs);
+    }
+
+    exp_hist_cs->SetLineColor(kGreen);
+    sim_hist_cs->SetLineColor(kRed);
+
+    legend_cs->AddEntry(exp_hist_cs, "Experimental", "f");
+    legend_cs->AddEntry(sim_hist_cs, "Simulated", "f");
+
+    sim_hist_cs->Draw();
+    exp_hist_cs->Draw("SAME");
+    legend_cs->Draw();
+    canvas_cs->Update();
+    canvas_cs->SaveAs("../../../out/comparison graphs/Caesium.pdf");
+
+    file_exp_cs->Close();
+    file_sim_cs->Close();
+
+    // Load experimental and simulated files for Cobalt
+    TFile* file_exp_co = new TFile("../../../root files/run1777_coinc.root");
+    TFile* file_sim_co = new TFile("../../../macros/SimLuna_60Co_histo.root");
+
+    if (!file_exp_co || file_exp_co->IsZombie() || !file_sim_co || file_sim_co->IsZombie()) {
+        std::cout << "Failed to load files for Cobalt" << std::endl;
+        return;
+    }
+
+    TCanvas* canvas_co = new TCanvas("co comp", "Cobalt experimental-simulated comparison", 800, 600);
+    gStyle->SetOptStat(0);
+    canvas_co->SetLogy();
+    TLegend* legend_co = new TLegend(0.7, 0.7, 0.9, 0.9);
+
+    TH1F* exp_hist_co = dynamic_cast<TH1F*>(file_exp_co->Get("Energy/h_EBGO_4"));
+    TH1F* sim_hist_co = dynamic_cast<TH1F*>(file_sim_co->Get("h_BGO4_res"));
+
+    if (!exp_hist_co || !sim_hist_co) {
+        std::cout << "Failed to retrieve histograms for Cobalt" << std::endl;
+        return;
+    }
+
+    exp_hist_co->GetXaxis()->SetRangeUser(0, 2800);
+    sim_hist_co->GetXaxis()->SetRangeUser(0, 2800);
+
+    // Normalize the simulated histogram to match the experimental one
+    double exp_integral_co = exp_hist_co->Integral();
+    double sim_integral_co = sim_hist_co->Integral();
+    if (sim_integral_co != 0) {
+        sim_hist_co->Scale(exp_integral_co / sim_integral_co);
+    }
+
+    exp_hist_co->SetLineColor(kGreen);
+    sim_hist_co->SetLineColor(kRed);
+
+    legend_co->AddEntry(exp_hist_co, "Experimental", "f");
+    legend_co->AddEntry(sim_hist_co, "Simulated", "f");
+
+    sim_hist_co->Draw();
     exp_hist_co->Draw("SAME");
     legend_co->Draw();
 

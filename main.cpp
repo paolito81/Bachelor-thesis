@@ -172,9 +172,10 @@ int main(int argc, char* argv[]) {
     //runAnalysis(configs3553, true);
     //runAnalysis(configsSimulations, true);
 
-    analyzeCaesiumSimulations();
-    analyzeCobaltSimulations();
-    compareSimExpHistograms();
+    //analyzeCaesiumSimulations();
+    //analyzeCobaltSimulations();
+    //compareSimExpHistograms();
+    compareSimExpHistogramsScaled();
 
     app.Run();
     return 0;

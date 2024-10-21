@@ -44,7 +44,7 @@
 
 % TITLE, AUTHORS, INSTITUTE, DATE
 
-\title[Short Title]{Caratterizzazione di un rivelatore gamma 4$\pi$ per lo studio della reazione $^{14}$N(p,$\gamma$)$^{15}$O}
+\title[F. Cavanna, R. Sariyal]{Caratterizzazione di un rivelatore gamma 4$\pi$ per lo studio della reazione $^{14}$N(p,$\gamma$)$^{15}$O}
 \author[P. Pusterla]{Paolo Pusterla}
 \institute[UniTo]{Università degli Studi di Torino}
 \date{Novembre 2024}
@@ -72,7 +72,7 @@
 	\end{frame}
 	
 	% Section and Frame examples
-
+%nomi in basso a sinistra
 \section{Introduzione}
 \begin{frame}{Motivazione astrofisica}
 	\begin{itemize}
@@ -80,11 +80,11 @@
 		\item<1-> Costruire il modello standard solare (SSM) richiede conoscenze sulla composizione chimica del Sole
 		\item<2-> Analisi spettroscopiche costruiscono due modelli in contraddizione tra loro: LZ (fotosfera 3D) e HZ (fotosfera 1D)
 		\item<3-> Per capire se la composizione sia uniforme in funzione della profondità, si studia il flusso di neutrini del CNO, combinato con le \emph{sezioni d'urto} di alcune reazioni ($^{14}$N(p, $\gamma$)$^{15}$O)
-		\item<4-> Energie solari molto basse (15-50 keV), si studia nel range 50-370 keV
+		\item<5-> Energie solari molto basse (15-50 keV), si studia nel range 50-370 keV
 		%qua ha senso dire che la sezione d'urto è troppo piccola per essere misurata direttamente
 	\end{itemize}
-	\centering
-	\includegraphics[width=0.3\textwidth]{img/CNO_Cycle.png}
+	\uncover<4->{\centering
+		\includegraphics[width=0.4\textwidth]{img/CNO_Cycle.png}}
 \end{frame}
 	%metter	
 	
@@ -97,24 +97,24 @@
 			\begin{equation}
 				\sigma = \dfrac{N_{reaz}/\Delta t}{N_{proj}/\Delta t \times N_{bers}/A \times \varepsilon}
 			\end{equation}
-			\item<5-> Con una $\sigma \approx 10^{-12}$ barn si ha un \emph{reaction rate} ($N_{reaz}/\Delta t$) che vale appena $1\div 10$ conteggi al giorno %implies misure sotterranee
+			\item<5-> Con una $\sigma \approx 10^{-12}$ barn si ha un \emph{reaction rate} ($N_{reaz}/\Delta t$) che vale appena $1\div 10$ conteggi al giorno \only<6->{$\implies$ misure sotterranee}
 		\end{itemize}
 		
 		\begin{columns}%a sinistra italia, a destra laboratori
 			%al posto di cartina fondo
-			\begin{column}{0.6\textwidth}
+			\begin{column}{0.4\textwidth}
+				\only<3-6>{\centering
+					\includegraphics[width=0.4\textwidth]{img/location.png}}
+				\only<7->{\centering
+					\includegraphics[width=0.8\textwidth]{img/noise.png}}
+			\end{column}
+			\begin{column}{0.55\textwidth}
 				\uncover<6->{\centering
-					\includegraphics[width=0.9\textwidth]{img/noise.png}}
+					\includegraphics[width=0.6\textwidth]{img/labs.png}}
 			\end{column}
-			\begin{column}{0.3\textwidth}
-				\uncover<3->{\centering
-					\includegraphics[width=0.8\textwidth]{img/location.png}}
-			\end{column}
+			
 		\end{columns}
-		
-		
-		%\captionof{figure}{Grafico riportante il rumore di fondo in superficie, sotto una schermatura parziale sottoterra e sotto una schermatura totale sottoterra.}
-	\end{frame}
+	\end{frame}%rivedere, cartina troppo piccola
 	
 %\begin{frame}{Sfide sperimentali della misura diretta}
 %	\begin{itemize}
@@ -132,45 +132,94 @@
 \begin{frame}{LUNA 400 kV}%spiegare a voce
 	\centering
 	\includegraphics[width=0.9\textwidth]{img/LUNA2.png}
-	\captionof{figure}{L'acceleratore LUNA.}
+	\captionof{figure}{Apparato sperimentale LUNA.}
 \end{frame}
 
+%\begin{frame}{Apparato sperimentale}
+%	%immagine 3d del bgo
+%	%bersaglio solido in TiN (immagine sul'elog)
+%	%si tratta di un reivelatore...
+%	%la seconda a voce
+%	\begin{columns}
+%		\begin{column}{0.35\textwidth}
+%			\begin{itemize}
+%				%\item La radiazione gamma emessa dalla reazione è rivelata da uno scintillatore.
+%				\item<1-> Fascio di protoni 50-400 keV
+%				\item<2-> Bersaglio solido TiN ()
+%				
+%				\item<3-> Rivelatore di fotoni: BGO % a voce:, coprente il 95\% dell'angolo solido totale attorno al bersaglio.
+%				%a voce: È otticamente diviso in sei spicchi
+%				 
+%				\item<4-> Segnali in uscita letti da digitizer  CAEN
+%				%densità atomica del TiN in atomi/cm^2
+%				%parlare della catena elettronica
+%				%otticamente diviso in sei spicchi
+%				%si leggonon con un digitizer delal caen (modello) e c'è anche un pulser
+%				
+%				
+%%				\item Si tratta di uno scintillatore, ossia uno strumento che quando eccitato da radiazione ionizzante, ne assorbe l'energia depositata e la riemette sotto forma di fotoni
+%			\end{itemize}
+%		\end{column}%primo bersaglio solido
+%	%poi bgo 3d
+%	%poi bgo 2d
+%	%poi catena (più grande)
+%		\begin{column}{0.65\textwidth}
+%			\only<1>{\centering
+%				\includegraphics[width=0.6\textwidth]{img/bgo_3d.png}}
+%			\uncover<2->{\centering
+%				\includegraphics[width=0.6\textwidth]{img/bgo_cross.png}}
+%			%\captionof{figure}{Rappresentazione 3D del rivelatore BGO.}
+%			\uncover<3>{\centering
+%				\includegraphics[width=0.8\textwidth]{img/tin.jpg}}
+%			\only<4->{\centering
+%				\includegraphics[width=0.5\textwidth]{img/electronics.png}}
+%		\end{column}
+%	\end{columns}
+%\end{frame}
+
 \begin{frame}{Apparato sperimentale}
-	%immagine 3d del bgo
-	%bersaglio solido in TiN (immagine sul'elog)
-	%si tratta di un reivelatore...
-	%la seconda a voce
 	\begin{columns}
-		\begin{column}{0.45\textwidth}
+		\begin{column}{0.35\textwidth}
 			\begin{itemize}
-				%\item La radiazione gamma emessa dalla reazione è rivelata da uno scintillatore.
-				\item<1-> Il rivelatore è in germanato di bismuto (Bi$_{4}$Ge$_{3}$O$_{12}$, detto BGO), coprente il 95\% dell'angolo solido totale attorno al bersaglio.
-				\item<3-> Il bersaglio solido è TiN
-				%densità atomica del TiN in atomi/cm^2
-				%parlare della catena elettronica
-				%otticamente diviso in sei spicchi
-				%si leggonon con un digitizer delal caen (modello) e c'è anche un pulser
-				
-				
-%				\item Si tratta di uno scintillatore, ossia uno strumento che quando eccitato da radiazione ionizzante, ne assorbe l'energia depositata e la riemette sotto forma di fotoni
+				\item<1-> Fascio di protoni 50-400 keV
+				\item<2-> Bersaglio solido TiN
+				\item<3-> Rivelatore di fotoni: BGO
+				\item<5-> Segnali in uscita letti da digitizer CAEN
 			\end{itemize}
 		\end{column}
-		\begin{column}{0.45\textwidth}
-			\uncover<2->{\centering
-				\includegraphics[width=\textwidth]{img/bgo_3d.png}}
-			%\captionof{figure}{Rappresentazione 3D del rivelatore BGO.}
-			\uncover<4->{\centering
-				\includegraphics[width=0.7\textwidth]{img/tin.jpg}}
+		
+		\begin{column}{0.65\textwidth}
+			% Top image placeholder (shows in slides 1, replaced in slide 3)
+			\only<2-3>{\centering
+				\includegraphics[width=0.5\textwidth]{img/tin.jpg}}
+			\only<4->{\centering
+				\includegraphics[width=0.3\textwidth]{img/bgo_cross.png}}
+			
+			\vspace{0.5cm} % Adjust the space as needed to reserve for bottom image
+			
+			% Bottom image (appears on slide 2, then gets replaced on slide 4)
+			\only<3-4>{\centering
+				\includegraphics[width=0.6\textwidth]{img/bgo_3d.png}}
+			\only<5->{\centering
+				\includegraphics[width=0.9\textwidth]{img/electronics.png}}
 		\end{column}
 	\end{columns}
 \end{frame}
 
+
+
+
+
 	\section{Obiettivi della tesi}
 	\begin{frame}{Obiettivi della tesi}
+	L'obiettivo della tesi, incentrato sull'analisi dei dati, è quello di 	
 		\begin{itemize}%mettere schematicamente, punto per efficienza e punto per energia
-			\item<1-> L'obiettivo della tesi, incentrato sull'analisi dei dati, è quello di calibrare in energia e caratterizzare in efficienza lo scintillatore.. 
-			\item<2-> L'analisi dei dati viene confrontata con delle simulazioni in GEANT4.
+			\item<2-> calibrare in energia 
+			\item<3-> caratterizzare in efficienza 
 		\end{itemize}
+	\uncover<4->{lo scintillatore.}\\
+		
+		\uncover<5->{L'analisi dei dati viene confrontata con delle simulazioni in GEANT4.}
 	\end{frame}
 
 
@@ -190,12 +239,12 @@
 		\uncover<2->{\centering
 			\includegraphics[width=0.9\textwidth]{img/Cs-137-decay.png}
 			\centering
-			\includegraphics[width=\linewidth]{img/ex1776.pdf}}
+			\includegraphics[width=0.9\linewidth]{img/ex1776.pdf}}
 		\column{0.5\textwidth}
 		\uncover<3->{\centering
 			\includegraphics[width=0.95\textwidth]{img/Cobalt-60m-decay.png}
 			\centering
-			\includegraphics[width=\linewidth]{img/ex1777.pdf}}
+			\includegraphics[width=0.9\linewidth]{img/ex1777.pdf}}
 	\end{columns}
 \end{frame}
 
@@ -245,53 +294,41 @@
 %				\item<4-> Si effettua dunque un fit lineare per i punti di ciascun istogramma.
 %				\item<5-> I coefficienti angolari di questi fit sono i fattori di conversione cercati.
 %			\end{itemize}
-			\begin{figure}%chiamare secondo grafico con "Energy" anziché Energy calibration
+			%chiamare secondo grafico con "Energy" anziché Energy calibration
 				%Cambiare nome "BGO 4" anziché graph 4
 				\centering
-				\only<1->{\includegraphics[width=\linewidth]{img/ex1775.pdf}}
-				\only<2>{\includegraphics[width=0.9\textwidth]{img/plot0_empty.pdf}}
-				\uncover<3->{\includegraphics[width=0.9\textwidth]{img/plot0.pdf}}
+				\only<1->{\includegraphics[width=0.95\linewidth]{img/ex1775.pdf}}
+				\uncover<4->{\begin{figure}
+						\begin{table}[ht!]
+						\centering
+						\resizebox{0.9\textwidth}{!}{
+							\begin{tabular}{@{}cccc@{}}
+								\toprule
+								Canale & a [keV] & b [keV/CHN] \\ \midrule
+								CHN4 & 5.83 \(\pm\) 0.39 & 1.2676 \(\pm\) 0.0006 \\
+								\bottomrule
+						\end{tabular}}
+				\end{table}\end{figure}}
 				%SISTEMARE LìORDINE DEI GRAFICI
-			\end{figure}
+			
 		\end{column}
 		\begin{column}{0.45\textwidth}
-			\begin{figure}
+			
 				\centering
-				\uncover<4->{\includegraphics[width=0.9\textwidth]{img/residues0.pdf}}
+				\only<2>{\includegraphics[width=0.9\textwidth]{img/plot0_empty.pdf}}
+				\uncover<3->{\includegraphics[width=0.9\textwidth]{img/plot0.pdf}}
+				\uncover<5->{\includegraphics[width=0.9\textwidth]{img/residues0.pdf}}
 %				\only<4->{\includegraphics[width=0.9\textwidth]{img/plot0.pdf}}
 				%TERZA GRAFICA PER FARE VEDERE I RISULTATI
-			\end{figure}%chiamare conversione b e agiugngere a
-			\uncover<5->{\begin{table}[ht]
-					\centering
-					\resizebox{0.7\textwidth}{!}{
-						\begin{tabular}{@{}cccc@{}}
-							\toprule
-							Canale & Conversione [keV/CHN] \\ \midrule
-							CHN1 & 1.1863 \(\pm\) 0.0009 \\
-							CHN2 & 1.1659 \(\pm\) 0.0013 \\
-							CHN3 & 1.3550 \(\pm\) 0.0019 \\
-							CHN4 & 1.2676 \(\pm\) 0.0006 \\
-							CHN5 & 1.2574 \(\pm\) 0.0010 \\
-							CHN6 & 1.1388 \(\pm\) 0.0014 \\
-							\bottomrule
-					\end{tabular}}
-			\end{table}}
+			%chiamare conversione b e agiugngere a
+		
 		\end{column}
 	\end{columns}
 	%grafico lineare, valori parametri in un angolo della slide
 	%retta per il quarto spicchio, spettro del quarto, tabella (possibilmente quarto spicchio)
 	%mettere espressione
 	%mettere residui
-\end{frame}
-
-
-
-
-
-
-
-
-
+\end{frame}%mettere energy =
 
 \section{Efficienza}
 \begin{frame}{Efficienza}
@@ -301,7 +338,7 @@
 		\begin{equation}
 			\varepsilon = \dfrac{N_{cont.}}{A(t*) \Delta t}
 		\end{equation}
-		\item<3-> L'attività è calcolata al momento della misurazione (sorgenti radioattive di attività nota con precisione dello 0.7\% %verificare).
+		\item<3-> L'attività è calcolata al momento della misurazione (sorgenti radioattive di attività nota con precisione del 0.5\%) %verificare).
 	\end{itemize}
 	
 	\vspace{0.5cm}
@@ -346,21 +383,15 @@
 \begin{frame}{Tempo morto}%solo tempo vivo, indicare per spicchio 4 quanto vale. (tempo morto anziché tempo vivo)
 	\begin{itemize}
 		%\item L'attività viene calcolata al momento della presa dati, in data 03/04/2024
-		\item Il pulser serve per stimare il tempo morto dell'elettronica
+		\item<1-> Il pulser serve per stimare il tempo morto dell'elettronica
 		%rimettere schema elettronica
-		\item Il pulser è mandato in ogni spicchio del BGo, nota la frequenza di questo si confronta con quella misurata in ogni rivelatore
-		\item Il tempo morto è ricavato dal TTree delle coincidenze, ossia dove lo spicchio del BGO registra i fotoni del pulser nello spettro dei canali%questo a voce
+		\item<2-> Questo, a frequenza nota, è mandato in ogni spicchio del BGO e si confronta con la frequenza misurata in ogni rivelatore
+		\item<3-> Per lo spicchio 4 il tempo morto è circa l'$\mathbf{1.3\%}$ 
 	\end{itemize}
 	%leva gli istogrammi
 	%mettere schema elettroncia
-	\begin{columns}
-		\begin{column}{0.5\textwidth}
-			\includegraphics[width=\textwidth]{img/run1776_coinc_h_EBGO_ADC_4_COINC.pdf}
-		\end{column}
-		\begin{column}{0.5\textwidth}
-			\includegraphics[width=\textwidth]{img/pulser.pdf}
-		\end{column}
-	\end{columns}
+	\uncover<2->{\centering
+		\includegraphics[width=0.6\textwidth]{img/electronics.png}}
 \end{frame}
 
 
@@ -377,9 +408,9 @@
 
 \begin{frame}{Simulazioni}
 	\begin{itemize}
-		\item Il setup sperimentale e la reazione $^{14}$N(p,$\gamma$)$^{15}$O sono stati simulati in GEANT4
-		\item Gli spettri ottenuti con queste simulazioni sono a risoluzione energetica infinita
-		\item Ho analizzato gli spettri simulati applicando la risoluzione energetica degli spettri sperimentali
+		\item<1-> Il setup sperimentale e la reazione $^{14}$N(p,$\gamma$)$^{15}$O sono stati simulati in GEANT4
+		\item<2-> Gli spettri ottenuti con queste simulazioni sono a risoluzione energetica infinita
+		\item<3-> Questi sono stati analizzati applicando la risoluzione energetica degli spettri sperimentali
 	\end{itemize}
 \end{frame}
 
@@ -411,21 +442,44 @@
 					f(E) = a + \dfrac{b}{\sqrt{E}}
 			\end{equation*}}	
 			\visible<3->{\centering
-				\includegraphics[width=0.9\textwidth]{img/ResolutionGraphs.pdf}}
+				\includegraphics[width=0.9\textwidth]{img/ResGraph_4.pdf}}
 		\end{column}
 	\end{columns}
 \end{frame}
 
-\begin{frame}{Simulazioni}
-	\begin{itemize}
-		\item confronto tabelle e grafico%mettere tabelle confronto tra exp e sim (spicchio 4)
-	\end{itemize}
+\begin{frame}{Simulazioni}%mettere confronti uno di fianco all'altro, ingrandire tabella
+	\begin{columns}
+		\begin{column}{0.45\textwidth}
+			\uncover<1->{\centering
+			\includegraphics[width=\textwidth]{img/Caesium.pdf}}
+			
+		\end{column}
+	\begin{column}{0.45\textwidth}
+%		\only<1->{\centering
+%		\includegraphics[width=\textwidth]{img/nonscaled.pdf}}
+		\uncover<2->{\centering
+			\includegraphics[width=\textwidth]{img/Cobalt.pdf}}
+	\end{column}%errore di tutte le efficienze del 5%
+	\end{columns}
+\uncover<3->{\begin{table}[h]
+		\centering
+		
+		\resizebox{0.9\textwidth}{!}{
+			\begin{tabular}{@{}cccc@{}}
+				\toprule
+				CHN4 & Efficienza \% (sim.) & Efficienza \% (exp.) \\ \midrule
+				$^{137}$Cs (661 keV) & 10.8 \(\pm\) 0.5 & 10.2 \(\pm\) 0.5 \\
+				$^{60}$Co (1173 keV) & 7.9 \(\pm\) 0.4 & 8.1 \(\pm\) 0.4 \\
+				$^{60}$Co (1332 keV) & 7.8 \(\pm\) 0.4 & 7.5 \(\pm\) 0.4 \\
+				\bottomrule
+		\end{tabular}}
+\end{table}}%mettere in percentuale
 \end{frame}
 	
 	\section{Conclusione}
 	\begin{frame}{Conclusione}
 		\begin{itemize}
-			\item<1-> Durante la tesi ci è occupato della calibrazione di uno strumento per lo studio della reazione  $^{14}$N(p, $\gamma$)$^{15}$O
+			\item<1-> Durante la tesi ci si è occupato della calibrazione di uno strumento per lo studio della reazione  $^{14}$N(p, $\gamma$)$^{15}$O
 			\item<2-> Il rivelatore utilizzato è stato calibrato in energia e ne si è calcolata l'efficienza
 			\item<3-> Si sono analizzate le simulazioni Monte Carlo, per poi confrontarle coi dati sperimentali
 		\end{itemize}
@@ -724,6 +778,16 @@
 					\end{equation*}
 			\end{itemize}
 	%lasciare funzione fittata
+\end{frame}
+\begin{frame}{Pulser}
+	\begin{columns}
+		\begin{column}{0.5\textwidth}
+			\includegraphics[width=\textwidth]{img/run1776_coinc_h_EBGO_ADC_4_COINC.pdf}
+		\end{column}
+		\begin{column}{0.5\textwidth}
+			\includegraphics[width=\textwidth]{img/pulser.pdf}
+		\end{column}
+	\end{columns}
 \end{frame}
 
 \end{document}
