@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 23.1) (preloaded format=pdflatex 2023.3.2)  21 OCT 2024 22:48
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 23.1) (preloaded format=pdflatex 2023.3.2)  23 OCT 2024 21:17
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1208,20 +1208,20 @@ Dictionary: translator-theorem-dictionary, Language: English
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: End \AtBeginDocument code.
  (presentation_bachelor_thesis.nav)
-LaTeX Font Info:    Trying to load font information for U+msa on input line 74.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 75.
 
 
 (C:\Users\puste\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 74.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 75.
 
 
 (C:\Users\puste\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 LaTeX Font Info:    Trying to load font information for OT1+mathkerncmss on inp
-ut line 74.
+ut line 75.
 
 (C:\Users\puste\AppData\Local\Programs\MiKTeX\tex/latex/sansmathaccent\ot1mathk
 erncmss.fd
@@ -1231,7 +1231,7 @@ thkerncmss.
 <img/logo.png, id=50, 626.34pt x 388.45125pt>
 File: img/logo.png Graphic file (type png)
 <use img/logo.png>
-Package pdftex.def Info: img/logo.png  used on input line 74.
+Package pdftex.def Info: img/logo.png  used on input line 75.
 (pdftex.def)             Requested size: 114.68599pt x 71.13188pt.
  [1
 
@@ -1245,540 +1245,552 @@ ng>] (presentation_bachelor_thesis.toc) [2
 <img/CNO_Cycle.png, id=104, 288.1164pt x 204.765pt>
 File: img/CNO_Cycle.png Graphic file (type png)
 <use img/CNO_Cycle.png>
-Package pdftex.def Info: img/CNO_Cycle.png  used on input line 94.
-(pdftex.def)             Requested size: 136.91603pt x 97.3081pt.
- [4
+Package pdftex.def Info: img/CNO_Cycle.png  used on input line 95.
+(pdftex.def)             Requested size: 164.30028pt x 116.77036pt.
+
+Overfull \vbox (0.2373pt too high) detected at line 95
+ []
+
+[4
 
  <./img/CNO_Cycle.png>]
 File: img/CNO_Cycle.png Graphic file (type png)
 <use img/CNO_Cycle.png>
-Package pdftex.def Info: img/CNO_Cycle.png  used on input line 94.
-(pdftex.def)             Requested size: 136.91603pt x 97.3081pt.
- [5
+Package pdftex.def Info: img/CNO_Cycle.png  used on input line 95.
+(pdftex.def)             Requested size: 164.30028pt x 116.77036pt.
+
+Overfull \vbox (0.2373pt too high) detected at line 95
+ []
+
+[5
 
 ]
 File: img/CNO_Cycle.png Graphic file (type png)
 <use img/CNO_Cycle.png>
-Package pdftex.def Info: img/CNO_Cycle.png  used on input line 94.
-(pdftex.def)             Requested size: 136.91603pt x 97.3081pt.
- [6
+Package pdftex.def Info: img/CNO_Cycle.png  used on input line 95.
+(pdftex.def)             Requested size: 164.30028pt x 116.77036pt.
+
+Overfull \vbox (0.2373pt too high) detected at line 95
+ []
+
+[6
 
 ]
 File: img/CNO_Cycle.png Graphic file (type png)
 <use img/CNO_Cycle.png>
-Package pdftex.def Info: img/CNO_Cycle.png  used on input line 94.
-(pdftex.def)             Requested size: 136.91603pt x 97.3081pt.
+Package pdftex.def Info: img/CNO_Cycle.png  used on input line 95.
+(pdftex.def)             Requested size: 164.30028pt x 116.77036pt.
+
+Overfull \vbox (0.2373pt too high) detected at line 95
+ []
 
 [7
 
 ]
 File: img/CNO_Cycle.png Graphic file (type png)
 <use img/CNO_Cycle.png>
-Package pdftex.def Info: img/CNO_Cycle.png  used on input line 94.
-(pdftex.def)             Requested size: 136.91603pt x 97.3081pt.
- [8
+Package pdftex.def Info: img/CNO_Cycle.png  used on input line 95.
+(pdftex.def)             Requested size: 164.30028pt x 116.77036pt.
+
+Overfull \vbox (0.2373pt too high) detected at line 95
+ []
+
+[8
 
 ]
-<img/labs.png, id=140, 586.44093pt x 408.02437pt>
+File: img/CNO_Cycle.png Graphic file (type png)
+<use img/CNO_Cycle.png>
+Package pdftex.def Info: img/CNO_Cycle.png  used on input line 120.
+(pdftex.def)             Requested size: 155.74222pt x 110.68704pt.
+
+Overfull \vbox (1.54567pt too high) detected at line 120
+ []
+
+[9
+
+]
+File: img/CNO_Cycle.png Graphic file (type png)
+<use img/CNO_Cycle.png>
+Package pdftex.def Info: img/CNO_Cycle.png  used on input line 120.
+(pdftex.def)             Requested size: 155.74222pt x 110.68704pt.
+
+Overfull \vbox (1.54567pt too high) detected at line 120
+ []
+
+[10
+
+]
+File: img/CNO_Cycle.png Graphic file (type png)
+<use img/CNO_Cycle.png>
+Package pdftex.def Info: img/CNO_Cycle.png  used on input line 120.
+(pdftex.def)             Requested size: 155.74222pt x 110.68704pt.
+
+Overfull \vbox (1.54567pt too high) detected at line 120
+ []
+
+[11
+
+]
+File: img/CNO_Cycle.png Graphic file (type png)
+<use img/CNO_Cycle.png>
+Package pdftex.def Info: img/CNO_Cycle.png  used on input line 120.
+(pdftex.def)             Requested size: 155.74222pt x 110.68704pt.
+
+Overfull \vbox (1.54567pt too high) detected at line 120
+ []
+
+[12
+
+]
+File: img/CNO_Cycle.png Graphic file (type png)
+<use img/CNO_Cycle.png>
+Package pdftex.def Info: img/CNO_Cycle.png  used on input line 120.
+(pdftex.def)             Requested size: 155.74222pt x 110.68704pt.
+
+Overfull \vbox (1.54567pt too high) detected at line 120
+ []
+
+[13
+
+]
+<img/labs.png, id=172, 586.44093pt x 408.02437pt>
 File: img/labs.png Graphic file (type png)
 <use img/labs.png>
-Package pdftex.def Info: img/labs.png  used on input line 123.
+Package pdftex.def Info: img/labs.png  used on input line 149.
 (pdftex.def)             Requested size: 112.95921pt x 78.59007pt.
- [9
+ [14
 
  <./img/labs.png>]
 File: img/labs.png Graphic file (type png)
 <use img/labs.png>
-Package pdftex.def Info: img/labs.png  used on input line 123.
+Package pdftex.def Info: img/labs.png  used on input line 149.
 (pdftex.def)             Requested size: 112.95921pt x 78.59007pt.
- [10
+ [15
 
 ]
-<img/location.png, id=158, 359.84438pt x 551.05875pt>
+<img/location.png, id=190, 359.84438pt x 551.05875pt>
 File: img/location.png Graphic file (type png)
 <use img/location.png>
-Package pdftex.def Info: img/location.png  used on input line 123.
+Package pdftex.def Info: img/location.png  used on input line 149.
 (pdftex.def)             Requested size: 54.76556pt x 83.86606pt.
 File: img/labs.png Graphic file (type png)
 <use img/labs.png>
-Package pdftex.def Info: img/labs.png  used on input line 123.
+Package pdftex.def Info: img/labs.png  used on input line 149.
 (pdftex.def)             Requested size: 112.95921pt x 78.59007pt.
- [11
+ [16
 
  <./img/location.png>]
 File: img/location.png Graphic file (type png)
 <use img/location.png>
-Package pdftex.def Info: img/location.png  used on input line 123.
+Package pdftex.def Info: img/location.png  used on input line 149.
 (pdftex.def)             Requested size: 54.76556pt x 83.86606pt.
 File: img/labs.png Graphic file (type png)
 <use img/labs.png>
-Package pdftex.def Info: img/labs.png  used on input line 123.
+Package pdftex.def Info: img/labs.png  used on input line 149.
 (pdftex.def)             Requested size: 112.95921pt x 78.59007pt.
- [12
+ [17
 
 ]
 File: img/location.png Graphic file (type png)
 <use img/location.png>
-Package pdftex.def Info: img/location.png  used on input line 123.
+Package pdftex.def Info: img/location.png  used on input line 149.
 (pdftex.def)             Requested size: 54.76556pt x 83.86606pt.
 File: img/labs.png Graphic file (type png)
 <use img/labs.png>
-Package pdftex.def Info: img/labs.png  used on input line 123.
+Package pdftex.def Info: img/labs.png  used on input line 149.
 (pdftex.def)             Requested size: 112.95921pt x 78.59007pt.
- [13
+ [18
 
 ]
 File: img/location.png Graphic file (type png)
 <use img/location.png>
-Package pdftex.def Info: img/location.png  used on input line 123.
+Package pdftex.def Info: img/location.png  used on input line 149.
 (pdftex.def)             Requested size: 54.76556pt x 83.86606pt.
 File: img/labs.png Graphic file (type png)
 <use img/labs.png>
-Package pdftex.def Info: img/labs.png  used on input line 123.
+Package pdftex.def Info: img/labs.png  used on input line 149.
 (pdftex.def)             Requested size: 112.95921pt x 78.59007pt.
- [14
+ [19
 
 ]
-<img/noise.png, id=185, 666.99188pt x 468.24937pt>
+<img/noise.png, id=217, 666.99188pt x 468.24937pt>
 File: img/noise.png Graphic file (type png)
 <use img/noise.png>
-Package pdftex.def Info: img/noise.png  used on input line 123.
+Package pdftex.def Info: img/noise.png  used on input line 149.
 (pdftex.def)             Requested size: 109.53323pt x 76.89342pt.
 File: img/labs.png Graphic file (type png)
 <use img/labs.png>
-Package pdftex.def Info: img/labs.png  used on input line 123.
+Package pdftex.def Info: img/labs.png  used on input line 149.
 (pdftex.def)             Requested size: 112.95921pt x 78.59007pt.
 
-[15
+[20
 
  <./img/noise.png>]
-<img/LUNA2.png, id=194, 857.45343pt x 572.89032pt>
+<img/LUNA2.png, id=226, 857.45343pt x 572.89032pt>
 File: img/LUNA2.png Graphic file (type png)
 <use img/LUNA2.png>
-Package pdftex.def Info: img/LUNA2.png  used on input line 142.
+Package pdftex.def Info: img/LUNA2.png  used on input line 168.
 (pdftex.def)             Requested size: 308.06367pt x 205.8295pt.
 
-Overfull \vbox (2.75891pt too high) detected at line 142
+Overfull \vbox (2.75891pt too high) detected at line 168
  []
 
-[16
+[21
 
- <./img/LUNA2.png>] [17
+ <./img/LUNA2.png>] [22
 
 ]
-<img/tin.jpg, id=209, 523.9575pt x 517.935pt>
+<img/tin.jpg, id=241, 523.9575pt x 517.935pt>
 File: img/tin.jpg Graphic file (type jpg)
 <use img/tin.jpg>
-Package pdftex.def Info: img/tin.jpg  used on input line 213.
-(pdftex.def)             Requested size: 111.24492pt x 109.9629pt.
- [18
+Package pdftex.def Info: img/tin.jpg  used on input line 239.
+(pdftex.def)             Requested size: 97.0408pt x 95.9192pt.
+ [23
 
  <./img/tin.jpg>]
 File: img/tin.jpg Graphic file (type jpg)
 <use img/tin.jpg>
-Package pdftex.def Info: img/tin.jpg  used on input line 213.
-(pdftex.def)             Requested size: 111.24492pt x 109.9629pt.
-<img/bgo_3d.png, id=216, 520.94624pt x 372.64218pt>
+Package pdftex.def Info: img/tin.jpg  used on input line 239.
+(pdftex.def)             Requested size: 97.0408pt x 95.9192pt.
+<img/bgo_3d.png, id=248, 520.94624pt x 372.64218pt>
 File: img/bgo_3d.png Graphic file (type png)
 <use img/bgo_3d.png>
-Package pdftex.def Info: img/bgo_3d.png  used on input line 213.
-(pdftex.def)             Requested size: 133.49525pt x 95.4916pt.
- [19
+Package pdftex.def Info: img/bgo_3d.png  used on input line 239.
+(pdftex.def)             Requested size: 129.38994pt x 92.5519pt.
+ [24
 
- <./img/bgo_3d.png>]
-<img/bgo_cross.png, id=225, 284.56313pt x 277.78781pt>
+ <./img/bgo_3d.png (PNG copy)>]
+<img/bgo_cross.png, id=255, 284.56313pt x 277.78781pt>
 File: img/bgo_cross.png Graphic file (type png)
 <use img/bgo_cross.png>
-Package pdftex.def Info: img/bgo_cross.png  used on input line 213.
-(pdftex.def)             Requested size: 66.74762pt x 65.15721pt.
+Package pdftex.def Info: img/bgo_cross.png  used on input line 239.
+(pdftex.def)             Requested size: 86.25775pt x 84.2059pt.
 File: img/bgo_3d.png Graphic file (type png)
 <use img/bgo_3d.png>
-Package pdftex.def Info: img/bgo_3d.png  used on input line 213.
-(pdftex.def)             Requested size: 133.49525pt x 95.4916pt.
-
-[20
+Package pdftex.def Info: img/bgo_3d.png  used on input line 239.
+(pdftex.def)             Requested size: 129.38994pt x 92.5519pt.
+ [25
 
  <./img/bgo_cross.png>]
 File: img/bgo_cross.png Graphic file (type png)
 <use img/bgo_cross.png>
-Package pdftex.def Info: img/bgo_cross.png  used on input line 213.
-(pdftex.def)             Requested size: 66.74762pt x 65.15721pt.
-<img/electronics.png, id=233, 539.76656pt x 375.65344pt>
+Package pdftex.def Info: img/bgo_cross.png  used on input line 239.
+(pdftex.def)             Requested size: 86.25775pt x 84.2059pt.
+<img/electronics.png, id=264, 539.76656pt x 375.65344pt>
 File: img/electronics.png Graphic file (type png)
 <use img/electronics.png>
-Package pdftex.def Info: img/electronics.png  used on input line 213.
-(pdftex.def)             Requested size: 200.2395pt x 139.35643pt.
- [21
+Package pdftex.def Info: img/electronics.png  used on input line 239.
+(pdftex.def)             Requested size: 150.95273pt x 105.05614pt.
+ [26
 
  <./img/electronics.png>]
-(presentation_bachelor_thesis.toc) [22
+(presentation_bachelor_thesis.toc) [27
 
-] [23
+] [28
 
-] [24
+] [29
 
-] [25
+] [30
 
-] [26
-
-] [27
+] [31
 
 ]
-(presentation_bachelor_thesis.toc) [28
+(presentation_bachelor_thesis.toc) [32
 
 ]
-<img/Cs-137-decay.png, id=298, 1927.2pt x 1065.9825pt>
+<img/Cs-137-decay.png, id=324, 1927.2pt x 1065.9825pt>
 File: img/Cs-137-decay.png Graphic file (type png)
 <use img/Cs-137-decay.png>
-Package pdftex.def Info: img/Cs-137-decay.png  used on input line 255.
+Package pdftex.def Info: img/Cs-137-decay.png  used on input line 280.
 (pdftex.def)             Requested size: 154.03183pt x 85.199pt.
-<img/ex1776.pdf, id=299, 569.12625pt x 386.44376pt>
+<img/ex1776.pdf, id=325, 569.24669pt x 386.4036pt>
 File: img/ex1776.pdf Graphic file (type pdf)
 <use img/ex1776.pdf>
-Package pdftex.def Info: img/ex1776.pdf  used on input line 255.
-(pdftex.def)             Requested size: 154.03183pt x 104.58887pt.
-<img/Cobalt-60m-decay.png, id=300, 1927.2pt x 940.51375pt>
+Package pdftex.def Info: img/ex1776.pdf  used on input line 280.
+(pdftex.def)             Requested size: 154.03183pt x 104.55441pt.
+<img/Cobalt-60m-decay.png, id=326, 1927.2pt x 940.51375pt>
 File: img/Cobalt-60m-decay.png Graphic file (type png)
 <use img/Cobalt-60m-decay.png>
-Package pdftex.def Info: img/Cobalt-60m-decay.png  used on input line 255.
+Package pdftex.def Info: img/Cobalt-60m-decay.png  used on input line 280.
 (pdftex.def)             Requested size: 162.58974pt x 79.34703pt.
-<img/ex1777.pdf, id=301, 569.12625pt x 386.44376pt>
+<img/ex1777.pdf, id=327, 569.24669pt x 386.4036pt>
 File: img/ex1777.pdf Graphic file (type pdf)
 <use img/ex1777.pdf>
-Package pdftex.def Info: img/ex1777.pdf  used on input line 255.
-(pdftex.def)             Requested size: 154.03183pt x 104.58887pt.
+Package pdftex.def Info: img/ex1777.pdf  used on input line 280.
+(pdftex.def)             Requested size: 154.03183pt x 104.55441pt.
 
-Overfull \vbox (4.14366pt too high) detected at line 255
- []
-
-[29
-
- <./img/Cs-137-decay.png> <./img/ex1776.pdf, page is rotated 90 degrees> <./img
-/Cobalt-60m-decay.png> <./img/ex1777.pdf, page is rotated 90 degrees>]
-File: img/Cs-137-decay.png Graphic file (type png)
-<use img/Cs-137-decay.png>
-Package pdftex.def Info: img/Cs-137-decay.png  used on input line 255.
-(pdftex.def)             Requested size: 154.03183pt x 85.199pt.
-File: img/ex1776.pdf Graphic file (type pdf)
-<use img/ex1776.pdf>
-Package pdftex.def Info: img/ex1776.pdf  used on input line 255.
-(pdftex.def)             Requested size: 154.03183pt x 104.58887pt.
-File: img/Cobalt-60m-decay.png Graphic file (type png)
-<use img/Cobalt-60m-decay.png>
-Package pdftex.def Info: img/Cobalt-60m-decay.png  used on input line 255.
-(pdftex.def)             Requested size: 162.58974pt x 79.34703pt.
-File: img/ex1777.pdf Graphic file (type pdf)
-<use img/ex1777.pdf>
-Package pdftex.def Info: img/ex1777.pdf  used on input line 255.
-(pdftex.def)             Requested size: 154.03183pt x 104.58887pt.
-
-Overfull \vbox (4.14366pt too high) detected at line 255
- []
-
-[30
-
-]
-File: img/Cs-137-decay.png Graphic file (type png)
-<use img/Cs-137-decay.png>
-Package pdftex.def Info: img/Cs-137-decay.png  used on input line 255.
-(pdftex.def)             Requested size: 154.03183pt x 85.199pt.
-File: img/ex1776.pdf Graphic file (type pdf)
-<use img/ex1776.pdf>
-Package pdftex.def Info: img/ex1776.pdf  used on input line 255.
-(pdftex.def)             Requested size: 154.03183pt x 104.58887pt.
-File: img/Cobalt-60m-decay.png Graphic file (type png)
-<use img/Cobalt-60m-decay.png>
-Package pdftex.def Info: img/Cobalt-60m-decay.png  used on input line 255.
-(pdftex.def)             Requested size: 162.58974pt x 79.34703pt.
-File: img/ex1777.pdf Graphic file (type pdf)
-<use img/ex1777.pdf>
-Package pdftex.def Info: img/ex1777.pdf  used on input line 255.
-(pdftex.def)             Requested size: 154.03183pt x 104.58887pt.
-
-Overfull \vbox (4.14366pt too high) detected at line 255
- []
-
-[31
-
-]
-<img/ex1775.pdf, id=410, 569.12625pt x 386.44376pt>
-File: img/ex1775.pdf Graphic file (type pdf)
-<use img/ex1775.pdf>
-Package pdftex.def Info: img/ex1775.pdf  used on input line 337.
-(pdftex.def)             Requested size: 146.32976pt x 99.35854pt.
-<img/plot0.pdf, id=411, 569.12625pt x 409.53pt>
-File: img/plot0.pdf Graphic file (type pdf)
-<use img/plot0.pdf>
-Package pdftex.def Info: img/plot0.pdf  used on input line 337.
-(pdftex.def)             Requested size: 138.6277pt x 99.75145pt.
-<img/residues0.pdf, id=412, 569.12625pt x 409.53pt>
-File: img/residues0.pdf Graphic file (type pdf)
-<use img/residues0.pdf>
-Package pdftex.def Info: img/residues0.pdf  used on input line 337.
-(pdftex.def)             Requested size: 138.6277pt x 99.75145pt.
- [32
-
- <./img/ex1775.pdf, page is rotated 90 degrees> <./img/plot0.pdf, page is rotat
-ed 90 degrees> <./img/residues0.pdf, page is rotated 90 degrees>]
-File: img/ex1775.pdf Graphic file (type pdf)
-<use img/ex1775.pdf>
-Package pdftex.def Info: img/ex1775.pdf  used on input line 337.
-(pdftex.def)             Requested size: 146.32976pt x 99.35854pt.
-<img/plot0_empty.pdf, id=548, 569.12625pt x 409.53pt>
-File: img/plot0_empty.pdf Graphic file (type pdf)
-<use img/plot0_empty.pdf>
-Package pdftex.def Info: img/plot0_empty.pdf  used on input line 337.
-(pdftex.def)             Requested size: 138.6277pt x 99.75145pt.
-File: img/plot0.pdf Graphic file (type pdf)
-<use img/plot0.pdf>
-Package pdftex.def Info: img/plot0.pdf  used on input line 337.
-(pdftex.def)             Requested size: 138.6277pt x 99.75145pt.
-File: img/residues0.pdf Graphic file (type pdf)
-<use img/residues0.pdf>
-Package pdftex.def Info: img/residues0.pdf  used on input line 337.
-(pdftex.def)             Requested size: 138.6277pt x 99.75145pt.
-
-Overfull \vbox (73.18376pt too high) detected at line 337
+Overfull \vbox (4.1092pt too high) detected at line 280
  []
 
 [33
 
- <./img/plot0_empty.pdf, page is rotated 90 degrees>]
-File: img/ex1775.pdf Graphic file (type pdf)
-<use img/ex1775.pdf>
-Package pdftex.def Info: img/ex1775.pdf  used on input line 337.
-(pdftex.def)             Requested size: 146.32976pt x 99.35854pt.
-File: img/plot0.pdf Graphic file (type pdf)
-<use img/plot0.pdf>
-Package pdftex.def Info: img/plot0.pdf  used on input line 337.
-(pdftex.def)             Requested size: 138.6277pt x 99.75145pt.
-File: img/residues0.pdf Graphic file (type pdf)
-<use img/residues0.pdf>
-Package pdftex.def Info: img/residues0.pdf  used on input line 337.
-(pdftex.def)             Requested size: 138.6277pt x 99.75145pt.
- [34
+ <./img/Cs-137-decay.png> <./img/ex1776.pdf> <./img/Cobalt-60m-decay.png> <./im
+g/ex1777.pdf>]
+File: img/Cs-137-decay.png Graphic file (type png)
+<use img/Cs-137-decay.png>
+Package pdftex.def Info: img/Cs-137-decay.png  used on input line 280.
+(pdftex.def)             Requested size: 154.03183pt x 85.199pt.
+File: img/ex1776.pdf Graphic file (type pdf)
+<use img/ex1776.pdf>
+Package pdftex.def Info: img/ex1776.pdf  used on input line 280.
+(pdftex.def)             Requested size: 154.03183pt x 104.55441pt.
+File: img/Cobalt-60m-decay.png Graphic file (type png)
+<use img/Cobalt-60m-decay.png>
+Package pdftex.def Info: img/Cobalt-60m-decay.png  used on input line 280.
+(pdftex.def)             Requested size: 162.58974pt x 79.34703pt.
+File: img/ex1777.pdf Graphic file (type pdf)
+<use img/ex1777.pdf>
+Package pdftex.def Info: img/ex1777.pdf  used on input line 280.
+(pdftex.def)             Requested size: 154.03183pt x 104.55441pt.
+
+Overfull \vbox (4.1092pt too high) detected at line 280
+ []
+
+[34
 
 ]
-File: img/ex1775.pdf Graphic file (type pdf)
-<use img/ex1775.pdf>
-Package pdftex.def Info: img/ex1775.pdf  used on input line 337.
-(pdftex.def)             Requested size: 146.32976pt x 99.35854pt.
-File: img/plot0.pdf Graphic file (type pdf)
-<use img/plot0.pdf>
-Package pdftex.def Info: img/plot0.pdf  used on input line 337.
-(pdftex.def)             Requested size: 138.6277pt x 99.75145pt.
-File: img/residues0.pdf Graphic file (type pdf)
-<use img/residues0.pdf>
-Package pdftex.def Info: img/residues0.pdf  used on input line 337.
-(pdftex.def)             Requested size: 138.6277pt x 99.75145pt.
- [35
+File: img/Cs-137-decay.png Graphic file (type png)
+<use img/Cs-137-decay.png>
+Package pdftex.def Info: img/Cs-137-decay.png  used on input line 280.
+(pdftex.def)             Requested size: 154.03183pt x 85.199pt.
+File: img/ex1776.pdf Graphic file (type pdf)
+<use img/ex1776.pdf>
+Package pdftex.def Info: img/ex1776.pdf  used on input line 280.
+(pdftex.def)             Requested size: 154.03183pt x 104.55441pt.
+File: img/Cobalt-60m-decay.png Graphic file (type png)
+<use img/Cobalt-60m-decay.png>
+Package pdftex.def Info: img/Cobalt-60m-decay.png  used on input line 280.
+(pdftex.def)             Requested size: 162.58974pt x 79.34703pt.
+File: img/ex1777.pdf Graphic file (type pdf)
+<use img/ex1777.pdf>
+Package pdftex.def Info: img/ex1777.pdf  used on input line 280.
+(pdftex.def)             Requested size: 154.03183pt x 104.55441pt.
+
+Overfull \vbox (4.1092pt too high) detected at line 280
+ []
+
+[35
 
 ]
+<img/ex1775.pdf, id=383, 569.24669pt x 386.4036pt>
 File: img/ex1775.pdf Graphic file (type pdf)
 <use img/ex1775.pdf>
-Package pdftex.def Info: img/ex1775.pdf  used on input line 337.
-(pdftex.def)             Requested size: 146.32976pt x 99.35854pt.
-File: img/plot0.pdf Graphic file (type pdf)
-<use img/plot0.pdf>
-Package pdftex.def Info: img/plot0.pdf  used on input line 337.
+Package pdftex.def Info: img/ex1775.pdf  used on input line 362.
+(pdftex.def)             Requested size: 146.32976pt x 99.32463pt.
+<img/plot0_empty.pdf, id=384, 569.12625pt x 409.53pt>
+File: img/plot0_empty.pdf Graphic file (type pdf)
+<use img/plot0_empty.pdf>
+Package pdftex.def Info: img/plot0_empty.pdf  used on input line 362.
 (pdftex.def)             Requested size: 138.6277pt x 99.75145pt.
+<img/residues0.pdf, id=385, 569.24669pt x 409.53pt>
 File: img/residues0.pdf Graphic file (type pdf)
 <use img/residues0.pdf>
-Package pdftex.def Info: img/residues0.pdf  used on input line 337.
-(pdftex.def)             Requested size: 138.6277pt x 99.75145pt.
+Package pdftex.def Info: img/residues0.pdf  used on input line 362.
+(pdftex.def)             Requested size: 138.6277pt x 99.7327pt.
  [36
 
-]
-(presentation_bachelor_thesis.toc) [37
+ <./img/ex1775.pdf> <./img/plot0_empty.pdf, page is rotated 90 degrees> <./img/
+residues0.pdf>]
+File: img/ex1775.pdf Graphic file (type pdf)
+<use img/ex1775.pdf>
+Package pdftex.def Info: img/ex1775.pdf  used on input line 362.
+(pdftex.def)             Requested size: 146.32976pt x 99.32463pt.
+<img/plot0.pdf, id=471, 569.12625pt x 409.53pt>
+File: img/plot0.pdf Graphic file (type pdf)
+<use img/plot0.pdf>
+Package pdftex.def Info: img/plot0.pdf  used on input line 362.
+(pdftex.def)             Requested size: 138.6277pt x 99.75145pt.
+File: img/residues0.pdf Graphic file (type pdf)
+<use img/residues0.pdf>
+Package pdftex.def Info: img/residues0.pdf  used on input line 362.
+(pdftex.def)             Requested size: 138.6277pt x 99.7327pt.
+ [37
+
+ <./img/plot0.pdf, page is rotated 90 degrees>]
+(presentation_bachelor_thesis.toc) [38
 
 ]
-<img/parameter.pdf, id=630, 569.12625pt x 386.44376pt>
+<img/parameter.pdf, id=535, 569.24669pt x 386.4036pt>
 File: img/parameter.pdf Graphic file (type pdf)
 <use img/parameter.pdf>
-Package pdftex.def Info: img/parameter.pdf  used on input line 361.
-(pdftex.def)             Requested size: 171.14764pt x 116.21115pt.
-<img/trapezoid.pdf, id=631, 569.12625pt x 386.44376pt>
+Package pdftex.def Info: img/parameter.pdf  used on input line 386.
+(pdftex.def)             Requested size: 171.14764pt x 116.17549pt.
+<img/trapezoid.pdf, id=536, 569.24669pt x 386.4036pt>
 File: img/trapezoid.pdf Graphic file (type pdf)
 <use img/trapezoid.pdf>
-Package pdftex.def Info: img/trapezoid.pdf  used on input line 361.
-(pdftex.def)             Requested size: 171.14764pt x 116.21115pt.
- [38
-
- <./img/parameter.pdf, page is rotated 90 degrees> <./img/trapezoid.pdf, page i
-s rotated 90 degrees>]
-File: img/parameter.pdf Graphic file (type pdf)
-<use img/parameter.pdf>
-Package pdftex.def Info: img/parameter.pdf  used on input line 361.
-(pdftex.def)             Requested size: 171.14764pt x 116.21115pt.
-File: img/trapezoid.pdf Graphic file (type pdf)
-<use img/trapezoid.pdf>
-Package pdftex.def Info: img/trapezoid.pdf  used on input line 361.
-(pdftex.def)             Requested size: 171.14764pt x 116.21115pt.
+Package pdftex.def Info: img/trapezoid.pdf  used on input line 386.
+(pdftex.def)             Requested size: 171.14764pt x 116.17549pt.
  [39
 
-]
+ <./img/parameter.pdf> <./img/trapezoid.pdf>]
 File: img/parameter.pdf Graphic file (type pdf)
 <use img/parameter.pdf>
-Package pdftex.def Info: img/parameter.pdf  used on input line 361.
-(pdftex.def)             Requested size: 171.14764pt x 116.21115pt.
+Package pdftex.def Info: img/parameter.pdf  used on input line 386.
+(pdftex.def)             Requested size: 171.14764pt x 116.17549pt.
 File: img/trapezoid.pdf Graphic file (type pdf)
 <use img/trapezoid.pdf>
-Package pdftex.def Info: img/trapezoid.pdf  used on input line 361.
-(pdftex.def)             Requested size: 171.14764pt x 116.21115pt.
+Package pdftex.def Info: img/trapezoid.pdf  used on input line 386.
+(pdftex.def)             Requested size: 171.14764pt x 116.17549pt.
  [40
 
 ]
 File: img/parameter.pdf Graphic file (type pdf)
 <use img/parameter.pdf>
-Package pdftex.def Info: img/parameter.pdf  used on input line 361.
-(pdftex.def)             Requested size: 171.14764pt x 116.21115pt.
+Package pdftex.def Info: img/parameter.pdf  used on input line 386.
+(pdftex.def)             Requested size: 171.14764pt x 116.17549pt.
 File: img/trapezoid.pdf Graphic file (type pdf)
 <use img/trapezoid.pdf>
-Package pdftex.def Info: img/trapezoid.pdf  used on input line 361.
-(pdftex.def)             Requested size: 171.14764pt x 116.21115pt.
-
-[41
+Package pdftex.def Info: img/trapezoid.pdf  used on input line 386.
+(pdftex.def)             Requested size: 171.14764pt x 116.17549pt.
+ [41
 
 ]
 File: img/parameter.pdf Graphic file (type pdf)
 <use img/parameter.pdf>
-Package pdftex.def Info: img/parameter.pdf  used on input line 361.
-(pdftex.def)             Requested size: 171.14764pt x 116.21115pt.
+Package pdftex.def Info: img/parameter.pdf  used on input line 386.
+(pdftex.def)             Requested size: 171.14764pt x 116.17549pt.
 File: img/trapezoid.pdf Graphic file (type pdf)
 <use img/trapezoid.pdf>
-Package pdftex.def Info: img/trapezoid.pdf  used on input line 361.
-(pdftex.def)             Requested size: 171.14764pt x 116.21115pt.
+Package pdftex.def Info: img/trapezoid.pdf  used on input line 386.
+(pdftex.def)             Requested size: 171.14764pt x 116.17549pt.
  [42
 
 ]
-LaTeX Font Info:    Font shape `OT1/cmss/b/n' in size <10.95> not available
-(Font)              Font shape `OT1/cmss/bx/n' tried instead on input line 401.
-
-LaTeX Font Info:    Font shape `OT1/cmss/b/n' in size <8> not available
-(Font)              Font shape `OT1/cmss/bx/n' tried instead on input line 401.
-
-LaTeX Font Info:    Font shape `OT1/cmss/b/n' in size <6> not available
-(Font)              Font shape `OT1/cmss/bx/n' tried instead on input line 401.
-
-File: img/electronics.png Graphic file (type png)
-<use img/electronics.png>
-Package pdftex.def Info: img/electronics.png  used on input line 401.
-(pdftex.def)             Requested size: 205.37926pt x 142.93321pt.
+File: img/parameter.pdf Graphic file (type pdf)
+<use img/parameter.pdf>
+Package pdftex.def Info: img/parameter.pdf  used on input line 386.
+(pdftex.def)             Requested size: 171.14764pt x 116.17549pt.
+File: img/trapezoid.pdf Graphic file (type pdf)
+<use img/trapezoid.pdf>
+Package pdftex.def Info: img/trapezoid.pdf  used on input line 386.
+(pdftex.def)             Requested size: 171.14764pt x 116.17549pt.
  [43
 
 ]
+LaTeX Font Info:    Font shape `OT1/cmss/b/n' in size <10.95> not available
+(Font)              Font shape `OT1/cmss/bx/n' tried instead on input line 427.
+
+LaTeX Font Info:    Font shape `OT1/cmss/b/n' in size <8> not available
+(Font)              Font shape `OT1/cmss/bx/n' tried instead on input line 427.
+
+LaTeX Font Info:    Font shape `OT1/cmss/b/n' in size <6> not available
+(Font)              Font shape `OT1/cmss/bx/n' tried instead on input line 427.
+
 File: img/electronics.png Graphic file (type png)
 <use img/electronics.png>
-Package pdftex.def Info: img/electronics.png  used on input line 401.
+Package pdftex.def Info: img/electronics.png  used on input line 427.
 (pdftex.def)             Requested size: 205.37926pt x 142.93321pt.
  [44
 
 ]
 File: img/electronics.png Graphic file (type png)
 <use img/electronics.png>
-Package pdftex.def Info: img/electronics.png  used on input line 401.
+Package pdftex.def Info: img/electronics.png  used on input line 427.
 (pdftex.def)             Requested size: 205.37926pt x 142.93321pt.
  [45
 
-] (presentation_bachelor_thesis.toc) [46
+]
+File: img/electronics.png Graphic file (type png)
+<use img/electronics.png>
+Package pdftex.def Info: img/electronics.png  used on input line 427.
+(pdftex.def)             Requested size: 205.37926pt x 142.93321pt.
+ [46
 
-] [47
+] (presentation_bachelor_thesis.toc) [47
 
 ] [48
 
-]
-[49
+] [49
+
+] [50
 
 ]
-<img/resolution_hist1.pdf, id=803, 569.12625pt x 386.44376pt>
+<img/resolution_hist1.pdf, id=655, 569.24669pt x 386.4036pt>
 File: img/resolution_hist1.pdf Graphic file (type pdf)
 <use img/resolution_hist1.pdf>
-Package pdftex.def Info: img/resolution_hist1.pdf  used on input line 454.
-(pdftex.def)             Requested size: 154.03183pt x 104.58887pt.
-<img/resolution_hist2.pdf, id=804, 569.12625pt x 386.44376pt>
+Package pdftex.def Info: img/resolution_hist1.pdf  used on input line 480.
+(pdftex.def)             Requested size: 154.03183pt x 104.55441pt.
+<img/resolution_hist2.pdf, id=656, 569.24669pt x 386.4036pt>
 File: img/resolution_hist2.pdf Graphic file (type pdf)
 <use img/resolution_hist2.pdf>
-Package pdftex.def Info: img/resolution_hist2.pdf  used on input line 454.
-(pdftex.def)             Requested size: 154.03183pt x 104.58887pt.
-<img/ResGraph_4.pdf, id=805, 569.12625pt x 409.53pt>
+Package pdftex.def Info: img/resolution_hist2.pdf  used on input line 480.
+(pdftex.def)             Requested size: 154.03183pt x 104.55441pt.
+<img/ResGraph_4.pdf, id=657, 569.24669pt x 409.53pt>
 File: img/ResGraph_4.pdf Graphic file (type pdf)
 <use img/ResGraph_4.pdf>
-Package pdftex.def Info: img/ResGraph_4.pdf  used on input line 454.
-(pdftex.def)             Requested size: 154.03183pt x 110.83702pt.
- [50
-
- <./img/resolution_hist1.pdf, page is rotated 90 degrees> <./img/resolution_his
-t2.pdf, page is rotated 90 degrees> <./img/ResGraph_4.pdf, page is rotated 90 d
-egrees>]
-File: img/resolution_hist1.pdf Graphic file (type pdf)
-<use img/resolution_hist1.pdf>
-Package pdftex.def Info: img/resolution_hist1.pdf  used on input line 454.
-(pdftex.def)             Requested size: 154.03183pt x 104.58887pt.
-File: img/resolution_hist2.pdf Graphic file (type pdf)
-<use img/resolution_hist2.pdf>
-Package pdftex.def Info: img/resolution_hist2.pdf  used on input line 454.
-(pdftex.def)             Requested size: 154.03183pt x 104.58887pt.
-File: img/ResGraph_4.pdf Graphic file (type pdf)
-<use img/ResGraph_4.pdf>
-Package pdftex.def Info: img/ResGraph_4.pdf  used on input line 454.
-(pdftex.def)             Requested size: 154.03183pt x 110.83702pt.
+Package pdftex.def Info: img/ResGraph_4.pdf  used on input line 480.
+(pdftex.def)             Requested size: 154.03183pt x 110.81203pt.
  [51
 
-]
+ <./img/resolution_hist1.pdf> <./img/resolution_hist2.pdf> <./img/ResGraph_4.pd
+f>]
 File: img/resolution_hist1.pdf Graphic file (type pdf)
 <use img/resolution_hist1.pdf>
-Package pdftex.def Info: img/resolution_hist1.pdf  used on input line 454.
-(pdftex.def)             Requested size: 154.03183pt x 104.58887pt.
+Package pdftex.def Info: img/resolution_hist1.pdf  used on input line 480.
+(pdftex.def)             Requested size: 154.03183pt x 104.55441pt.
 File: img/resolution_hist2.pdf Graphic file (type pdf)
 <use img/resolution_hist2.pdf>
-Package pdftex.def Info: img/resolution_hist2.pdf  used on input line 454.
-(pdftex.def)             Requested size: 154.03183pt x 104.58887pt.
+Package pdftex.def Info: img/resolution_hist2.pdf  used on input line 480.
+(pdftex.def)             Requested size: 154.03183pt x 104.55441pt.
 File: img/ResGraph_4.pdf Graphic file (type pdf)
 <use img/ResGraph_4.pdf>
-Package pdftex.def Info: img/ResGraph_4.pdf  used on input line 454.
-(pdftex.def)             Requested size: 154.03183pt x 110.83702pt.
+Package pdftex.def Info: img/ResGraph_4.pdf  used on input line 480.
+(pdftex.def)             Requested size: 154.03183pt x 110.81203pt.
  [52
 
 ]
-<img/Caesium.pdf, id=954, 569.12625pt x 409.53pt>
+File: img/resolution_hist1.pdf Graphic file (type pdf)
+<use img/resolution_hist1.pdf>
+Package pdftex.def Info: img/resolution_hist1.pdf  used on input line 480.
+(pdftex.def)             Requested size: 154.03183pt x 104.55441pt.
+File: img/resolution_hist2.pdf Graphic file (type pdf)
+<use img/resolution_hist2.pdf>
+Package pdftex.def Info: img/resolution_hist2.pdf  used on input line 480.
+(pdftex.def)             Requested size: 154.03183pt x 104.55441pt.
+File: img/ResGraph_4.pdf Graphic file (type pdf)
+<use img/ResGraph_4.pdf>
+Package pdftex.def Info: img/ResGraph_4.pdf  used on input line 480.
+(pdftex.def)             Requested size: 154.03183pt x 110.81203pt.
+ [53
+
+]
+<img/Caesium.pdf, id=728, 569.12625pt x 409.53pt>
 File: img/Caesium.pdf Graphic file (type pdf)
 <use img/Caesium.pdf>
-Package pdftex.def Info: img/Caesium.pdf  used on input line 483.
+Package pdftex.def Info: img/Caesium.pdf  used on input line 509.
 (pdftex.def)             Requested size: 154.03183pt x 110.83702pt.
-<img/Cobalt.pdf, id=955, 569.12625pt x 409.53pt>
+<img/Cobalt.pdf, id=729, 569.12625pt x 409.53pt>
 File: img/Cobalt.pdf Graphic file (type pdf)
 <use img/Cobalt.pdf>
-Package pdftex.def Info: img/Cobalt.pdf  used on input line 483.
+Package pdftex.def Info: img/Cobalt.pdf  used on input line 509.
 (pdftex.def)             Requested size: 154.03183pt x 110.83702pt.
- [53
+ [54
 
  <./img/Caesium.pdf, page is rotated 90 degrees> <./img/Cobalt.pdf, page is rot
 ated 90 degrees>]
 File: img/Caesium.pdf Graphic file (type pdf)
 <use img/Caesium.pdf>
-Package pdftex.def Info: img/Caesium.pdf  used on input line 483.
+Package pdftex.def Info: img/Caesium.pdf  used on input line 509.
 (pdftex.def)             Requested size: 154.03183pt x 110.83702pt.
 File: img/Cobalt.pdf Graphic file (type pdf)
 <use img/Cobalt.pdf>
-Package pdftex.def Info: img/Cobalt.pdf  used on input line 483.
-(pdftex.def)             Requested size: 154.03183pt x 110.83702pt.
- [54
-
-]
-File: img/Caesium.pdf Graphic file (type pdf)
-<use img/Caesium.pdf>
-Package pdftex.def Info: img/Caesium.pdf  used on input line 483.
-(pdftex.def)             Requested size: 154.03183pt x 110.83702pt.
-File: img/Cobalt.pdf Graphic file (type pdf)
-<use img/Cobalt.pdf>
-Package pdftex.def Info: img/Cobalt.pdf  used on input line 483.
+Package pdftex.def Info: img/Cobalt.pdf  used on input line 509.
 (pdftex.def)             Requested size: 154.03183pt x 110.83702pt.
  [55
 
 ]
-(presentation_bachelor_thesis.toc) [56
+File: img/Caesium.pdf Graphic file (type pdf)
+<use img/Caesium.pdf>
+Package pdftex.def Info: img/Caesium.pdf  used on input line 509.
+(pdftex.def)             Requested size: 154.03183pt x 110.83702pt.
+File: img/Cobalt.pdf Graphic file (type pdf)
+<use img/Cobalt.pdf>
+Package pdftex.def Info: img/Cobalt.pdf  used on input line 509.
+(pdftex.def)             Requested size: 154.03183pt x 110.83702pt.
+ [56
 
-] [57
+]
+(presentation_bachelor_thesis.toc) [57
 
 ] [58
 
@@ -1792,10 +1804,10 @@ Package pdftex.def Info: img/Cobalt.pdf  used on input line 483.
 
 ] [63
 
-]
-[64
+] [64
 
-] [65
+]
+[65
 
 ] [66
 
@@ -1815,24 +1827,15 @@ Package pdftex.def Info: img/Cobalt.pdf  used on input line 483.
 
 ] [74
 
-]
-File: img/location.png Graphic file (type png)
-<use img/location.png>
-Package pdftex.def Info: img/location.png  used on input line 553.
-(pdftex.def)             Requested size: 136.91862pt x 209.68198pt.
-
-Overfull \vbox (17.1796pt too high) detected at line 553
- []
-
-[75
+] [75
 
 ]
 File: img/location.png Graphic file (type png)
 <use img/location.png>
-Package pdftex.def Info: img/location.png  used on input line 553.
+Package pdftex.def Info: img/location.png  used on input line 579.
 (pdftex.def)             Requested size: 136.91862pt x 209.68198pt.
 
-Overfull \vbox (17.1796pt too high) detected at line 553
+Overfull \vbox (17.1796pt too high) detected at line 579
  []
 
 [76
@@ -1840,93 +1843,102 @@ Overfull \vbox (17.1796pt too high) detected at line 553
 ]
 File: img/location.png Graphic file (type png)
 <use img/location.png>
-Package pdftex.def Info: img/location.png  used on input line 553.
+Package pdftex.def Info: img/location.png  used on input line 579.
 (pdftex.def)             Requested size: 136.91862pt x 209.68198pt.
 
-Overfull \vbox (17.1796pt too high) detected at line 553
+Overfull \vbox (17.1796pt too high) detected at line 579
  []
 
 [77
 
 ]
-File: img/bgo_3d.png Graphic file (type png)
-<use img/bgo_3d.png>
-Package pdftex.def Info: img/bgo_3d.png  used on input line 571.
-(pdftex.def)             Requested size: 154.03183pt x 110.17867pt.
-LaTeX Font Info:    Font shape `OT1/cmss/b/n' in size <14.4> not available
-(Font)              Font shape `OT1/cmss/bx/n' tried instead on input line 571.
+File: img/location.png Graphic file (type png)
+<use img/location.png>
+Package pdftex.def Info: img/location.png  used on input line 579.
+(pdftex.def)             Requested size: 136.91862pt x 209.68198pt.
 
-LaTeX Font Info:    Font shape `OT1/cmss/b/n' in size <10> not available
-(Font)              Font shape `OT1/cmss/bx/n' tried instead on input line 571.
+Overfull \vbox (17.1796pt too high) detected at line 579
+ []
 
-LaTeX Font Info:    Font shape `OT1/cmss/b/n' in size <7> not available
-(Font)              Font shape `OT1/cmss/bx/n' tried instead on input line 571.
-
- [78
+[78
 
 ]
-<img/BGO.png, id=1218, 703.62875pt x 413.545pt>
-File: img/BGO.png Graphic file (type png)
-<use img/BGO.png>
-Package pdftex.def Info: img/BGO.png  used on input line 587.
-(pdftex.def)             Requested size: 154.03183pt x 90.52583pt.
+File: img/bgo_3d.png Graphic file (type png)
+<use img/bgo_3d.png>
+Package pdftex.def Info: img/bgo_3d.png  used on input line 597.
+(pdftex.def)             Requested size: 154.03183pt x 110.17867pt.
+LaTeX Font Info:    Font shape `OT1/cmss/b/n' in size <14.4> not available
+(Font)              Font shape `OT1/cmss/bx/n' tried instead on input line 597.
+
+LaTeX Font Info:    Font shape `OT1/cmss/b/n' in size <10> not available
+(Font)              Font shape `OT1/cmss/bx/n' tried instead on input line 597.
+
+LaTeX Font Info:    Font shape `OT1/cmss/b/n' in size <7> not available
+(Font)              Font shape `OT1/cmss/bx/n' tried instead on input line 597.
+
  [79
 
- <./img/BGO.png>] [80
+]
+<img/BGO.png, id=993, 703.62875pt x 413.545pt>
+File: img/BGO.png Graphic file (type png)
+<use img/BGO.png>
+Package pdftex.def Info: img/BGO.png  used on input line 613.
+(pdftex.def)             Requested size: 154.03183pt x 90.52583pt.
+ [80
 
-] [81
+ <./img/BGO.png>] [81
 
 ] [82
 
 ] [83
 
+] [84
+
 ]
 File: img/Cobalt-60m-decay.png Graphic file (type png)
 <use img/Cobalt-60m-decay.png>
-Package pdftex.def Info: img/Cobalt-60m-decay.png  used on input line 650.
+Package pdftex.def Info: img/Cobalt-60m-decay.png  used on input line 676.
 (pdftex.def)             Requested size: 171.14764pt x 83.5232pt.
 LaTeX Font Info:    Font shape `OT1/cmss/b/n' in size <5> not available
-(Font)              Font shape `OT1/cmss/bx/n' tried instead on input line 650.
+(Font)              Font shape `OT1/cmss/bx/n' tried instead on input line 676.
 
- [84
-
-]
-File: img/Cobalt-60m-decay.png Graphic file (type png)
-<use img/Cobalt-60m-decay.png>
-Package pdftex.def Info: img/Cobalt-60m-decay.png  used on input line 650.
-(pdftex.def)             Requested size: 171.14764pt x 83.5232pt.
  [85
 
 ]
 File: img/Cobalt-60m-decay.png Graphic file (type png)
 <use img/Cobalt-60m-decay.png>
-Package pdftex.def Info: img/Cobalt-60m-decay.png  used on input line 650.
+Package pdftex.def Info: img/Cobalt-60m-decay.png  used on input line 676.
 (pdftex.def)             Requested size: 171.14764pt x 83.5232pt.
  [86
 
 ]
-File: img/Cs-137-decay.png Graphic file (type png)
-<use img/Cs-137-decay.png>
-Package pdftex.def Info: img/Cs-137-decay.png  used on input line 663.
-(pdftex.def)             Requested size: 171.14764pt x 94.66557pt.
+File: img/Cobalt-60m-decay.png Graphic file (type png)
+<use img/Cobalt-60m-decay.png>
+Package pdftex.def Info: img/Cobalt-60m-decay.png  used on input line 676.
+(pdftex.def)             Requested size: 171.14764pt x 83.5232pt.
  [87
 
 ]
 File: img/Cs-137-decay.png Graphic file (type png)
 <use img/Cs-137-decay.png>
-Package pdftex.def Info: img/Cs-137-decay.png  used on input line 663.
+Package pdftex.def Info: img/Cs-137-decay.png  used on input line 689.
 (pdftex.def)             Requested size: 171.14764pt x 94.66557pt.
  [88
 
 ]
 File: img/Cs-137-decay.png Graphic file (type png)
 <use img/Cs-137-decay.png>
-Package pdftex.def Info: img/Cs-137-decay.png  used on input line 663.
+Package pdftex.def Info: img/Cs-137-decay.png  used on input line 689.
+(pdftex.def)             Requested size: 171.14764pt x 94.66557pt.
+ [89
+
+]
+File: img/Cs-137-decay.png Graphic file (type png)
+<use img/Cs-137-decay.png>
+Package pdftex.def Info: img/Cs-137-decay.png  used on input line 689.
 (pdftex.def)             Requested size: 171.14764pt x 94.66557pt.
 
-[89
-
-] [90
+[90
 
 ] [91
 
@@ -1934,21 +1946,21 @@ Package pdftex.def Info: img/Cs-137-decay.png  used on input line 663.
 
 ] [93
 
-]
-File: img/residues0.pdf Graphic file (type pdf)
-<use img/residues0.pdf>
-Package pdftex.def Info: img/residues0.pdf  used on input line 706.
-(pdftex.def)             Requested size: 154.03183pt x 110.83702pt.
- [94
+] [94
 
 ]
 File: img/residues0.pdf Graphic file (type pdf)
 <use img/residues0.pdf>
-Package pdftex.def Info: img/residues0.pdf  used on input line 706.
-(pdftex.def)             Requested size: 154.03183pt x 110.83702pt.
+Package pdftex.def Info: img/residues0.pdf  used on input line 732.
+(pdftex.def)             Requested size: 154.03183pt x 110.81203pt.
  [95
 
-] [96
+]
+File: img/residues0.pdf Graphic file (type pdf)
+<use img/residues0.pdf>
+Package pdftex.def Info: img/residues0.pdf  used on input line 732.
+(pdftex.def)             Requested size: 154.03183pt x 110.81203pt.
+ [96
 
 ] [97
 
@@ -1960,35 +1972,37 @@ Package pdftex.def Info: img/residues0.pdf  used on input line 706.
 
 ] [101
 
+] [102
+
 ]
 File: img/parameter.pdf Graphic file (type pdf)
 <use img/parameter.pdf>
-Package pdftex.def Info: img/parameter.pdf  used on input line 765.
-(pdftex.def)             Requested size: 171.14764pt x 116.21115pt.
+Package pdftex.def Info: img/parameter.pdf  used on input line 791.
+(pdftex.def)             Requested size: 171.14764pt x 116.17549pt.
 File: img/trapezoid.pdf Graphic file (type pdf)
 <use img/trapezoid.pdf>
-Package pdftex.def Info: img/trapezoid.pdf  used on input line 765.
-(pdftex.def)             Requested size: 171.14764pt x 116.21115pt.
- [102
+Package pdftex.def Info: img/trapezoid.pdf  used on input line 791.
+(pdftex.def)             Requested size: 171.14764pt x 116.17549pt.
+ [103
 
 ]
-[103
+[104
 
-] [104
+] [105
 
 ]
-<img/run1776_coinc_h_EBGO_ADC_4_COINC.pdf, id=1399, 569.12625pt x 367.3725pt>
+<img/run1776_coinc_h_EBGO_ADC_4_COINC.pdf, id=1173, 569.12625pt x 367.3725pt>
 File: img/run1776_coinc_h_EBGO_ADC_4_COINC.pdf Graphic file (type pdf)
 <use img/run1776_coinc_h_EBGO_ADC_4_COINC.pdf>
 Package pdftex.def Info: img/run1776_coinc_h_EBGO_ADC_4_COINC.pdf  used on inpu
-t line 797.
+t line 823.
 (pdftex.def)             Requested size: 171.14764pt x 110.47606pt.
-<img/pulser.pdf, id=1400, 569.12625pt x 288.07625pt>
+<img/pulser.pdf, id=1174, 569.12625pt x 288.07625pt>
 File: img/pulser.pdf Graphic file (type pdf)
 <use img/pulser.pdf>
-Package pdftex.def Info: img/pulser.pdf  used on input line 797.
+Package pdftex.def Info: img/pulser.pdf  used on input line 823.
 (pdftex.def)             Requested size: 171.14764pt x 86.63013pt.
- [105
+ [106
 
  <./img/run1776_coinc_h_EBGO_ADC_4_COINC.pdf, page is rotated 90 degrees> <./im
 g/pulser.pdf, page is rotated 90 degrees>]
@@ -2008,13 +2022,13 @@ anged.
 (rerunfilecheck)             Checksum: D5AEF2EAD20A0EA7D33837C0D7C567BB;705.
  ) 
 Here is how much of TeX's memory you used:
- 28313 strings out of 476339
- 574596 string characters out of 5788120
+ 28317 strings out of 476339
+ 574635 string characters out of 5788120
  1861340 words of memory out of 5000000
- 47918 multiletter control sequences out of 15000+600000
+ 47920 multiletter control sequences out of 15000+600000
  527895 words of font info for 88 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 128i,15n,122p,432b,746s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 128i,15n,122p,432b,747s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/puste/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/
 cmmi10.pfb><C:/Users/puste/AppData/Local/Programs/MiKTeX/fonts/type1/public/ams
 fonts/cm/cmmi12.pfb><C:/Users/puste/AppData/Local/Programs/MiKTeX/fonts/type1/p
@@ -2031,9 +2045,10 @@ amsfonts/cm/cmsy10.pfb><C:/Users/puste/AppData/Local/Programs/MiKTeX/fonts/type
 1/public/amsfonts/cm/cmsy8.pfb><C:/Users/puste/AppData/Local/Programs/MiKTeX/fo
 nts/type1/public/amsfonts/cm/cmtt10.pfb><C:/Users/puste/AppData/Local/Programs/
 MiKTeX/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on presentation_bachelor_thesis.pdf (105 pages, 5358229 bytes).
+Output written on presentation_bachelor_thesis.pdf (106 pages, 11457376 bytes).
+
 PDF statistics:
- 1604 PDF objects out of 1728 (max. 8388607)
- 217 named destinations out of 1000 (max. 500000)
+ 1378 PDF objects out of 1440 (max. 8388607)
+ 219 named destinations out of 1000 (max. 500000)
  285 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -63,17 +63,18 @@
 }
 
 \begin{document}
-	
-	\begin{frame}
+
+	\begin{frame}[noframenumbering]
 		\titlepage
 		\begin{textblock*}{6cm}(2cm, 7.5cm) % Adjust position: (x, y) coordinates in cm
 			\footnotesize % You can adjust the font size if needed
 			\textit{F. Cavanna}\\
+			\textit{G. Gervino}\\
 			\textit{R. Sariyal}
 		\end{textblock*}
 	\end{frame}
 	
-	\begin{frame}{Outline}
+	\begin{frame}[noframenumbering]{Outline}
 		\tableofcontents
 	\end{frame}
 	
@@ -83,16 +84,41 @@
 \begin{frame}{Motivazione astrofisica}
 	\begin{itemize}
 		%SSM modello matematico del sole che lo rappresenta come sfera gassosa
-		\item<1-> Costruire il modello standard solare (SSM) richiede conoscenze sulla composizione chimica del Sole
-		\item<2-> Analisi spettroscopiche costruiscono due modelli in contraddizione tra loro: LZ (fotosfera 3D) e HZ (fotosfera 1D)
+		\item<1-> Lo studio del modello standard solare (SSM) richiede conoscenze sulla composizione chimica del Sole
+		\item<2-> Analisi spettroscopiche della fotosfera solare costruiscono due modelli in contraddizione tra loro: LZ (fotosfera 3D) e HZ (fotosfera 1D)
 		\item<3-> Per capire se la composizione sia uniforme in funzione della profondità, si studia il flusso di neutrini del CNO, combinato con le \emph{sezioni d'urto} di alcune reazioni ($^{14}$N(p, $\gamma$)$^{15}$O)
 		\item<5-> Energie solari molto basse (15-50 keV), si studia nel range 50-370 keV
 		%qua ha senso dire che la sezione d'urto è troppo piccola per essere misurata direttamente
 	\end{itemize}
 	\uncover<4->{\centering
-		\includegraphics[width=0.4\textwidth]{img/CNO_Cycle.png}}
+		\includegraphics[width=0.48\textwidth]{img/CNO_Cycle.png}}
 \end{frame}
 	%metter	
+	
+	\begin{frame}[noframenumbering]{Motivazione astrofisica}
+		
+	
+		\begin{columns}[t]
+			\begin{column}{0.35\textwidth}
+				\begin{itemize}
+					%SSM modello matematico del sole che lo rappresenta come sfera gassosa
+					\item<1-> Lo studio del modello standard solare (SSM) richiede conoscenze sulla composizione chimica del Sole
+					\item<2-> Analisi spettroscopiche della fotosfera solare costruiscono due modelli in contraddizione tra loro: LZ (fotosfera 3D) e HZ (fotosfera 1D)
+					
+					%qua ha senso dire che la sezione d'urto è troppo piccola per essere misurata direttamente
+				\end{itemize}
+			\end{column}
+		\begin{column}{0.65\textwidth}
+			\begin{itemize}
+				\item<3-> Per capire se la composizione sia uniforme in funzione della profondità, si studia il flusso di neutrini del CNO, combinato con le \emph{sezioni d'urto} di alcune reazioni \\ ($^{14}$N(p, $\gamma$)$^{15}$O)
+				\item<4-> Energie solari molto basse (15-50 keV), si studia nel range 50-370 keV
+			\end{itemize}
+				\uncover<5->{\centering
+				\includegraphics[width=0.70\textwidth]{img/CNO_Cycle.png}}
+		\end{column}
+		\end{columns}
+	\end{frame}
+	
 	
 	\begin{frame}{Astrofisica nucleare sotterranea}
 		\begin{itemize}
@@ -185,7 +211,7 @@
 
 \begin{frame}{Apparato sperimentale}
 	\begin{columns}
-		\begin{column}{0.35\textwidth}
+		\begin{column}{0.37\textwidth}
 			\begin{itemize}
 				\item<1-> Fascio di protoni 50-400 keV
 				\item<2-> Bersaglio solido TiN
@@ -194,12 +220,12 @@
 			\end{itemize}
 		\end{column}
 		
-		\begin{column}{0.65\textwidth}
+		\begin{column}{0.63\textwidth}
 			% Top image placeholder (shows in slides 1, replaced in slide 3)
 			\only<2-3>{\centering
-				\includegraphics[width=0.5\textwidth]{img/tin.jpg}}
+				\includegraphics[width=0.45\textwidth]{img/tin.jpg}}
 			\only<4->{\centering
-				\includegraphics[width=0.3\textwidth]{img/bgo_cross.png}}
+				\includegraphics[width=0.40\textwidth]{img/bgo_cross.png}}
 			
 			\vspace{0.5cm} % Adjust the space as needed to reserve for bottom image
 			
@@ -207,7 +233,7 @@
 			\only<3-4>{\centering
 				\includegraphics[width=0.6\textwidth]{img/bgo_3d.png}}
 			\only<5->{\centering
-				\includegraphics[width=0.9\textwidth]{img/electronics.png}}
+				\includegraphics[width=0.70\textwidth]{img/electronics.png}}
 		\end{column}
 	\end{columns}
 \end{frame}
@@ -220,12 +246,11 @@
 	\begin{frame}{Obiettivi della tesi}
 	L'obiettivo della tesi, incentrato sull'analisi dei dati, è quello di 	
 		\begin{itemize}%mettere schematicamente, punto per efficienza e punto per energia
-			\item<2-> calibrare in energia 
-			\item<3-> caratterizzare in efficienza 
+			\item<2-> \textbf{calibrare in energia} gli spettri gamma 
+			\item<3-> \textbf{caratterizzare in efficienza} di rivelazione dei fotoni per i sei segmenti del BGO
 		\end{itemize}
-	\uncover<4->{lo scintillatore.}\\
-		
-		\uncover<5->{L'analisi dei dati viene confrontata con delle simulazioni in GEANT4.}
+	
+		\uncover<4->{L'efficienza ottenuta tramite l'analisi dei dati sperimentali è stata confrontata con simulazioni GEANT4.}
 	\end{frame}
 
 
@@ -233,7 +258,7 @@
 \section{Calibrazione in energia}
 \begin{frame}{Calibrazione in energia}
 	\begin{itemize}
-		\item Viene effettuata con due sorgenti radioattive, $^{137}$Cs e $^{60}$Co, ad attività nota
+		\item Viene effettuata con due sorgenti radioattive, $^{137}$Cs e $^{60}$Co, di attività nota
 		%\item La calibrazione in energia consiste nel calcolo dei fattori che convertono da valori in canali (CHN) a valori in energia (keV) 
 		%\item Tutta l'analisi dei dati è effettuata in ROOT, framework per l'analisi dei dati scritta in C++ e sviluppata dal CERN.
 	\end{itemize}
@@ -303,8 +328,8 @@
 			%chiamare secondo grafico con "Energy" anziché Energy calibration
 				%Cambiare nome "BGO 4" anziché graph 4
 				\centering
-				\only<1->{\includegraphics[width=0.95\linewidth]{img/ex1775.pdf}}
-				\uncover<4->{\begin{figure}
+				\includegraphics[width=0.95\linewidth]{img/ex1775.pdf}
+				\begin{figure}
 						\begin{table}[ht!]
 						\centering
 						\resizebox{0.9\textwidth}{!}{
@@ -314,16 +339,16 @@
 								CHN4 & 5.83 \(\pm\) 0.39 & 1.2676 \(\pm\) 0.0006 \\
 								\bottomrule
 						\end{tabular}}
-				\end{table}\end{figure}}
+				\end{table}\end{figure}
 				%SISTEMARE LìORDINE DEI GRAFICI
 			
 		\end{column}
 		\begin{column}{0.45\textwidth}
 			
 				\centering
-				\only<2>{\includegraphics[width=0.9\textwidth]{img/plot0_empty.pdf}}
-				\uncover<3->{\includegraphics[width=0.9\textwidth]{img/plot0.pdf}}
-				\uncover<5->{\includegraphics[width=0.9\textwidth]{img/residues0.pdf}}
+				\only<1>{\includegraphics[width=0.9\textwidth]{img/plot0_empty.pdf}}
+				\only<2->{\includegraphics[width=0.9\textwidth]{img/plot0.pdf}}
+				\includegraphics[width=0.9\textwidth]{img/residues0.pdf}
 %				\only<4->{\includegraphics[width=0.9\textwidth]{img/plot0.pdf}}
 				%TERZA GRAFICA PER FARE VEDERE I RISULTATI
 			%chiamare conversione b e agiugngere a
@@ -389,10 +414,11 @@
 \begin{frame}{Tempo morto}%solo tempo vivo, indicare per spicchio 4 quanto vale. (tempo morto anziché tempo vivo)
 	\begin{itemize}
 		%\item L'attività viene calcolata al momento della presa dati, in data 03/04/2024
-		\item<1-> Il pulser serve per stimare il tempo morto dell'elettronica
+		\item<1-> Il pulser ha frequenza nota e serve per stimare il tempo morto dell'elettronica
 		%rimettere schema elettronica
-		\item<2-> Questo, a frequenza nota, è mandato in ogni spicchio del BGO e si confronta con la frequenza misurata in ogni rivelatore
-		\item<3-> Per lo spicchio 4 il tempo morto è circa l'$\mathbf{1.3\%}$ 
+		\item<2-> Viene mandato in ogni segmento del BGO
+		\item Il segnale del pulser in ciascun segmento viene confrontato con quello a frequenza nota
+		\item<3-> Per il segmento 4 il tempo morto è circa l'$\mathbf{1.3\%}$ 
 	\end{itemize}
 	%leva gli istogrammi
 	%mettere schema elettroncia
@@ -414,9 +440,9 @@
 
 \begin{frame}{Simulazioni}
 	\begin{itemize}
-		\item<1-> Il setup sperimentale e la reazione $^{14}$N(p,$\gamma$)$^{15}$O sono stati simulati in GEANT4
+		\item<1-> Il setup sperimentale, le sorgenti radioattive e la reazione $^{14}$N(p,$\gamma$)$^{15}$O sono stati simulati in GEANT4
 		\item<2-> Gli spettri ottenuti con queste simulazioni sono a risoluzione energetica infinita
-		\item<3-> Questi sono stati analizzati applicando la risoluzione energetica degli spettri sperimentali
+		\item<3-> Questi sono stati analizzati applicando la risoluzione energetica ottenuta dagli spettri sperimentali
 	\end{itemize}
 \end{frame}
 
@@ -496,12 +522,12 @@
 		\textbf{Grazie per l'attenzione.}
 	\end{frame}
 	
-\begin{frame}{Backup}
+\begin{frame}[noframenumbering]{Backup}
 	\centering
 	Slide di backup
 \end{frame}
 	
-\begin{frame}{L'esperimento}
+\begin{frame}[noframenumbering]{L'esperimento}
 	\begin{itemize}
 		\item<1-> L'esperimento LUNA (Laboratory for Underground Nuclear Astrophysics) ricrea i processi nucleari che sono avvenuti durante la nucleosintesi primordiale e che avvengono tutt'ora nelle stelle.
 		\item<2-> Essendo processi molto rari, un laboratorio sulla superficie terrestre non è adatto per le misure sperimentali di questi, poiché i raggi cosmici maschererebbero il segnale debole atteso.
@@ -509,7 +535,7 @@
 \end{frame}
 
 
-\begin{frame}{Motivazione astrofisica}
+\begin{frame}[noframenumbering]{Motivazione astrofisica}
 	\begin{itemize}
 		\item<1-> I neutrini solari giocano un ruolo fondamentale nella determinazione della composizione del Sole.
 		\item<2-> Sono prodotti nel ciclo CNO del Sole.
@@ -518,7 +544,7 @@
 		\item<5-> La tesi ha come obiettivo contribuire alla determinazione della sezione d'urto ad energie 50-370 keV.
 	\end{itemize}
 \end{frame}
-\begin{frame}{Proposta dell'esperimento}
+\begin{frame}[noframenumbering]{Proposta dell'esperimento}
 	\begin{itemize}
 		\item<1-> A energie solari (15-50 keV) la sezione d'urto è troppo piccola per essere misurata direttamente.
 		\item<2-> Le stime odierne sono quindi estrapolazioni da energie più alte.
@@ -526,7 +552,7 @@
 	\end{itemize}
 \end{frame}
 
-\begin{frame}{Reaction rate}
+\begin{frame}[noframenumbering]{Reaction rate}
 	\begin{itemize}
 			\item<1-> Il \emph{reaction rate} ($N_{reaz}/\Delta t$) vale quindi appena $1\div 10$ conteggi al giorno
 			\item<2-> Basta pochissimo rumore per nascondere i segnali che rivelano le reazioni
@@ -534,7 +560,7 @@
 		\end{itemize}
 \end{frame}
 
-	\begin{frame}{Località}
+	\begin{frame}[noframenumbering]{Località}
 			\begin{columns}
 					\begin{column}{0.5\textwidth}
 							\begin{itemize}
@@ -552,7 +578,7 @@
 				\end{columns}
 		\end{frame}
 
-	\begin{frame}{Il rivelatore $4\pi$}
+	\begin{frame}[noframenumbering]{Il rivelatore $4\pi$}
 	\begin{columns}
 		\begin{column}{0.45\textwidth}
 			\begin{itemize}
@@ -570,7 +596,7 @@
 	
 \end{frame}
 
-\begin{frame}{Il rivelatore $4\pi$}
+\begin{frame}[noframenumbering]{Il rivelatore $4\pi$}
 	\begin{columns}
 		\begin{column}{0.45\textwidth}
 			\begin{itemize}%a voce
@@ -587,7 +613,7 @@
 \end{frame}
 
 
-\begin{frame}{Efficienza}
+\begin{frame}[noframenumbering]{Efficienza}
 	\begin{itemize}
 			\item L'efficienza di uno scintillatore è il rapporto tra il numero di conteggi prodotti da esso e il numero di conteggi prodotti dalla sorgente:
 			
@@ -601,7 +627,7 @@
 \end{frame}
 
 
-\begin{frame}{Tempo vivo/morto}
+\begin{frame}[noframenumbering]{Tempo vivo/morto}
 	\begin{itemize}
 		\item Ogni strumento è elettronicamente vincolato a processare il segnale in ingresso
 		\item Questo può richiedere fino a ns
@@ -610,7 +636,7 @@
 		\item L'intervallo in cui lo strumento è attivo e pronto a ricevere nuovi segnali è il \emph{tempo vivo}.
 	\end{itemize}
 \end{frame}
-\begin{frame}{Risultati del fit}
+\begin{frame}[noframenumbering]{Risultati del fit}
 	\begin{table}[ht]
 		\centering
 		\resizebox{0.7\textwidth}{!}{
@@ -628,13 +654,13 @@
 	\end{table}
 \end{frame}	
 
-\begin{frame}{Caratterizzazione in energia}
+\begin{frame}[noframenumbering]{Caratterizzazione in energia}
 	\begin{itemize}
 			\item La caratterizzazione in energia è effettuata utilizzando due sorgenti radioattive: $^{60}$Co e $^{137}$Cs.
 		\end{itemize}
 \end{frame}
 
-\begin{frame}{$^{60}$Co}%parlare sullo schema
+\begin{frame}[noframenumbering]{$^{60}$Co}%parlare sullo schema
 	
 	
 	\begin{itemize}
@@ -651,7 +677,7 @@
 
 
 
-\begin{frame}{$^{137}$Cs}
+\begin{frame}[noframenumbering]{$^{137}$Cs}
 	\begin{itemize}
 		\item<1-> Il $^{137}$Cs decade sempre tramite decadimento $\beta^{-}$.
 		\item<2-> Il 94.6\% dei decadimenti hanno come prodotto uno stato metastabile del $^{137}$Ba. 
@@ -662,7 +688,7 @@
 	\captionof{figure}{Schema di decadimento del $^{137}$Cs.}
 \end{frame}
 
-\begin{frame}{\texttt{ROOT}}
+\begin{frame}[noframenumbering]{\texttt{ROOT}}
 	\begin{itemize}
 		\item L'analisi dati dell'esperimento è compiuta in \texttt{ROOT}
 		\item Il vantaggio di utilizzarlo è una discreta ottimizzazione per quanto riguarda l'analisi di grandi moli di dati grazie al formato file \texttt{.root}
@@ -671,7 +697,7 @@
 \end{frame}
 
 
-\begin{frame}{Struttura dei dati}
+\begin{frame}[noframenumbering]{Struttura dei dati}
 	\begin{itemize}
 			\item I dati ricavati sono contenuti in file \texttt{.root}
 			\item Ogni file \texttt{.root} contiene 8 istogrammi, con indici da 0 a 7, di conteggi
@@ -681,14 +707,14 @@
 		\end{itemize}
 \end{frame}
 
-\begin{frame}{Picco somma}
+\begin{frame}[noframenumbering]{Picco somma}
 	\begin{itemize}
 		\item Può accadere che lo strumento riveli due fotoni emessi dallo stesso evento contemporaneamente
 		\item In tal caso, viene registrato come un unico fotone, ma con energia pari alla somma delle energie dei fotoni 
 	\end{itemize}
 \end{frame}
 
-\begin{frame}{Residui}%mettere energie sull'asse X
+\begin{frame}[noframenumbering]{Residui}%mettere energie sull'asse X
 	\begin{columns}%a voce sui residui
 		\begin{column}{0.4\textwidth}
 			\begin{itemize}
@@ -704,7 +730,7 @@
 	\end{columns}
 	
 \end{frame}
-\begin{frame}{Calcolo dell'efficienza}%si può dire tutto a voce, sulla immagine del picco senza fit (dall'altra parte mettere immagine con fit)
+\begin{frame}[noframenumbering]{Calcolo dell'efficienza}%si può dire tutto a voce, sulla immagine del picco senza fit (dall'altra parte mettere immagine con fit)
 	\begin{itemize}
 		\item Per il calcolo dell'efficienza è necessario trovare il numero di conteggi nei picchi gaussiani. Si possono applicare due metodi diversi per trovarlo:
 	\end{itemize}
@@ -732,7 +758,7 @@
 
 
 %ricavo perché importante per sez d'urto
-\begin{frame}{Efficienza}
+\begin{frame}[noframenumbering]{Efficienza}
 	\begin{itemize}%discorso a voce, lasciare formula
 		%		\item<1-> Nel caso dei nostri istogrammi, composti da un picco gaussiano centrato su un'energia caratteristica e un fondo di \emph{bremsstrahlung}, l'efficienza si può stimare nel modo seguente:
 		%		%attività spiegata qua, tempo vivo dopo
@@ -753,7 +779,7 @@
 	\end{itemize}
 \end{frame}
 
-\begin{frame}{Calcolo dell'efficienza}
+\begin{frame}[noframenumbering]{Calcolo dell'efficienza}
 	\begin{columns}
 		\begin{column}{0.5\textwidth}
 			\includegraphics[width=\textwidth]{img/parameter.pdf}
@@ -764,7 +790,7 @@
 	\end{columns}
 \end{frame}
 
-\begin{frame}{Calcolo della calibrazione}
+\begin{frame}[noframenumbering]{Calcolo della calibrazione}
 	\begin{itemize}
 		\item La calibrazione viene effettuata sul file \texttt{run1775\_coinc.root}, con entrambe le sorgenti.
 		\item \emph{Calibrare} uno scintillatore significa trovare il fattore di conversione da canali a energia.
@@ -772,7 +798,7 @@
 	\end{itemize}
 \end{frame}
 
-\begin{frame}{Risoluzione energetica}%inserire spettro simulato con ris inf e far veder come viene fuori con risoluzione dopo applicazione
+\begin{frame}[noframenumbering]{Risoluzione energetica}%inserire spettro simulato con ris inf e far veder come viene fuori con risoluzione dopo applicazione
 		\begin{itemize}
 				\item Le simulazioni contengono picchi di energia ideali, a cui non è stata applicata la risoluzione dello strumento
 				\item Questa si può trovare eseguendo fit gaussiani sugli istogrammi in energia, anziché canali
@@ -785,7 +811,7 @@
 			\end{itemize}
 	%lasciare funzione fittata
 \end{frame}
-\begin{frame}{Pulser}
+\begin{frame}[noframenumbering]{Pulser}
 	\begin{columns}
 		\begin{column}{0.5\textwidth}
 			\includegraphics[width=\textwidth]{img/run1776_coinc_h_EBGO_ADC_4_COINC.pdf}
