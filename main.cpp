@@ -175,7 +175,7 @@ int main(int argc, char* argv[]) {
     //analyzeCaesiumSimulations();
     //analyzeCobaltSimulations();
     //compareSimExpHistograms();
-    compareSimExpHistogramsScaled();
+    compareSimExpHistogramsScaledChannel();
 
     app.Run();
     return 0;

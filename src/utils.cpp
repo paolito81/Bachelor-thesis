@@ -453,12 +453,12 @@ void plotAndFitResolutions(std::vector<double>& resolutions) {
         return;
     }
 
-    TCanvas* c = new TCanvas("c", "Resolution Graphs", 800, 600);
-    //c->Divide(3, 2); // Divide canvas into 6 pads
+    TCanvas* can = new TCanvas("c", "Resolution Graphs", 800, 600);
+    can->Divide(3, 2); // Divide canvas into 6 pads
 
     // Create 6 TGraphs, each with 8 points
-    for (int i = 3; i < 4; ++i) {
-        c->cd(i + 1); // Switch to the next pad
+    for (int i = 0; i < 6; ++i) {
+        can->cd(i + 1); // Switch to the next pad
         TGraph* graph = new TGraph(8, x_values, &resolutions[i * 8]);
 
         // Set graph title and axis labels
@@ -466,10 +466,13 @@ void plotAndFitResolutions(std::vector<double>& resolutions) {
         graph->GetXaxis()->SetTitle("Energy [keV]");
         graph->GetYaxis()->SetTitle("Resolution");
 
+
+
         // Fit the function y = a + b / sqrt(x)
         TF1* fitFunc = new TF1("fitFunc", "[0] + [1]/sqrt(x) + [2]*x", 500, 8000); // Define fit range
         graph->Fit(fitFunc);
 
+        //fitFunc->SetParameter(2, 20);
         // Draw graph and fit
         graph->Draw("AP");
         graph->SetMarkerStyle(21);
@@ -479,6 +482,8 @@ void plotAndFitResolutions(std::vector<double>& resolutions) {
         double a_err = fitFunc->GetParError(0);
         double b = fitFunc->GetParameter(1);
         double b_err = fitFunc->GetParError(1);
+        double c = fitFunc->GetParameter(2);
+        double c_err = fitFunc->GetParError(2);
         double p = fitFunc->GetProb();
 
         TLegend* legend = new TLegend(0.6, 0.7, 0.95, 0.95); // Top-right corner
@@ -487,6 +492,7 @@ void plotAndFitResolutions(std::vector<double>& resolutions) {
         legend->SetTextSize(0.03);
         legend->AddEntry((TObject*)0, Form("a = %.3f #pm %.3f", a, a_err), ""); // Add p0
         legend->AddEntry((TObject*)0, Form("b = %.2f #pm %.2f", b, b_err), ""); // Add p1
+        legend->AddEntry((TObject*)0, Form("c = %.3f #pm %.3f", c, c_err), ""); // Add p2
         legend->Draw();             // Draw the legend
 
         // Save results to file
@@ -494,18 +500,18 @@ void plotAndFitResolutions(std::vector<double>& resolutions) {
 
         // Save each graph as an image
         TString graphFileName = Form("../../../out/resolution graphs/Graph_%d.pdf", i + 1);
-        c->Update();
-        c->SaveAs(graphFileName); // Save the current canvas/pad
+        can->Update();
+        can->SaveAs(graphFileName); // Save the current canvas/pad
     }
 
     // Save the entire canvas with all graphs
-    c->SaveAs("../../../out/resolution graphs/ResolutionGraphs.pdf"); // Save the canvas with all graphs displayed
+    can->SaveAs("../../../out/resolution graphs/ResolutionGraphs.pdf"); // Save the canvas with all graphs displayed
 
     // Close output file
     outputFile.close();
 
     // Update canvas to display the plots
-    c->Update();
+    can->Update();
 }
 
 void analyzeCaesiumSimulations() {
@@ -777,6 +783,137 @@ void compareSimExpHistogramsScaled() {
 
     canvas_co->Update();
     canvas_co->SaveAs("../../../out/comparison graphs/Cobalt.pdf");
+
+    file_exp_co->Close();
+    file_sim_co->Close();
+}
+
+void compareSimExpHistogramsScaledChannel() {
+    // Load experimental and simulated files for Caesium
+    TFile* file_exp_cs = new TFile("../../../root files/run1776_coinc.root");
+    TFile* file_sim_cs = new TFile("../../../macros/SimLuna_137Cs_histo.root");
+
+    if (!file_exp_cs || file_exp_cs->IsZombie() || !file_sim_cs || file_sim_cs->IsZombie()) {
+        std::cout << "Failed to load files for Caesium" << std::endl;
+        return;
+    }
+
+    TCanvas* canvas_cs = new TCanvas("cs comp", "Caesium experimental-simulated comparison", 800, 600);
+    canvas_cs->SetLogy();
+    gStyle->SetOptStat(0);
+    TLegend* legend_cs = new TLegend(0.7, 0.7, 0.9, 0.9);
+
+    TH1F* exp_hist_cs = dynamic_cast<TH1F*>(file_exp_cs->Get("EnergyADC/h_EBGO_ADC_4"));
+    TH1F* sim_hist_cs = dynamic_cast<TH1F*>(file_sim_cs->Get("h_BGO4_res"));
+
+    exp_hist_cs->GetXaxis()->SetRangeUser(0, 1000);
+    sim_hist_cs->GetXaxis()->SetRangeUser(0, 1000);
+
+    if (!exp_hist_cs || !sim_hist_cs) {
+        std::cout << "Failed to retrieve histograms for Caesium" << std::endl;
+        return;
+    }
+
+    // Create a new histogram to hold the transformed experimental histogram
+    TH1F* exp_hist_cs_scaled = new TH1F("exp_hist_cs_scaled", "", exp_hist_cs->GetNbinsX(), 0, 1000);
+    exp_hist_cs_scaled->GetXaxis()->SetRangeUser(0, 1000);
+
+    // Apply the scaling: new_x = 5.83 + 1.26 * old_x
+    for (int i = 1; i <= exp_hist_cs->GetNbinsX(); ++i) {
+        double old_x = exp_hist_cs->GetBinCenter(i);
+        double new_x = 5.83 + 1.26 * old_x;
+        double content = exp_hist_cs->GetBinContent(i);
+        double error = exp_hist_cs->GetBinError(i);
+
+        // Find the corresponding bin in the new histogram and fill it
+        int new_bin = exp_hist_cs_scaled->FindBin(new_x);
+        exp_hist_cs_scaled->SetBinContent(new_bin, exp_hist_cs_scaled->GetBinContent(new_bin) + content);
+        exp_hist_cs_scaled->SetBinError(new_bin, sqrt(pow(exp_hist_cs_scaled->GetBinError(new_bin), 2) + pow(error, 2)));
+    }
+
+    // Normalize the simulated histogram to match the scaled experimental one
+    double exp_integral_cs = exp_hist_cs_scaled->Integral();
+    double sim_integral_cs = sim_hist_cs->Integral();
+    if (sim_integral_cs != 0) {
+        sim_hist_cs->Scale(exp_integral_cs*1.6 / sim_integral_cs);
+    }
+
+    exp_hist_cs_scaled->SetLineColor(kGreen);
+    sim_hist_cs->SetLineColor(kRed);
+
+    legend_cs->AddEntry(exp_hist_cs_scaled, "Experimental (scaled)", "f");
+    legend_cs->AddEntry(sim_hist_cs, "Simulated", "f");
+
+    sim_hist_cs->Draw();
+    exp_hist_cs_scaled->Draw("SAME");
+    legend_cs->Draw();
+    canvas_cs->Update();
+    canvas_cs->SaveAs("../../../out/comparison graphs/Caesium_scaled.pdf");
+
+    file_exp_cs->Close();
+    file_sim_cs->Close();
+
+    // Repeat the same steps for Cobalt
+
+    TFile* file_exp_co = new TFile("../../../root files/run1777_coinc.root");
+    TFile* file_sim_co = new TFile("../../../macros/SimLuna_60Co_histo.root");
+
+    if (!file_exp_co || file_exp_co->IsZombie() || !file_sim_co || file_sim_co->IsZombie()) {
+        std::cout << "Failed to load files for Cobalt" << std::endl;
+        return;
+    }
+
+    TCanvas* canvas_co = new TCanvas("co comp", "Cobalt experimental-simulated comparison", 800, 600);
+    gStyle->SetOptStat(0);
+    canvas_co->SetLogy();
+    TLegend* legend_co = new TLegend(0.7, 0.7, 0.9, 0.9);
+
+    TH1F* exp_hist_co = dynamic_cast<TH1F*>(file_exp_co->Get("EnergyADC/h_EBGO_ADC_4"));
+    TH1F* sim_hist_co = dynamic_cast<TH1F*>(file_sim_co->Get("h_BGO4_res"));
+    exp_hist_co->GetXaxis()->SetRangeUser(0, 2600);
+    sim_hist_co->GetXaxis()->SetRangeUser(0, 2600);
+
+    if (!exp_hist_co || !sim_hist_co) {
+        std::cout << "Failed to retrieve histograms for Cobalt" << std::endl;
+        return;
+    }
+
+    // Create a new histogram to hold the transformed experimental histogram
+    TH1F* exp_hist_co_scaled = new TH1F("exp_hist_co_scaled", "", exp_hist_co->GetNbinsX(), 0, 2800);
+    exp_hist_co_scaled->GetXaxis()->SetRangeUser(0, 2600);
+
+    // Apply the scaling: new_x = 5.83 + 1.26 * old_x
+    for (int i = 1; i <= exp_hist_co->GetNbinsX(); ++i) {
+        double old_x = exp_hist_co->GetBinCenter(i);
+        double new_x = 5.83 + 1.26 * old_x;
+        double content = exp_hist_co->GetBinContent(i);
+        double error = exp_hist_co->GetBinError(i);
+
+        // Find the corresponding bin in the new histogram and fill it
+        int new_bin = exp_hist_co_scaled->FindBin(new_x);
+        exp_hist_co_scaled->SetBinContent(new_bin, exp_hist_co_scaled->GetBinContent(new_bin) + content);
+        exp_hist_co_scaled->SetBinError(new_bin, sqrt(pow(exp_hist_co_scaled->GetBinError(new_bin), 2) + pow(error, 2)));
+    }
+
+    // Normalize the simulated histogram to match the scaled experimental one
+    double exp_integral_co = exp_hist_co_scaled->Integral();
+    double sim_integral_co = sim_hist_co->Integral();
+    if (sim_integral_co != 0) {
+        sim_hist_co->Scale(exp_integral_co *1.4/ sim_integral_co);
+    }
+
+    exp_hist_co_scaled->SetLineColor(kGreen);
+    sim_hist_co->SetLineColor(kRed);
+
+    legend_co->AddEntry(exp_hist_co_scaled, "Experimental (scaled)", "f");
+    legend_co->AddEntry(sim_hist_co, "Simulated", "f");
+
+    sim_hist_co->Draw();
+    exp_hist_co_scaled->Draw("SAME");
+    legend_co->Draw();
+
+    canvas_co->Update();
+    canvas_co->SaveAs("../../../out/comparison graphs/Cobalt_scaled.pdf");
 
     file_exp_co->Close();
     file_sim_co->Close();

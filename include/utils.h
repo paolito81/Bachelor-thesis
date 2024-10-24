@@ -25,3 +25,5 @@ void analyzeCaesiumSimulations();
 void analyzeCobaltSimulations();
 void compareSimExpHistograms();
 void compareSimExpHistogramsScaled();
+void compareSimExpHistogramsScaledChannel();
+
