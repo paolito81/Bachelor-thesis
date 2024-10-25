@@ -52,10 +52,16 @@ void GraphPlotter::plotAndFit(int index) {
     TGraphErrors* graph = new TGraphErrors(yValues.size(), sep_xValues[index].data(), yValues.data(), sep_errxValues[index].data(), nullptr);
     std::string canvasName = "c" + std::to_string(index);
     TCanvas* c1 = new TCanvas(canvasName.c_str(), "meanplots", 800, 600);
-
+    c1->SetLeftMargin(0.15);
     func->SetParameters(0, 1);
 
-    graph->SetTitle("Energy = a + b*CHN");
+    double fontsize = 0.053;
+
+    graph->GetXaxis()->SetLabelSize(fontsize);  // Set X-axis label font size
+    graph->GetYaxis()->SetLabelSize(fontsize);  // Set Y-axis label font size
+    graph->GetXaxis()->SetTitleSize(fontsize);  // Set X-axis title font size
+    graph->GetYaxis()->SetTitleSize(fontsize);  // Set Y-axis title font size
+    graph->SetTitle("BGO 4 - Energy = a + b*CHN");
     graph->GetYaxis()->SetTitle("Energy [keV]");
     graph->GetXaxis()->SetTitle("Channels [CHN]");
     graph->SetMarkerStyle(21);
@@ -63,7 +69,7 @@ void GraphPlotter::plotAndFit(int index) {
 
 
     std::cout << "\n\n\n\n" << std::endl;
-    graph->Fit(func->GetName(), "N");
+    graph->Fit(func->GetName(), "R");
     std::cout << "P-value: " << func->GetProb() << std::endl;
 
     std::string pdfName = "../../../out/residues plots/plot" + std::to_string(index) + ".pdf";
@@ -154,11 +160,18 @@ void GraphPlotter::plotResidues(int index) {
 
     TCanvas* residueCanvas = new TCanvas(canvasName.c_str(), "Residues", 800, 600);
     TGraph* residueGraph = new TGraph(tempRes.size(), x_counts.data(), tempRes.data());
+    residueCanvas->SetLeftMargin(0.15);
+    double fontsize = 0.053;
+
+    residueGraph->GetXaxis()->SetLabelSize(fontsize);  // Set X-axis label font size
+    residueGraph->GetYaxis()->SetLabelSize(fontsize);  // Set Y-axis label font size
+    residueGraph->GetXaxis()->SetTitleSize(fontsize);  // Set X-axis title font size
+    residueGraph->GetYaxis()->SetTitleSize(fontsize);  // Set Y-axis title font size
 
     TLine* zeroline = new TLine(495, 0, 2700, 0);
     zeroline->SetLineColor(kBlue);
 
-    std::string graphName = "Residues: channel " + std::to_string(index);
+    std::string graphName = "Residues: BGO " + std::to_string(index + 1);
 
     residueGraph->SetTitle(graphName.c_str());
     residueGraph->GetYaxis()->SetTitle("Residue [keV]");

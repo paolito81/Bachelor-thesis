@@ -453,8 +453,10 @@ void plotAndFitResolutions(std::vector<double>& resolutions) {
         return;
     }
 
-    TCanvas* can = new TCanvas("c", "Resolution Graphs", 800, 600);
-    can->Divide(3, 2); // Divide canvas into 6 pads
+    TCanvas* can = new TCanvas();
+    //can->Divide(3, 2); // Divide canvas into 6 pads
+    can->SetBottomMargin(0.12);
+    can->SetLeftMargin(0.17);
 
     // Create 6 TGraphs, each with 8 points
     for (int i = 0; i < 6; ++i) {
@@ -462,10 +464,15 @@ void plotAndFitResolutions(std::vector<double>& resolutions) {
         TGraph* graph = new TGraph(8, x_values, &resolutions[i * 8]);
 
         // Set graph title and axis labels
-        graph->SetTitle(Form("Channel %d", i + 1));
+        graph->SetTitle(Form("BGO %d", i + 1));
         graph->GetXaxis()->SetTitle("Energy [keV]");
         graph->GetYaxis()->SetTitle("Resolution");
+        double fontsize = 0.053;
 
+        graph->GetXaxis()->SetLabelSize(fontsize);  // Set X-axis label font size
+        graph->GetYaxis()->SetLabelSize(fontsize);  // Set Y-axis label font size
+        graph->GetXaxis()->SetTitleSize(fontsize);  // Set X-axis title font size
+        graph->GetYaxis()->SetTitleSize(fontsize);  // Set Y-axis title font size
 
 
         // Fit the function y = a + b / sqrt(x)
@@ -486,13 +493,13 @@ void plotAndFitResolutions(std::vector<double>& resolutions) {
         double c_err = fitFunc->GetParError(2);
         double p = fitFunc->GetProb();
 
-        TLegend* legend = new TLegend(0.6, 0.7, 0.95, 0.95); // Top-right corner
+        TLegend* legend = new TLegend(0.6, 0.7, 1, 1); // Top-right corner
         legend->SetBorderSize(2);  
         //legend->SetFillStyle(0);    // Transparent fill
-        legend->SetTextSize(0.03);
+        legend->SetTextSize(fontsize);
         legend->AddEntry((TObject*)0, Form("a = %.3f #pm %.3f", a, a_err), ""); // Add p0
         legend->AddEntry((TObject*)0, Form("b = %.2f #pm %.2f", b, b_err), ""); // Add p1
-        legend->AddEntry((TObject*)0, Form("c = %.3f #pm %.3f", c, c_err), ""); // Add p2
+        //legend->AddEntry((TObject*)0, Form("c = %.3f #pm %.3f", c, c_err), ""); // Add p2
         legend->Draw();             // Draw the legend
 
         // Save results to file
@@ -644,6 +651,14 @@ void compareSimExpHistograms() {
     sim_hist_cs->GetXaxis()->SetRangeUser(0, 1000);
     exp_hist_cs->SetLineColor(kGreen);
     sim_hist_cs->SetLineColor(kRed);
+
+    double fontsize = 0.053;
+    sim_hist_cs->GetXaxis()->SetLabelSize(fontsize);
+    sim_hist_cs->GetXaxis()->SetTitleSize(fontsize);
+    sim_hist_cs->GetYaxis()->SetLabelSize(fontsize);
+    sim_hist_cs->GetYaxis()->SetTitleSize(fontsize);
+    legend_cs->SetTextSize(fontsize);
+
     legend_cs->AddEntry(exp_hist_cs, "Experimental", "f");
     legend_cs->AddEntry(sim_hist_cs, "Simulated", "f");
     
@@ -676,6 +691,13 @@ void compareSimExpHistograms() {
     sim_hist_co->GetXaxis()->SetRangeUser(0, 2800);
     exp_hist_co->SetLineColor(kGreen);
     sim_hist_co->SetLineColor(kRed);
+
+    sim_hist_co->GetXaxis()->SetLabelSize(fontsize);
+    sim_hist_co->GetXaxis()->SetTitleSize(fontsize);
+    sim_hist_co->GetYaxis()->SetLabelSize(fontsize);
+    sim_hist_co->GetYaxis()->SetTitleSize(fontsize);
+    legend_co->SetTextSize(fontsize);
+
     legend_co->AddEntry(exp_hist_co, "Experimental", "f");
     legend_co->AddEntry(sim_hist_co, "Simulated", "f");
 
@@ -799,9 +821,11 @@ void compareSimExpHistogramsScaledChannel() {
     }
 
     TCanvas* canvas_cs = new TCanvas("cs comp", "Caesium experimental-simulated comparison", 800, 600);
+    canvas_cs->SetLeftMargin(0.15);
+    canvas_cs->SetBottomMargin(0.15);
     canvas_cs->SetLogy();
     gStyle->SetOptStat(0);
-    TLegend* legend_cs = new TLegend(0.7, 0.7, 0.9, 0.9);
+    TLegend* legend_cs = new TLegend(0.7, 0.7, 0.98, 0.98);
 
     TH1F* exp_hist_cs = dynamic_cast<TH1F*>(file_exp_cs->Get("EnergyADC/h_EBGO_ADC_4"));
     TH1F* sim_hist_cs = dynamic_cast<TH1F*>(file_sim_cs->Get("h_BGO4_res"));
@@ -840,8 +864,16 @@ void compareSimExpHistogramsScaledChannel() {
 
     exp_hist_cs_scaled->SetLineColor(kGreen);
     sim_hist_cs->SetLineColor(kRed);
+    double fontsize = 0.053;
+    sim_hist_cs->GetXaxis()->SetLabelSize(fontsize);
+    sim_hist_cs->GetXaxis()->SetTitleSize(fontsize);
+    sim_hist_cs->GetYaxis()->SetLabelSize(fontsize);
+    sim_hist_cs->GetYaxis()->SetTitleSize(fontsize);
+    sim_hist_cs->GetYaxis()->SetTitle("counts");
+    sim_hist_cs->GetXaxis()->SetTitle("Energy [keV]");
 
-    legend_cs->AddEntry(exp_hist_cs_scaled, "Experimental (scaled)", "f");
+    legend_cs->SetTextSize(fontsize);
+    legend_cs->AddEntry(exp_hist_cs_scaled, "Experimental", "f");
     legend_cs->AddEntry(sim_hist_cs, "Simulated", "f");
 
     sim_hist_cs->Draw();
@@ -866,7 +898,9 @@ void compareSimExpHistogramsScaledChannel() {
     TCanvas* canvas_co = new TCanvas("co comp", "Cobalt experimental-simulated comparison", 800, 600);
     gStyle->SetOptStat(0);
     canvas_co->SetLogy();
-    TLegend* legend_co = new TLegend(0.7, 0.7, 0.9, 0.9);
+    canvas_co->SetLeftMargin(0.15);
+    canvas_co->SetBottomMargin(0.15);
+    TLegend* legend_co = new TLegend(0.7, 0.7, 0.98, 0.98);
 
     TH1F* exp_hist_co = dynamic_cast<TH1F*>(file_exp_co->Get("EnergyADC/h_EBGO_ADC_4"));
     TH1F* sim_hist_co = dynamic_cast<TH1F*>(file_sim_co->Get("h_BGO4_res"));
@@ -905,7 +939,15 @@ void compareSimExpHistogramsScaledChannel() {
     exp_hist_co_scaled->SetLineColor(kGreen);
     sim_hist_co->SetLineColor(kRed);
 
-    legend_co->AddEntry(exp_hist_co_scaled, "Experimental (scaled)", "f");
+    sim_hist_co->GetXaxis()->SetLabelSize(fontsize);
+    sim_hist_co->GetXaxis()->SetTitleSize(fontsize);
+    sim_hist_co->GetYaxis()->SetLabelSize(fontsize);
+    sim_hist_co->GetYaxis()->SetTitleSize(fontsize);
+    sim_hist_co->GetYaxis()->SetTitle("counts");
+    sim_hist_co->GetXaxis()->SetTitle("Energy [keV]");
+    legend_co->SetTextSize(fontsize);
+
+    legend_co->AddEntry(exp_hist_co_scaled, "Experimental", "f");
     legend_co->AddEntry(sim_hist_co, "Simulated", "f");
 
     sim_hist_co->Draw();

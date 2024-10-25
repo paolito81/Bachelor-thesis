@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 23.1) (preloaded format=pdflatex 2023.3.2)  24 OCT 2024 23:05
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 23.1) (preloaded format=pdflatex 2023.3.2)  25 OCT 2024 13:04
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -979,51 +979,51 @@ TextBlockOrigin set to 0pt x 0pt
 structure.sty)
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 65.
+(hyperref)                removing `math shift' on input line 71.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\pi' on input line 65.
+(hyperref)                removing `\pi' on input line 71.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 65.
+(hyperref)                removing `math shift' on input line 71.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 65.
+(hyperref)                removing `math shift' on input line 71.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `superscript' on input line 65.
+(hyperref)                removing `superscript' on input line 71.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 65.
+(hyperref)                removing `math shift' on input line 71.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 65.
+(hyperref)                removing `math shift' on input line 71.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\gamma' on input line 65.
+(hyperref)                removing `\gamma' on input line 71.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 65.
+(hyperref)                removing `math shift' on input line 71.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 65.
+(hyperref)                removing `math shift' on input line 71.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `superscript' on input line 65.
+(hyperref)                removing `superscript' on input line 71.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 65.
+(hyperref)                removing `math shift' on input line 71.
 
 Package csquotes Info: Checking for multilingual support...
 Package csquotes Info: ... none found.
@@ -1036,24 +1036,24 @@ File: l3backend-pdftex.def 2023-01-16 L3 backend support: PDF output (pdfTeX)
 ) (presentation_bachelor_thesis.aux)
 \openout1 = `presentation_bachelor_thesis.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 65.
-LaTeX Font Info:    ... okay on input line 65.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 65.
-LaTeX Font Info:    ... okay on input line 65.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 65.
-LaTeX Font Info:    ... okay on input line 65.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 65.
-LaTeX Font Info:    ... okay on input line 65.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 65.
-LaTeX Font Info:    ... okay on input line 65.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 65.
-LaTeX Font Info:    ... okay on input line 65.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 65.
-LaTeX Font Info:    ... okay on input line 65.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 65.
-LaTeX Font Info:    ... okay on input line 65.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 65.
-LaTeX Font Info:    ... okay on input line 65.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 71.
+LaTeX Font Info:    ... okay on input line 71.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 71.
+LaTeX Font Info:    ... okay on input line 71.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 71.
+LaTeX Font Info:    ... okay on input line 71.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 71.
+LaTeX Font Info:    ... okay on input line 71.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 71.
+LaTeX Font Info:    ... okay on input line 71.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 71.
+LaTeX Font Info:    ... okay on input line 71.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 71.
+LaTeX Font Info:    ... okay on input line 71.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 71.
+LaTeX Font Info:    ... okay on input line 71.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 71.
+LaTeX Font Info:    ... okay on input line 71.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -1123,63 +1123,63 @@ G,.JBIG2,.JB2,.eps]
 fg
 File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 ))
-Package hyperref Info: Link coloring OFF on input line 65.
+Package hyperref Info: Link coloring OFF on input line 71.
  (presentation_bachelor_thesis.out) (presentation_bachelor_thesis.out)
 \@outlinefile=\write6
 \openout6 = `presentation_bachelor_thesis.out'.
 
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
-(Font)                  OT1/cmr/m/n --> OT1/cmss/m/n on input line 65.
+(Font)                  OT1/cmr/m/n --> OT1/cmss/m/n on input line 71.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
-(Font)                  OT1/cmr/bx/n --> OT1/cmss/b/n on input line 65.
+(Font)                  OT1/cmr/bx/n --> OT1/cmss/b/n on input line 71.
 \symnumbers=\mathgroup6
 \sympureletters=\mathgroup7
 LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `normal'
-(Font)                  OT1/cmss/m/n --> OT1/cmr/m/n on input line 65.
-LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 65.
+(Font)                  OT1/cmss/m/n --> OT1/cmr/m/n on input line 71.
+LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 71.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
-(Font)                  OT1/cmr/bx/n --> OT1/cmss/b/n on input line 65.
+(Font)                  OT1/cmr/bx/n --> OT1/cmss/b/n on input line 71.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `bold'
-(Font)                  OT1/cmr/bx/n --> OT1/cmss/b/n on input line 65.
-LaTeX Font Info:    Redeclaring math alphabet \mathsf on input line 65.
+(Font)                  OT1/cmr/bx/n --> OT1/cmss/b/n on input line 71.
+LaTeX Font Info:    Redeclaring math alphabet \mathsf on input line 71.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
-(Font)                  OT1/cmss/m/n --> OT1/cmss/m/n on input line 65.
+(Font)                  OT1/cmss/m/n --> OT1/cmss/m/n on input line 71.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  OT1/cmss/bx/n --> OT1/cmss/m/n on input line 65.
-LaTeX Font Info:    Redeclaring math alphabet \mathit on input line 65.
+(Font)                  OT1/cmss/bx/n --> OT1/cmss/m/n on input line 71.
+LaTeX Font Info:    Redeclaring math alphabet \mathit on input line 71.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
-(Font)                  OT1/cmr/m/it --> OT1/cmss/m/it on input line 65.
+(Font)                  OT1/cmr/m/it --> OT1/cmss/m/it on input line 71.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
-(Font)                  OT1/cmr/bx/it --> OT1/cmss/m/it on input line 65.
-LaTeX Font Info:    Redeclaring math alphabet \mathtt on input line 65.
+(Font)                  OT1/cmr/bx/it --> OT1/cmss/m/it on input line 71.
+LaTeX Font Info:    Redeclaring math alphabet \mathtt on input line 71.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
-(Font)                  OT1/cmtt/m/n --> OT1/cmtt/m/n on input line 65.
+(Font)                  OT1/cmtt/m/n --> OT1/cmtt/m/n on input line 71.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  OT1/cmtt/m/n --> OT1/cmtt/m/n on input line 65.
+(Font)                  OT1/cmtt/m/n --> OT1/cmtt/m/n on input line 71.
 LaTeX Font Info:    Overwriting symbol font `numbers' in version `bold'
-(Font)                  OT1/cmss/m/n --> OT1/cmss/b/n on input line 65.
+(Font)                  OT1/cmss/m/n --> OT1/cmss/b/n on input line 71.
 LaTeX Font Info:    Overwriting symbol font `pureletters' in version `bold'
-(Font)                  OT1/cmss/m/it --> OT1/cmss/b/it on input line 65.
+(Font)                  OT1/cmss/m/it --> OT1/cmss/b/it on input line 71.
 LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `bold'
-(Font)                  OT1/cmss/b/n --> OT1/cmr/b/n on input line 65.
+(Font)                  OT1/cmss/b/n --> OT1/cmr/b/n on input line 71.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `bold'
-(Font)                  OT1/cmss/b/n --> OT1/cmss/b/n on input line 65.
+(Font)                  OT1/cmss/b/n --> OT1/cmss/b/n on input line 71.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  OT1/cmss/m/n --> OT1/cmss/b/n on input line 65.
+(Font)                  OT1/cmss/m/n --> OT1/cmss/b/n on input line 71.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
-(Font)                  OT1/cmss/m/it --> OT1/cmss/b/it on input line 65.
+(Font)                  OT1/cmss/m/it --> OT1/cmss/b/it on input line 71.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  OT1/cmtt/m/n --> OT1/cmtt/b/n on input line 65.
-LaTeX Font Info:    Redeclaring symbol font `pureletters' on input line 65.
+(Font)                  OT1/cmtt/m/n --> OT1/cmtt/b/n on input line 71.
+LaTeX Font Info:    Redeclaring symbol font `pureletters' on input line 71.
 LaTeX Font Info:    Overwriting symbol font `pureletters' in version `normal'
-(Font)                  OT1/cmss/m/it --> OT1/mathkerncmss/m/sl on input line 6
-5.
+(Font)                  OT1/cmss/m/it --> OT1/mathkerncmss/m/sl on input line 7
+1.
 LaTeX Font Info:    Overwriting symbol font `pureletters' in version `bold'
-(Font)                  OT1/cmss/b/it --> OT1/mathkerncmss/m/sl on input line 6
-5.
+(Font)                  OT1/cmss/b/it --> OT1/mathkerncmss/m/sl on input line 7
+1.
 LaTeX Font Info:    Overwriting symbol font `pureletters' in version `bold'
 (Font)                  OT1/mathkerncmss/m/sl --> OT1/mathkerncmss/bx/sl on inp
-ut line 65.
+ut line 71.
 
 (C:\Users\puste\AppData\Local\Programs\MiKTeX\tex/latex/translator\translator-b
 asic-dictionary-English.dict
@@ -1208,20 +1208,20 @@ Dictionary: translator-theorem-dictionary, Language: English
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: End \AtBeginDocument code.
  (presentation_bachelor_thesis.nav)
-LaTeX Font Info:    Trying to load font information for U+msa on input line 76.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 82.
 
 
 (C:\Users\puste\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 76.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 82.
 
 
 (C:\Users\puste\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 LaTeX Font Info:    Trying to load font information for OT1+mathkerncmss on inp
-ut line 76.
+ut line 82.
 
 (C:\Users\puste\AppData\Local\Programs\MiKTeX\tex/latex/sansmathaccent\ot1mathk
 erncmss.fd
@@ -1231,7 +1231,7 @@ thkerncmss.
 <img/logo.png, id=50, 626.34pt x 388.45125pt>
 File: img/logo.png Graphic file (type png)
 <use img/logo.png>
-Package pdftex.def Info: img/logo.png  used on input line 76.
+Package pdftex.def Info: img/logo.png  used on input line 82.
 (pdftex.def)             Requested size: 114.68599pt x 71.13188pt.
  [1
 
@@ -1241,229 +1241,235 @@ ng>] (presentation_bachelor_thesis.toc) [2
 ]
 (presentation_bachelor_thesis.toc) [3
 
-] [4
-
 ]
-<img/CNO_Cycle.png, id=112, 288.1164pt x 204.765pt>
+<img/CNO_Cycle.png, id=101, 288.1164pt x 204.765pt>
 File: img/CNO_Cycle.png Graphic file (type png)
 <use img/CNO_Cycle.png>
-Package pdftex.def Info: img/CNO_Cycle.png  used on input line 104.
-(pdftex.def)             Requested size: 207.41939pt x 147.41504pt.
- [5
+Package pdftex.def Info: img/CNO_Cycle.png  used on input line 114.
+(pdftex.def)             Requested size: 202.22858pt x 143.72507pt.
 
- <./img/CNO_Cycle.png>] [6
+Overfull \vbox (0.20163pt too high) detected at line 114
+ []
+
+[4
+
+ <./img/CNO_Cycle.png>] [5
 
 ]
-<img/location.png, id=132, 359.84438pt x 551.05875pt>
+<img/location.png, id=122, 359.84438pt x 551.05875pt>
 File: img/location.png Graphic file (type png)
 <use img/location.png>
-Package pdftex.def Info: img/location.png  used on input line 162.
-(pdftex.def)             Requested size: 101.11429pt x 154.84193pt.
-<img/labs.png, id=133, 586.44093pt x 408.02437pt>
+Package pdftex.def Info: img/location.png  used on input line 183.
+(pdftex.def)             Requested size: 116.67142pt x 178.67154pt.
+<img/labs.png, id=123, 586.44093pt x 408.02437pt>
 File: img/labs.png Graphic file (type png)
 <use img/labs.png>
-Package pdftex.def Info: img/labs.png  used on input line 162.
-(pdftex.def)             Requested size: 147.78333pt x 102.82144pt.
+Package pdftex.def Info: img/labs.png  used on input line 183.
+(pdftex.def)             Requested size: 190.13356pt x 132.2826pt.
+ [6
+
+ <./img/location.png> <./img/labs.png>]
+File: img/location.png Graphic file (type png)
+<use img/location.png>
+Package pdftex.def Info: img/location.png  used on input line 183.
+(pdftex.def)             Requested size: 116.67142pt x 178.67154pt.
+<img/noise.png, id=133, 666.99188pt x 468.24937pt>
+File: img/noise.png Graphic file (type png)
+<use img/noise.png>
+Package pdftex.def Info: img/noise.png  used on input line 183.
+(pdftex.def)             Requested size: 190.13356pt x 133.47388pt.
 
 [7
 
- <./img/location.png> <./img/labs.png>]
-<img/noise.png, id=144, 666.99188pt x 468.24937pt>
-File: img/noise.png Graphic file (type png)
-<use img/noise.png>
-Package pdftex.def Info: img/noise.png  used on input line 162.
-(pdftex.def)             Requested size: 155.5619pt x 109.2098pt.
-File: img/labs.png Graphic file (type png)
-<use img/labs.png>
-Package pdftex.def Info: img/labs.png  used on input line 162.
-(pdftex.def)             Requested size: 147.78333pt x 102.82144pt.
- [8
-
  <./img/noise.png>]
-<img/LUNA2.png, id=153, 857.45343pt x 572.89032pt>
+<img/LUNA2.png, id=143, 857.45343pt x 572.89032pt>
 File: img/LUNA2.png Graphic file (type png)
 <use img/LUNA2.png>
-Package pdftex.def Info: img/LUNA2.png  used on input line 181.
+Package pdftex.def Info: img/LUNA2.png  used on input line 203.
 (pdftex.def)             Requested size: 311.12381pt x 207.86629pt.
- [9
+ [8
 
  <./img/LUNA2.png>]
-<img/tin.jpg, id=162, 523.9575pt x 517.935pt>
+<img/tin.jpg, id=152, 523.9575pt x 517.935pt>
 File: img/tin.jpg Graphic file (type jpg)
 <use img/tin.jpg>
-Package pdftex.def Info: img/tin.jpg  used on input line 254.
+Package pdftex.def Info: img/tin.jpg  used on input line 276.
 (pdftex.def)             Requested size: 98.00475pt x 96.87547pt.
-<img/bgo_3d.png, id=163, 520.94624pt x 372.64218pt>
+<img/bgo_3d.png, id=153, 520.94624pt x 372.64218pt>
 File: img/bgo_3d.png Graphic file (type png)
 <use img/bgo_3d.png>
-Package pdftex.def Info: img/bgo_3d.png  used on input line 254.
+Package pdftex.def Info: img/bgo_3d.png  used on input line 276.
 (pdftex.def)             Requested size: 130.67522pt x 93.47304pt.
- [10
+ [9
 
  <./img/tin.jpg> <./img/bgo_3d.png (PNG copy)>]
-<img/bgo_cross.png, id=170, 268.00125pt x 267.24844pt>
+<img/bgo_cross.png, id=160, 268.00125pt x 267.24844pt>
 File: img/bgo_cross.png Graphic file (type png)
 <use img/bgo_cross.png>
-Package pdftex.def Info: img/bgo_cross.png  used on input line 254.
+Package pdftex.def Info: img/bgo_cross.png  used on input line 276.
 (pdftex.def)             Requested size: 87.1146pt x 86.86694pt.
-<img/electronics.png, id=171, 503.63156pt x 375.65344pt>
+<img/electronics.png, id=161, 503.63156pt x 375.65344pt>
 File: img/electronics.png Graphic file (type png)
 <use img/electronics.png>
-Package pdftex.def Info: img/electronics.png  used on input line 254.
+Package pdftex.def Info: img/electronics.png  used on input line 276.
 (pdftex.def)             Requested size: 163.34236pt x 121.83371pt.
- [11
+ [10
 
- <./img/bgo_cross.png (PNG copy)> <./img/electronics.png (PNG copy)>]
-(presentation_bachelor_thesis.toc) [12
+ <./img/bgo_cross.png (PNG copy)> <./img/electronics.png (PNG copy)>] (presenta
+tion_bachelor_thesis.toc) [11
 
-] [13
-
-] (presentation_bachelor_thesis.toc) [14
+] [12
 
 ]
-<img/Cs-137-decay.png, id=212, 1927.2pt x 1065.9825pt>
+(presentation_bachelor_thesis.toc) [13
+
+]
+<img/Cs-137-decay.png, id=200, 1927.2pt x 1065.9825pt>
 File: img/Cs-137-decay.png Graphic file (type png)
 <use img/Cs-137-decay.png>
-Package pdftex.def Info: img/Cs-137-decay.png  used on input line 295.
+Package pdftex.def Info: img/Cs-137-decay.png  used on input line 317.
 (pdftex.def)             Requested size: 164.2048pt x 90.81062pt.
-<img/ex1776.pdf, id=213, 525.88469pt x 386.4036pt>
+<img/ex1776.pdf, id=201, 569.24669pt x 386.4036pt>
 File: img/ex1776.pdf Graphic file (type pdf)
 <use img/ex1776.pdf>
-Package pdftex.def Info: img/ex1776.pdf  used on input line 295.
-(pdftex.def)             Requested size: 172.84773pt x 127.00063pt.
-<img/Cobalt-60m-decay.png, id=214, 1927.2pt x 940.51375pt>
+Package pdftex.def Info: img/ex1776.pdf  used on input line 317.
+(pdftex.def)             Requested size: 172.84773pt x 117.32523pt.
+<img/Cobalt-60m-decay.png, id=202, 1927.2pt x 940.51375pt>
 File: img/Cobalt-60m-decay.png Graphic file (type png)
 <use img/Cobalt-60m-decay.png>
-Package pdftex.def Info: img/Cobalt-60m-decay.png  used on input line 295.
+Package pdftex.def Info: img/Cobalt-60m-decay.png  used on input line 317.
 (pdftex.def)             Requested size: 172.84773pt x 84.3412pt.
-<img/ex1777.pdf, id=215, 530.70267pt x 386.4036pt>
+<img/ex1777.pdf, id=203, 569.24669pt x 386.4036pt>
 File: img/ex1777.pdf Graphic file (type pdf)
 <use img/ex1777.pdf>
-Package pdftex.def Info: img/ex1777.pdf  used on input line 295.
-(pdftex.def)             Requested size: 172.84773pt x 125.85089pt.
+Package pdftex.def Info: img/ex1777.pdf  used on input line 317.
+(pdftex.def)             Requested size: 172.84773pt x 117.32523pt.
+ [14
 
-Overfull \vbox (6.67365pt too high) detected at line 295
+ <./img/Cs-137-decay.png> <./img/ex1776.pdf> <./img/Cobalt-60m-decay.png> <./im
+g/ex1777.pdf>]
+<img/ex1775.pdf, id=248, 569.24669pt x 386.4036pt>
+File: img/ex1775.pdf Graphic file (type pdf)
+<use img/ex1775.pdf>
+Package pdftex.def Info: img/ex1775.pdf  used on input line 399.
+(pdftex.def)             Requested size: 183.21817pt x 124.3651pt.
+<img/plot0_empty.pdf, id=249, 569.12625pt x 409.53pt>
+File: img/plot0_empty.pdf Graphic file (type pdf)
+<use img/plot0_empty.pdf>
+Package pdftex.def Info: img/plot0_empty.pdf  used on input line 399.
+(pdftex.def)             Requested size: 162.4773pt x 116.91722pt.
+<img/residues0.pdf, id=250, 569.12625pt x 409.53pt>
+File: img/residues0.pdf Graphic file (type pdf)
+<use img/residues0.pdf>
+Package pdftex.def Info: img/residues0.pdf  used on input line 399.
+(pdftex.def)             Requested size: 162.4773pt x 116.91722pt.
+
+Overfull \vbox (1.46103pt too high) detected at line 399
  []
 
 [15
 
- <./img/Cs-137-decay.png> <./img/ex1776.pdf> <./img/Cobalt-60m-decay.png> <./im
-g/ex1777.pdf>]
-<img/ex1775.pdf, id=262, 569.24669pt x 386.4036pt>
+ <./img/ex1775.pdf> <./img/plot0_empty.pdf, page is rotated 90 degrees> <./img/
+residues0.pdf, page is rotated 90 degrees>]
 File: img/ex1775.pdf Graphic file (type pdf)
 <use img/ex1775.pdf>
-Package pdftex.def Info: img/ex1775.pdf  used on input line 377.
-(pdftex.def)             Requested size: 197.04895pt x 133.75748pt.
-<img/plot0_empty.pdf, id=263, 518.17589pt x 409.53pt>
-File: img/plot0_empty.pdf Graphic file (type pdf)
-<use img/plot0_empty.pdf>
-Package pdftex.def Info: img/plot0_empty.pdf  used on input line 377.
-(pdftex.def)             Requested size: 148.64651pt x 117.47963pt.
-<img/residues0.pdf, id=264, 520.10307pt x 409.53pt>
+Package pdftex.def Info: img/ex1775.pdf  used on input line 399.
+(pdftex.def)             Requested size: 183.21817pt x 124.3651pt.
+<img/plot0.pdf, id=361, 569.12625pt x 409.53pt>
+File: img/plot0.pdf Graphic file (type pdf)
+<use img/plot0.pdf>
+Package pdftex.def Info: img/plot0.pdf  used on input line 399.
+(pdftex.def)             Requested size: 162.4773pt x 116.91722pt.
 File: img/residues0.pdf Graphic file (type pdf)
 <use img/residues0.pdf>
-Package pdftex.def Info: img/residues0.pdf  used on input line 377.
-(pdftex.def)             Requested size: 148.64651pt x 117.0422pt.
+Package pdftex.def Info: img/residues0.pdf  used on input line 399.
+(pdftex.def)             Requested size: 162.4773pt x 116.91722pt.
 
-Overfull \vbox (2.14842pt too high) detected at line 377
+Overfull \vbox (1.46103pt too high) detected at line 399
  []
 
 [16
 
- <./img/ex1775.pdf> <./img/plot0_empty.pdf> <./img/residues0.pdf>]
-File: img/ex1775.pdf Graphic file (type pdf)
-<use img/ex1775.pdf>
-Package pdftex.def Info: img/ex1775.pdf  used on input line 377.
-(pdftex.def)             Requested size: 197.04895pt x 133.75748pt.
-<img/plot0.pdf, id=319, 520.10307pt x 409.53pt>
-File: img/plot0.pdf Graphic file (type pdf)
-<use img/plot0.pdf>
-Package pdftex.def Info: img/plot0.pdf  used on input line 377.
-(pdftex.def)             Requested size: 148.64651pt x 117.0422pt.
-File: img/residues0.pdf Graphic file (type pdf)
-<use img/residues0.pdf>
-Package pdftex.def Info: img/residues0.pdf  used on input line 377.
-(pdftex.def)             Requested size: 148.64651pt x 117.0422pt.
-
-Overfull \vbox (1.711pt too high) detected at line 377
- []
-
-[17
-
- <./img/plot0.pdf>] (presentation_bachelor_thesis.toc) [18
+ <./img/plot0.pdf, page is rotated 90 degrees>]
+(presentation_bachelor_thesis.toc) [17
 
 ]
-<img/parameter.pdf, id=351, 525.88469pt x 386.4036pt>
+<img/parameter.pdf, id=423, 569.12625pt x 386.44376pt>
 File: img/parameter.pdf Graphic file (type pdf)
 <use img/parameter.pdf>
-Package pdftex.def Info: img/parameter.pdf  used on input line 401.
-(pdftex.def)             Requested size: 172.84773pt x 127.00063pt.
-<img/trapezoid.pdf, id=352, 526.84831pt x 386.4036pt>
+Package pdftex.def Info: img/parameter.pdf  used on input line 423.
+(pdftex.def)             Requested size: 172.84773pt x 117.3669pt.
+<img/trapezoid.pdf, id=424, 569.12625pt x 386.44376pt>
 File: img/trapezoid.pdf Graphic file (type pdf)
 <use img/trapezoid.pdf>
-Package pdftex.def Info: img/trapezoid.pdf  used on input line 401.
-(pdftex.def)             Requested size: 172.84773pt x 126.77068pt.
- [19
+Package pdftex.def Info: img/trapezoid.pdf  used on input line 423.
+(pdftex.def)             Requested size: 172.84773pt x 117.3669pt.
+ [18
 
- <./img/parameter.pdf> <./img/trapezoid.pdf>]
+ <./img/parameter.pdf, page is rotated 90 degrees> <./img/trapezoid.pdf, page i
+s rotated 90 degrees>]
 LaTeX Font Info:    Font shape `OT1/cmss/b/n' in size <9> not available
-(Font)              Font shape `OT1/cmss/bx/n' tried instead on input line 442.
+(Font)              Font shape `OT1/cmss/bx/n' tried instead on input line 464.
 
 LaTeX Font Info:    Font shape `OT1/cmss/b/n' in size <6> not available
-(Font)              Font shape `OT1/cmss/bx/n' tried instead on input line 442.
+(Font)              Font shape `OT1/cmss/bx/n' tried instead on input line 464.
 
 LaTeX Font Info:    Font shape `OT1/cmss/b/n' in size <5> not available
-(Font)              Font shape `OT1/cmss/bx/n' tried instead on input line 442.
+(Font)              Font shape `OT1/cmss/bx/n' tried instead on input line 464.
 
 File: img/electronics.png Graphic file (type png)
 <use img/electronics.png>
-Package pdftex.def Info: img/electronics.png  used on input line 442.
+Package pdftex.def Info: img/electronics.png  used on input line 464.
 (pdftex.def)             Requested size: 207.41939pt x 154.71246pt.
- [20
-
-] (presentation_bachelor_thesis.toc)
-[21
-
-] [22
+ [19
 
 ]
-<img/resolution_hist1.pdf, id=422, 569.24669pt x 386.4036pt>
+(presentation_bachelor_thesis.toc) [20
+
+] [21
+
+]
+<img/resolution_hist1.pdf, id=545, 569.12625pt x 386.44376pt>
 File: img/resolution_hist1.pdf Graphic file (type pdf)
 <use img/resolution_hist1.pdf>
-Package pdftex.def Info: img/resolution_hist1.pdf  used on input line 495.
-(pdftex.def)             Requested size: 172.84773pt x 117.32523pt.
-<img/resolution_hist2.pdf, id=423, 569.24669pt x 386.4036pt>
+Package pdftex.def Info: img/resolution_hist1.pdf  used on input line 517.
+(pdftex.def)             Requested size: 172.84773pt x 117.3669pt.
+<img/resolution_hist2.pdf, id=546, 569.12625pt x 386.44376pt>
 File: img/resolution_hist2.pdf Graphic file (type pdf)
 <use img/resolution_hist2.pdf>
-Package pdftex.def Info: img/resolution_hist2.pdf  used on input line 495.
-(pdftex.def)             Requested size: 172.84773pt x 117.32523pt.
-<img/ResGraph_4.pdf, id=424, 569.24669pt x 409.53pt>
+Package pdftex.def Info: img/resolution_hist2.pdf  used on input line 517.
+(pdftex.def)             Requested size: 172.84773pt x 117.3669pt.
+<img/ResGraph_4.pdf, id=547, 569.12625pt x 386.44376pt>
 File: img/ResGraph_4.pdf Graphic file (type pdf)
 <use img/ResGraph_4.pdf>
-Package pdftex.def Info: img/ResGraph_4.pdf  used on input line 495.
-(pdftex.def)             Requested size: 172.84773pt x 124.34718pt.
+Package pdftex.def Info: img/ResGraph_4.pdf  used on input line 517.
+(pdftex.def)             Requested size: 172.84773pt x 117.3669pt.
 
-Overfull \vbox (1.27704pt too high) detected at line 495
+Overfull \vbox (1.36038pt too high) detected at line 517
  []
 
-[23
+[22
 
- <./img/resolution_hist1.pdf> <./img/resolution_hist2.pdf> <./img/ResGraph_4.pd
-f>]
-<img/Caesium_scaled.pdf, id=483, 502.7583pt x 350.7504pt>
+ <./img/resolution_hist1.pdf, page is rotated 90 degrees> <./img/resolution_his
+t2.pdf, page is rotated 90 degrees> <./img/ResGraph_4.pdf, page is rotated 90 d
+egrees>]
+<img/Caesium_scaled.pdf, id=684, 569.12625pt x 409.53pt>
 File: img/Caesium_scaled.pdf Graphic file (type pdf)
 <use img/Caesium_scaled.pdf>
-Package pdftex.def Info: img/Caesium_scaled.pdf  used on input line 524.
-(pdftex.def)             Requested size: 155.5619pt x 108.52812pt.
-<img/Cobalt_scaled.pdf, id=484, 488.3043pt x 354.6048pt>
+Package pdftex.def Info: img/Caesium_scaled.pdf  used on input line 546.
+(pdftex.def)             Requested size: 172.84773pt x 124.37843pt.
+<img/Cobalt_scaled.pdf, id=685, 569.12625pt x 409.53pt>
 File: img/Cobalt_scaled.pdf Graphic file (type pdf)
 <use img/Cobalt_scaled.pdf>
-Package pdftex.def Info: img/Cobalt_scaled.pdf  used on input line 524.
-(pdftex.def)             Requested size: 155.5619pt x 112.96722pt.
- [24
+Package pdftex.def Info: img/Cobalt_scaled.pdf  used on input line 546.
+(pdftex.def)             Requested size: 172.84773pt x 124.37843pt.
+ [23
 
- <./img/Caesium_scaled.pdf> <./img/Cobalt_scaled.pdf>]
-(presentation_bachelor_thesis.toc) [25
+ <./img/Caesium_scaled.pdf, page is rotated 90 degrees> <./img/Cobalt_scaled.pd
+f, page is rotated 90 degrees>]
+(presentation_bachelor_thesis.toc) [24
+
+] [25
 
 ] [26
 
@@ -1477,10 +1483,10 @@ Package pdftex.def Info: img/Cobalt_scaled.pdf  used on input line 524.
 
 ] [31
 
-] [32
-
 ]
-[33
+[32
+
+] [33
 
 ] [34
 
@@ -1496,15 +1502,24 @@ Package pdftex.def Info: img/Cobalt_scaled.pdf  used on input line 524.
 
 ] [40
 
-] [41
+]
+File: img/location.png Graphic file (type png)
+<use img/location.png>
+Package pdftex.def Info: img/location.png  used on input line 614.
+(pdftex.def)             Requested size: 138.2787pt x 211.75887pt.
+
+Overfull \vbox (9.28029pt too high) detected at line 614
+ []
+
+[41
 
 ]
 File: img/location.png Graphic file (type png)
 <use img/location.png>
-Package pdftex.def Info: img/location.png  used on input line 592.
+Package pdftex.def Info: img/location.png  used on input line 614.
 (pdftex.def)             Requested size: 138.2787pt x 211.75887pt.
 
-Overfull \vbox (9.28029pt too high) detected at line 592
+Overfull \vbox (9.28029pt too high) detected at line 614
  []
 
 [42
@@ -1512,96 +1527,87 @@ Overfull \vbox (9.28029pt too high) detected at line 592
 ]
 File: img/location.png Graphic file (type png)
 <use img/location.png>
-Package pdftex.def Info: img/location.png  used on input line 592.
+Package pdftex.def Info: img/location.png  used on input line 614.
 (pdftex.def)             Requested size: 138.2787pt x 211.75887pt.
 
-Overfull \vbox (9.28029pt too high) detected at line 592
+Overfull \vbox (9.28029pt too high) detected at line 614
  []
 
 [43
 
 ]
-File: img/location.png Graphic file (type png)
-<use img/location.png>
-Package pdftex.def Info: img/location.png  used on input line 592.
-(pdftex.def)             Requested size: 138.2787pt x 211.75887pt.
-
-Overfull \vbox (9.28029pt too high) detected at line 592
- []
-
-[44
-
-]
 File: img/bgo_3d.png Graphic file (type png)
 <use img/bgo_3d.png>
-Package pdftex.def Info: img/bgo_3d.png  used on input line 610.
+Package pdftex.def Info: img/bgo_3d.png  used on input line 632.
 (pdftex.def)             Requested size: 155.5619pt x 111.27608pt.
 LaTeX Font Info:    Font shape `OT1/cmss/b/n' in size <10.95> not available
-(Font)              Font shape `OT1/cmss/bx/n' tried instead on input line 610.
+(Font)              Font shape `OT1/cmss/bx/n' tried instead on input line 632.
 
 LaTeX Font Info:    Font shape `OT1/cmss/b/n' in size <8> not available
-(Font)              Font shape `OT1/cmss/bx/n' tried instead on input line 610.
+(Font)              Font shape `OT1/cmss/bx/n' tried instead on input line 632.
 
- [45
+ [44
 
 ]
-<img/BGO.png, id=660, 703.62875pt x 413.545pt>
+<img/BGO.png, id=923, 703.62875pt x 413.545pt>
 File: img/BGO.png Graphic file (type png)
 <use img/BGO.png>
-Package pdftex.def Info: img/BGO.png  used on input line 626.
+Package pdftex.def Info: img/BGO.png  used on input line 648.
 (pdftex.def)             Requested size: 155.5619pt x 91.42819pt.
- [46
+ [45
 
- <./img/BGO.png>] [47
+ <./img/BGO.png>] [46
+
+] [47
 
 ] [48
 
 ] [49
 
-] [50
+]
+File: img/Cobalt-60m-decay.png Graphic file (type png)
+<use img/Cobalt-60m-decay.png>
+Package pdftex.def Info: img/Cobalt-60m-decay.png  used on input line 711.
+(pdftex.def)             Requested size: 172.84773pt x 84.3412pt.
+ [50
 
 ]
 File: img/Cobalt-60m-decay.png Graphic file (type png)
 <use img/Cobalt-60m-decay.png>
-Package pdftex.def Info: img/Cobalt-60m-decay.png  used on input line 689.
+Package pdftex.def Info: img/Cobalt-60m-decay.png  used on input line 711.
 (pdftex.def)             Requested size: 172.84773pt x 84.3412pt.
  [51
 
 ]
 File: img/Cobalt-60m-decay.png Graphic file (type png)
 <use img/Cobalt-60m-decay.png>
-Package pdftex.def Info: img/Cobalt-60m-decay.png  used on input line 689.
+Package pdftex.def Info: img/Cobalt-60m-decay.png  used on input line 711.
 (pdftex.def)             Requested size: 172.84773pt x 84.3412pt.
  [52
 
 ]
-File: img/Cobalt-60m-decay.png Graphic file (type png)
-<use img/Cobalt-60m-decay.png>
-Package pdftex.def Info: img/Cobalt-60m-decay.png  used on input line 689.
-(pdftex.def)             Requested size: 172.84773pt x 84.3412pt.
+File: img/Cs-137-decay.png Graphic file (type png)
+<use img/Cs-137-decay.png>
+Package pdftex.def Info: img/Cs-137-decay.png  used on input line 724.
+(pdftex.def)             Requested size: 172.84773pt x 95.5927pt.
  [53
 
 ]
 File: img/Cs-137-decay.png Graphic file (type png)
 <use img/Cs-137-decay.png>
-Package pdftex.def Info: img/Cs-137-decay.png  used on input line 702.
+Package pdftex.def Info: img/Cs-137-decay.png  used on input line 724.
 (pdftex.def)             Requested size: 172.84773pt x 95.5927pt.
  [54
 
 ]
 File: img/Cs-137-decay.png Graphic file (type png)
 <use img/Cs-137-decay.png>
-Package pdftex.def Info: img/Cs-137-decay.png  used on input line 702.
-(pdftex.def)             Requested size: 172.84773pt x 95.5927pt.
- [55
-
-]
-File: img/Cs-137-decay.png Graphic file (type png)
-<use img/Cs-137-decay.png>
-Package pdftex.def Info: img/Cs-137-decay.png  used on input line 702.
+Package pdftex.def Info: img/Cs-137-decay.png  used on input line 724.
 (pdftex.def)             Requested size: 172.84773pt x 95.5927pt.
 
-[56
+[55
+
+] [56
 
 ] [57
 
@@ -1609,21 +1615,21 @@ Package pdftex.def Info: img/Cs-137-decay.png  used on input line 702.
 
 ] [59
 
-] [60
+]
+File: img/residues0.pdf Graphic file (type pdf)
+<use img/residues0.pdf>
+Package pdftex.def Info: img/residues0.pdf  used on input line 767.
+(pdftex.def)             Requested size: 155.56189pt x 111.93683pt.
+ [60
 
 ]
 File: img/residues0.pdf Graphic file (type pdf)
 <use img/residues0.pdf>
-Package pdftex.def Info: img/residues0.pdf  used on input line 745.
-(pdftex.def)             Requested size: 155.56189pt x 122.49126pt.
+Package pdftex.def Info: img/residues0.pdf  used on input line 767.
+(pdftex.def)             Requested size: 155.56189pt x 111.93683pt.
  [61
 
-]
-File: img/residues0.pdf Graphic file (type pdf)
-<use img/residues0.pdf>
-Package pdftex.def Info: img/residues0.pdf  used on input line 745.
-(pdftex.def)             Requested size: 155.56189pt x 122.49126pt.
- [62
+] [62
 
 ] [63
 
@@ -1635,37 +1641,35 @@ Package pdftex.def Info: img/residues0.pdf  used on input line 745.
 
 ] [67
 
-] [68
-
 ]
 File: img/parameter.pdf Graphic file (type pdf)
 <use img/parameter.pdf>
-Package pdftex.def Info: img/parameter.pdf  used on input line 804.
-(pdftex.def)             Requested size: 172.84773pt x 127.00063pt.
+Package pdftex.def Info: img/parameter.pdf  used on input line 826.
+(pdftex.def)             Requested size: 172.84773pt x 117.3669pt.
 File: img/trapezoid.pdf Graphic file (type pdf)
 <use img/trapezoid.pdf>
-Package pdftex.def Info: img/trapezoid.pdf  used on input line 804.
-(pdftex.def)             Requested size: 172.84773pt x 126.77068pt.
- [69
+Package pdftex.def Info: img/trapezoid.pdf  used on input line 826.
+(pdftex.def)             Requested size: 172.84773pt x 117.3669pt.
+ [68
 
-] [70
-
-]
-[71
+] [69
 
 ]
-<img/run1776_coinc_h_EBGO_ADC_4_COINC.pdf, id=840, 569.12625pt x 367.3725pt>
+[70
+
+]
+<img/run1776_coinc_h_EBGO_ADC_4_COINC.pdf, id=1103, 569.12625pt x 367.3725pt>
 File: img/run1776_coinc_h_EBGO_ADC_4_COINC.pdf Graphic file (type pdf)
 <use img/run1776_coinc_h_EBGO_ADC_4_COINC.pdf>
 Package pdftex.def Info: img/run1776_coinc_h_EBGO_ADC_4_COINC.pdf  used on inpu
-t line 836.
+t line 858.
 (pdftex.def)             Requested size: 172.84773pt x 111.57475pt.
-<img/pulser.pdf, id=841, 569.12625pt x 288.07625pt>
+<img/pulser.pdf, id=1104, 569.12625pt x 288.07625pt>
 File: img/pulser.pdf Graphic file (type pdf)
 <use img/pulser.pdf>
-Package pdftex.def Info: img/pulser.pdf  used on input line 836.
+Package pdftex.def Info: img/pulser.pdf  used on input line 858.
 (pdftex.def)             Requested size: 172.84773pt x 87.49168pt.
- [72
+ [71
 
  <./img/run1776_coinc_h_EBGO_ADC_4_COINC.pdf, page is rotated 90 degrees> <./im
 g/pulser.pdf, page is rotated 90 degrees>]
@@ -1685,31 +1689,34 @@ anged.
 (rerunfilecheck)             Checksum: DF4961DDFE61616E6F9147350CE262FD;705.
  ) 
 Here is how much of TeX's memory you used:
- 28229 strings out of 476339
- 573841 string characters out of 5788120
+ 28243 strings out of 476339
+ 574077 string characters out of 5788120
  1861340 words of memory out of 5000000
- 47897 multiletter control sequences out of 15000+600000
- 524835 words of font info for 77 fonts, out of 8000000 for 9000
+ 47910 multiletter control sequences out of 15000+600000
+ 528951 words of font info for 92 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  128i,15n,122p,432b,747s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/puste/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/
 cmmi10.pfb><C:/Users/puste/AppData/Local/Programs/MiKTeX/fonts/type1/public/ams
-fonts/cm/cmmi6.pfb><C:/Users/puste/AppData/Local/Programs/MiKTeX/fonts/type1/pu
-blic/amsfonts/cm/cmmi9.pfb><C:/Users/puste/AppData/Local/Programs/MiKTeX/fonts/
-type1/public/amsfonts/cm/cmss10.pfb><C:/Users/puste/AppData/Local/Programs/MiKT
-eX/fonts/type1/public/amsfonts/cm/cmss8.pfb><C:/Users/puste/AppData/Local/Progr
-ams/MiKTeX/fonts/type1/public/amsfonts/cm/cmss9.pfb><C:/Users/puste/AppData/Loc
-al/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmssbx10.pfb><C:/Users/puste/
-AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmssi8.pfb><C:/Use
-rs/puste/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmssi9.pf
+fonts/cm/cmmi12.pfb><C:/Users/puste/AppData/Local/Programs/MiKTeX/fonts/type1/p
+ublic/amsfonts/cm/cmmi6.pfb><C:/Users/puste/AppData/Local/Programs/MiKTeX/fonts
+/type1/public/amsfonts/cm/cmmi9.pfb><C:/Users/puste/AppData/Local/Programs/MiKT
+eX/fonts/type1/public/amsfonts/cm/cmss10.pfb><C:/Users/puste/AppData/Local/Prog
+rams/MiKTeX/fonts/type1/public/amsfonts/cm/cmss12.pfb><C:/Users/puste/AppData/L
+ocal/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmss8.pfb><C:/Users/puste/A
+ppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmss9.pfb><C:/Users
+/puste/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmssbx10.pf
 b><C:/Users/puste/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/
-cmsy6.pfb><C:/Users/puste/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsf
-onts/cm/cmsy9.pfb><C:/Users/puste/AppData/Local/Programs/MiKTeX/fonts/type1/pub
-lic/amsfonts/cm/cmtt10.pfb><C:/Users/puste/AppData/Local/Programs/MiKTeX/fonts/
-type1/public/amsfonts/cm/cmtt9.pfb>
-Output written on presentation_bachelor_thesis.pdf (72 pages, 14920381 bytes).
+cmssi10.pfb><C:/Users/puste/AppData/Local/Programs/MiKTeX/fonts/type1/public/am
+sfonts/cm/cmssi8.pfb><C:/Users/puste/AppData/Local/Programs/MiKTeX/fonts/type1/
+public/amsfonts/cm/cmssi9.pfb><C:/Users/puste/AppData/Local/Programs/MiKTeX/fon
+ts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Users/puste/AppData/Local/Programs/Mi
+KTeX/fonts/type1/public/amsfonts/cm/cmsy9.pfb><C:/Users/puste/AppData/Local/Pro
+grams/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt10.pfb><C:/Users/puste/AppData/
+Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt9.pfb>
+Output written on presentation_bachelor_thesis.pdf (71 pages, 7726777 bytes).
 PDF statistics:
- 1027 PDF objects out of 1200 (max. 8388607)
- 151 named destinations out of 1000 (max. 500000)
+ 1300 PDF objects out of 1440 (max. 8388607)
+ 149 named destinations out of 1000 (max. 500000)
  285 words of extra memory for PDF output out of 10000 (max. 10000000)
 

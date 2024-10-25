@@ -51,7 +51,7 @@ Analyzer::Analyzer(const std::string& filename, const std::string& histname, Fun
 	}
 
 	canvas = new TCanvas();
-	legend = new TLegend(0.7, 0.7, 0.9, 0.9);
+	legend = new TLegend(0.7, 0.7, 0.98, 0.98);
 	
 	// Function type selector
 	if (ftype == F1)
@@ -350,7 +350,18 @@ void Analyzer::normefficiency() {
 */
 void Analyzer::plot() {
 	histogram->Fit("f1", "N", "", chn_lower_bound, chn_upper_bound);
-	histogram->GetXaxis()->SetRangeUser(4500, 8000);
+	histogram->GetXaxis()->SetRangeUser(300, 800);
+	histogram->SetTitle("Energy spectrum - BGO 4");
+
+	canvas->SetLeftMargin(0.15);
+
+	double fontsize = 0.053;
+
+	histogram->GetXaxis()->SetLabelSize(fontsize);  // Set X-axis label font size
+	histogram->GetYaxis()->SetLabelSize(fontsize);  // Set Y-axis label font size
+
+	histogram->GetXaxis()->SetTitleSize(fontsize);  // Set X-axis title font size
+	histogram->GetYaxis()->SetTitleSize(fontsize);  // Set Y-axis title font size
 
 	gStyle->SetOptStat(0);
 	//canvas->SetLogy();
@@ -377,21 +388,21 @@ void Analyzer::plot() {
 	histogram->Draw();
 	//line_low->Draw();
 	//line_up->Draw();
-	//peak_low->Draw();
-	//peak_up->Draw();
-	//oblique->Draw();
+	peak_low->Draw();
+	peak_up->Draw();
+	oblique->Draw();
 
 	std::string chn_lower_bound_str = std::to_string(chn_lower_bound);
 	std::string chn_upper_bound_str = std::to_string(chn_upper_bound);
 	std::string fit_entry = "Fit limits: (" + chn_lower_bound_str + ", " + chn_upper_bound_str + ")";
 
-	legend->AddEntry(func, "Fitted function", "l");
-	//legend->AddEntry(peak_low, "Peak limits", "l");
-	legend->AddEntry(line_low, "Fit limits", "l");
-	legend->SetTextSize(0.03);
-	legend->SetBorderSize(0);
-	legend->SetFillStyle(0);
-	//legend->Draw();
+	//legend->AddEntry(func, "Fitted function", "l");
+	legend->AddEntry(peak_low, "Trapezoid", "l");
+	//legend->AddEntry(line_low, "Fit limits", "l");
+	legend->SetTextSize(fontsize);
+	//legend->SetBorderSize(0);
+	//legend->SetFillStyle(0);
+	legend->Draw();
 
 	canvas->Update();
 
