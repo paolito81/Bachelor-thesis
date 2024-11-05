@@ -63,7 +63,7 @@
 \AtBeginSection[]
 {
 	\begin{frame}[plain, noframenumbering]
-		\frametitle{Table of Contents}
+		\frametitle{Sommario}
 		\tableofcontents[currentsection]
 	\end{frame}
 }
@@ -81,7 +81,7 @@
 		\end{textblock*}
 	\end{frame}
 	
-	\begin{frame}[plain, noframenumbering]{Outline}
+	\begin{frame}[plain, noframenumbering]{Sommario}
 		\tableofcontents
 	\end{frame}
 	
@@ -92,23 +92,22 @@
 	\begin{itemize}
 		%SSM modello matematico del sole che lo rappresenta come sfera gassosa
 		\item Il modello standard solare (SSM) richiede conoscenze sulla composizione chimica del Sole
-		\item Analisi spettroscopiche della fotosfera solare propongono due modelli: LZ (fotosfera 3D) e HZ (fotosfera 1D)
-		\item La metallicità è l'abbondanza di elementi più pesanti dell'elio
+		\item Analisi spettroscopiche della fotosfera solare propongono due modelli (LZ 3D e HZ 1D, la metallicità è l'abbondanza di elementi più pesanti dell'elio)
+		
 %		\item La combustione dell'idrogeno nel sole avviene tramite la catena pp e il ciclo del CNO. La reazione $^{14}$N(p, $\gamma$)$^{15}$O è l'orologio del ciclo
 		\item Per capire se la composizione chimica del Sole sia uniforme in funzione della profondità, si studia il flusso di neutrini del CNO, combinato con le \emph{sezioni d'urto} di alcune reazioni, tra cui $^{14}$N(p, $\gamma$)$^{15}$O
 	\end{itemize}
 	
 	\begin{columns}
-		\begin{column}{0.35\textheight}
+		\begin{column}{0.5\textwidth}
 			\begin{itemize}
-				\item La combustione dell'idrogeno nel sole avviene tramite la catena pp e il ciclo del CNO. La reazione $^{14}$N(p, $\gamma$)$^{15}$O è l'orologio del ciclo
-				\item Energie solari 15-50 keV
+				\item La combustione dell'idrogeno nel sole avviene tramite la catena pp e il ciclo del CNO (15-50 keV). La reazione $^{14}$N(p, $\gamma$)$^{15}$O è l'orologio del ciclo
 				%qua ha senso dire che la sezione d'urto è troppo piccola per essere misurata direttamente
 			\end{itemize}
 		\end{column}
-		\begin{column}{0.65\textwidth}
+		\begin{column}{0.5\textwidth}
 			\centering
-			\includegraphics[width=0.9\textwidth]{img/CNO_Cycle.png}
+			\includegraphics[width=0.5\textwidth]{img/CNO.png}
 		\end{column}
 	\end{columns}
 \end{frame}
@@ -165,7 +164,7 @@
 %al posto di cartina fondo
 \begin{column}{0.45\textwidth}
 	\begin{itemize}
-		\item<1-> Con una $\sigma \approx 10^{-12}$ barn si ha un \emph{reaction rate} ($N_{reaz}/\Delta t$) che vale appena $1\div 10$ conteggi al giorno \only<2->{$\implies$ misure sotterranee}
+		\item<1-> Tipicamente $\sigma \approx 10^{-12}$ barn: si ha un \emph{reaction rate} ($N_{reaz}/\Delta t$) che vale appena $1\div 10$ conteggi al giorno \only<2->{$\implies$ misure sotterranee}
 	\end{itemize}
 	
 	\only<1->{\centering
@@ -252,7 +251,7 @@
 				\item Si studia nel range 100-400 keV e si fanno estrapolazioni
 				\item Fascio di protoni 50-400 keV
 				\item Bersaglio solido TiN
-				\item Rivelatore di fotoni: BGO
+				\item Rivelatore di fotoni: BGO (molto efficiente, alta densità $7.13$ g/cm$^3$)
 				\item Segnali in uscita letti da digitizer CAEN
 			\end{itemize}
 		\end{column}
@@ -561,7 +560,15 @@
 	\centering
 	Slide di backup
 \end{frame}
-	
+
+\begin{frame}[noframenumbering]{I modelli}
+	\begin{itemize}
+		\item I modelli vengono fuori dai fit sulle righe di assorbimento
+		\item L'abbondanza degli elementi deriva da questi
+		\item Se si usa modello 3D si ottiene bassa metallicità, se si usa modello 1D si ottiene alta metallicità
+	\end{itemize}
+\end{frame}
+
 \begin{frame}[noframenumbering]{L'esperimento}
 	\begin{itemize}
 		\item<1-> L'esperimento LUNA (Laboratory for Underground Nuclear Astrophysics) ricrea i processi nucleari che sono avvenuti durante la nucleosintesi primordiale e che avvengono tutt'ora nelle stelle.

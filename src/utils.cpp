@@ -822,10 +822,11 @@ void compareSimExpHistogramsScaledChannel() {
 
     TCanvas* canvas_cs = new TCanvas("cs comp", "Caesium experimental-simulated comparison", 800, 600);
     canvas_cs->SetLeftMargin(0.15);
+    //canvas_cs->SetRightMargin(0.30);
     canvas_cs->SetBottomMargin(0.15);
     canvas_cs->SetLogy();
     gStyle->SetOptStat(0);
-    TLegend* legend_cs = new TLegend(0.7, 0.7, 0.98, 0.98);
+    TLegend* legend_cs = new TLegend(0.73, 0.70, 1.01, 0.98);
 
     TH1F* exp_hist_cs = dynamic_cast<TH1F*>(file_exp_cs->Get("EnergyADC/h_EBGO_ADC_4"));
     TH1F* sim_hist_cs = dynamic_cast<TH1F*>(file_sim_cs->Get("h_BGO4_res"));

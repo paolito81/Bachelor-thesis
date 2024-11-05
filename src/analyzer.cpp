@@ -350,7 +350,7 @@ void Analyzer::normefficiency() {
 */
 void Analyzer::plot() {
 	histogram->Fit("f1", "N", "", chn_lower_bound, chn_upper_bound);
-	histogram->GetXaxis()->SetRangeUser(300, 800);
+	histogram->GetXaxis()->SetRangeUser(50, 1100);
 	histogram->SetTitle("Energy spectrum - BGO 4");
 
 	canvas->SetLeftMargin(0.15);
@@ -372,6 +372,9 @@ void Analyzer::plot() {
 	TLine* line_low = new TLine(chn_lower_bound, line_ymin, chn_lower_bound, line_ymax);
 	TLine* line_up = new TLine(chn_upper_bound, line_ymin, chn_upper_bound, line_ymax);
 
+	TLine* peak_ROI_low = new TLine(peak_lower - 200, line_ymin, peak_lower - 200, line_ymax);
+	TLine* peak_ROI_up = new TLine(peak_upper + 200, line_ymin, peak_upper + 200, line_ymax);
+
 	TLine* peak_low = new TLine(peak_lower, line_ymin, peak_lower, func->Eval(peak_lower));
 	TLine* peak_up = new TLine(peak_upper, line_ymin, peak_upper, func->Eval(peak_upper));
 
@@ -382,12 +385,16 @@ void Analyzer::plot() {
 
 	peak_low->SetLineColor(kBlack);
 	peak_up->SetLineColor(kBlack);
+	peak_ROI_low->SetLineColor(kRed);
+	peak_ROI_up->SetLineColor(kRed);
 	oblique->SetLineColor(kBlack);
 
 	func->Draw();
 	histogram->Draw();
 	//line_low->Draw();
 	//line_up->Draw();
+	peak_ROI_low->Draw();
+	peak_ROI_up->Draw();
 	peak_low->Draw();
 	peak_up->Draw();
 	oblique->Draw();
